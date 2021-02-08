@@ -1,4 +1,4 @@
-// import 'react-native-gesture-handler'
+import 'react-native-gesture-handler'
 
 import {AppRegistry} from 'react-native'
 
@@ -14,6 +14,7 @@ YellowBox.ignoreWarnings([
     'Warning: componentWillUpdate is deprecated',
     'ReactNativeFiberHostComponent',
     'Task orphaned for request',
+    'RCTBridge required dispatch_sync to load RCTDevLoadingView',
 ]);
 
 AppRegistry.registerComponent(appName, () => App)

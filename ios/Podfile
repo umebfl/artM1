@@ -8,10 +8,13 @@ target 'art' do
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'artTests' do
-    inherit! :complete
-    # Pods for testing
-  end
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
   # Enables Flipper.
   #
@@ -21,13 +24,4 @@ target 'art' do
   # post_install do |installer|
   #   flipper_post_install(installer)
   # end
-end
-
-target 'art-tvOS' do
-  # Pods for art-tvOS
-
-  target 'art-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 end

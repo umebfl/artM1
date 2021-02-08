@@ -1,5 +1,6 @@
 import React, { useReducer, useMemo, } from 'react'
-// import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
 import {
   SafeAreaView,
@@ -15,6 +16,16 @@ import RootContext, { initState, reducer, } from './reducer'
 import Test from './tmp/test'
 import Test2 from './tmp/test2'
 
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createStackNavigator()
+
 const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initState)
@@ -23,7 +34,11 @@ const App = () => {
 
   return (
     <RootContext.Provider value={{ state, dispatch, }}>
-      <Test />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Home' component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </RootContext.Provider>
   )
 }
