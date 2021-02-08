@@ -9,31 +9,19 @@ import {
     Button,
 } from 'react-native'
 
-import Context from '../reducer'
+import Context from '../../reducer'
 
 export default () => {
 
     const { state, dispatch, } = useContext(Context)
 
-    // const {
-    //     system,
-    // } = state
-    // useEffect(() => {
-
-    // })
-
     return (
         <View style={{
-            backgroundColor: 'blue',
             flex: 1,
             height: 20,
             marginTop: 50,
         }}>
-            <Button onPress={() => {
-                dispatch({ type: 'debug_count', })
-            }} title={'xxs'}/>
-            <Text>state: {JSON.stringify(state)}</Text>
-            <Text>count1: {state.debug.count}</Text>
+            <Text>skill</Text>
         </View>
     )
 }
