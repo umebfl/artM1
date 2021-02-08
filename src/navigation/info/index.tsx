@@ -9,19 +9,27 @@ import {
     Button,
 } from 'react-native'
 
+import ScreenWrapper from '../../component/ScreenWrapper'
+import SearchWrapper from '../../component/SearchWrapper'
+
 import Context from '../../reducer'
 
-export default () => {
+export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
 
+    const {
+        theme,
+        search,
+    } = state
+
+    const handleSubmit = val => {
+        navigation.push('webview', { url: `${search}${val}`, })
+    }
+
     return (
-        <View style={{
-            flex: 1,
-            height: 20,
-            marginTop: 50,
-        }}>
-            <Text>info</Text>
-        </View>
+        <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
+            <SearchWrapper handleSubmit={ handleSubmit } />
+        </ScreenWrapper>
     )
 }

@@ -20,6 +20,16 @@ export const initState = {
                     name: 'info',
                     text: '资讯',
                     icon: 'waze',
+                    toRead: {
+                        title: '阅读清单',
+                        list: [
+                            {
+                                title: '一个强大的管理异步数据请求的一个强大的管理异步数据请求的',
+                                def: '一个强大的管理异步数据请求的 Hook',
+                                url: 'https://www.baidu.com/s?ie=UTF-8&wd=useState',
+                            },
+                        ],
+                    },
                 },
                 {
                     name: 'skill',
@@ -63,6 +73,9 @@ export const initState = {
             },
         ],
     },
+
+    // 搜索引擎
+    search: 'https://cn.bing.com/search?q=',
 }
 
 export const reducer = (state, action) => {
