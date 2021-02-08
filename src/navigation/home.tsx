@@ -3,7 +3,7 @@ import React, { useContext, useEffect, } from 'react'
 
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 // import LinearGradient from 'react-native-linear-gradient'
-// import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Context from '../reducer'
 
@@ -60,12 +60,12 @@ export default () => {
                         <Tab.Screen key={k} name={v.name}
                             options={({ route }) => ({
                                 tabBarLabel: v.text,
-                                // tabBarIcon: ({ focused, color, size }) => {
+                                tabBarIcon: ({ focused, color, size }) => {
 
-                                //     const iconSize = focused ? 20 : 24
+                                    const iconSize = focused ? 20 : 24
                                 //     const backgroundColor = theme.navigationTabBarBackgound || 'red'
 
-                                //     return (
+                                    return (
                                 //         <LinearGradient
                                 //             start={{ x: 1.0, y: 0.25 }}
                                 //             end={{ x: 0.5, y: 1.0 }}
@@ -74,14 +74,14 @@ export default () => {
                                 //                     ? [theme.second || 'red', theme.second || 'red', theme.main || 'red']
                                 //                     : [backgroundColor, backgroundColor]}
                                 //             style={{ width: 26, height: 26, justifyContent: 'center', alignItems: 'center', borderRadius: 15, }}>
-                                //             <Icon
-                                //                 style={{ width: iconSize, height: iconSize }}
-                                //                 name={v.icon}
-                                //                 size={iconSize}
-                                //                 color={focused ? 'white' : 'gray'} />
+                                            <Icon
+                                                style={{ width: iconSize, height: iconSize }}
+                                                name={v.icon}
+                                                size={iconSize}
+                                                color={focused ? theme.second : 'gray'} />
                                 //         </LinearGradient>
-                                //     )
-                                // },
+                                    )
+                                },
                             })}
                             component={buildScreen(v.name)} />
                     )
