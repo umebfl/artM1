@@ -6,15 +6,38 @@ import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Context from '../reducer'
+
+import Futu from './futu'
+import Info from './info'
+import Other from './other'
+import Skill from './skill'
+import Todo from './todo'
 import Test from '../tmp/test'
 
 const Tab = createBottomTabNavigator()
 
-// const buildScreen = R.cond([
-//     [
-//         R.equals('')
-//     ]
-// ])
+const buildScreen = R.cond([
+    [
+        R.equals('futu'),
+        () => Futu,
+    ],
+    [
+        R.equals('info'),
+        () => Info,
+    ],
+    [
+        R.equals('other'),
+        () => Other,
+    ],
+    [
+        R.equals('skill'),
+        () => Skill,
+    ],
+    [
+        R.equals('todo'),
+        () => Todo,
+    ],
+])
 
 export default () => {
     const { state, dispatch, } = useContext(Context)
@@ -60,7 +83,7 @@ export default () => {
                                 //     )
                                 // },
                             })}
-                            component={Test} />
+                            component={buildScreen(v.name)} />
                     )
                 )(tab)
             }
