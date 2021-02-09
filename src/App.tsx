@@ -8,6 +8,8 @@ import Home from './navigation/home'
 // import Test from './tmp/test'
 // import Test2 from './tmp/test2'
 
+import ReadWebview from './screen/readWebview'
+
 const RootStack = createStackNavigator()
 
 const App = () => {
@@ -19,6 +21,9 @@ const App = () => {
       <NavigationContainer>
         <RootStack.Navigator headerMode='none' initialRouteName='home'>
           <RootStack.Screen name='home' component={Home} />
+
+          <RootStack.Screen name='readWebview' component={ReadWebview} />
+
           {/* <RootStack.Screen name='test' component={Test} />
           <RootStack.Screen name='test2' component={Test2} /> */}
         </RootStack.Navigator>

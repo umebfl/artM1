@@ -1,3 +1,5 @@
+import * as color from '@ant-design/colors'
+
 import React, { useReducer, createContext, } from 'react'
 
 // 系统数据
@@ -9,6 +11,10 @@ export const initState = {
         second: 'rgba(76, 146, 227, 1)',
         navigationTabBarBackgound: 'white',
         navigationTabBarBackgoundSecond: 'rgba(248, 249, 250, 1)',
+
+        ...color,
+        borderWidth: 0.7,
+        borderColor: 'rgba(100, 100, 100, 0.2)',
     },
 
     // 系统导航数据

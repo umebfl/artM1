@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`快照测试 渲染DefText 1`] = `
+<Text
+  ellipsizeMode="tail"
+  numberOfLines={1}
+  style={
+    Object {
+      "color": "#808080",
+      "fontSize": 12.5,
+    }
+  }
+>
+  DefText
+</Text>
+`;
+
+exports[`快照测试 渲染LargeTitle 1`] = `
+<Text
+  style={
+    Object {
+      "fontSize": 34,
+      "fontWeight": "bold",
+    }
+  }
+>
+  LargeTitle
+</Text>
+`;
+
+exports[`快照测试 渲染MidTitle 1`] = `
+<Text
+  style={
+    Object {
+      "color": "#1a1a1a",
+      "fontSize": 22,
+      "fontWeight": "bold",
+    }
+  }
+>
+  MidTitle
+</Text>
+`;
+
+exports[`快照测试 渲染Title 1`] = `
+<Text
+  style={
+    Object {
+      "color": "#404040",
+      "fontSize": 17,
+    }
+  }
+>
+  Title
+</Text>
+`;

@@ -24,7 +24,7 @@ export default ({ navigation, }) => {
     } = state
 
     const handleSubmit = val => {
-        navigation.push('webview', { url: `${search}${val}`, })
+        navigation.push('readWebview', { url: `${search}${val}`, })
     }
 
     return (
