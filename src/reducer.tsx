@@ -104,64 +104,92 @@ export const initState = {
 
 export const reducer = (state, action) => {
 
-    switch (action.type) {
-        case ('info_toRead_del'):
+    return R.cond([
+        [
+            R.equals('info_toRead_del'),
+            () => {
+                const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
 
-            const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
+                const list = R.path(path)(state)
+    
+                const filterList = R.filter(v => v.url !== action.payload.url)(list)
+    
+                const newState = R.assocPath(path, filterList)(state)
+                alert(newState)
+                return newState
+            },
+        ],
+        [
+            R.equals('info_toRead_add'),
+            () => {
+                const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
 
-            const list = R.path(path)(state)
+                const list = R.path(path)(state)
 
-            const filterList = R.filter(v => v.url !== action.payload.url)(list)
+                const newState = R.assocPath(path, [...list, action.payload])(state)
 
-            const newState = R.assocPath(path, filterList)(state)
+                return newState
+            },
+        ],
+    ])(action.type)
+    // switch (action.type) {
+    //     case ('info_toRead_del'):
 
-            return newState
+    //         const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
 
-        case ('info_toRead_add'):
+    //         const list = R.path(path)(state)
 
-            // const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
+    //         const filterList = R.filter(v => v.url !== action.payload.url)(list)
 
-            // const list = R.path(path)(state)
+    //         const newState = R.assocPath(path, filterList)(state)
 
-            // const newState = R.assocPath(path, [...list, action.payload])(state)
+    //         return newState
 
-            // return newState
+    //     case ('info_toRead_add'):
 
-            return R.mergeDeepWith(R.concat, {
-                navigation: {
-                    home: {
-                        tab: {
-                            info: {
-                                toRead: {
-                                    list: [
-                                        action.payload,
-                                    ],
-                                },
-                            },
-                        },
-                    },
-                },
-            }, state)
+    //         // const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
 
-        case ('debug_count'):
-            return {
-                ...state,
-                debug: {
-                    ...state.debug,
-                    count: state.debug.count + 1,
-                },
-            }
-        case ('debug_count2'):
-            return {
-                ...state,
-                debug: {
-                    ...state.debug,
-                    count2: state.debug.count2 + 1,
-                },
-            }
-        default:
-            return state
-    }
+    //         // const list = R.path(path)(state)
+
+    //         // const newState = R.assocPath(path, [...list, action.payload])(state)
+
+    //         // return newState
+
+    //         return R.mergeDeepWith(R.concat, {
+    //             navigation: {
+    //                 home: {
+    //                     tab: {
+    //                         info: {
+    //                             toRead: {
+    //                                 list: [
+    //                                     action.payload,
+    //                                 ],
+    //                             },
+    //                         },
+    //                     },
+    //                 },
+    //             },
+    //         }, state)
+
+    //     case ('debug_count'):
+    //         return {
+    //             ...state,
+    //             debug: {
+    //                 ...state.debug,
+    //                 count: state.debug.count + 1,
+    //             },
+    //         }
+    //     case ('debug_count2'):
+    //         return {
+    //             ...state,
+    //             debug: {
+    //                 ...state.debug,
+    //                 count2: state.debug.count2 + 1,
+    //             },
+    //         }
+    //     default:
+    //         return state
+    // }
 }
 
 export default createContext()

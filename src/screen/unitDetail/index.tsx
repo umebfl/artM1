@@ -94,7 +94,7 @@ export default ({ route, navigation }) => {
                             paddingLeft: 16,
                             // backgroundColor: 'rgba(100, 100, 100, 0.2)',
                         }}>
-                            <MidTitle>{payload.name}</MidTitle>
+                            <MidTitle>{payload.name || payload.title}</MidTitle>
                             <DefText numberOfLines={2} style={{ fontSize: 14, marginTop: 8, }}>{payload.def}</DefText>
 
                             <View style={{
