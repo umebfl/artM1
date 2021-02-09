@@ -60,7 +60,7 @@ export default ({ route, navigation }) => {
     const iconColorDisable = theme.grey[0]
 
     // 存在阅读清单内
-    const info = R.find(R.propEq('name', 'info'))(tab)
+    const info = tab['info']
     const onToRead = R.find(R.propEq('url', currentUrl))(info.toRead)
 
     const handleLeft = () => {

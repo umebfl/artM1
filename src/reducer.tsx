@@ -21,8 +21,8 @@ export const initState = {
     navigation: {
         home: {
             initialRouteName: 'info',
-            tab: [
-                {
+            tab: {
+                info: {
                     name: 'info',
                     text: '资讯',
                     icon: 'waze',
@@ -37,27 +37,38 @@ export const initState = {
                         ],
                     },
                 },
-                {
+                skill: {
                     name: 'skill',
                     text: '技能',
                     icon: 'electron-framework',
+                    tab: {
+                        interactive: {
+                            text: '前端',
+                        },
+                        server: {
+                            text: '后台',
+                        },
+                        theory: {
+                            text: '理论',
+                        },
+                    },
                 },
-                {
+                futu: {
                     name: 'futu',
                     text: '期货',
                     icon: 'battlenet',
                 },
-                {
+                todo: {
                     name: 'todo',
                     text: '待办',
                     icon: 'checkbox-marked-circle-outline',
                 },
-                {
+                other: {
                     name: 'other',
                     text: '其它',
                     icon: 'vanish',
                 },
-            ],
+            },
         },
     },
 
@@ -87,6 +98,15 @@ export const initState = {
 export const reducer = (state, action) => {
 
     switch (action.type) {
+        case ('info_toRead_add'):
+            return {
+                ...state,
+                debug: {
+                    ...state.debug,
+                    count: state.debug.count + 1,
+                },
+            }
+
         case ('debug_count'):
             return {
                 ...state,

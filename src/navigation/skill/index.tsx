@@ -1,27 +1,63 @@
-import React, { useContext, useEffect, } from 'react'
-
+import R from 'ramda'
+import React, { useContext, } from 'react'
 import {
     SafeAreaView,
     ScrollView,
     View,
     Text,
-    TouchableWithoutFeedback,
-    Button,
+    Dimensions,
+    TouchableOpacity,
 } from 'react-native'
 
+import ScrollableTabView from 'react-native-scrollable-tab-view'
+
 import Context from '../../reducer'
+import ScrollableTabBar from '../../component/ScrollableTabBar'
 
-export default () => {
+// import TheoryScreen from './navigation/theory'
+// import ServerScreen from './navigation/server'
 
-    const { state, dispatch, } = useContext(Context)
+export default ({ navigation, }) => {
+    const { state, } = useContext(Context)
+
+    const {
+        navigation: {
+            home: {
+                tab: {
+                    skill: {
+                        tab,
+                    },
+                },
+            },
+        },
+        theme
+    } = state
 
     return (
-        <View style={{
-            flex: 1,
-            height: 20,
-            marginTop: 50,
-        }}>
-            <Text>skill</Text>
-        </View>
+        <SafeAreaView style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
+            <ScrollableTabView prerenderingSiblingsNumber={Infinity}
+                renderTabBar={payload => <ScrollableTabBar {...payload} />}>
+                {
+                    R.compose(
+                        R.values,
+                        R.map(
+                            v => (
+                                <ScrollView
+                                    key={v.text}
+                                    tabLabel={v.text}
+                                    showsVerticalScrollIndicator={false}
+                                    style={{
+                                        flex: 1,
+                                        paddingTop: 7,
+                                        backgroundColor: theme.navigationTabBarBackgound,
+                                    }}>
+                                        <Text>123</Text>
+                                </ScrollView>
+                            )
+                        ),
+                    )(tab)
+                }
+            </ScrollableTabView>
+        </SafeAreaView>
     )
 }
