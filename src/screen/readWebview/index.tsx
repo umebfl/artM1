@@ -60,8 +60,7 @@ export default ({ route, navigation }) => {
     const iconColorDisable = theme.grey[0]
 
     // 存在阅读清单内
-    const info = tab['info']
-    const onToRead = R.find(R.propEq('url', currentUrl))(info.toRead)
+    const onToRead = R.find(R.propEq('url', currentUrl))(tab.info.toRead.list)
 
     const handleLeft = () => {
         webRef.current.goBack()
@@ -78,18 +77,22 @@ export default ({ route, navigation }) => {
     const handleToRead = () => {
 
         if(onToRead) {
-            return
+            dispatch({
+                type: 'info_toRead_del',
+                payload: {
+                    url: currentUrl,
+                },
+            })
+        } else {
+            dispatch({
+                type: 'info_toRead_add',
+                payload: {
+                    title: pageTitle,
+                    def: '--',
+                    url: currentUrl,
+                },
+            })
         }
-
-        dispatch({
-            type: 'info_toRead_add',
-            payload: {
-                title: pageTitle,
-                // def: '',
-                url: currentUrl,
-            },
-        })
-
     }
 
     const handleReload = () => {

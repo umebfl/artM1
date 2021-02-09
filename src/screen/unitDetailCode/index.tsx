@@ -76,7 +76,7 @@ export default ({ route, navigation }) => {
                             {
                                 payload.url
                                     ? (
-                                        <TouchView onPress={() => navigation.push('skill/webview', { url: payload.url, })}>
+                                        <TouchView onPress={() => navigation.push('readWebview', { url: payload.url, })}>
                                             <View style={{
                                                 width: 76,
                                                 height: 28,

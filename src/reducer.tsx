@@ -1,3 +1,4 @@
+import R from 'ramda'
 import * as color from '@ant-design/colors'
 
 import React, { useReducer, createContext, } from 'react'
@@ -104,14 +105,43 @@ export const initState = {
 export const reducer = (state, action) => {
 
     switch (action.type) {
+        case ('info_toRead_del'):
+
+            const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
+
+            const list = R.path(path)(state)
+
+            const filterList = R.filter(v => v.url !== action.payload.url)(list)
+
+            const newState = R.assocPath(path, filterList)(state)
+
+            return newState
+
         case ('info_toRead_add'):
-            return {
-                ...state,
-                debug: {
-                    ...state.debug,
-                    count: state.debug.count + 1,
+
+            // const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
+
+            // const list = R.path(path)(state)
+
+            // const newState = R.assocPath(path, [...list, action.payload])(state)
+
+            // return newState
+
+            return R.mergeDeepWith(R.concat, {
+                navigation: {
+                    home: {
+                        tab: {
+                            info: {
+                                toRead: {
+                                    list: [
+                                        action.payload,
+                                    ],
+                                },
+                            },
+                        },
+                    },
                 },
-            }
+            }, state)
 
         case ('debug_count'):
             return {
