@@ -78,14 +78,16 @@ export default ({ route, navigation }) => {
 
         if(onToRead) {
             dispatch({
-                type: 'info_toRead_del',
+                mod: 'info_toRead',
+                type: 'del',
                 payload: {
                     url: currentUrl,
                 },
             })
         } else {
             dispatch({
-                type: 'info_toRead_add',
+                mod: 'info_toRead',
+                type: 'add',
                 payload: {
                     title: pageTitle,
                     def: '--',

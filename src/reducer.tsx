@@ -106,90 +106,30 @@ export const reducer = (state, action) => {
 
     return R.cond([
         [
-            R.equals('info_toRead_del'),
+            R.equals('info_toRead'),
             () => {
                 const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
-
                 const list = R.path(path)(state)
     
-                const filterList = R.filter(v => v.url !== action.payload.url)(list)
-    
-                const newState = R.assocPath(path, filterList)(state)
-                alert(newState)
-                return newState
+                return R.cond([
+                    [
+                        R.equals('del'),
+                        () => {
+                            const filterList = R.filter(v => v.url !== action.payload.url)(list)
+                
+                            const newState = R.assocPath(path, filterList)(state)
+            
+                            return newState
+                        },
+                    ],
+                    [
+                        R.equals('add'),
+                        () => R.assocPath(path, [...list, action.payload])(state),
+                    ],
+                ])(action.type)
             },
         ],
-        [
-            R.equals('info_toRead_add'),
-            () => {
-                const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
-
-                const list = R.path(path)(state)
-
-                const newState = R.assocPath(path, [...list, action.payload])(state)
-
-                return newState
-            },
-        ],
-    ])(action.type)
-    // switch (action.type) {
-    //     case ('info_toRead_del'):
-
-    //         const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
-
-    //         const list = R.path(path)(state)
-
-    //         const filterList = R.filter(v => v.url !== action.payload.url)(list)
-
-    //         const newState = R.assocPath(path, filterList)(state)
-
-    //         return newState
-
-    //     case ('info_toRead_add'):
-
-    //         // const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
-
-    //         // const list = R.path(path)(state)
-
-    //         // const newState = R.assocPath(path, [...list, action.payload])(state)
-
-    //         // return newState
-
-    //         return R.mergeDeepWith(R.concat, {
-    //             navigation: {
-    //                 home: {
-    //                     tab: {
-    //                         info: {
-    //                             toRead: {
-    //                                 list: [
-    //                                     action.payload,
-    //                                 ],
-    //                             },
-    //                         },
-    //                     },
-    //                 },
-    //             },
-    //         }, state)
-
-    //     case ('debug_count'):
-    //         return {
-    //             ...state,
-    //             debug: {
-    //                 ...state.debug,
-    //                 count: state.debug.count + 1,
-    //             },
-    //         }
-    //     case ('debug_count2'):
-    //         return {
-    //             ...state,
-    //             debug: {
-    //                 ...state.debug,
-    //                 count2: state.debug.count2 + 1,
-    //             },
-    //         }
-    //     default:
-    //         return state
-    // }
+    ])(action.mod)
 }
 
 export default createContext()

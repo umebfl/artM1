@@ -12,7 +12,7 @@ import {
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
 import WingBlank from '../../component/WingBlank'
-import WhiteSpace from '../../component/WingBlank'
+import WhiteSpace from '../../component/WhiteSpace'
 import UnitItemList from '../../component/UnitItemList'
 
 import Context from '../../reducer'
@@ -49,7 +49,7 @@ export default ({ navigation, }) => {
 
             <WhiteSpace>
                 <WingBlank>
-                    <UnitItemList data={[toRead]} handlePress={handleToReadPress} />
+                    <UnitItemList data={[toRead]} showUrl={true} handlePress={handleToReadPress} />
                 </WingBlank>
             </WhiteSpace>
         </ScreenWrapper>

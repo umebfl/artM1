@@ -31,6 +31,7 @@ export default payload => {
 
     const {
         data,
+        showUrl,
         handlePress,
     } = payload
 
@@ -57,10 +58,7 @@ export default payload => {
                         marginBottom: def ? 8 : 4,
                     }}>
                         <MidTitle style={{ marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
-
-                        {
-                            def && <DefText>{def}</DefText>
-                        }
+                        <DefText>{def}</DefText>
                     </View>
 
                     {
@@ -89,7 +87,13 @@ export default payload => {
                                             flex: 1,
                                         }}>
                                             <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title}</Title>
-                                            <DefText style={{ marginTop: 6, marginRight: 6, }}>{item.def}</DefText>
+                                            <DefText style={{ marginTop: 6, marginRight: 6, }}>
+                                                {
+                                                    showUrl
+                                                        ? item.url
+                                                        : item.def
+                                                }
+                                            </DefText>
                                         </View>
                                         <View style={{
                                             width: 34,
