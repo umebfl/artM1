@@ -68,7 +68,7 @@ export default payload => {
                 {
                     unit.length > LIST_MAX_LEN
                         ? (
-                            <TouchView onPress={() => { navigation.navigate('skill/unitList', { data: unit, title, }) }}>
+                            <TouchView onPress={() => { navigation.navigate('unitListView', { data: unit, title, }) }}>
                                 <Text style={{ fontSize: 18, fontWeight: 'normal', color: theme.main }}>查看全部</Text>
                             </TouchView>
                         )
@@ -128,7 +128,7 @@ export const SwipeListItem = ({
     const iconSize = 62
 
     return (
-        <TouchView onPress={() => { navigation.push('skill/detail', { payload: item }) }}>
+        <TouchView onPress={() => { navigation.push('unitDetailView', { payload: item }) }}>
             <View style={{ flexDirection: 'row', }}>
                 <UnitLogo data={item.logo} size={iconSize} ></UnitLogo>
 

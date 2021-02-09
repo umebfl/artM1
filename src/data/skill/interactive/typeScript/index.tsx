@@ -191,9 +191,3 @@ let strLength: number = (someValue as string).length;
       },
     ],
 }
-
-export default () => (
-  <View style={{ flex: 1, }}>
-
-  </View>
-)
