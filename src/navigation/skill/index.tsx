@@ -13,9 +13,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 
 import Context from '../../reducer'
 import ScrollableTabBar from '../../component/ScrollableTabBar'
-
-// import TheoryScreen from './navigation/theory'
-// import ServerScreen from './navigation/server'
+import SwipeList from '../../component/SwipeList'
 
 export default ({ navigation, }) => {
     const { state, } = useContext(Context)
@@ -41,17 +39,23 @@ export default ({ navigation, }) => {
                     R.compose(
                         R.values,
                         R.map(
-                            v => (
+                            tabItem => (
                                 <ScrollView
-                                    key={v.text}
-                                    tabLabel={v.text}
+                                    key={tabItem.name}
+                                    tabLabel={tabItem.name}
                                     showsVerticalScrollIndicator={false}
                                     style={{
                                         flex: 1,
                                         paddingTop: 7,
                                         backgroundColor: theme.navigationTabBarBackgound,
                                     }}>
-                                        <Text>123</Text>
+                                        {
+                                            R.addIndex(R.map)(
+                                                (v, k) => (
+                                                    <SwipeList key={k} navigation={navigation} title={v.name} unit={v.list} />
+                                                )
+                                            )(tabItem.list || [])
+                                        }
                                 </ScrollView>
                             )
                         ),

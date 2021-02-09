@@ -144,7 +144,7 @@ export default ({ route, navigation }) => {
                             <Icon style={{ width: iconSize, height: iconSize }} name={'heart-outline'} size={iconSize} color={iconColor} />
                         </TouchView>
                         <TouchView onPress={handleToRead}>
-                            <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={onToRead ? theme.variable.green[6] : iconColor} />
+                            <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={onToRead ? theme.green[6] : iconColor} />
                         </TouchView>
                     </View>
                     <View style={{

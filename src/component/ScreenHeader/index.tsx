@@ -36,8 +36,8 @@ export default ({ navigation, backTitle, title, }) => {
             backgroundColor: theme.navigationTabBarBackgound,
             height: SCREEN_HEADER_HEGIHT,
             // backgroundColor: 'rgba(100, 100, 100, 0.2)',
-            // borderBottomWidth: theme.variable.borderWidth,
-            // borderBottomColor: theme.variable.borderColor,
+            // borderBottomWidth: theme.borderWidth,
+            // borderBottomColor: theme.borderColor,
             flexDirection: 'row',
             justifyContent: 'space-between',
         }}>

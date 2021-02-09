@@ -2,6 +2,8 @@ import * as color from '@ant-design/colors'
 
 import React, { useReducer, createContext, } from 'react'
 
+import { SkillPlatform, SkillUnit, } from './variable'
+
 // 系统数据
 export const initState = {
     
@@ -15,6 +17,12 @@ export const initState = {
         ...color,
         borderWidth: 0.7,
         borderColor: 'rgba(100, 100, 100, 0.2)',
+        size: {
+            lg: 34,
+            md: 20,
+            normal: 12,
+            sm: 8,
+        },
     },
 
     // 系统导航数据
@@ -43,13 +51,37 @@ export const initState = {
                     icon: 'electron-framework',
                     tab: {
                         interactive: {
-                            text: '前端',
+                            name: '前端',
+                            list: [
+                                {
+                                    name: '语言',
+                                    list: [
+                                        {
+                                            name: 'Ant Design Pro',
+                                            def: '企业级中后台前端/设计解决方案',
+                                            major: true,
+                                            platform: SkillPlatform.react,
+                                            logo: {
+                                                type: 'svg',
+                                                url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                                            },
+                                            url: 'https://beta-pro.ant.design/docs/introduction-cn',
+                                        }
+                                    ],
+                                },
+                                // {
+                                //     name: '视图',
+                                //     list: [
+
+                                //     ],
+                                // },
+                            ],
                         },
                         server: {
-                            text: '后台',
+                            name: '后台',
                         },
                         theory: {
-                            text: '理论',
+                            name: '理论',
                         },
                     },
                 },
