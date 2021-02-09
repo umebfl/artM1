@@ -4,9 +4,13 @@ import React, { useReducer, createContext, } from 'react'
 
 import { SkillPlatform, SkillUnit, } from './variable'
 
+import interactive from './data/skill/interactive'
+import server from './data/skill/server'
+import theory from './data/skill/theory'
+
 // 系统数据
 export const initState = {
-    
+
     theme: {
         main: 'rgba(49, 123, 246, 1)',
         mainA1: 'rgba(49, 123, 246, 0.1)',
@@ -28,7 +32,7 @@ export const initState = {
     // 系统导航数据
     navigation: {
         home: {
-            initialRouteName: 'info',
+            initialRouteName: 'skill',
             tab: {
                 info: {
                     name: 'info',
@@ -50,39 +54,9 @@ export const initState = {
                     text: '技能',
                     icon: 'electron-framework',
                     tab: {
-                        interactive: {
-                            name: '前端',
-                            list: [
-                                {
-                                    name: '语言',
-                                    list: [
-                                        {
-                                            name: 'Ant Design Pro',
-                                            def: '企业级中后台前端/设计解决方案',
-                                            major: true,
-                                            platform: SkillPlatform.react,
-                                            logo: {
-                                                type: 'svg',
-                                                url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-                                            },
-                                            url: 'https://beta-pro.ant.design/docs/introduction-cn',
-                                        }
-                                    ],
-                                },
-                                // {
-                                //     name: '视图',
-                                //     list: [
-
-                                //     ],
-                                // },
-                            ],
-                        },
-                        server: {
-                            name: '后台',
-                        },
-                        theory: {
-                            name: '理论',
-                        },
+                        interactive,
+                        server,
+                        theory,
                     },
                 },
                 futu: {

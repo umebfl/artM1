@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-// import { SvgCssUri, SvgXml, } from 'react-native-svg'
+import { SvgCssUri, SvgXml, } from 'react-native-svg'
 import Context from '../../reducer'
 
 interface unitLogoPlayload {
@@ -51,10 +51,10 @@ export default (payload: unitLogoPlayload) => {
         }}>
             {
                 R.cond([
-                    // [
-                    //     R.equals('svg'),
-                    //     () => <SvgCssUri width={iconInnerSize} height={iconInnerSize * 0.9} uri={data.url} />,
-                    // ],
+                    [
+                        R.equals('svg'),
+                        () => <SvgCssUri width={iconInnerSize} height={iconInnerSize * 0.9} uri={data.url} />,
+                    ],
                     [
                         R.anyPass([R.equals('jpg'), R.equals('png'), R.equals('jpeg')]),
                         () => <Image source={{ uri: data.url }} style={{ resizeMode: 'contain', width: iconInnerSize * 0.9, height: iconInnerSize * 0.9 }} />,
