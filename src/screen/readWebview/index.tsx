@@ -60,7 +60,7 @@ export default ({ route, navigation }) => {
     const iconColorDisable = theme.grey[0]
 
     // 存在阅读清单内
-    const onToRead = R.find(R.propEq('url', currentUrl))(tab.info.toRead.list)
+    const onToRead = R.find(R.propEq('url', currentUrl))(tab.info.tab.toRead.list)
 
     const handleLeft = () => {
         webRef.current.goBack()
@@ -75,7 +75,6 @@ export default ({ route, navigation }) => {
     }
 
     const handleToRead = () => {
-
         if(onToRead) {
             dispatch({
                 mod: 'info_toRead',

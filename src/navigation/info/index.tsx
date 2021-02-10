@@ -28,7 +28,9 @@ export default ({ navigation, }) => {
             home: {
                 tab: {
                     info: {
-                        toRead,
+                        tab: {
+                            toRead,
+                        },
                     },
                 },
             },

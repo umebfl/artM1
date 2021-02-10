@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, } from 'react'
+import React, { useReducer, useEffect, } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -13,13 +13,30 @@ import UnitListView from './screen/unitListView'
 import UnitDetail from './screen/unitDetail'
 import unitDetailCode from './screen/unitDetailCode'
 
+import { getData, clearData, } from './reducer'
+
 const RootStack = createStackNavigator()
 
 const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initState)
 
-  
+  const init = async () => {
+    // await clearData()
+    const data = await getData()
+
+    if (data) {
+      dispatch({
+        mod: 'system',
+        type: 'init',
+        payload: data,
+      })
+    }
+  }
+
+  useEffect(() => {
+    init()
+  }, [])
 
   return (
     <RootContext.Provider value={{ state, dispatch, }}>

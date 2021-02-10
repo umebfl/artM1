@@ -80,8 +80,8 @@ style={{
           `,
         },
         {
-          title: '@react-native-async-storage/async-storage',
-          def: '用于React Native的异步，未加密，持久的键值存储系统',
+          title: '@react-native-async-storage',
+          def: '用于React Native的异步键值存储系统',
           jump: 'code',
           url: 'https://react-native-async-storage.github.io/async-storage/docs/usage',
           code: `

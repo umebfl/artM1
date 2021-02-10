@@ -12,7 +12,16 @@ import theory from './data/skill/theory'
 
 const STORE_DATA_KEY = 'STORE_DATA_KEY'
 
-export const setData = async (value) => {
+export const clearData = async (value) => {
+    try {
+        const jsonValue = JSON.stringify(initState)
+        await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
+    } catch (e) {
+        // saving error
+    }
+}
+
+const setData = async (value) => {
     try {
         const jsonValue = JSON.stringify(value)
         await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
@@ -23,13 +32,14 @@ export const setData = async (value) => {
 
 export const getData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem(STORE_DATA_KEY)
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch(e) {
-      // error reading value
+        const jsonValue = await AsyncStorage.getItem(STORE_DATA_KEY)
+
+        return jsonValue != null ? JSON.parse(jsonValue) : null
+    } catch (e) {
+        // error reading value
     }
-  }
-  
+}
+
 
 // 系统数据
 export const initState = {
@@ -61,15 +71,17 @@ export const initState = {
                     name: 'info',
                     text: '资讯',
                     icon: 'waze',
-                    toRead: {
-                        title: '阅读清单',
-                        list: [
-                            {
-                                title: '一个强大的管理异步数据请求的一个强大的管理异步数据请求的',
-                                def: '一个强大的管理异步数据请求的 Hook',
-                                url: 'https://www.baidu.com/s?ie=UTF-8&wd=useState',
-                            },
-                        ],
+                    tab: {
+                        toRead: {
+                            title: '阅读清单',
+                            list: [
+                                {
+                                    title: '一个强大的管理异步数据请求的一个强大的管理异步数据请求的',
+                                    def: '一个强大的管理异步数据请求的 Hook',
+                                    url: 'https://www.baidu.com/s?ie=UTF-8&wd=useState',
+                                },
+                            ],
+                        },
                     },
                 },
                 skill: {
@@ -128,17 +140,17 @@ export const reducer = (state, action) => {
     return R.cond([
         [
             R.equals('system'),
-            R.cond([
+            () => R.cond([
                 [
-                    R.equals('data_init'),
+                    R.equals('init'),
                     () => action.payload,
                 ],
-            ]),
+            ])(action.type),
         ],
         [
             R.equals('info_toRead'),
             () => {
-                const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
+                const path = ['navigation', 'home', 'tab', 'info', 'tab', 'toRead', 'list']
                 const list = R.path(path)(state)
 
                 return R.cond([
@@ -147,18 +159,24 @@ export const reducer = (state, action) => {
                         () => {
                             const filterList = R.filter(v => v.url !== action.payload.url)(list)
                             const newState = R.assocPath(path, filterList)(state)
-
-                            // 更新本地存储
                             setData(newState)
-
                             return newState
                         },
                     ],
                     [
                         R.equals('add'),
-                        () => R.assocPath(path, [...list, action.payload])(state),
+                        () => R.compose(
+                            R.tap(newState => setData(newState)),
+                            R.assocPath(path, [...list, action.payload]),
+                        )(state),
                     ],
                 ])(action.type)
+            },
+        ],
+        [
+            R.T,
+            () => {
+                throw new Error('找不到匹配的action.mod')
             },
         ],
     ])(action.mod)
