@@ -19,6 +19,8 @@ const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initState)
 
+  
+
   return (
     <RootContext.Provider value={{ state, dispatch, }}>
       <NavigationContainer>

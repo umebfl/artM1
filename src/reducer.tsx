@@ -2,12 +2,34 @@ import R from 'ramda'
 import * as color from '@ant-design/colors'
 
 import React, { useReducer, createContext, } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { SkillPlatform, SkillUnit, } from './variable'
 
 import interactive from './data/skill/interactive'
 import server from './data/skill/server'
 import theory from './data/skill/theory'
+
+const STORE_DATA_KEY = 'STORE_DATA_KEY'
+
+export const setData = async (value) => {
+    try {
+        const jsonValue = JSON.stringify(value)
+        await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
+    } catch (e) {
+        // saving error
+    }
+}
+
+export const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(STORE_DATA_KEY)
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch(e) {
+      // error reading value
+    }
+  }
+  
 
 // 系统数据
 export const initState = {
@@ -103,22 +125,32 @@ export const initState = {
 }
 
 export const reducer = (state, action) => {
-
     return R.cond([
+        [
+            R.equals('system'),
+            R.cond([
+                [
+                    R.equals('data_init'),
+                    () => action.payload,
+                ],
+            ]),
+        ],
         [
             R.equals('info_toRead'),
             () => {
                 const path = ['navigation', 'home', 'tab', 'info', 'toRead', 'list']
                 const list = R.path(path)(state)
-    
+
                 return R.cond([
                     [
                         R.equals('del'),
                         () => {
                             const filterList = R.filter(v => v.url !== action.payload.url)(list)
-                
                             const newState = R.assocPath(path, filterList)(state)
-            
+
+                            // 更新本地存储
+                            setData(newState)
+
                             return newState
                         },
                     ],

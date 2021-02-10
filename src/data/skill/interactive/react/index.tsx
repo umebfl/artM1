@@ -79,6 +79,33 @@ style={{
 }} source={{ uri: 'https://cn.bing.com/search?q=react' }} />
           `,
         },
+        {
+          title: '@react-native-async-storage/async-storage',
+          def: '用于React Native的异步，未加密，持久的键值存储系统',
+          jump: 'code',
+          url: 'https://react-native-async-storage.github.io/async-storage/docs/usage',
+          code: `
+const storeData = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem('@storage_Key', jsonValue)
+  } catch (e) {
+    // saving error
+  }
+}
+
+//
+
+const getData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@storage_Key')
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
+  } catch(e) {
+    // error reading value
+  }
+}          
+          `,
+        },
       ],
     },
     {

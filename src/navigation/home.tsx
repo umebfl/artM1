@@ -68,7 +68,7 @@ export default () => {
                     R.values,
                     R.map(
                         v => (
-                            <Tab.Screen key={v.name} name={v.text}
+                            <Tab.Screen key={v.name} name={v.name}
                                 options={({ route }) => ({
                                     tabBarLabel: v.text,
                                     tabBarIcon: ({ focused, color, size }) => {
