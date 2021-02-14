@@ -9,19 +9,26 @@ import {
     Button,
 } from 'react-native'
 
+import ScreenWrapper from '../../component/ScreenWrapper'
+import SearchWrapper from '../../component/SearchWrapper'
+import WingBlank from '../../component/WingBlank'
+import WhiteSpace from '../../component/WhiteSpace'
+import UnitItemList from '../../component/UnitItemList'
+
 import Context from '../../reducer'
 
-export default () => {
+export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
 
+    const {
+        theme,
+        search,
+    } = state
+
     return (
-        <View style={{
-            flex: 1,
-            height: 20,
-            marginTop: 50,
-        }}>
-            <Text>other</Text>
-        </View>
+        <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
+
+        </ScreenWrapper>
     )
 }

@@ -75,7 +75,7 @@ export default ({ route, navigation }) => {
     }
 
     const handleToRead = () => {
-        if(onToRead) {
+        if (onToRead) {
             dispatch({
                 mod: 'info_toRead',
                 type: 'del',
