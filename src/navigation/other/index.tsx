@@ -61,10 +61,9 @@ export default ({ navigation, }) => {
                 onPress={handleClearCachePress}
             />
 
-            <List title={'其他'}>
-                <Item title={'设置'} icon={'cog'} jumpTo={'setting'} extra={'未开启'} />
-                <Item title={'个性装扮'} icon={'midi-port'} jumpTo={'setting'} />
-                <Item title={'我的订单'} icon={'judaism'} jumpTo={'setting'} />
+            <List title={'开发'}>
+                <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
+                <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'setting'} navigation={navigation} />
                 <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
             </List>
 

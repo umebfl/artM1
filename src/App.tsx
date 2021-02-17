@@ -8,6 +8,8 @@ import Home from './navigation/home'
 // import Test from './tmp/test'
 // import Test2 from './tmp/test2'
 
+import DataView from './navigation/other/dataView'
+
 import ReadWebview from './screen/readWebview'
 import UnitListView from './screen/unitListView'
 import UnitDetail from './screen/unitDetail'
@@ -48,6 +50,9 @@ const App = () => {
           <RootStack.Screen name='unitListView' component={UnitListView} />
           <RootStack.Screen name='unitDetailView' component={UnitDetail} />
           <RootStack.Screen name='unitDetailCodeView' component={unitDetailCode} />
+
+
+          <RootStack.Screen name='dataView' component={DataView} />
 
           {/* <RootStack.Screen name='test' component={Test} />
           <RootStack.Screen name='test2' component={Test2} /> */}

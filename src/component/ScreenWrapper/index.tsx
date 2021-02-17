@@ -19,6 +19,7 @@ const ScreenWrapper = payload => {
       theme,
       children,
       imageBackground,
+      LinearGradientBackground,
     } = payload
   
     return (
@@ -35,7 +36,13 @@ const ScreenWrapper = payload => {
             flex: 1,
             // opacity: 0.5,
           }}
-          colors={imageBackground ? ['rgba(0,0,0,0)'] : ['rgb(220, 216, 215)', 'white', 'white']}>
+          colors={
+            imageBackground
+              ? ['rgba(0,0,0,0)']
+              : LinearGradientBackground === false
+                  ? ['white', 'white', 'white']
+                  : ['rgb(220, 216, 215)', 'white', 'white']
+          }>
           <SafeAreaView style={{ flex: 1, }}>
             <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, }}>
               {

@@ -15,6 +15,8 @@ LogBox.ignoreLogs([
     'ReactNativeFiberHostComponent',
     'Task orphaned for request',
     'RCTBridge required dispatch_sync to load RCTDevLoadingView',
+    'componentWillReceiveProps has been renamed',
+    'componentWillMount has been renamed',
 ]);
 
 AppRegistry.registerComponent(appName, () => App)

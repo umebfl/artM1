@@ -62,10 +62,19 @@ export const Item = payload => {
         icon,
         jumpTo,
         handlePress,
+        navigation,
     } = payload
 
     return (
-        <TouchView onPress={handlePress}>
+        <TouchView onPress={
+            () => {
+                handlePress
+                    ? handlePress()
+                    : jumpTo
+                        ? navigation.push(jumpTo)
+                        : null
+            }
+        }>
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',

@@ -462,6 +462,35 @@ export default {
                     // },
                     url: 'https://github.com/conorhastings/react-native-syntax-highlighter',
                 },
+
+                {
+                    name: 'React-native-actionsheet',
+                    def: '该组件实现了自定义ActionSheet',
+                    platform: SkillPlatform.reactNative,
+                    url: 'https://github.com/beefe/react-native-actionsheet',
+                },
+
+                {
+                    name: 'React-json-view',
+                    def: '用于显示和编辑javascript数组和JSON对象',
+                    platform: SkillPlatform.react,
+                    url: 'https://github.com/mac-s-g/react-json-view',
+                },
+
+                {
+                    name: 'React-native-json-tree',
+                    def: '基于react-json-tree的React Native JSON Viewer组件',
+                    platform: SkillPlatform.reactNative,
+                    url: 'https://github.com/mac-s-g/react-json-view',
+                },
+
+                {
+                    name: 'React-native-root-toast',
+                    def: 'React Native的toast组件',
+                    platform: SkillPlatform.reactNative,
+                    url: 'https://github.com/magicismight/react-native-root-toast',
+                },
+                
             ],
         },
     ],
