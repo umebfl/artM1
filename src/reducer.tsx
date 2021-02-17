@@ -60,12 +60,18 @@ export const initState = {
             normal: 12,
             sm: 8,
         },
+
+        textDark: color.grey[9],
+        textLight2: 'rgb(164, 164, 164)',
+        textLight: 'rgb(204, 204, 204)',
+        textNormal: 'rgb(51, 51, 52)',
+        textDanger: color.red[5],
     },
 
     // 系统导航数据
     navigation: {
         home: {
-            initialRouteName: 'skill',
+            initialRouteName: 'other',
             tab: {
                 info: {
                     name: 'info',
