@@ -26,11 +26,11 @@ const App = () => {
     const data = await getData()
 
     if (data) {
-      // dispatch({
-      //   mod: 'system',
-      //   type: 'init',
-      //   payload: data,
-      // })
+      dispatch({
+        mod: 'system',
+        type: 'init',
+        payload: data,
+      })
     }
   }
 

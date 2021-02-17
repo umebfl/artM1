@@ -12,7 +12,7 @@ import theory from './data/skill/theory'
 
 const STORE_DATA_KEY = 'STORE_DATA_KEY'
 
-export const clearData = async (value) => {
+export const clearData = async () => {
     try {
         const jsonValue = JSON.stringify(initState)
         await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
@@ -62,9 +62,9 @@ export const initState = {
         },
 
         textDark: color.grey[9],
-        textLight2: 'rgb(164, 164, 164)',
-        textLight: 'rgb(204, 204, 204)',
         textNormal: 'rgb(51, 51, 52)',
+        textLight2: 'rgb(167, 167, 167)',
+        textLight: 'rgb(204, 204, 204)',
         textDanger: color.red[5],
     },
 
