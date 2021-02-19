@@ -466,6 +466,7 @@ export default {
                 {
                     name: 'React-native-actionsheet',
                     def: '该组件实现了自定义ActionSheet',
+                    major: true,
                     platform: SkillPlatform.reactNative,
                     url: 'https://github.com/beefe/react-native-actionsheet',
                 },
@@ -480,6 +481,7 @@ export default {
                 {
                     name: 'React-native-json-tree',
                     def: '基于react-json-tree的React Native JSON Viewer组件',
+                    major: true,
                     platform: SkillPlatform.reactNative,
                     url: 'https://github.com/mac-s-g/react-json-view',
                 },
@@ -487,10 +489,17 @@ export default {
                 {
                     name: 'React-native-root-toast',
                     def: 'React Native的toast组件',
+                    major: true,
                     platform: SkillPlatform.reactNative,
                     url: 'https://github.com/magicismight/react-native-root-toast',
                 },
                 
+                {
+                    name: 'react-native-easy-toast',
+                    def: 'React Native的toast组件',
+                    platform: SkillPlatform.reactNative,
+                    url: 'https://github.com/crazycodeboy/react-native-easy-toast',
+                },
             ],
         },
     ],

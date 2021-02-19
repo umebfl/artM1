@@ -63,7 +63,7 @@ export default ({ navigation, }) => {
 
             <List title={'开发'}>
                 <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
-                <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'setting'} navigation={navigation} />
+                <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
                 <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
             </List>
 

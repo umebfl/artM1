@@ -9,6 +9,7 @@ import Home from './navigation/home'
 // import Test2 from './tmp/test2'
 
 import DataView from './navigation/other/dataView'
+import DebugView from './navigation/other/debugView'
 
 import ReadWebview from './screen/readWebview'
 import UnitListView from './screen/unitListView'
@@ -53,6 +54,7 @@ const App = () => {
 
 
           <RootStack.Screen name='dataView' component={DataView} />
+          <RootStack.Screen name='debugView' component={DebugView} />
 
           {/* <RootStack.Screen name='test' component={Test} />
           <RootStack.Screen name='test2' component={Test2} /> */}

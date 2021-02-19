@@ -1,5 +1,5 @@
-import React, { useContext, useState, } from 'react'
-
+import R from 'ramda'
+import React, { useContext, useState, useEffect, } from 'react'
 import {
     SafeAreaView,
     ScrollView,
@@ -19,6 +19,7 @@ import ScreenHeader from '../../../component/ScreenHeader'
 import WingBlank from '../../../component/WingBlank'
 import WhiteSpace from '../../../component/WhiteSpace'
 import UnitItemList from '../../../component/UnitItemList'
+import { debug, } from '../../../util/log'
 
 import Context from '../../../reducer'
 
@@ -63,14 +64,29 @@ export default ({ navigation, }) => {
         theme,
     } = state
 
+    let timeList = []
+
     const handleCopy = text => {
         Clipboard.setString(JSON.stringify(text, null, 2))
         setToastVisible(true)
 
-        setTimeout(() => {
+        debug('复制剪切板成功')
+
+        const time = setTimeout(() => {
             setToastVisible(false)
         }, 1500)
+
+        timeList = [ ...timeList, time, ]
     }
+
+    useEffect(() => {
+
+        return () => {
+            R.map(
+                v => clearTimeout(v)
+            )(timeList)
+        }
+    })
 
     return (
         <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
