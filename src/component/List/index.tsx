@@ -35,16 +35,22 @@ export default payload => {
             opacity: 0.8,
             marginTop: 20,
         }}>
-            <View style={{
-                padding: 15,
-                borderColor: theme.borderColor,
-                borderBottomWidth: theme.borderWidth,
-            }}>
-                <Text style={{
-                    fontSize: 14,
-                    color: theme.textLight2,
-                }}>{title}</Text>
-            </View>
+            {
+                title
+                    ? (
+                        <View style={{
+                            padding: 15,
+                            borderColor: theme.borderColor,
+                            borderBottomWidth: theme.borderWidth,
+                        }}>
+                            <Text style={{
+                                fontSize: 14,
+                                color: theme.textLight2,
+                            }}>{title}</Text>
+                        </View>
+                    )
+                    : null
+            }
             { children && children}
         </WingBlank>
     )

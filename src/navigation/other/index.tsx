@@ -67,30 +67,10 @@ export default ({ navigation, }) => {
                 <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
             </List>
 
-            <List title={'其他'}>
-                <Item title={'设置'} icon={'cog'} jumpTo={'setting'} extra={'未开启'} />
-                <Item title={'个性装扮'} icon={'midi-port'} jumpTo={'setting'} />
-                <Item title={'我的订单'} icon={'judaism'} jumpTo={'setting'} />
+            <List>
+                <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} />
+                <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'setting'} />
             </List>
-
-            <List title={'其他'}>
-                <Item title={'设置'} icon={'cog'} jumpTo={'setting'} extra={'未开启'} />
-                <Item title={'个性装扮'} icon={'midi-port'} jumpTo={'setting'} />
-                <Item title={'我的订单'} icon={'judaism'} jumpTo={'setting'} />
-            </List>
-
-            <List title={'其他'}>
-                <Item title={'设置'} icon={'cog'} jumpTo={'setting'} extra={'未开启'} />
-                <Item title={'个性装扮'} icon={'midi-port'} jumpTo={'setting'} />
-                <Item title={'我的订单'} icon={'judaism'} jumpTo={'setting'} />
-            </List>
-
-            <List title={'其他'}>
-                <Item title={'设置'} icon={'cog'} jumpTo={'setting'} extra={'未开启'} />
-                <Item title={'个性装扮'} icon={'midi-port'} jumpTo={'setting'} />
-                <Item title={'我的订单'} icon={'judaism'} jumpTo={'setting'} />
-            </List>
-
         </ScreenWrapper>
     )
 }

@@ -79,14 +79,14 @@ export default ({ navigation, }) => {
         timeList = [ ...timeList, time, ]
     }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        return () => {
-            R.map(
-                v => clearTimeout(v)
-            )(timeList)
-        }
-    })
+    //     return () => {
+    //         R.map(
+    //             v => clearTimeout(v)
+    //         )(timeList)
+    //     }
+    // })
 
     return (
         <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >

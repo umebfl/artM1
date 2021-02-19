@@ -27,6 +27,7 @@ const log = (lv: level, msg: String) => {
 
     logState = [
         {
+            id: `${logState.length}`,
             lv,
             msg,
             time: new Date(),
