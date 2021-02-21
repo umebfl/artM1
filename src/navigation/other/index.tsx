@@ -23,6 +23,8 @@ import Context from '../../reducer'
 
 import { getData, clearData, } from '../../reducer'
 
+import { info, } from '../../util/log'
+
 const moban = require('../../../resource/image/template/m11.jpeg')
 
 export default ({ navigation, }) => {
@@ -45,6 +47,8 @@ export default ({ navigation, }) => {
     const handleClearCacheActionSheet = async () => {
         actionSheetREl.current.show()
     }
+
+    info('other render')
 
     return (
         <ScreenWrapper

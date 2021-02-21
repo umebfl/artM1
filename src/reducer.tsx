@@ -10,10 +10,13 @@ import interactive from './data/skill/interactive'
 import server from './data/skill/server'
 import theory from './data/skill/theory'
 
+import { info, } from './util/log'
+
 const STORE_DATA_KEY = 'STORE_DATA_KEY'
 
 export const clearData = async () => {
     try {
+        info('清理本地缓存')
         const jsonValue = JSON.stringify(initState)
         await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
     } catch (e) {
@@ -23,6 +26,7 @@ export const clearData = async () => {
 
 const setData = async (value) => {
     try {
+        info(`设置本地缓存: ${value}`)
         const jsonValue = JSON.stringify(value)
         await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
     } catch (e) {
@@ -32,6 +36,7 @@ const setData = async (value) => {
 
 export const getData = async () => {
     try {
+        info('获取本地缓存')
         const jsonValue = await AsyncStorage.getItem(STORE_DATA_KEY)
 
         return jsonValue != null ? JSON.parse(jsonValue) : null
@@ -71,7 +76,7 @@ export const initState = {
     // 系统导航数据
     navigation: {
         home: {
-            initialRouteName: 'other',
+            initialRouteName: 'skill',
             tab: {
                 info: {
                     name: 'info',
@@ -90,26 +95,44 @@ export const initState = {
                         },
                     },
                 },
-                skill: {
-                    name: 'skill',
-                    text: '技能',
+                // skill: {
+                //     name: 'skill',
+                //     text: '技能',
+                //     icon: 'electron-framework',
+                //     tab: {
+                //         interactive,
+                //         server,
+                //         theory,
+                //     },
+                // },
+                interactive: {
+                    name: 'interactive',
+                    text: '前端',
                     icon: 'electron-framework',
-                    tab: {
-                        interactive,
-                        server,
-                        theory,
-                    },
+                    data: interactive,
                 },
-                futu: {
-                    name: 'futu',
-                    text: '期货',
-                    icon: 'battlenet',
+                server: {
+                    name: 'server',
+                    text: '后台',
+                    icon: 'electron-framework',
+                    data: server,
                 },
-                todo: {
-                    name: 'todo',
-                    text: '待办',
-                    icon: 'checkbox-marked-circle-outline',
+                theory: {
+                    name: 'theory',
+                    text: '理论',
+                    icon: 'electron-framework',
+                    data: theory,
                 },
+                // futu: {
+                //     name: 'futu',
+                //     text: '期货',
+                //     icon: 'battlenet',
+                // },
+                // todo: {
+                //     name: 'todo',
+                //     text: '待办',
+                //     icon: 'checkbox-marked-circle-outline',
+                // },
                 other: {
                     name: 'other',
                     text: '其它',
@@ -143,6 +166,9 @@ export const initState = {
 }
 
 export const reducer = (state, action) => {
+
+    info(`执行: ${action.type}`)
+
     return R.cond([
         [
             R.equals('system'),

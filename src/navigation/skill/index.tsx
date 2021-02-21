@@ -7,6 +7,7 @@ import {
     Text,
     Dimensions,
     TouchableOpacity,
+    FlatList,
 } from 'react-native'
 
 import ScrollableTabView from 'react-native-scrollable-tab-view'
@@ -14,6 +15,8 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 import Context from '../../reducer'
 import ScrollableTabBar from '../../component/ScrollableTabBar'
 import SwipeList from '../../component/SwipeList'
+
+import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
     const { state, } = useContext(Context)
@@ -40,23 +43,31 @@ export default ({ navigation, }) => {
                         R.values,
                         R.map(
                             tabItem => (
-                                <ScrollView
+                                <FlatList
                                     key={tabItem.name}
                                     tabLabel={tabItem.name}
                                     showsVerticalScrollIndicator={false}
-                                    style={{
-                                        flex: 1,
-                                        paddingTop: 7,
-                                        backgroundColor: theme.navigationTabBarBackgound,
-                                    }}>
-                                        {
-                                            R.addIndex(R.map)(
-                                                (v, k) => (
-                                                    <SwipeList key={k} navigation={navigation} title={v.name} unit={v.list} />
-                                                )
-                                            )(tabItem.list || [])
-                                        }
-                                </ScrollView>
+                                    data={tabItem.list}
+                                    renderItem={({ item, index, separators }) => (
+                                        <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
+                                    )} />
+                                // <ScrollView
+                                //     key={tabItem.name}
+                                //     tabLabel={tabItem.name}
+                                //     showsVerticalScrollIndicator={false}
+                                //     style={{
+                                //         flex: 1,
+                                //         paddingTop: 7,
+                                //         backgroundColor: theme.navigationTabBarBackgound,
+                                //     }}>
+                                //         {
+                                //             R.addIndex(R.map)(
+                                //                 (v, k) => (
+                                //                     <SwipeList key={k} navigation={navigation} title={v.name} unit={v.list} />
+                                //                 )
+                                //             )(tabItem.list || [])
+                                //         }
+                                // </ScrollView>
                             )
                         ),
                     )(tab)

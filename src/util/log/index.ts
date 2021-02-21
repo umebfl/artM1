@@ -1,4 +1,5 @@
 
+// Todo 1. 渲染耗时计算及提示
 
 export enum level {
     debug,
@@ -21,6 +22,9 @@ export const warning = msg => {
 }
 export const error = msg => {
     log(level.error, msg)
+}
+export const clear = () => {
+    logState = []
 }
 
 const log = (lv: level, msg: String) => {

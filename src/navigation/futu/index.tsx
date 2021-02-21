@@ -17,6 +17,8 @@ import UnitItemList from '../../component/UnitItemList'
 
 import Context from '../../reducer'
 
+import { info, } from '../../util/log'
+
 export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
@@ -25,6 +27,8 @@ export default ({ navigation, }) => {
         theme,
         search,
     } = state
+
+    info('futu render')
 
     return (
         <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >

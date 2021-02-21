@@ -9,6 +9,8 @@ import {
     Button,
 } from 'react-native'
 
+import Toast from 'react-native-root-toast'
+
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
 import WingBlank from '../../component/WingBlank'
@@ -16,6 +18,8 @@ import WhiteSpace from '../../component/WhiteSpace'
 import UnitItemList from '../../component/UnitItemList'
 
 import Context from '../../reducer'
+
+import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
@@ -44,10 +48,30 @@ export default ({ navigation, }) => {
     const handleToReadPress = ({ url, }) => {
         navigation.push('readWebview', { url: url, })
     }
+    
+    info('info render')
 
     return (
         <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
             <SearchWrapper handleSubmit={handleSubmit} />
+
+            <Toast
+                containerStyle={{
+                    backgroundColor: theme.main,
+                    width: 50,
+                    height: 50,
+                    borderRadius: 50,
+                    aliginItem: 'center',
+                    justifyContent: 'center',
+                    bottom: 150,
+                    left: 150,
+                    opacity: 0.3,
+                }}
+                onPress={() => navigation.push('debugView')}
+                visible={true}
+                // position={Toast.positions.TOP}
+                // opacity={0.3}
+                hideOnPress={false}>调试</Toast>
 
             <WhiteSpace>
                 <WingBlank>

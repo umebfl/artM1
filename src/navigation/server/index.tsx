@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, } from 'react'
+import React, { useContext, useEffect, useMemo, } from 'react'
 
 import {
     SafeAreaView,
@@ -13,7 +13,8 @@ import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
 import WingBlank from '../../component/WingBlank'
 import WhiteSpace from '../../component/WhiteSpace'
-import UnitItemList from '../../component/UnitItemList'
+
+import SkillListView from '../../screen/skillListView'
 
 import Context from '../../reducer'
 
@@ -25,12 +26,25 @@ export default ({ navigation, }) => {
 
     const {
         theme,
-        search,
+        navigation: {
+            home: {
+                tab: {
+                    server: {
+                        data,
+                    },
+                },
+            },
+        },
     } = state
 
-    return (
-        <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
+    info('server render')
 
-        </ScreenWrapper>
+    const Node = () => <SkillListView navigation={navigation} data={data} />
+
+    const node = useMemo(
+        () => <Node />,
+        [data]
     )
+
+    return <View style={{ flex: 1, }}>{node}</View>
 }

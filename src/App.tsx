@@ -18,17 +18,23 @@ import unitDetailCode from './screen/unitDetailCode'
 
 import { getData, clearData, } from './reducer'
 
+import { info } from './util/log'
+
 const RootStack = createStackNavigator()
 
 const App = () => {
 
+  // clearData()
+
   const [state, dispatch] = useReducer(reducer, initState)
 
   const init = async () => {
+    info('App init')
     // await clearData()
     const data = await getData()
 
     if (data) {
+      info('更新本地缓存')
       dispatch({
         mod: 'system',
         type: 'init',
@@ -40,6 +46,8 @@ const App = () => {
   useEffect(() => {
     init()
   }, [])
+
+  info('渲染App')
 
   return (
     <RootContext.Provider value={{ state, dispatch, }}>

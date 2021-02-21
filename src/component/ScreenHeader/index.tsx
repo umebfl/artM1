@@ -21,7 +21,24 @@ import {
 
 export const SCREEN_HEADER_HEGIHT = 43
 
-export default ({ navigation, backTitle, title, }) => {
+interface payload {
+    navigation: any,
+    // 返回按钮标题
+    backTitle?: String,
+    // 中间标题
+    title?: String,
+    // 右侧节点
+    right?: any,
+}
+
+export default (payload: payload) => {
+
+    const {
+        navigation,
+        backTitle,
+        title,
+        right,
+    } = payload
 
     const { state, } = useContext(Context)
 
@@ -80,8 +97,12 @@ export default ({ navigation, backTitle, title, }) => {
             <View style={{
                 width: iconSize * 2,
                 // backgroundColor: 'red',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
             }}>
-
+                {
+                    right ? right : null
+                }
             </View>
         </View>
     )
