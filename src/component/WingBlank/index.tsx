@@ -9,7 +9,15 @@ import {
 
 import Context from '../../reducer'
 
-export default ({size, children, style}) => {
+interface payload {
+    size?: number
+    children?: any
+    style?: any
+}
+
+export default (payload: payload) => {
+
+    const {size, children, style} = payload
 
     const { state:
         {
@@ -20,7 +28,7 @@ export default ({size, children, style}) => {
     const num = size ? theme.size[size] : theme.size.md
 
     return (
-        <View style={{ ...style, marginLeft: num, marginRight: num, }}>
+        <View style={{ marginLeft: num, marginRight: num, ...style, }}>
             {
                 children ? children : null
             }

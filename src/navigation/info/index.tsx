@@ -18,6 +18,7 @@ import SearchWrapper from '../../component/SearchWrapper'
 import WingBlank from '../../component/WingBlank'
 import WhiteSpace from '../../component/WhiteSpace'
 import UnitItemList from '../../component/UnitItemList'
+import SwipeIconList from '../../component/SwipeIconList'
 
 import Context from '../../reducer'
 
@@ -36,6 +37,7 @@ export default ({ navigation, }) => {
                     info: {
                         tab: {
                             toRead,
+                            favWebsite,
                         },
                     },
                 },
@@ -114,10 +116,12 @@ export default ({ navigation, }) => {
             }
 
             <WhiteSpace>
-                <WingBlank>
-                    <UnitItemList data={[toRead]} showUrl={true} handlePress={handleToReadPress} />
-                </WingBlank>
+                <SwipeIconList navigation={navigation} data={favWebsite.list} />
             </WhiteSpace>
+
+            <WingBlank>
+                <UnitItemList data={[toRead]} showUrl={true} handlePress={handleToReadPress} />
+            </WingBlank>
         </ScreenWrapper>
     )
 }
