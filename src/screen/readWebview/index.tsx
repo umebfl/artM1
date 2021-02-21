@@ -55,7 +55,7 @@ export default ({ route, navigation }) => {
     const [canGoBack, setCanGoBack] = useState(false)
     const [canGoForward, setCanGoForward] = useState(false)
 
-    const iconSize = 34
+    const iconSize = 32
     const iconColor = theme.grey[5]
     const iconColorDisable = theme.grey[0]
 
@@ -145,7 +145,7 @@ export default ({ route, navigation }) => {
                         justifyContent: 'space-between',
                     }}>
                         <TouchView onPress={handleHeart}>
-                            <Icon style={{ width: iconSize, height: iconSize }} name={'heart-outline'} size={iconSize} color={iconColor} />
+                            <Icon style={{ width: iconSize, height: iconSize }} name={'heart-multiple-outline'} size={iconSize} color={iconColor} />
                         </TouchView>
                         <TouchView onPress={handleToRead}>
                             <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={onToRead ? theme.green[6] : iconColor} />

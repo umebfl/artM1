@@ -1,7 +1,7 @@
 import { SkillPlatform, SkillUnit, } from '../../../variable'
 
 export default {
-    name: '理论',
+    name: '基础',
     list: [
         {
             name: '网络',
@@ -88,15 +88,15 @@ export default {
             name: '脚本',
             list: [
                 {
-                    name: 'linux',
-                    def: '一种自由和开放源码的类 UNIX 操作系统',
+                    name: 'shell',
+                    def: '一种为 shell 编写的脚本程序',
                     major: false,
                     platform: SkillPlatform.all,
                     // logo: {
                     //   type: 'icon',
                     //   url: 'security',
                     // },
-                    url: 'https://www.runoob.com/linux/linux-tutorial.html',
+                    url: 'https://www.runoob.com/linux/linux-shell.html',
                 },
                 {
                     name: 'linux命令行',

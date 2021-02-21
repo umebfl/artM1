@@ -10,6 +10,8 @@ import {
 } from 'react-native'
 
 import Toast from 'react-native-root-toast'
+import Restart from 'react-native-restart'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
@@ -39,6 +41,9 @@ export default ({ navigation, }) => {
                 },
             },
         },
+        debug: {
+            open,
+        },
     } = state
 
     const handleSubmit = val => {
@@ -48,30 +53,65 @@ export default ({ navigation, }) => {
     const handleToReadPress = ({ url, }) => {
         navigation.push('readWebview', { url: url, })
     }
-    
+
+    const handleReload = () => {
+        Restart.Restart()
+    }
+
     info('info render')
 
     return (
         <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
             <SearchWrapper handleSubmit={handleSubmit} />
 
-            <Toast
-                containerStyle={{
-                    backgroundColor: theme.main,
-                    width: 50,
-                    height: 50,
-                    borderRadius: 50,
-                    aliginItem: 'center',
-                    justifyContent: 'center',
-                    bottom: 100,
-                    left: 130,
-                    opacity: 0.3,
-                }}
-                onPress={() => navigation.push('debugView')}
-                visible={true}
-                // position={Toast.positions.TOP}
-                // opacity={0.3}
-                hideOnPress={false}>调试</Toast>
+            {
+                open
+                    ? (
+                        <>
+                            <Toast
+                                containerStyle={{
+                                    backgroundColor: theme.main,
+                                    width: 52,
+                                    height: 52,
+                                    borderRadius: 25,
+                                    aliginItem: 'center',
+                                    justifyContent: 'center',
+                                    bottom: 100,
+                                    left: 130,
+                                    opacity: 0.3,
+                                }}
+                                onPress={() => navigation.push('debugView')}
+                                visible={true}
+                                // position={Toast.positions.TOP}
+                                // opacity={0.3}
+                                hideOnPress={false}>跟踪</Toast>
+
+                            <Toast
+                                containerStyle={{
+                                    backgroundColor: theme.main,
+                                    width: 40,
+                                    height: 40,
+                                    borderRadius: 25,
+                                    aliginItem: 'center',
+                                    justifyContent: 'center',
+                                    bottom: 160,
+                                    left: 140,
+                                    opacity: 0.2,
+                                }}
+                                onPress={handleReload}
+                                visible={true}
+                                // position={Toast.positions.TOP}
+                                // opacity={0.3}
+                                hideOnPress={false}>
+                                <Icon style={{
+                                    marginLeft: 6,
+                                    marginRight: 8,
+                                }} name={'reload'} size={22} color={'white'} />
+                            </Toast>
+                        </>
+                    )
+                    : null
+            }
 
             <WhiteSpace>
                 <WingBlank>

@@ -7,6 +7,7 @@ import {
     Text,
     TouchableWithoutFeedback,
     Button,
+    Switch,
 } from 'react-native'
 
 import Restart from 'react-native-restart'
@@ -35,6 +36,9 @@ export default ({ navigation, }) => {
     const {
         theme,
         search,
+        debug: {
+            open,
+        },
     } = state
 
     const handleClearCachePress = async (index) => {
@@ -46,6 +50,13 @@ export default ({ navigation, }) => {
 
     const handleClearCacheActionSheet = async () => {
         actionSheetREl.current.show()
+    }
+
+    const handleDebugModSwitch = () => {
+        dispatch({
+            mod: 'debug',
+            type: 'toggle',
+        })
     }
 
     info('other render')
@@ -69,6 +80,7 @@ export default ({ navigation, }) => {
                 <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
                 <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
                 <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
+                <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
             </List>
 
             <List>

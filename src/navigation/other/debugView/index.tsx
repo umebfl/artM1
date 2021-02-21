@@ -12,12 +12,10 @@ import {
 } from 'react-native'
 
 import Clipboard from '@react-native-community/clipboard'
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import JSONTree from 'react-native-json-tree'
 import Toast from 'react-native-root-toast'
-
 
 import ScreenWrapper from '../../../component/ScreenWrapper'
 import ScreenHeader from '../../../component/ScreenHeader'
@@ -68,6 +66,7 @@ export default ({ navigation, }) => {
                                 }}>
                                     <Text style={{
                                         color: theme.textLight2,
+                                        fontSize: 11,
                                     }}>- 已经到底了 -</Text>
                                 </View>
                             )

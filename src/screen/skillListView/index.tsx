@@ -9,6 +9,7 @@ import {
     TouchableWithoutFeedback,
     Button,
     FlatList,
+    NativeModules,
 } from 'react-native'
 
 import ScreenWrapper from '../../component/ScreenWrapper'
@@ -17,6 +18,8 @@ import SwipeList from '../../component/SwipeList'
 import Context from '../../reducer'
 
 import { info, } from '../../util/log'
+
+import { statusBarHeight, } from '../../util/StatusBarManager'
 
 export default ({ navigation, data, }) => {
 
@@ -37,15 +40,17 @@ export default ({ navigation, data, }) => {
 
     // const list = useMemo(
     //     () => (
-    //         <Rxp />
-    //         // <FlatList
-    //         //     key={item.name}
-    //         //     tabLabel={item.name}
-    //         //     showsVerticalScrollIndicator={false}
-    //         //     data={item.list}
-    //         //     renderItem={({ item, index, separators }) => (
-    //         //         <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
-    //         //     )} />
+    //         <FlatList
+    //             style={{
+    //                 paddingTop: statusBarHeight,
+    //             }}
+    //             tabLabel={item.name}
+    //             showsVerticalScrollIndicator={false}
+    //             data={item.list}
+    //             initialNumToRender={3}
+    //             renderItem={({ item, index, separators }) => (
+    //                 <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
+    //             )} />
     //     ),
     //     [data]
     // )
@@ -55,10 +60,30 @@ export default ({ navigation, data, }) => {
     return (
         <View style={{
             backgroundColor: 'white',
-            paddingTop: 50,
             flex: 1,
         }} LinearGradientBackground={false} navigation={navigation} theme={theme} imageBackground={null} >
             <FlatList
+                style={{
+                    paddingTop: statusBarHeight,
+                }}
+                ListFooterComponent={() => {
+                    if (item.list) {
+                        return (
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                aliginItem: 'center',
+                                paddingBottom: 70,
+                            }}>
+                                <Text style={{
+                                    color: theme.textLight2,
+                                    fontSize: 11,
+                                }}>- 已经到底了 -</Text>
+                            </View>
+                        )
+                    }
+                    return null
+                }}
                 tabLabel={item.name}
                 showsVerticalScrollIndicator={false}
                 data={item.list}
@@ -66,6 +91,8 @@ export default ({ navigation, data, }) => {
                 renderItem={({ item, index, separators }) => (
                     <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
                 )} />
+            
+            {/* {list} */}
 
             {/* <ScrollView
                 showsVerticalScrollIndicator={false}

@@ -6,6 +6,7 @@ import {
     ScrollView,
     View,
     Text,
+    Switch,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -69,6 +70,8 @@ export const Item = payload => {
         jumpTo,
         handlePress,
         navigation,
+        type,
+        value,
     } = payload
 
     return (
@@ -105,6 +108,23 @@ export const Item = payload => {
                     jumpTo
                         ? <Icon name={'chevron-right'} size={30} color={theme.textLight} />
                         : null
+                }
+                {
+                    R.cond([
+                        [
+                            R.equals('switch'),
+                            () => (
+                                <Switch
+                                    onValueChange={handlePress}
+                                    value={value}
+                                />
+                            ),
+                        ],
+                        [
+                            R.T,
+                            () => null
+                        ],
+                    ])(type || '')
                 }
             </View>
         </TouchView>

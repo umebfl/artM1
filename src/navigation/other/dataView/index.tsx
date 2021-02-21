@@ -89,7 +89,7 @@ export default ({ navigation, }) => {
     // })
 
     return (
-        <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
+        <ScreenWrapper ContentViewType='view' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
             <ScreenHeader navigation={navigation} />
 
             <Toast
@@ -100,8 +100,7 @@ export default ({ navigation, }) => {
                 opacity={0.6}
                 hideOnPress={true}>复制成功</Toast>
 
-            <View style={{ margin: 6, }}>
-
+            <ScrollView showsVerticalScrollIndicator={false} style={{ marginLeft: 6, marginRight: 6, }}>
                 <JSONTree
                     data={state}
                     hideRoot={true}
@@ -121,7 +120,7 @@ export default ({ navigation, }) => {
                         </Text>
                     }
                     theme={JSONTreeTheme} />
-            </View>
+            </ScrollView>
         </ScreenWrapper>
     )
 }

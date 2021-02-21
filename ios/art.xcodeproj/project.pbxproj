@@ -327,7 +327,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = umebfl.art;
+				PRODUCT_BUNDLE_IDENTIFIER = umebfl.artDBG;
 				PRODUCT_NAME = art;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -350,7 +350,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = umebfl.art;
+				PRODUCT_BUNDLE_IDENTIFIER = umebfl.artDBG;
 				PRODUCT_NAME = art;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -1,15 +1,6 @@
 import R from 'ramda'
 import React, { useContext, useEffect, useMemo, } from 'react'
 
-import {
-    SafeAreaView,
-    ScrollView,
-    View,
-    Text,
-    Dimensions,
-    TouchableOpacity,
-} from 'react-native'
-
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -19,50 +10,43 @@ import Context from '../reducer'
 import Futu from './futu'
 import Info from './info'
 import Other from './other'
-import Skill from './skill'
-import SkillTab from './skillTab'
 import Server from './server'
 import Theory from './theory'
 import Interactive from './interactive'
 import Todo from './todo'
-import Test from '../tmp/test'
 
 const Tab = createBottomTabNavigator()
 
-// const buildScreen = R.cond([
-//     [
-//         R.equals('futu'),
-//         () => Futu,
-//     ],
-//     [
-//         R.equals('info'),
-//         () => Info,
-//     ],
-//     [
-//         R.equals('other'),
-//         () => Other,
-//     ],
-//     // [
-//     //     R.equals('skill'),
-//     //     () => Skill,
-//     // ],
-//     [
-//         R.equals('interactive'),
-//         () => ({ navigation, }) => SkillTab({ navigation, type: 'interactive', }),
-//     ],
-//     [
-//         R.equals('server'),
-//         () => ({ navigation, }) => SkillTab({ navigation, type: 'server', }),
-//     ],
-//     [
-//         R.equals('theory'),
-//         () => ({ navigation, }) => SkillTab({ navigation, type: 'theory', }),
-//     ],
-//     [
-//         R.equals('todo'),
-//         () => Todo,
-//     ],
-// ])
+const buildScreen = R.cond([
+    [
+        R.equals('futu'),
+        () => Futu,
+    ],
+    [
+        R.equals('info'),
+        () => Info,
+    ],
+    [
+        R.equals('other'),
+        () => Other,
+    ],
+    [
+        R.equals('interactive'),
+        () => Interactive,
+    ],
+    [
+        R.equals('server'),
+        () => Server,
+    ],
+    [
+        R.equals('theory'),
+        () => Theory,
+    ],
+    [
+        R.equals('todo'),
+        () => Todo,
+    ],
+])
 
 const buildIcon = ({ focused, color, size, theme, icon, }) => {
 
@@ -95,13 +79,14 @@ export default () => {
         navigation: {
             home: {
                 initialRouteName,
-                tab: {
-                    info,
-                    interactive,
-                    server,
-                    theory,
-                    other,
-                },
+                tab,
+                // tab: {
+                //     info,
+                //     interactive,
+                //     server,
+                //     theory,
+                //     other,
+                // },
             },
         },
     } = state
@@ -109,7 +94,7 @@ export default () => {
     return (
         <Tab.Navigator initialRouteName={initialRouteName}>
 
-            <Tab.Screen name={info.name}
+            {/* <Tab.Screen name={info.name}
                 options={({ route }) => ({
                     tabBarLabel: info.text,
                     tabBarIcon: ({ focused, color, size, }) => buildIcon({ focused, color, size, theme, icon: info.icon, }),
@@ -123,6 +108,12 @@ export default () => {
                 })}
                 component={Interactive} />
 
+            <Tab.Screen name={server.name}
+                options={({ route }) => ({
+                    tabBarLabel: server.text,
+                    tabBarIcon: ({ focused, color, size, }) => buildIcon({ focused, color, size, theme, icon: server.icon, }),
+                })}
+                component={Server} />
 
             <Tab.Screen name={theory.name}
                 options={({ route }) => ({
@@ -131,26 +122,14 @@ export default () => {
                 })}
                 component={Theory} />
 
-
-            <Tab.Screen name={server.name}
-                options={({ route }) => ({
-                    tabBarLabel: server.text,
-                    tabBarIcon: ({ focused, color, size, }) => buildIcon({ focused, color, size, theme, icon: server.icon, }),
-                })}
-                component={Server} />
-
             <Tab.Screen name={other.name}
                 options={({ route }) => ({
                     tabBarLabel: other.text,
                     tabBarIcon: ({ focused, color, size, }) => buildIcon({ focused, color, size, theme, icon: other.icon, }),
                 })}
-                component={Other} />
+                component={Other} /> */}
 
-
-
-
-
-            {/* {
+            {
                 R.compose(
                     R.values,
                     R.map(
@@ -185,7 +164,7 @@ export default () => {
                         )
                     ),
                 )(tab)
-            } */}
+            }
         </Tab.Navigator>
     )
 }

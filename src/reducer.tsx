@@ -114,13 +114,13 @@ export const initState = {
                 server: {
                     name: 'server',
                     text: '后台',
-                    icon: 'electron-framework',
+                    icon: 'nodejs',
                     data: server,
                 },
                 theory: {
                     name: 'theory',
-                    text: '理论',
-                    icon: 'electron-framework',
+                    text: '基础',
+                    icon: 'midi-port',
                     data: theory,
                 },
                 // futu: {
@@ -149,16 +149,8 @@ export const initState = {
 
     // debug
     debug: {
-        count: 0,
-        count2: 0,
-        list: [
-            {
-                mod: 'test',
-                lv: 'debug',
-                title: 'test',
-                msg: 'count: 1',
-            },
-        ],
+        // 是否启动调试模式
+        open: false,
     },
 
     // 搜索引擎
@@ -170,6 +162,18 @@ export const reducer = (state, action) => {
     info(`执行: ${action.type}`)
 
     return R.cond([
+        [
+            R.equals('debug'),
+            () => R.cond([
+                [
+                    R.equals('toggle'),
+                    () => R.compose(
+                        R.tap(newState => setData(newState)),
+                        R.assocPath(['debug', 'open'], !state.debug.open),
+                    )(state),
+                ],
+            ])(action.type),
+        ],
         [
             R.equals('system'),
             () => R.cond([
@@ -198,6 +202,7 @@ export const reducer = (state, action) => {
                     [
                         R.equals('add'),
                         () => R.compose(
+                            // 写入到本地存储
                             R.tap(newState => setData(newState)),
                             R.assocPath(path, [...list, action.payload]),
                         )(state),
