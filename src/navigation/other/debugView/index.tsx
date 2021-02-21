@@ -57,24 +57,23 @@ export default ({ navigation, }) => {
                 <FlatList data={log}
                     showsVerticalScrollIndicator={false}
                     removeClippedSubviews={true}
-                    ListFooterComponent={() => (
-                        <View style={{
-                            flexDirection: 'row',
-                            justifyContent: 'center',
-                            aliginItem: 'center',
-                            paddingBottom: 500,
-                        }}>
-                            {
-                                log.length
-                                    ? (
-                                        <Text style={{
-                                            color: theme.textLight2,
-                                        }}>- 已经到底了 -</Text>
-                                    )
-                                    : null
-                            }
-                        </View>
-                    )}
+                    ListFooterComponent={() => {
+                        if (log.length) {
+                            return (
+                                <View style={{
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    aliginItem: 'center',
+                                    paddingBottom: 50,
+                                }}>
+                                    <Text style={{
+                                        color: theme.textLight2,
+                                    }}>- 已经到底了 -</Text>
+                                </View>
+                            )
+                        }
+                        return null
+                    }}
                     ListEmptyComponent={() => (
                         <View style={{
                             flexDirection: 'row',
@@ -94,7 +93,7 @@ export default ({ navigation, }) => {
                             paddingBottom: 10,
                         }}>
                             <Text style={{ marginRight: 5, fontSize: 12, }}>
-                                {item.time.toLocaleTimeString()}
+                                {item.time.getMinutes()}:{item.time.getSeconds()}.{item.time.getMilliseconds()}s
                             </Text>
                             <Text style={{ marginRight: 5, color: theme.main, fontSize: 12, }}>
                                 {

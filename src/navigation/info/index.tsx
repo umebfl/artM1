@@ -63,8 +63,8 @@ export default ({ navigation, }) => {
                     borderRadius: 50,
                     aliginItem: 'center',
                     justifyContent: 'center',
-                    bottom: 150,
-                    left: 150,
+                    bottom: 100,
+                    left: 130,
                     opacity: 0.3,
                 }}
                 onPress={() => navigation.push('debugView')}

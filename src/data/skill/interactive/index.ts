@@ -500,6 +500,14 @@ export default {
                     platform: SkillPlatform.reactNative,
                     url: 'https://github.com/crazycodeboy/react-native-easy-toast',
                 },
+
+                {
+                    name: 'statsjs',
+                    def: '帮助您监视代码性能',
+                    platform: SkillPlatform.react,
+                    url: 'https://www.npmjs.com/package/stats-js',
+                },
+                
             ],
         },
     ],

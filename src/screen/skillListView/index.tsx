@@ -53,11 +53,16 @@ export default ({ navigation, data, }) => {
     info(`${item.name} -> skillListView render`)
 
     return (
-        <ScreenWrapper LinearGradientBackground={false} navigation={navigation} theme={theme} imageBackground={null} >
+        <View style={{
+            backgroundColor: 'white',
+            paddingTop: 50,
+            flex: 1,
+        }} LinearGradientBackground={false} navigation={navigation} theme={theme} imageBackground={null} >
             <FlatList
                 tabLabel={item.name}
                 showsVerticalScrollIndicator={false}
                 data={item.list}
+                initialNumToRender={3}
                 renderItem={({ item, index, separators }) => (
                     <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
                 )} />
@@ -74,9 +79,9 @@ export default ({ navigation, data, }) => {
                         (v, k) => (
                             <SwipeList key={k} navigation={navigation} title={v.name} unit={v.list} />
                         )
-                    )(tabItem.list || [])
+                    )(item.list || [])
                 }
             </ScrollView> */}
-        </ScreenWrapper>
+        </View>
     )
 }
