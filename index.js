@@ -7,16 +7,17 @@ import {name as appName} from './app.json'
 
 import { LogBox } from 'react-native'
 
-LogBox.ignoreLogs([
-    'Warning: componentWillMount is deprecated',
-    'Warning: componentWillReceiveProps is deprecated',
-    'Module RCTImageLoader requires',
-    'Warning: componentWillUpdate is deprecated',
-    'ReactNativeFiberHostComponent',
-    'Task orphaned for request',
-    'RCTBridge required dispatch_sync to load RCTDevLoadingView',
-    'componentWillReceiveProps has been renamed',
-    'componentWillMount has been renamed',
-]);
+LogBox.ignoreAllLogs()
+// LogBox.ignoreLogs([
+//     'Warning: componentWillMount is deprecated',
+//     'Warning: componentWillReceiveProps is deprecated',
+//     'Module RCTImageLoader requires',
+//     'Warning: componentWillUpdate is deprecated',
+//     'ReactNativeFiberHostComponent',
+//     'Task orphaned for request',
+//     'RCTBridge required dispatch_sync to load RCTDevLoadingView',
+//     'componentWillReceiveProps has been renamed',
+//     'componentWillMount has been renamed',
+// ]);
 
 AppRegistry.registerComponent(appName, () => App)
