@@ -507,6 +507,13 @@ export default {
                     platform: SkillPlatform.react,
                     url: 'https://www.npmjs.com/package/stats-js',
                 },
+
+                {
+                    name: 'react-native-splash-screen',
+                    def: '控制启动页显示和隐藏, 处理启动白屏问题',
+                    platform: SkillPlatform.reactNative,
+                    url: 'https://github.com/crazycodeboy/react-native-splash-screen',
+                },
                 
             ],
         },

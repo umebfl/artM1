@@ -2,6 +2,8 @@ import React, { useReducer, useEffect, } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
+import SplashScreen from 'react-native-splash-screen'
+
 import RootContext, { initState, reducer, } from './reducer'
 
 import Home from './navigation/home'
@@ -45,6 +47,7 @@ const App = () => {
 
   useEffect(() => {
     init()
+    SplashScreen.hide()
   }, [])
 
   info('渲染App')

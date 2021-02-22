@@ -1,6 +1,8 @@
 import R from 'ramda'
 import React, { useContext, useEffect, useMemo, } from 'react'
 
+// import SplashScreen from 'react-native-splash-screen'
+
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -71,7 +73,7 @@ const buildIcon = ({ focused, color, size, theme, icon, }) => {
     )
 }
 
-export default () => {
+export default ({ navigation, }) => {
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -90,6 +92,13 @@ export default () => {
             },
         },
     } = state
+
+    useEffect(() => {
+        // SplashScreen.hide()
+
+        navigation.push('debugView')
+
+      }, [])
 
     return (
         <Tab.Navigator initialRouteName={initialRouteName}>
