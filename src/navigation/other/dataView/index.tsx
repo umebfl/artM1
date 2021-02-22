@@ -87,6 +87,7 @@ export default ({ navigation, }) => {
     //         )(timeList)
     //     }
     // })
+    // alert(JSON.stringify(state.debug.renderTime))
 
     return (
         <ScreenWrapper ContentViewType='view' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >

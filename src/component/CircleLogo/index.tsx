@@ -45,7 +45,7 @@ export default (payload: unitLogoPlayload) => {
             borderColor: theme.borderColor,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: data ? data.bg : 'white',
+            backgroundColor: data.bg ? data.bg : 'white',
         }}>
             {
                 R.cond([

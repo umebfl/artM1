@@ -2,8 +2,6 @@ import React, { useReducer, useEffect, } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import SplashScreen from 'react-native-splash-screen'
-
 import RootContext, { initState, reducer, } from './reducer'
 
 import Home from './navigation/home'
@@ -26,7 +24,8 @@ const RootStack = createStackNavigator()
 
 const App = () => {
 
-  // clearData()
+  // 渲染计时 起始时间
+  const startTime = new Date()
 
   const [state, dispatch] = useReducer(reducer, initState)
 
@@ -46,8 +45,25 @@ const App = () => {
   }
 
   useEffect(() => {
+
+    // 渲染计时 结束时间
+    const endTime = new Date()
+
+    dispatch({
+      mod: 'debug',
+      type: 'renderTime_add',
+      payload: {
+        // 模块
+        mod: 'App',
+        name: '总计',
+        // startTime,
+        // endTime,
+        // ms
+        time: endTime - startTime,
+      },
+    })
+
     init()
-    SplashScreen.hide()
   }, [])
 
   info('渲染App')

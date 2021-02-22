@@ -59,6 +59,26 @@ export default ({ navigation, }) => {
         })
     }
 
+    const startTime = new Date()
+
+    useEffect(() => {
+        const endTime = new Date()
+    
+        dispatch({
+          mod: 'debug',
+          type: 'renderTime_add',
+          payload: {
+            // 模块
+            mod: 'other',
+            name: '其他',
+            // startTime,
+            // endTime,
+            // ms
+            time: endTime - startTime,
+          },
+        })
+      }, [])
+
     info('other render')
 
     return (

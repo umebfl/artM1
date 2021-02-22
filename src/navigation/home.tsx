@@ -1,11 +1,10 @@
 import R from 'ramda'
 import React, { useContext, useEffect, useMemo, } from 'react'
 
-// import SplashScreen from 'react-native-splash-screen'
-
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import SplashScreen from 'react-native-splash-screen'
 
 import Context from '../reducer'
 
@@ -93,15 +92,17 @@ export default ({ navigation, }) => {
         },
     } = state
 
-    useEffect(() => {
-        // SplashScreen.hide()
-
-        navigation.push('debugView')
-
-      }, [])
+    useEffect(
+        () => {
+            // navigation.navigate('interactive')
+            // navigation.navigate('info')
+            SplashScreen.hide()
+        },
+        []
+    )
 
     return (
-        <Tab.Navigator initialRouteName={initialRouteName}>
+        <Tab.Navigator initialRouteName={initialRouteName} lazy={false}>
 
             {/* <Tab.Screen name={info.name}
                 options={({ route }) => ({

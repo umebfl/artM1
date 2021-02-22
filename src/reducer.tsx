@@ -27,7 +27,33 @@ export const clearData = async () => {
 const setData = async (value) => {
     try {
         info(`设置本地缓存: ${value}`)
-        const jsonValue = JSON.stringify(value)
+
+
+        const data = {
+            debug: {
+                open: value.dabug.open,
+            },
+            navigation: {
+                home: {
+                    tab: {
+                        info: {
+                            tab: {
+                                toRead: {
+                                    list: value.payload.navigation.home.tab.info.tab.toRead.list,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        }
+
+        // ?
+        info('xx: ' + JSON.stringify(data))
+
+        const jsonValue = JSON.stringify(data)
+
+
         await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
     } catch (e) {
         // saving error
@@ -57,6 +83,7 @@ export const initState = {
         navigationTabBarBackgoundSecond: 'rgba(248, 249, 250, 1)',
 
         ...color,
+
         borderWidth: 0.7,
         borderColor: 'rgba(100, 100, 100, 0.2)',
         size: {
@@ -229,13 +256,31 @@ export const initState = {
 
     // 模块
     system: {
-        version: '0.0.1',
+        version: '2.0.3',
     },
 
     // debug
     debug: {
         // 是否启动调试模式
         open: true,
+
+        // 初次渲染耗时统计
+        renderTime: [
+            // {
+            //     // 模块
+            //     name: 'App',
+            //     // ms
+            //     time: 200,
+            // },
+        ],
+
+        // 各模块渲染次数统计
+        renderCount: {
+            // 模块
+            App: {
+                count: 20,
+            },
+        },
     },
 
     // 搜索引擎
@@ -257,6 +302,13 @@ export const reducer = (state, action) => {
                         R.assocPath(['debug', 'open'], !state.debug.open),
                     )(state),
                 ],
+                [
+                    R.equals('renderTime_add'),
+                    () => R.compose(
+                        // R.tap(newState => setData(newState)),
+                        R.assocPath(['debug', 'renderTime'], [ ...state.debug.renderTime, action.payload]),
+                    )(state),
+                ],
             ])(action.type),
         ],
         [
@@ -264,7 +316,7 @@ export const reducer = (state, action) => {
             () => R.cond([
                 [
                     R.equals('init'),
-                    () => action.payload,
+                    () => R.mergeDeepRight(state, action.payload),
                 ],
             ])(action.type),
         ],
