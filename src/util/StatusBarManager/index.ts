@@ -5,7 +5,7 @@ import {
 const { StatusBarManager } = NativeModules
 
 // 刘海屏处理
-export let statusBarHeight = 0
+export let statusBarHeight = StatusBarManager.HEIGHT
 
 if (Platform.OS === 'ios') {
     StatusBarManager.getHeight(height => {

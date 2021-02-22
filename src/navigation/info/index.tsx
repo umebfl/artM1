@@ -108,7 +108,7 @@ export default ({ navigation, }) => {
                                     aliginItem: 'center',
                                     justifyContent: 'center',
                                     bottom: 100,
-                                    left: 130,
+                                    left: 120,
                                     opacity: 0.3,
                                 }}
                                 onPress={() => navigation.push('debugView')}
@@ -126,7 +126,7 @@ export default ({ navigation, }) => {
                                     aliginItem: 'center',
                                     justifyContent: 'center',
                                     bottom: 160,
-                                    left: 140,
+                                    left: 130,
                                     opacity: 0.2,
                                 }}
                                 onPress={handleReload}
@@ -149,7 +149,7 @@ export default ({ navigation, }) => {
                                     aliginItem: 'center',
                                     justifyContent: 'center',
                                     bottom: 200,
-                                    left: 170,
+                                    left: 160,
                                     opacity: 0.1,
                                     padding: 0,
                                 }}
