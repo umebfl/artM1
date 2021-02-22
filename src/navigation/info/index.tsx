@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, } from 'react'
+import React, { useContext, useEffect, useRef, } from 'react'
 
 import {
     SafeAreaView,
@@ -9,6 +9,7 @@ import {
     Button,
 } from 'react-native'
 
+import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-root-toast'
 import Restart from 'react-native-restart'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -20,6 +21,7 @@ import WhiteSpace from '../../component/WhiteSpace'
 import UnitItemList from '../../component/UnitItemList'
 import SwipeIconList from '../../component/SwipeIconList'
 
+import { getData, clearData, } from '../../reducer'
 import Context from '../../reducer'
 
 import { info, } from '../../util/log'
@@ -27,6 +29,7 @@ import { info, } from '../../util/log'
 export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
+    const actionSheetREl = useRef(null)
 
     const {
         theme,
@@ -60,6 +63,23 @@ export default ({ navigation, }) => {
         Restart.Restart()
     }
 
+    const handleClearCache = async () => {
+        await clearData()
+        Restart.Restart()
+    }
+
+    const handleClearCacheActionSheet = () => {
+        actionSheetREl.current.show()
+    }
+
+    const handleMore = index => {
+        if(index === 0) {
+            handleClearCache()
+        } else if(index === 2) {
+            navigation.push('dataView')
+        }
+    }
+
     info('info render')
 
     return (
@@ -70,6 +90,15 @@ export default ({ navigation, }) => {
                 open
                     ? (
                         <>
+                            <ActionSheet
+                                ref={actionSheetREl}
+                                title={'更多调试功能'}
+                                options={['清空缓存', '取消', '查看数据', ]}
+                                cancelButtonIndex={1}
+                                destructiveButtonIndex={0}
+                                onPress={handleMore}
+                            />
+
                             <Toast
                                 containerStyle={{
                                     backgroundColor: theme.main,
@@ -109,6 +138,28 @@ export default ({ navigation, }) => {
                                     marginLeft: 6,
                                     marginRight: 8,
                                 }} name={'reload'} size={22} color={'white'} />
+                            </Toast>
+
+                            <Toast
+                                containerStyle={{
+                                    backgroundColor: theme.main,
+                                    width: 32,
+                                    height: 32,
+                                    borderRadius: 25,
+                                    aliginItem: 'center',
+                                    justifyContent: 'center',
+                                    bottom: 200,
+                                    left: 170,
+                                    opacity: 0.1,
+                                    padding: 0,
+                                }}
+                                onPress={handleClearCacheActionSheet}
+                                visible={true}
+                                // position={Toast.positions.TOP}
+                                // opacity={0.3}
+                                hideOnPress={false}>
+                                <Icon style={{
+                                }} name={'plus-circle-multiple-outline'} size={15} color={'white'} />
                             </Toast>
                         </>
                     )
