@@ -19,6 +19,8 @@ import {
     DefText,
 } from '../../component/Text'
 
+import { statusBarHeight, } from '../../util/StatusBarManager'
+
 export const SCREEN_HEADER_HEGIHT = 43
 
 interface payload {
@@ -29,6 +31,8 @@ interface payload {
     title?: String,
     // 右侧节点
     right?: any,
+    // 支持刘海
+    safeArea?: boolean,
 }
 
 export default (payload: payload) => {
@@ -38,6 +42,7 @@ export default (payload: payload) => {
         backTitle,
         title,
         right,
+        safeArea,
     } = payload
 
     const { state, } = useContext(Context)
@@ -48,10 +53,13 @@ export default (payload: payload) => {
 
     const iconSize = 44
 
+    const paddingTop = safeArea === true ? statusBarHeight : 0
+
     return (
         <View style={{
             backgroundColor: theme.navigationTabBarBackgound,
-            height: SCREEN_HEADER_HEGIHT,
+            height: SCREEN_HEADER_HEGIHT + paddingTop,
+            paddingTop,
             // backgroundColor: 'rgba(100, 100, 100, 0.2)',
             // borderBottomWidth: theme.borderWidth,
             // borderBottomColor: theme.borderColor,

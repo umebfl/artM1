@@ -104,8 +104,8 @@ export default ({ navigation, }) => {
             </List>
 
             <List>
-                <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} />
-                <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'setting'} />
+                {/* <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} /> */}
+                <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'about'} navigation={navigation} />
             </List>
         </ScreenWrapper>
     )

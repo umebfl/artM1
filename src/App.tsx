@@ -19,6 +19,7 @@ import Home from './navigation/home'
 
 import DataView from './navigation/other/dataView'
 import DebugView from './navigation/other/debugView'
+import About from './navigation/other/about'
 
 import ReadWebview from './screen/readWebview'
 import UnitListView from './screen/unitListView'
@@ -44,12 +45,8 @@ const App = () => {
     info('App init')
     const data = await getData()
 
-    debug(`data: ${JSON.stringify(data)}`)
-
     if (data) {
       info('更新本地缓存')
-    
-      debug(`data: ${JSON.stringify(data)}`)
     
       dispatch({
         mod: 'system',
@@ -106,6 +103,7 @@ const App = () => {
           <RootStack.Screen name='unitDetailCodeView' component={unitDetailCode} />
 
 
+          <RootStack.Screen name='about' component={About} />
           <RootStack.Screen name='dataView' component={DataView} />
           <RootStack.Screen name='debugView' component={DebugView} />
 

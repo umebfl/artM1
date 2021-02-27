@@ -63,7 +63,6 @@ export const getData = async () => {
         info('获取本地缓存')
         const jsonValue = await AsyncStorage.getItem(STORE_DATA_KEY)
 
-        debug(`获取本地缓存: ${JSON.stringify(jsonValue)}`)
         return jsonValue != null ? JSON.parse(jsonValue) : null
     } catch (e) {
         // error reading value
@@ -289,7 +288,7 @@ export const initState = {
 
 export const reducer = (state, action) => {
 
-    info(`执行: ${action.type} ${JSON.stringify(action)}`)
+    info(`执行: ${action.type}`)
 
     return R.cond([
         [
