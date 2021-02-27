@@ -9,7 +9,19 @@ import {
 
 import Context from '../../reducer'
 
-export default ({size, children, style}) => {
+interface payload {
+    size: number
+    children: any
+    style: any
+}
+
+export default (payload: payload) => {
+
+    const {
+        size,
+        children,
+        style,
+    } = payload
 
     const { 
         state: {

@@ -11,7 +11,15 @@ import {
   ImageBackground,
 } from 'react-native'
 
-export default ({ handleSubmit, }) => {
+interface payload {
+  handleSubmit: Function
+}
+
+export default (payload: payload) => {
+
+  const {
+    handleSubmit,
+  } = payload
 
   const [value, onChangeText] = useState('')
 

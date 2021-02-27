@@ -21,7 +21,13 @@ import {
     DefText,
 } from '../../component/Text'
 
-export default payload => {
+interface payload {
+    data: any
+    showUrl: boolean
+    handlePress: Function
+}
+
+export default (payload: payload) => {
 
     const { state, } = useContext(Context)
 

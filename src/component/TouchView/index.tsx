@@ -16,7 +16,11 @@ interface State {
     scale: number;
 }
 
-export default payload => {
+interface payload {
+    children: any
+}
+
+export default (payload: payload) => {
 
     const {
         children,

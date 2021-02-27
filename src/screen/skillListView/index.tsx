@@ -14,6 +14,7 @@ import {
 
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SwipeList from '../../component/SwipeList'
+import { LargeTitle, } from '../../component/Text'
 
 import Context from '../../reducer'
 
@@ -83,10 +84,22 @@ export default ({ navigation, data, }) => {
         <View style={{
             backgroundColor: 'white',
             flex: 1,
-        }} LinearGradientBackground={false} navigation={navigation} theme={theme} imageBackground={null} >
+        }}>
             <FlatList
                 style={{
                     paddingTop: statusBarHeight,
+                }}
+                ListHeaderComponent={() => {
+                    return (
+                        <View style={{
+                            paddingLeft: 16,
+                            paddingRight: 16,
+                            paddingTop: 10,
+                            paddingBottom: 10,
+                        }}>
+                            <LargeTitle>{item.name}</LargeTitle>
+                        </View>
+                    )
                 }}
                 ListFooterComponent={() => {
                     if (item.list) {
@@ -113,7 +126,7 @@ export default ({ navigation, data, }) => {
                 renderItem={({ item, index, separators }) => (
                     <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
                 )} />
-            
+
             {/* {list} */}
 
             {/* <ScrollView

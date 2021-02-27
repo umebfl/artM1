@@ -31,6 +31,12 @@ import {
 // 列表最长长度
 const LIST_MAX_LEN = 4
 
+interface payload {
+    title: String
+    unit: any
+    navigation: any
+}
+
 export default payload => {
     const { state, } = useContext(Context)
 

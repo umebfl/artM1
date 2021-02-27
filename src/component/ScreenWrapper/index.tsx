@@ -14,7 +14,21 @@ import LinearGradient from 'react-native-linear-gradient'
 
 import { statusBarHeight, } from '../../util/StatusBarManager'
 
-const ScreenWrapper = payload => {
+enum ContentViewType {
+  View,
+  ScrollView
+}
+
+interface payload {
+  navigation: any,
+  theme: any,
+  children: any,
+  imageBackground?: any,
+  LinearGradientBackground?: boolean,
+  ContentViewType?: ContentViewType,
+}
+
+const ScreenWrapper = (payload: payload) => {
 
   const {
     navigation,
@@ -47,7 +61,7 @@ const ScreenWrapper = payload => {
               : ['rgb(220, 216, 215)', 'white', 'white']
         }>
           {
-            ContentViewType === 'view'
+            ContentViewType === 'View'
               ? (
                 <View style={{ flex: 1, paddingTop: statusBarHeight, paddingBottom: 20, }}>
                   {

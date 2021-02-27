@@ -17,7 +17,12 @@ import TouchView from '../../component/TouchView'
 
 import Context from '../../reducer'
 
-export default payload => {
+interface payload {
+    title: String
+    children?: any
+}
+
+export default (payload: payload) => {
     const { state, } = useContext(Context)
 
     const {

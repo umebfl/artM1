@@ -114,7 +114,7 @@ export default ({ navigation, }) => {
     }, [])
 
     return (
-        <ScreenWrapper ContentViewType='view' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
+        <ScreenWrapper ContentViewType='View' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
             <ScreenHeader navigation={navigation} />
 
             <Toast

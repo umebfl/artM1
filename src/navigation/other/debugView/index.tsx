@@ -68,7 +68,7 @@ export default ({ navigation, }) => {
     }, [])
 
     return (
-        <ScreenWrapper ContentViewType={'view'} navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
+        <ScreenWrapper ContentViewType={'View'} navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
             <ScreenHeader navigation={navigation} right={
                 <TouchView onPress={handleClear}>
                     <Icon style={{ width: 44, }} name={'delete-circle-outline'} size={32} color={theme.main} />

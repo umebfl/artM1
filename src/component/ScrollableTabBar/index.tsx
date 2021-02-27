@@ -24,7 +24,20 @@ import {
 
 import Context from '../../reducer'
 
-export default (payload) => {
+interface payload {
+  width: number
+  tabs: any
+  containerWidth: number
+  scrollValue: any
+  tabStyle: any
+  activeTab; any
+  activeTextColor: any
+  inactiveTextColor: any
+  textStyle: any
+  goToPage: any
+}
+
+export default (payload: payload) => {
 
   const { state, } = useContext(Context)
 
