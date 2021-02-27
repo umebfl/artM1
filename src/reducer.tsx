@@ -10,28 +10,29 @@ import interactive from './data/skill/interactive'
 import server from './data/skill/server'
 import theory from './data/skill/theory'
 
-import { info, } from './util/log'
+import { info, debug, error, } from './util/log'
 
 const STORE_DATA_KEY = 'STORE_DATA_KEY'
 
 export const clearData = async () => {
     try {
         info('清理本地缓存')
-        const jsonValue = JSON.stringify(initState)
-        await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
+        // const jsonValue = JSON.stringify(initState)
+        await AsyncStorage.setItem(STORE_DATA_KEY, null)
     } catch (e) {
         // saving error
+        error('clearData 清理本地存储异常')
     }
 }
 
 const setData = async (value) => {
     try {
-        info(`设置本地缓存: ${value}`)
+        info(`设置本地缓存`)
 
-
+        // 需要存储到本地的节点
         const data = {
             debug: {
-                open: value.dabug.open,
+                open: value.debug.open,
             },
             navigation: {
                 home: {
@@ -39,7 +40,7 @@ const setData = async (value) => {
                         info: {
                             tab: {
                                 toRead: {
-                                    list: value.payload.navigation.home.tab.info.tab.toRead.list,
+                                    list: value.navigation.home.tab.info.tab.toRead.list,
                                 },
                             },
                         },
@@ -48,15 +49,12 @@ const setData = async (value) => {
             },
         }
 
-        // ?
-        info('xx: ' + JSON.stringify(data))
-
         const jsonValue = JSON.stringify(data)
-
 
         await AsyncStorage.setItem(STORE_DATA_KEY, jsonValue)
     } catch (e) {
         // saving error
+        error('setData 设置本地存储异常')
     }
 }
 
@@ -65,9 +63,11 @@ export const getData = async () => {
         info('获取本地缓存')
         const jsonValue = await AsyncStorage.getItem(STORE_DATA_KEY)
 
+        debug(`获取本地缓存: ${JSON.stringify(jsonValue)}`)
         return jsonValue != null ? JSON.parse(jsonValue) : null
     } catch (e) {
         // error reading value
+        error('getData 获取本地存储异常')
     }
 }
 
@@ -289,7 +289,7 @@ export const initState = {
 
 export const reducer = (state, action) => {
 
-    info(`执行: ${action.type}`)
+    info(`执行: ${action.type} ${JSON.stringify(action)}`)
 
     return R.cond([
         [
@@ -306,7 +306,7 @@ export const reducer = (state, action) => {
                     R.equals('renderTime_add'),
                     () => R.compose(
                         // R.tap(newState => setData(newState)),
-                        R.assocPath(['debug', 'renderTime'], [ ...state.debug.renderTime, action.payload]),
+                        R.assocPath(['debug', 'renderTime'], [ action.payload, ...state.debug.renderTime, ]),
                     )(state),
                 ],
             ])(action.type),
@@ -316,6 +316,13 @@ export const reducer = (state, action) => {
             () => R.cond([
                 [
                     R.equals('init'),
+                    // () => R.compose(
+                    //     // v => {
+                    //     //     alert(`system init: ${JSON.stringify(v)}`)
+                    //     //     return v
+                    //     // },
+                    //     R.mergeDeepRight(state, action.payload)
+                    // ),
                     () => R.mergeDeepRight(state, action.payload),
                 ],
             ])(action.type),

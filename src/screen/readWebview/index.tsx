@@ -36,6 +36,9 @@ import Context from '../../reducer'
 
 export default ({ route, navigation }) => {
 
+    // 渲染计时 起始时间
+    const startTime = new Date()
+
     const { url, } = route.params
 
     const webRef = useRef(null)
@@ -106,6 +109,27 @@ export default ({ route, navigation }) => {
         setCurrentUrl(e.url)
         setPageTitle(e.title)
     }
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - readWebView',
+                name: 'webView',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     return (
         <View style={{

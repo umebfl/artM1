@@ -28,6 +28,8 @@ import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
+    const startTime = new Date()
+
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
 
@@ -73,12 +75,33 @@ export default ({ navigation, }) => {
     }
 
     const handleMore = index => {
-        if(index === 0) {
+        if (index === 0) {
             handleClearCache()
-        } else if(index === 2) {
+        } else if (index === 2) {
             navigation.push('dataView')
         }
     }
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'info',
+                name: '资讯',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     info('info render')
 
@@ -93,7 +116,7 @@ export default ({ navigation, }) => {
                             <ActionSheet
                                 ref={actionSheetREl}
                                 title={'更多调试功能'}
-                                options={['清空缓存', '取消', '查看数据', ]}
+                                options={['清空缓存', '取消', '查看数据',]}
                                 cancelButtonIndex={1}
                                 destructiveButtonIndex={0}
                                 onPress={handleMore}

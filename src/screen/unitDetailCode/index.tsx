@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, } from 'react'
+import React, { useContext, useEffect, } from 'react'
 
 import {
     SafeAreaView,
@@ -35,13 +35,36 @@ import {
 } from '../../component/Text'
 
 export default ({ route, navigation }) => {
-    const { state, } = useContext(Context)
+    const { state, dispatch, } = useContext(Context)
 
     const {
         theme,
     } = state
 
     const { payload, } = route.params
+
+    const startTime = new Date()
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - unitDetailCode',
+                name: '技能代码详情页',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>

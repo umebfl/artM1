@@ -1,4 +1,4 @@
-import React, { useContext, } from 'react'
+import React, { useContext, useEffect, } from 'react'
 import R from 'ramda'
 
 import {
@@ -18,12 +18,35 @@ import { SwipeListItem, } from '../../component/SwipeList'
 
 export default ({ route, navigation }) => {
 
-    const { state, } = useContext(Context)
+    const { state, dispatch, } = useContext(Context)
     const {
         theme,
     } = state
 
     const { data, title, } = route.params
+
+    const startTime = new Date()
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - unitListView',
+                name: '全部技能列表',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>

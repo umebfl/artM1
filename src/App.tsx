@@ -1,8 +1,17 @@
-import React, { useReducer, useEffect, } from 'react'
+import React, { useReducer, useEffect, useState, } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import RootContext, { initState, reducer, } from './reducer'
+
+import {
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Button,
+} from 'react-native'
 
 import Home from './navigation/home'
 // import Test from './tmp/test'
@@ -18,7 +27,8 @@ import unitDetailCode from './screen/unitDetailCode'
 
 import { getData, clearData, } from './reducer'
 
-import { info } from './util/log'
+import { info, debug, } from './util/log'
+import { T } from 'ts-toolbelt'
 
 const RootStack = createStackNavigator()
 
@@ -28,24 +38,33 @@ const App = () => {
   const startTime = new Date()
 
   const [state, dispatch] = useReducer(reducer, initState)
+  const [inited, setInited] = useState(false)
 
   const init = async () => {
     info('App init')
-    // await clearData()
     const data = await getData()
+
+    debug(`data: ${JSON.stringify(data)}`)
 
     if (data) {
       info('更新本地缓存')
+    
+      debug(`data: ${JSON.stringify(data)}`)
+    
       dispatch({
         mod: 'system',
         type: 'init',
         payload: data,
       })
     }
+
+    setInited(true)
+    info('App inited')
   }
 
   useEffect(() => {
-
+    init()
+  
     // 渲染计时 结束时间
     const endTime = new Date()
 
@@ -63,10 +82,17 @@ const App = () => {
       },
     })
 
-    init()
   }, [])
 
   info('渲染App')
+
+  if (inited === false) {
+    return (
+      <View>
+        <Text>123</Text>
+      </View>
+    )
+  }
 
   return (
     <RootContext.Provider value={{ state, dispatch, }}>
@@ -83,8 +109,6 @@ const App = () => {
           <RootStack.Screen name='dataView' component={DataView} />
           <RootStack.Screen name='debugView' component={DebugView} />
 
-          {/* <RootStack.Screen name='test' component={Test} />
-          <RootStack.Screen name='test2' component={Test2} /> */}
         </RootStack.Navigator>
       </NavigationContainer>
     </RootContext.Provider>

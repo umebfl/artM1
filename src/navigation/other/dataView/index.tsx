@@ -56,6 +56,9 @@ const JSONTreeTheme = {
 
 export default ({ navigation, }) => {
 
+    // 渲染计时 起始时间
+    const startTime = new Date()
+
     const { state, dispatch, } = useContext(Context)
 
     const [toastVisible, setToastVisible] = useState(false)
@@ -76,7 +79,7 @@ export default ({ navigation, }) => {
             setToastVisible(false)
         }, 1500)
 
-        timeList = [ ...timeList, time, ]
+        timeList = [...timeList, time,]
     }
 
     // useEffect(() => {
@@ -88,6 +91,27 @@ export default ({ navigation, }) => {
     //     }
     // })
     // alert(JSON.stringify(state.debug.renderTime))
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'other - dataView',
+                name: '数据浏览',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     return (
         <ScreenWrapper ContentViewType='view' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >

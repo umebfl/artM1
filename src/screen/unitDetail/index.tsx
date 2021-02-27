@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, } from 'react'
+import React, { useContext, useEffect, } from 'react'
 
 import {
     SafeAreaView,
@@ -36,7 +36,7 @@ import {
 const moban = require('../../../resource/image/template/m2.jpeg')
 
 export default ({ route, navigation }) => {
-    const { state, } = useContext(Context)
+    const { state, dispatch, } = useContext(Context)
 
     const {
         theme,
@@ -46,6 +46,29 @@ export default ({ route, navigation }) => {
 
     const imageSize = 124
     const imageInnerSize = 124 * 0.68
+
+    const startTime = new Date()
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - unitDetail',
+                name: '技能详情页',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     return (
         <ImageBackground

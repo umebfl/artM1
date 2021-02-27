@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useState, } from 'react'
+import React, { useContext, useState, useEffect,} from 'react'
 
 import {
     SafeAreaView,
@@ -30,6 +30,9 @@ import Context from '../../../reducer'
 
 export default ({ navigation, }) => {
 
+    // 渲染计时 起始时间
+    const startTime = new Date()
+
     const { state, dispatch, } = useContext(Context)
 
     const [log, setLog] = useState(logState)
@@ -42,6 +45,27 @@ export default ({ navigation, }) => {
         clear()
         setLog([])
     }
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'other - debugView',
+                name: '调试面板',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     return (
         <ScreenWrapper ContentViewType={'view'} navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >

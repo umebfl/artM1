@@ -22,6 +22,8 @@ import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
+    const startTime = new Date()
+
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -36,6 +38,27 @@ export default ({ navigation, }) => {
             },
         },
     } = state
+
+    useEffect(() => {
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'server',
+                name: '后台',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+    }, [])
 
     info('server render')
 
