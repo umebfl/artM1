@@ -2,6 +2,7 @@ import { SkillPlatform, SkillUnit, } from '../../../variable'
 
 import jest from './jest'
 import react from './react'
+import reactNative from './react-native'
 import typeScript from './typeScript'
 
 
@@ -206,34 +207,7 @@ export default {
             name: '视图',
             list: [
                 react,
-                {
-                    name: 'React-native',
-                    def: '使用React和应用平台的原生功能来构建 Android 和 iOS 应用的开源框架',
-                    major: true,
-                    logo: {
-                        type: 'svg',
-                        url: 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg',
-                    },
-                    url: 'https://www.react-native.cn/docs/intro-react-native-components',
-                    // 文档列表
-                    article: [
-                        {
-                            title: 'Hooks',
-                            list: [
-                                {
-                                    title: 'Ramda 函数库参考教程',
-                                    url: 'http://www.ruanyifeng.com/blog/2017/03/ramda.html',
-                                    def: '简书文章',
-                                    jump: 'webview',
-                                },
-                            ],
-                        },
-                    ],
-                    // 特性列表 - demo
-                    features: [
-
-                    ],
-                },
+                reactNative,
             ],
         },
         {

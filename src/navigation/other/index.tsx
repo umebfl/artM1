@@ -52,6 +52,10 @@ export default ({ navigation, }) => {
         actionSheetREl.current.show()
     }
 
+    const handleProSource = () => {
+        navigation.push('readWebview', { url: 'https://gitee.com/huanganqi/artM1', })
+    }
+
     const handleDebugModSwitch = () => {
         dispatch({
             mod: 'debug',
@@ -102,6 +106,7 @@ export default ({ navigation, }) => {
                 <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
                 <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
                 <Item title={'渲染耗时'} icon={'chart-bar'} jumpTo={'renderTime'} navigation={navigation} />
+                <Item title={'项目代码'} icon={'github'} handlePress={handleProSource} />
             </List>
 
             <List>

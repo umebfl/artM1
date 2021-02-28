@@ -28,6 +28,8 @@ import { debug, logState, level, clear, } from '../../../util/log'
 
 import Context from '../../../reducer'
 
+const ITEM_HEIGHT = 25
+
 export default ({ navigation, }) => {
 
     // 渲染计时 起始时间
@@ -110,10 +112,14 @@ export default ({ navigation, }) => {
                             }}>暂无日志</Text>
                         </View>
                     )}
+                    getItemLayout={(data, index) => (
+                        {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+                    )}
                     renderItem={({ item, index, separators }) => (
                         <WingBlank key={item.id} style={{
                             flexDirection: 'row',
                             // overflow: 'hidden',
+                            height: ITEM_HEIGHT,
                             paddingBottom: 10,
                         }}>
                             <Text style={{ marginRight: 5, fontSize: 12, }}>
