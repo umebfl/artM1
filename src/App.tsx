@@ -20,6 +20,7 @@ import Home from './navigation/home'
 import DataView from './navigation/other/dataView'
 import DebugView from './navigation/other/debugView'
 import About from './navigation/other/about'
+import RenderTime from './navigation/other/renderTime'
 
 import ReadWebview from './screen/readWebview'
 import UnitListView from './screen/unitListView'
@@ -34,10 +35,6 @@ import { T } from 'ts-toolbelt'
 const RootStack = createStackNavigator()
 
 const App = () => {
-
-  // 渲染计时 起始时间
-  const startTime = new Date()
-
   const [state, dispatch] = useReducer(reducer, initState)
   const [inited, setInited] = useState(false)
 
@@ -61,24 +58,6 @@ const App = () => {
 
   useEffect(() => {
     init()
-  
-    // 渲染计时 结束时间
-    const endTime = new Date()
-
-    dispatch({
-      mod: 'debug',
-      type: 'renderTime_add',
-      payload: {
-        // 模块
-        mod: 'App',
-        name: '总计',
-        // startTime,
-        // endTime,
-        // ms
-        time: endTime - startTime,
-      },
-    })
-
   }, [])
 
   info('渲染App')
@@ -101,7 +80,7 @@ const App = () => {
           <RootStack.Screen name='unitDetailView' component={UnitDetail} />
           <RootStack.Screen name='unitDetailCodeView' component={unitDetailCode} />
 
-
+          <RootStack.Screen name='renderTime' component={RenderTime} />
           <RootStack.Screen name='about' component={About} />
           <RootStack.Screen name='dataView' component={DataView} />
           <RootStack.Screen name='debugView' component={DebugView} />

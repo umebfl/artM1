@@ -10,7 +10,7 @@ import {
 import Context from '../../reducer'
 
 interface payload {
-    size?: number
+    size?: String
     children: any
     style?: any
 }

@@ -77,6 +77,7 @@ export default ({ navigation, }) => {
 
             <View style={{ padding: 5, }}>
                 <FlatList data={log}
+                    initialNumToRender={30}
                     showsVerticalScrollIndicator={false}
                     removeClippedSubviews={true}
                     ListFooterComponent={() => {
