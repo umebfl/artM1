@@ -18,6 +18,7 @@ interface State {
 
 interface payload {
     children: any
+    onPress: Function
 }
 
 export default (payload: payload) => {

@@ -18,7 +18,7 @@ export const clearData = async () => {
     try {
         info('清理本地缓存')
         // const jsonValue = JSON.stringify(initState)
-        await AsyncStorage.setItem(STORE_DATA_KEY, null)
+        await AsyncStorage.setItem(STORE_DATA_KEY, '')
     } catch (e) {
         // saving error
         error('clearData 清理本地存储异常')
@@ -127,6 +127,7 @@ export const initState = {
                                     url: 'https://www.zhihu.com',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F4.pic.paopaoche.net%2Fup%2F2014-5%2F201452817146.png&refer=http%3A%2F%2F4.pic.paopaoche.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616515442&t=35573a5b064ad71011c9d91621bde9a0',
                                     },
                                 },
@@ -135,6 +136,7 @@ export const initState = {
                                     url: 'https://github.com',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F202004%2F5e9e4f75b15ec0103b5e897c_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616514382&t=fcc58da0512c5f122a153ba905135da1',
                                     },
                                 },
@@ -143,6 +145,7 @@ export const initState = {
                                     url: 'https://www.oschina.net/project',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=828382003,4039207230&fm=26&gp=0.jpg',
                                     },
                                 },
@@ -151,6 +154,7 @@ export const initState = {
                                     url: 'https://stackoverflow.com/',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2842250216,1189554690&fm=26&gp=0.jpg',
                                     },
                                 },
@@ -159,6 +163,7 @@ export const initState = {
                                     url: 'https://developers.google.cn/china/',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2832977923,3336233045&fm=26&gp=0.jpg',
                                     },
                                 },
@@ -167,6 +172,7 @@ export const initState = {
                                     url: 'https://www.daqianduan.com/nav',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2470067681,1546475391&fm=15&gp=0.jpg',
                                     },
                                 },
@@ -175,6 +181,7 @@ export const initState = {
                                     url: 'https://docschina.org/',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F01%2F06%2F2564b954ed6f38916c8e5ecaf1167e79.jpg%21%2Ffwfh%2F804x804%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fku.90sjimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616515852&t=dc45a89d65d6a5fd508dbae319b9ce3f',
                                     },
                                 },
@@ -183,6 +190,7 @@ export const initState = {
                                     url: 'https://www.kwgg2020.com/',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1148848736,974362383&fm=26&gp=0.jpg',
                                     },
                                 },
@@ -191,6 +199,7 @@ export const initState = {
                                     url: 'https://www.cnblogs.com/',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3049606950,442899264&fm=26&gp=0.jpg',
                                     },
                                 },
@@ -199,9 +208,20 @@ export const initState = {
                                     url: 'https://www.w3cplus.com/',
                                     logo: {
                                         type: 'jpg',
+                                        full: true,
                                         url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3694819829,1688866966&fm=26&gp=0.jpg',
                                     },
                                 },
+                                {
+                                    name: '前端笔记',
+                                    url: 'https://www.kancloud.cn/surahe/front-end-notebook/781957',
+                                    logo: {
+                                        type: 'jpg',
+                                        full: true,
+                                        url: 'https://static.kancloud.cn/asset/app/images/logo.png',
+                                    },
+                                },
+                                
                             ],
                         },
                     },

@@ -21,6 +21,9 @@ import Context from '../../reducer'
 import { info, } from '../../util/log'
 
 import { statusBarHeight, } from '../../util/StatusBarManager'
+import WhiteSpace from '../../component/WhiteSpace'
+import SwipeIconList from '../../component/SwipeIconList'
+import WingBlank from '../../component/WingBlank'
 
 export default ({ navigation, data, }) => {
 
@@ -85,6 +88,7 @@ export default ({ navigation, data, }) => {
             backgroundColor: 'white',
             flex: 1,
         }}>
+
             <FlatList
                 style={{
                     paddingTop: statusBarHeight,
@@ -92,12 +96,36 @@ export default ({ navigation, data, }) => {
                 ListHeaderComponent={() => {
                     return (
                         <View style={{
-                            paddingLeft: 16,
-                            paddingRight: 16,
                             paddingTop: 10,
                             paddingBottom: 10,
                         }}>
-                            <LargeTitle>{item.name}</LargeTitle>
+                            <WingBlank>
+                                <LargeTitle>{item.name}</LargeTitle>
+                            </WingBlank>
+
+                            {/* 技术链条 */}
+                            {
+                                item.chain
+                                    ? (
+                                        R.addIndex(R.map)(
+                                            (v, k) => {
+                                                return (
+                                                    <WhiteSpace size={'normal'} style={{
+                                                        borderTopWidth: theme.borderWidth,
+                                                        borderColor: theme.borderColor,
+                                                        paddingTop: 10,
+                                                    }}>
+                                                        <SwipeIconList
+                                                            onPress={payload => navigation.push('unitDetailView', payload)}
+                                                            title={v.title} radius={8} navigation={navigation} data={v.list} />
+                                                    </WhiteSpace>
+                                                )
+                                            }
+                                        )(item.chain)
+                                    )
+                                    : null
+
+                            }
                         </View>
                     )
                 }}

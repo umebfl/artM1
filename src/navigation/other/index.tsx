@@ -104,9 +104,16 @@ export default ({ navigation, }) => {
             </List>
 
             <List>
-                {/* <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} /> */}
+                <Item title={'显示'} icon={'format-text'} jumpTo={'about'} navigation={navigation} />
+                <Item title={'主题'} icon={'theme-light-dark'} jumpTo={'about'} navigation={navigation} />
+                <Item title={'语言'} icon={'translate'} jumpTo={'about'} navigation={navigation} />
+            </List>
+
+            <List>
+                <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} />
                 <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'about'} navigation={navigation} />
             </List>
+            
         </ScreenWrapper>
     )
 }

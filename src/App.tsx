@@ -86,7 +86,6 @@ const App = () => {
   if (inited === false) {
     return (
       <View>
-        <Text>123</Text>
       </View>
     )
   }

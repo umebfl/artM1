@@ -5,7 +5,8 @@ export default {
     major: true,
     logo: {
       type: 'jpg',
-      url: 'https://www.runoob.com/wp-content/uploads/2019/01/typescript-logo.jpg',
+      url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3746182100,898429560&fm=26&gp=0.jpg',
+      full: true,
     },
     url: 'https://www.tslang.cn',
     // 文档列表

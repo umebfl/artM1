@@ -20,6 +20,7 @@ interface unitLogoPlayload {
         url: String,
         type: string,
         bg?: String,
+        full?: boolean
     }
 }
 
@@ -36,7 +37,9 @@ export default (payload: unitLogoPlayload) => {
         data,
     } = payload
 
-    const iconInnerSize = size * 0.68
+    const full = data ? data.full : false
+
+    const iconInnerSize = size * (full ? 1 : 0.6)
 
     return (
         <View style={{
@@ -48,21 +51,22 @@ export default (payload: unitLogoPlayload) => {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: data ? data.bg : 'white',
+            overflow: 'hidden',
         }}>
             {
                 R.cond([
                     [
                         R.equals('svg'),
-                        () => <SvgCssUri width={iconInnerSize} height={iconInnerSize * 0.9} uri={data.url} />,
+                        () => <SvgCssUri width={iconInnerSize} height={iconInnerSize} uri={data.url} />,
                     ],
                     [
                         R.anyPass([R.equals('jpg'), R.equals('png'), R.equals('jpeg')]),
-                        () => <Image source={{ uri: data.url }} style={{ resizeMode: 'contain', width: iconInnerSize * 0.9, height: iconInnerSize * 0.9 }} />,
+                        () => <Image source={{ uri: data.url }} style={{ resizeMode: 'contain', width: iconInnerSize, height: iconInnerSize }} />,
                     ],
                     [
                         // R.anyPass([R.isEmpty, R.equals('icon')]),
                         R.T,
-                        () => <Icon name={data ? data.url : 'github'} size={iconInnerSize * 0.85} color={theme.main} />,
+                        () => <Icon name={data ? data.url : 'github'} size={iconInnerSize} color={theme.main} />,
                     ],
                 ])(data ? data.type : '')
             }

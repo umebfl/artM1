@@ -49,8 +49,8 @@ export default ({ route, navigation }) => {
     }, [])
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
-            <ScreenHeader navigation={navigation} backTitle={title}/>
+        <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
+            <ScreenHeader navigation={navigation} backTitle={title} safeArea={true} />
 
             <ScrollView style={{
                 paddingLeft: 20,
@@ -64,6 +64,6 @@ export default ({ route, navigation }) => {
                     )(data)
                 }
             </ScrollView>
-        </SafeAreaView>
+        </View>
     )
 }

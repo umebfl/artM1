@@ -322,12 +322,13 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = art/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = umebfl.artdev;
+				PRODUCT_BUNDLE_IDENTIFIER = umebfl.artPro;
 				PRODUCT_NAME = art;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -345,12 +346,13 @@
 				DEVELOPMENT_TEAM = WYF5MT6849;
 				INFOPLIST_FILE = art/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = umebfl.artdev;
+				PRODUCT_BUNDLE_IDENTIFIER = umebfl.artPro;
 				PRODUCT_NAME = art;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

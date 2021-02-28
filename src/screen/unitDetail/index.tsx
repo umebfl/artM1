@@ -85,8 +85,8 @@ export default ({ route, navigation }) => {
                 //   : null
             }
 
-            <SafeAreaView style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
-                <ScreenHeader navigation={navigation} />
+            <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
+                <ScreenHeader navigation={navigation} safeArea={true} />
 
                 <ScrollView
                     showsVerticalScrollIndicator={false}
@@ -162,7 +162,7 @@ export default ({ route, navigation }) => {
                         <ScrollItem tabLabel='API' navigation={navigation} data={payload.api} />
                     </ScrollableTabView>
                 </ScrollView>
-            </SafeAreaView>
+            </View>
         </ImageBackground >
     )
 }

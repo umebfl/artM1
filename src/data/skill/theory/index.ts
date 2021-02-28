@@ -160,6 +160,108 @@ export default {
             ],
         },
         {
+            name: '项目管理',
+            list: [
+                {
+                    name: 'JIRA',
+                    def: '集项目计划、任务分配、需求管理、错误跟踪于一体',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'jpg',
+                        full: true,
+                        url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3574637191,1493203823&fm=26&gp=0.jpg',
+                    },
+                    url: 'https://zhuanlan.zhihu.com/p/44837233',
+                },
+                {
+                    name: 'Project',
+                    def: '囊括项目管理各个阶段',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'jpg',
+                        full: true,
+                        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fvasilijegroup.com%2Fwp-content%2Fuploads%2F2014%2F06%2FMSProject-logo.png&refer=http%3A%2F%2Fvasilijegroup.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617075317&t=28890aac09b901f17dd715d74b13cc08',
+                    },
+                    url: 'https://blog.csdn.net/huangxinfeng/article/details/81194380',
+                },
+            ],
+        },
+        {
+            name: '调试',
+            list: [
+                {
+                    name: '浏览器调试',
+                    def: '使用浏览器的调试工具',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    url: 'https://www.runoob.com/js/js-debugging.html',
+                },
+
+                {
+                    name: 'ReactNative调试',
+                    def: '使用ReactNative调试App',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'svg',
+                        url: 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg',
+                    },
+                    url: 'https://reactnative.cn/docs/debugging',
+                },
+            ],
+        },
+        {
+            name: '跟踪',
+            list: [
+                {
+                    name: '日志埋点跟踪',
+                    def: '通过分级日志输出跟踪信息',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    // logo: {
+                    //     type: 'png',
+                    //     url: 'https://git-scm.com/images/logo@2x.png',
+                    // },
+                    url: 'https://blog.csdn.net/u012852374/article/details/78134346/',
+                },
+                {
+                    name: 'Google Analytics',
+                    def: '了解和研究访问者的行为',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'svg',
+                        url: 'https://www.gstatic.cn/analytics-suite/header/suite/v2/ic_analytics.svg',
+                    },
+                    url: '',
+                },
+            ],
+        },
+        {
+            name: '性能优化',
+            list: [
+
+            ],
+        },
+        {
+            name: '交互设计',
+            list: [
+                {
+                    name: 'Ant Design - 设计',
+                    def: '专注于更好的用户体验',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'svg',
+                        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                    },
+                    url: 'https://ant.design/docs/spec/introduce-cn',
+                },
+            ],
+        },
+        {
             name: '面试',
             list: [
 
@@ -191,12 +293,6 @@ export default {
         },
         {
             name: '敏捷开发',
-            list: [
-
-            ],
-        },
-        {
-            name: '项目管理',
             list: [
 
             ],

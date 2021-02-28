@@ -82,6 +82,28 @@ export default {
                     },
                     url: 'https://www.runoob.com/mysql/mysql-tutorial.html',
                 },
+                {
+                    name: 'mongobooster',
+                    def: 'MongoDB CLI界面中非常流行的GUI工具',
+                    major: true,
+                    platform: SkillPlatform.node,
+                    logo: {
+                      type: 'png',
+                      url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2188650053,2502556176&fm=26&gp=0.jpg',
+                    },
+                    url: 'https://nosqlbooster.com/',
+                },
+                {
+                    name: 'navicat for mysql',
+                    def: 'mysql CLI界面中非常流行的GUI工具',
+                    major: true,
+                    platform: SkillPlatform.node,
+                    logo: {
+                      type: 'png',
+                      url: 'http://www.navicat.com.cn/images/02.Product_00_AllProducts_Premium15.png',
+                    },
+                    url: 'http://www.navicat.com.cn/',
+                },
             ],
         },
         {
@@ -101,8 +123,84 @@ export default {
             ],
         },
         {
-            name: '项目管理',
+            name: '工具库',
             list: [
+                {
+                    name: 'Moment.js',
+                    def: 'JavaScript 日期处理类库',
+                    major: false,
+                    platform: SkillPlatform.node,
+                    // logo: {
+                    //   type: 'png',
+                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
+                    // },
+                    url: 'http://momentjs.cn/',
+                },
+                {
+                    name: 'log4js',
+                    def: '选择log4js来完成日志记录的功能',
+                    major: false,
+                    platform: SkillPlatform.node,
+                    // logo: {
+                    //   type: 'png',
+                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
+                    // },
+                    url: 'https://gitee.com/mirrors/log4js',
+                },
+                {
+                    name: 'Later.js',
+                    def: '帮助你快速简单执行定时循环操作的JavaScript类库',
+                    major: false,
+                    platform: SkillPlatform.node,
+                    // logo: {
+                    //   type: 'png',
+                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
+                    // },
+                    url: 'https://blog.csdn.net/tyygming/article/details/84542298',
+                },
+            ],
+        },
+        {
+            name: '部署',
+            list: [
+                {
+                    name: 'pm2',
+                    def: '简化性能监控、自动重启、负载均衡等繁琐任务',
+                    major: false,
+                    platform: SkillPlatform.node,
+                    logo: {
+                      type: 'png',
+                      url: 'https://pm2.keymetrics.io/assets/pm2-logo-1.png',
+                    },
+                    url: 'https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/',
+                },
+                {
+                    name: 'forever',
+                    def: 'nodejs的守护进程,能够启动,停止,重启应用',
+                    major: false,
+                    platform: SkillPlatform.node,
+                    // logo: {
+                    //   type: 'png',
+                    //   url: 'https://pm2.keymetrics.io/assets/pm2-logo-1.png',
+                    // },
+                    url: 'https://www.npmjs.com/package/forever',
+                },
+            ],
+        },
+        {
+            name: '开发辅助',
+            list: [
+                {
+                    name: 'ApiDoc',
+                    def: 'Node.js可以利用ApiDoc生成接口文档',
+                    major: false,
+                    platform: SkillPlatform.node,
+                    // logo: {
+                    //   type: 'png',
+                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
+                    // },
+                    url: 'https://apidocjs.com/',
+                },
 
             ],
         },

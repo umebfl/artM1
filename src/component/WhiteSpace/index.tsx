@@ -10,9 +10,9 @@ import {
 import Context from '../../reducer'
 
 interface payload {
-    size: number
+    size?: number
     children: any
-    style: any
+    style?: any
 }
 
 export default (payload: payload) => {

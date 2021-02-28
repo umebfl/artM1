@@ -12,12 +12,16 @@ import {
 import CircleLogo from '../../component/CircleLogo'
 import TouchView from '../../component/TouchView'
 import WingBlank from '../../component/WingBlank'
+import { MidTitle, } from '../../component/Text'
 
 import Context from '../../reducer'
 
 interface payload {
-    data: [],
-    navigation: any,
+    data: []
+    navigation: any
+    radius: number
+    title?: String
+    onPress?: Function
 }
 
 export default (payload: payload) => {
@@ -30,47 +34,65 @@ export default (payload: payload) => {
 
     const {
         data,
+        title,
         navigation,
+        radius,
+        onPress,
     } = payload
 
     return (
-        <ScrollView
-            showsHorizontalScrollIndicator={false}
-            horizontal={true}
-            style={{
-                // backgroundColor: 'red',
-                paddingTop: 10,
-                paddingLeft: 20,
-                // paddingRight: 20,
-                flexDirection: 'row',
-            }}>
+        <View>
             {
-                R.addIndex(R.map)(
-                    (v, k) => {
-                        return (
-                            <TouchView key={k} onPress={() => {
-                                navigation.push('readWebview', { url: v.url })
-                            }}>
-                                <View style={{
-                                    // backgroundColor: 'red',
-                                    width: 70,
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                }}>
-                                    <CircleLogo size={50} data={v.logo} />
-                                    <Text numberOfLines={1} ellipsizeMode={'middle'} style={{
-                                        marginTop: 8,
-                                        fontSize: 12,
-                                        color: theme.textLight2,
-                                    }}>{v.name}</Text>
-                                </View>
-                            </TouchView>
-                        )
-                    }
-                )(data)
+                title
+                    ? (
+                        <WingBlank>
+                            <MidTitle>{title}</MidTitle>
+                        </WingBlank>
+                    )
+                    : null
             }
-            <View style={{ width: 40, }}></View>
-        </ScrollView>
+
+
+            <ScrollView
+                showsHorizontalScrollIndicator={false}
+                horizontal={true}
+                style={{
+                    // backgroundColor: 'red',
+                    paddingTop: 10,
+                    paddingLeft: 20,
+                    // paddingRight: 20,
+                    flexDirection: 'row',
+                }}>
+                {
+                    R.addIndex(R.map)(
+                        (v, k) => {
+                            return (
+                                <TouchView key={k} onPress={() => {
+                                    onPress
+                                        ? onPress({ payload: v })
+                                        : navigation.push('readWebview', { url: v.url })
+                                }}>
+                                    <View style={{
+                                        // backgroundColor: 'red',
+                                        width: 70,
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}>
+                                        <CircleLogo size={50} radius={radius ? radius : 0} data={v.logo} />
+                                        <Text numberOfLines={1} ellipsizeMode={'middle'} style={{
+                                            marginTop: 8,
+                                            fontSize: 12,
+                                            color: theme.textLight2,
+                                        }}>{v.name}</Text>
+                                    </View>
+                                </TouchView>
+                            )
+                        }
+                    )(data)
+                }
+                <View style={{ width: 40, }}></View>
+            </ScrollView>
+        </View>
     )
 }

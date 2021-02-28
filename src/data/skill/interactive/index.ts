@@ -4,109 +4,202 @@ import jest from './jest'
 import react from './react'
 import typeScript from './typeScript'
 
+
+const JavaScript = {
+    name: 'JavaScript',
+    def: '一种解释型或即时编译型的编程语言',
+    major: true,
+    logo: {
+        type: 'jpg',
+        full: true,
+        url: 'https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7ca7bcb5f6d2155a9096b63f62403df?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
+    },
+    url: 'https://www.w3school.com.cn/js/index.asp',
+    // 文档列表
+    doc: [
+
+    ],
+    // 特性列表 - demo
+    features: [
+
+    ],
+}
+
+const Dart = {
+    name: 'Dart',
+    def: '一个为全平台构建快速应用的编程语言',
+    logo: {
+        type: 'png',
+        url: 'https://dartpad.cn/dart-192.png',
+    },
+    url: 'https://dart.cn/',
+    // 文档列表
+    doc: [
+
+    ],
+    // 特性列表 - demo
+    features: [
+
+    ],
+}
+
+const Html5 = {
+    name: 'Html5',
+    def: '超文本标记语言',
+    logo: {
+        type: 'jpg',
+        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.0574nb.cn%2FUploadImg%2Fnews%2F1429244091.jpg&refer=http%3A%2F%2Fwww.0574nb.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612878791&t=0b8239772e21f05663d2d865c836041a',
+    },
+    url: 'https://www.w3school.com.cn/html5/index.asp',
+    // 文档列表
+    doc: [
+
+    ],
+    // 特性列表 - demo
+    features: [
+
+    ],
+}
+
+const Less = {
+    name: 'Less',
+    def: '一门向后兼容的 CSS 扩展语言',
+    logo: {
+        type: 'jpg',
+        url: 'https://less.bootcss.com/public/img/less_logo.png',
+    },
+    url: 'https://less.bootcss.com/#%E6%A6%82%E8%A7%88',
+    // 文档列表
+    doc: [
+
+    ],
+    // 特性列表 - demo
+    features: [
+
+    ],
+}
+
+const Css = {
+    name: 'Css',
+    def: '控制网页的样式和布局',
+    major: true,
+    logo: {
+        type: 'jpg',
+        url: 'https://bkimg.cdn.bcebos.com/pic/279759ee3d6d55fbe2fea0a66f224f4a20a4dd72?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
+    },
+    url: 'https://www.runoob.com/css/css-intro.html',
+}
+
+const Swift = {
+    name: 'Swift',
+    def: '一种功能强大且直观的编程语言',
+    logo: {
+        type: 'jpg',
+        full: true,
+        url: 'https://static.oschina.net/uploads/logo/swift-lang_ABKjp.png',
+    },
+    url: 'https://developer.apple.com/swift/',
+    // 文档列表
+    doc: [
+
+    ],
+    // 特性列表 - demo
+    features: [
+
+    ],
+}
+
+const Ramda = {
+    name: 'Ramda',
+    def: '实用的 JavaScript 函数式编程库',
+    major: true,
+    logo: {
+        type: 'png',
+        url: 'http://www.ruanyifeng.com/blogimg/asset/2017/bg2017030901.jpg',
+    },
+    url: 'https://ramda.cn/',
+    // 文档列表
+    article: [
+        {
+            title: 'Hooks',
+            list: [
+                {
+                    title: 'Ramda 函数库参考教程',
+                    url: 'http://www.ruanyifeng.com/blog/2017/03/ramda.html',
+                    def: '简书文章',
+                    jump: 'webview',
+                },
+            ],
+        },
+    ],
+    // 特性列表 - demo
+    features: [
+
+    ],
+}
+
+const AntDesign = {
+    name: 'Ant Design',
+    def: '基于 Ant Design 设计体系的 React UI 组件库',
+    major: true,
+    platform: SkillPlatform.react,
+    logo: {
+        type: 'svg',
+        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    },
+    url: 'https://ant.design/docs/react/introduce-cn',
+}
+
+const Webpack = {
+    name: 'Webpack',
+    def: '用于现代 JavaScript 应用程序的_静态模块打包工具',
+    major: true,
+    logo: {
+        type: 'png',
+        url: 'https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png',
+    },
+    url: 'https://webpack.docschina.org/',
+}
+
+const Yarn = {
+    name: 'Yarn',
+    def: '快速、可靠、安全的依赖管理工具',
+    logo: {
+        type: 'png',
+        url: 'https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png',
+    },
+    url: 'https://www.yarnpkg.cn/',
+}
+
 export default {
     name: '前端',
+    // 技术链
+    chain: [
+        {
+            title: 'React技术栈',
+            list: [
+                typeScript,
+                react,
+                AntDesign,
+                Less,
+                Ramda,
+                jest,
+                Webpack,
+                Yarn,
+            ],
+        },
+    ],
     list: [
         {
             name: '语言',
             list: [
-                {
-                    name: 'JavaScript',
-                    def: '一种解释型或即时编译型的编程语言',
-                    major: true,
-                    logo: {
-                      type: 'jpg',
-                      url: 'https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7ca7bcb5f6d2155a9096b63f62403df?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
-                    },
-                    url: 'https://www.w3school.com.cn/js/index.asp',
-                    // 文档列表
-                    doc: [
-                
-                    ],
-                    // 特性列表 - demo
-                    features: [
-                
-                    ],
-                },
+                JavaScript,
                 typeScript,
-                {
-                    name: 'Swift',
-                    def: '一种功能强大且直观的编程语言',
-                    logo: {
-                      type: 'jpg',
-                      url: 'https://static.oschina.net/uploads/logo/swift-lang_ABKjp.png',
-                    },
-                    url: 'https://developer.apple.com/swift/',
-                    // 文档列表
-                    doc: [
-                
-                    ],
-                    // 特性列表 - demo
-                    features: [
-                
-                    ],
-                },
-                {
-                    name: 'Dart',
-                    def: '一个为全平台构建快速应用的编程语言',
-                    logo: {
-                      type: 'png',
-                      url: 'https://dartpad.cn/dart-192.png',
-                    },
-                    url: 'https://dart.cn/',
-                    // 文档列表
-                    doc: [
-                
-                    ],
-                    // 特性列表 - demo
-                    features: [
-                
-                    ],
-                },
-                {
-                    name: 'Html',
-                    def: '超文本标记语言',
-                    logo: {
-                      type: 'jpg',
-                      url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.0574nb.cn%2FUploadImg%2Fnews%2F1429244091.jpg&refer=http%3A%2F%2Fwww.0574nb.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612878791&t=0b8239772e21f05663d2d865c836041a',
-                    },
-                    url: 'https://www.w3school.com.cn/html5/index.asp',
-                    // 文档列表
-                    doc: [
-                
-                    ],
-                    // 特性列表 - demo
-                    features: [
-                
-                    ],
-                },
-                {
-                    name: 'Less',
-                    def: '一门向后兼容的 CSS 扩展语言',
-                    logo: {
-                      type: 'jpg',
-                      url: 'https://less.bootcss.com/public/img/less_logo.png',
-                    },
-                    url: 'https://less.bootcss.com/#%E6%A6%82%E8%A7%88',
-                    // 文档列表
-                    doc: [
-                
-                    ],
-                    // 特性列表 - demo
-                    features: [
-                
-                    ],
-                },
-                {
-                    name: 'css',
-                    def: '控制网页的样式和布局',
-                    major: true,
-                    logo: {
-                      type: 'jpg',
-                      url: 'https://bkimg.cdn.bcebos.com/pic/279759ee3d6d55fbe2fea0a66f224f4a20a4dd72?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
-                    },
-                    url: 'https://www.runoob.com/css/css-intro.html',
-                },                
+                Swift,
+                Dart,
+                Html5,
+                Less,
+                Css,
             ],
         },
         {
@@ -118,27 +211,27 @@ export default {
                     def: '使用React和应用平台的原生功能来构建 Android 和 iOS 应用的开源框架',
                     major: true,
                     logo: {
-                      type: 'svg',
-                      url: 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg',
+                        type: 'svg',
+                        url: 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg',
                     },
                     url: 'https://www.react-native.cn/docs/intro-react-native-components',
                     // 文档列表
                     article: [
-                      {
-                        title: 'Hooks',
-                        list: [
-                          {
-                            title: 'Ramda 函数库参考教程',
-                            url: 'http://www.ruanyifeng.com/blog/2017/03/ramda.html',
-                            def: '简书文章',
-                            jump: 'webview',
-                          },
-                        ],
-                      },
+                        {
+                            title: 'Hooks',
+                            list: [
+                                {
+                                    title: 'Ramda 函数库参考教程',
+                                    url: 'http://www.ruanyifeng.com/blog/2017/03/ramda.html',
+                                    def: '简书文章',
+                                    jump: 'webview',
+                                },
+                            ],
+                        },
                     ],
                     // 特性列表 - demo
                     features: [
-                
+
                     ],
                 },
             ],
@@ -146,34 +239,7 @@ export default {
         {
             name: '数据',
             list: [
-                {
-                    name: 'Ramda',
-                    def: '实用的 JavaScript 函数式编程库',
-                    major: true,
-                    logo: {
-                      type: 'png',
-                      url: 'http://www.ruanyifeng.com/blogimg/asset/2017/bg2017030901.jpg',
-                    },
-                    url: 'https://ramda.cn/',
-                    // 文档列表
-                    article: [
-                      {
-                        title: 'Hooks',
-                        list: [
-                          {
-                            title: 'Ramda 函数库参考教程',
-                            url: 'http://www.ruanyifeng.com/blog/2017/03/ramda.html',
-                            def: '简书文章',
-                            jump: 'webview',
-                          },
-                        ],
-                      },
-                    ],
-                    // 特性列表 - demo
-                    features: [
-                
-                    ],
-                },
+                Ramda,
                 {
                     name: 'Ahooks',
                     def: '致力于面向中台场景的Hooks库',
@@ -323,6 +389,7 @@ export default {
                     def: '用于React Native的跨平台Tab组件',
                     logo: {
                         type: 'jpg',
+                        full: true,
                         url: 'https://d1wp6m56sqw74a.cloudfront.net/~assets/8c5bf6c47149bcc9550601ac917f81b5',
                     },
                     url: 'https://github.com/satya164/react-native-tab-view',
@@ -347,6 +414,8 @@ export default {
         {
             name: '工程化',
             list: [
+                Webpack,
+                Yarn,
                 {
                     name: 'Babel',
                     def: '一个 JavaScript 编译器',
@@ -367,25 +436,6 @@ export default {
                     url: 'https://eslint.org/',
                 },
                 {
-                    name: 'webpack',
-                    def: '用于现代 JavaScript 应用程序的_静态模块打包工具',
-                    major: true,
-                    logo: {
-                        type: 'png',
-                        url: 'https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png',
-                    },
-                    url: 'https://webpack.docschina.org/',
-                },
-                {
-                    name: 'yarn',
-                    def: '快速、可靠、安全的依赖管理工具',
-                    logo: {
-                        type: 'png',
-                        url: 'https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png',
-                    },
-                    url: 'https://www.yarnpkg.cn/',
-                },
-                {
                     name: 'gulp',
                     def: '用自动化构建工具增强你的工作流程',
                     major: false,
@@ -399,51 +449,9 @@ export default {
             ],
         },
         {
-            name: '集成框架',
-            list: [
-                {
-                    name: 'Ant Design Pro',
-                    def: '企业级中后台前端/设计解决方案',
-                    major: true,
-                    platform: SkillPlatform.react,
-                    logo: {
-                        type: 'svg',
-                        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-                    },
-                    url: 'https://beta-pro.ant.design/docs/introduction-cn',
-                },
-            ],
-        },
-        {
-            name: '动画',
-            list: [
-                {
-                    name: 'Ant Motion',
-                    def: '快速在 React 框架中使用动画',
-                    major: true,
-                    platform: SkillPlatform.react,
-                    logo: {
-                        type: 'svg',
-                        url: 'https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg',
-                    },
-                    url: 'https://motion.ant.design/index-cn',
-                },
-            ],
-        },
-        {
             name: 'UI组件',
             list: [
-                {
-                    name: 'Ant Design Pro',
-                    def: '企业级中后台前端/设计解决方案',
-                    major: true,
-                    platform: SkillPlatform.react,
-                    logo: {
-                        type: 'svg',
-                        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-                    },
-                    url: 'https://beta-pro.ant.design/docs/introduction-cn',
-                },
+                AntDesign,
                 {
                     name: 'React-native-blur',
                     def: '一种模糊的毛玻璃效果',
@@ -493,7 +501,7 @@ export default {
                     platform: SkillPlatform.reactNative,
                     url: 'https://github.com/magicismight/react-native-root-toast',
                 },
-                
+
                 {
                     name: 'react-native-easy-toast',
                     def: 'React Native的toast组件',
@@ -514,8 +522,69 @@ export default {
                     platform: SkillPlatform.reactNative,
                     url: 'https://github.com/crazycodeboy/react-native-splash-screen',
                 },
-                
+
+            ],
+        },
+        {
+            name: '集成框架',
+            list: [
+                {
+                    name: 'Ant Design Pro',
+                    def: '企业级中后台前端/设计解决方案',
+                    major: true,
+                    platform: SkillPlatform.react,
+                    logo: {
+                        type: 'svg',
+                        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                    },
+                    url: 'https://beta-pro.ant.design/docs/introduction-cn',
+                },
+            ],
+        },
+        {
+            name: '动画',
+            list: [
+                {
+                    name: 'Ant Motion',
+                    def: '快速在 React 框架中使用动画',
+                    major: true,
+                    platform: SkillPlatform.react,
+                    logo: {
+                        type: 'svg',
+                        url: 'https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg',
+                    },
+                    url: 'https://motion.ant.design/index-cn',
+                },
+            ],
+        },
+
+        {
+            name: '辅助开发',
+            list: [
+                {
+                    name: 'TinyPNG',
+                    def: '智能PNG和JPEG压缩',
+                    major: true,
+                    platform: SkillPlatform.react,
+                    // logo: {
+                    //     type: 'svg',
+                    //     url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                    // },
+                    url: 'https://tinypng.com/',
+                },
+                {
+                    name: 'uupoop',
+                    def: '在线PS,轻松编辑你的图片',
+                    major: true,
+                    platform: SkillPlatform.react,
+                    // logo: {
+                    //     type: 'svg',
+                    //     url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                    // },
+                    url: 'https://www.uupoop.com/#/',
+                },
             ],
         },
     ],
 }
+
