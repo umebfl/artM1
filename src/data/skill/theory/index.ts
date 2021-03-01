@@ -297,5 +297,33 @@ export default {
 
             ],
         },
+        {
+            name: '编辑器',
+            list: [
+
+                {
+                    name: 'VS Code',
+                    def: '免费的。 建立在开源上。无处不在。',
+                    major: true,
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'jpg',
+                        url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3102802095,1274108669&fm=26&gp=0.jpg',
+                    },
+                    url: 'https://code.visualstudio.com/',
+                },
+
+                {
+                    name: 'Atom',
+                    def: 'github专门为程序员推出的一个跨平台文本编辑器',
+                    platform: SkillPlatform.all,
+                    logo: {
+                        type: 'png',
+                        url: 'https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png',
+                    },
+                    url: 'https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png',
+                },
+            ],
+        },
     ],
 }
