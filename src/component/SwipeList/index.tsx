@@ -61,7 +61,7 @@ export default payload => {
     const listWidth = winWidth - showWidth * 2
 
     return (
-        <View style={{ marginTop: 0, marginBottom: 20, }}>
+        <View style={{ marginTop: 0, marginBottom: 10, }}>
             <WingBlank style={{
                 paddingTop: 12,
                 paddingBottom: 2,
@@ -149,7 +149,7 @@ export const SwipeListItem = ({
                     marginBottom: 8,
                     borderBottomWidth: k === list.length - 1 ? 0 : 0.3,
                     borderBottomColor: theme.borderColor,
-                    height: 59,
+                    height: 63,
                 }}>
                     <View style={{
                         flexDirection: 'row',
@@ -175,7 +175,7 @@ export const SwipeListItem = ({
 
                     <View style={{
                         flexDirection: 'row',
-                        justifyContent: 'flex-start',
+                        justifyContent: 'flex-end',
                         marginTop: 3,
                     }}>
                         {/* {
@@ -200,13 +200,17 @@ export const SwipeListItem = ({
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                     }}>
-                                        <Icon style={{
+                                        {/* <Icon style={{
                                             // width: 14,
                                             // height: 15,
                                             // position: 'absolute',
                                             // right: 0,
                                             // bottom: 0,
-                                        }} name={item.ftStep} size={12} color={theme.grey[0]} />
+                                        }} name={item.ftStep} size={12} color={theme.grey[0]} /> */}
+                                        <Text style={{
+                                            fontSize: 8,
+                                            color: theme.grey[0],
+                                        }}>{item.ftStep}</Text>
                                         <Text style={{
                                             fontSize: 8,
                                             color: theme.grey[0],

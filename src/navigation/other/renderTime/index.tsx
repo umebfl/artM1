@@ -12,6 +12,7 @@ import {
     ImageBackground,
     Dimensions,
     Animated,
+    FlatList,
 } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
@@ -42,10 +43,10 @@ class Line extends Component {
         Animated.timing(
             this.state.width,
             {
-              toValue: this.props.val / 10,
-              duration: 1500,
+                toValue: this.props.val / 10,
+                duration: 1500,
             }
-          ).start()
+        ).start()
     }
 
     render() {
@@ -58,7 +59,7 @@ class Line extends Component {
         const {
             width,
         } = this.state
-    
+
         return (
             <Animated.View style={{
                 width: width,
@@ -91,45 +92,37 @@ export default ({ navigation, }) => {
     return (
         <View style={{
             flex: 1,
+            backgroundColor: 'rgb(247, 248, 249)',
         }}>
             <ScreenHeader navigation={navigation} title={'渲染耗时'} safeArea={true} />
 
-            <ScrollView style={{
-                backgroundColor: 'rgb(247, 248, 249)',
-            }}>
-                <WhiteSpace>
-                    {
-                        R.compose(
-                            R.addIndex(R.map)(
-                                (v, k) => {
-                                    return (
-                                        <WingBlank>
-                                            <WhiteSpace size='sm' style={{
-                                                flexDirection: 'row',
-                                                alignItems: 'center',
-                                            }}>
-                                                <DefText style={{
-                                                    width: 60,
-                                                    textAlign: 'right',
-                                                }}>{v.name}</DefText>
-                                                <View style={{
-                                                    flexDirection: 'row',
-                                                    justifyContent: 'flex-start',
-                                                    alignItems: 'center',
-                                                }}>
-                                                    <Line val={v.time} color={theme.main}/>
-                                                    <DefText>{v.time}ms</DefText>
-                                                </View>
-                                            </WhiteSpace>
-                                        </WingBlank>
-                                    )
-                                }
-                            ),
-                            R.sort((a, b) => b.time - a.time)
-                        )(renderTime)
-                    }
-                </WhiteSpace>
-            </ScrollView>
+            <FlatList style={{ marginTop: 10, }} data={R.sort((a, b) => b.time - a.time)(renderTime)}
+                initialNumToRender={30}
+                showsVerticalScrollIndicator={false}
+                removeClippedSubviews={true}
+                renderItem={({ item, index, separators }) => (
+                    <WingBlank>
+                        <WhiteSpace size='sm' style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                        }}>
+                            <DefText style={{
+                                width: 60,
+                                textAlign: 'right',
+                            }}>{item.name}</DefText>
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'flex-start',
+                                alignItems: 'center',
+                            }}>
+                                <Line val={item.time} color={theme.main} />
+                                <DefText>{item.time}ms</DefText>
+                            </View>
+                        </WhiteSpace>
+                    </WingBlank>
+                )}>
+
+            </FlatList>
         </View>
     )
 }
