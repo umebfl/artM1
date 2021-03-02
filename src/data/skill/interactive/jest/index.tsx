@@ -5,7 +5,7 @@ export default {
   major: true,
   logo: {
     type: 'jpg',
-    // full: true,
+    full: true,
     url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fjestesmyaktywni.pcpr.pl%2Fdownload%2Fzalacznik_1601.jpg&refer=http%3A%2F%2Fjestesmyaktywni.pcpr.pl&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255622&t=95be6f08253a25e06cc6d534c31f4b24',
   },
   url: 'https://www.jestjs.cn/docs/getting-started',

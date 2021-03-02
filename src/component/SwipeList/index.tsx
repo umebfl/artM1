@@ -135,7 +135,7 @@ export const SwipeListItem = ({
     navigation,
 }) => {
 
-    const iconSize = 54
+    const iconSize = 50
 
     return (
         <TouchView onPress={() => { navigation.push('unitDetailView', { payload: item }) }}>
@@ -145,10 +145,11 @@ export const SwipeListItem = ({
                 <WingBlank size='sm' style={{
                     height: iconSize,
                     flex: 1,
-                    marginTop: 10,
-                    marginBottom: 6,
+                    marginTop: 4,
+                    marginBottom: 8,
                     borderBottomWidth: k === list.length - 1 ? 0 : 0.3,
                     borderBottomColor: theme.borderColor,
+                    height: 59,
                 }}>
                     <View style={{
                         flexDirection: 'row',
@@ -168,27 +169,16 @@ export const SwipeListItem = ({
                                 : null
                         }
 
-                        {
-                            item.ftStep
-                                ? (
-                                    <Icon style={{
-                                        width: 15,
-                                        height: 15,
-                                        // position: 'absolute',
-                                        // right: 0,
-                                        // bottom: 0,
-                                    }} name={item.ftStep} size={12} color={theme.grey[0]} />
-                                )
-                                : null
-                        }
+
                     </View>
-                    <DefText style={{ marginTop: 6, }}>{item.def}</DefText>
+                    <DefText style={{ marginTop: 5, }}>{item.def}</DefText>
 
                     <View style={{
                         flexDirection: 'row',
-                        justifyContent: 'flex-end',
+                        justifyContent: 'flex-start',
+                        marginTop: 3,
                     }}>
-                        {
+                        {/* {
                             item.step
                                 ? (
                                     <Icon style={{
@@ -198,6 +188,30 @@ export const SwipeListItem = ({
                                         // right: 0,
                                         // bottom: 0,
                                     }} name={item.step} size={12} color={theme.grey[0]} />
+                                )
+                                : null
+                        } */}
+
+                        {
+                            item.ftStep
+                                ? (
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}>
+                                        <Icon style={{
+                                            // width: 14,
+                                            // height: 15,
+                                            // position: 'absolute',
+                                            // right: 0,
+                                            // bottom: 0,
+                                        }} name={item.ftStep} size={12} color={theme.grey[0]} />
+                                        <Text style={{
+                                            fontSize: 8,
+                                            color: theme.grey[0],
+                                        }}>({item.step}%)</Text>
+                                    </View>
                                 )
                                 : null
                         }

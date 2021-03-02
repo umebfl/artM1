@@ -32,6 +32,7 @@ const Dart = {
     def: '一个为全平台构建快速应用的编程语言',
     logo: {
         type: 'jpg',
+        full: true,
         url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=977863321,390860137&fm=15&gp=0.jpg',
     },
     url: 'https://dart.cn/',
@@ -152,6 +153,7 @@ const AntDesign = {
     platform: SkillPlatform.react,
     logo: {
         type: 'jpg',
+        full: true,
         url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f',
     },
     url: 'https://ant.design/docs/react/introduce-cn',
@@ -163,7 +165,7 @@ const Webpack = {
     major: true,
     logo: {
         type: 'png',
-        // full: true,
+        full: true,
         url: 'https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png',
         // url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180305%2F240dc32f8648479eaad84a7ab28a0469.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255747&t=a661639a6e294d2f973feee8a45334a9',
     },
@@ -220,6 +222,7 @@ export default {
                         // type: 'svg',
                         // url: 'https://ahooks.js.org/logo.svg',
                         type: 'jpg',
+                        full: true,
                         url: 'https://pic1.zhimg.com/80/v2-a42735923d9304eed6e74ecf37df81f8_1440w.jpg',
                         // url: 'https://avatars2.githubusercontent.com/u/65340384?s=200&v=4',
                     },
@@ -259,7 +262,8 @@ export default {
                     platform: SkillPlatform.react,
                     logo: {
                         type: 'png',
-                        url: 'https://www.redux.org.cn/assets/images/logo.png',
+                        full: true,
+                        url: 'https://tse3-mm.cn.bing.net/th/id/OIP.yPRN87C9vjrdtIBY7UTAiAHaGs?pid=ImgDet&rs=1',
                     },
                     url: 'https://www.redux.org.cn/',
                 },
@@ -269,30 +273,14 @@ export default {
             name: '数据可视化',
             list: [
                 {
-                    name: 'React-native-chart-kit',
-                    def: '基于React、TypeScript封装了所有的G2Plot图表',
-                    major: true,
-                    platform: SkillPlatform.react,
-                    logo: {
-                        type: 'icon',
-                        url: 'chart-pie',
-                    },
-                    url: 'https://charts.ant.design/zh-CN/guide',
-                    demo: [
-                        {
-                            title: '基本使用',
-                            path: 'skill/demo/1',
-                        },
-                    ],
-                },
-                {
                     name: 'Ant Design Charts',
                     def: '基于React、TypeScript封装了所有的G2Plot图表',
                     major: true,
                     platform: SkillPlatform.react,
                     logo: {
-                        type: 'svg',
-                        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                        type: 'jpg',
+                        full: true,
+                        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f',
                     },
                     url: 'https://charts.ant.design/zh-CN/guide',
                 },
@@ -301,6 +289,7 @@ export default {
                     def: '蚂蚁集团全新一代数据可视化解决方案',
                     logo: {
                         type: 'png',
+                        full: true,
                         url: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
                     },
                     url: 'https://antv.vision/',
@@ -310,7 +299,8 @@ export default {
                     def: '帮助您使用HTML，SVG和CSS使数据栩栩如生',
                     logo: {
                         type: 'png',
-                        url: 'https://avatars.observableusercontent.com/avatar/c29cf4d85eece3bf402bbaffe1e260c6e5881a490c99c6a1e52a8a2f3f6fb10e?s=128',
+                        full: true,
+                        url: 'https://tse2-mm.cn.bing.net/th/id/OIP.oPv8HjQNqIhP_MoIgDR4jQHaHa?pid=ImgDet&w=1000&h=1000&rs=1',
                     },
                     url: 'https://observablehq.com/@d3/gallery',
                 },
@@ -319,9 +309,28 @@ export default {
                     def: '一个基于 JavaScript 的开源可视化图表库',
                     logo: {
                         type: 'png',
-                        url: 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/logo.png?_v_=20200710_1',
+                        full: true,
+                        url: 'https://tse2-mm.cn.bing.net/th/id/OIP.1lgJbCNUvlpbXUJBzo5pDAHaIl?pid=ImgDet&rs=1',
                     },
                     url: 'https://echarts.apache.org/zh/index.html',
+                },
+                {
+                    name: 'React-native-chart-kit',
+                    def: '基于React、TypeScript封装了所有的G2Plot图表',
+                    major: true,
+                    platform: SkillPlatform.react,
+                    logo: {
+                        type: 'jpg',
+                        full: true,
+                        url: 'https://tse2-mm.cn.bing.net/th/id/OIP.t_LOUtzMKTl3Y3Xo53CPugHaHa?pid=ImgDet&rs=1',
+                    },
+                    url: 'https://charts.ant.design/zh-CN/guide',
+                    demo: [
+                        {
+                            title: '基本使用',
+                            path: 'skill/demo/1',
+                        },
+                    ],
                 },
             ],
         },
@@ -334,6 +343,7 @@ export default {
                     major: true,
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://reactnavigation.org/img/spiro.svg',
                     },
                     url: 'https://reactnavigation.org',
@@ -394,6 +404,7 @@ export default {
                     major: true,
                     logo: {
                         type: 'png',
+                        full: true,
                         url: 'https://www.babeljs.cn/img/babel.png',
                     },
                     url: 'https://www.babeljs.cn/',
@@ -403,6 +414,7 @@ export default {
                     def: '查找并修复JavaScript代码中的问题',
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg',
                     },
                     url: 'https://eslint.org/',
@@ -412,11 +424,14 @@ export default {
                     def: '用自动化构建工具增强你的工作流程',
                     major: false,
                     ftStep: SkillStep.flag,
-                    step: SkillStep.good,
+                    step: 100,
                     logo: {
-                        type: 'svg',
-                        url: 'https://www.gulpjs.com.cn/img/gulp-white-text.svg',
-                        bg: '#EEE',
+                        // type: 'svg',
+                        // url: 'https://www.gulpjs.com.cn/img/gulp-white-text.svg',
+                        // bg: '#EEE',
+                        type: 'jpg',
+                        full: true,
+                        url: 'https://cdn.freebiesupply.com/logos/large/2x/gulp-1-logo-png-transparent.png',
                     },
                     url: 'https://www.gulpjs.com.cn/',
                 },
@@ -489,7 +504,7 @@ export default {
                     // 目标阶段
                     ftStep: SkillStep.good,
                     // 当前阶段
-                    step: SkillStep.flag,
+                    step: 20,
                     platform: SkillPlatform.react,
                     url: 'https://www.npmjs.com/package/stats-js',
                 },
@@ -513,6 +528,7 @@ export default {
                     platform: SkillPlatform.react,
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
                     },
                     url: 'https://beta-pro.ant.design/docs/introduction-cn',
@@ -529,6 +545,7 @@ export default {
                     platform: SkillPlatform.react,
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg',
                     },
                     url: 'https://motion.ant.design/index-cn',
@@ -547,7 +564,7 @@ export default {
                     // 目标阶段
                     ftStep: SkillStep.flag,
                     // 当前阶段
-                    step: SkillStep.good,
+                    step: 100,
                     // logo: {
                     //     type: 'svg',
                     //     url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
@@ -561,7 +578,7 @@ export default {
                     // 目标阶段
                     ftStep: SkillStep.flag,
                     // 当前阶段
-                    step: SkillStep.good,
+                    step: 100,
                     platform: SkillPlatform.react,
                     // logo: {
                     //     type: 'svg',
@@ -574,7 +591,7 @@ export default {
                     def: 'ReactNative 热更新',
                     major: true,
                     ftStep: SkillStep.flag,
-                    step: SkillStep.good,
+                    step: 100,
                     platform: SkillPlatform.reactNative,
                     // logo: {
                     //     type: 'svg',
@@ -587,7 +604,7 @@ export default {
                     def: 'ReactNative调试工具',
                     major: true,
                     ftStep: SkillStep.flag,
-                    step: SkillStep.good,
+                    step: 100,
                     platform: SkillPlatform.reactNative,
                     // logo: {
                     //     type: 'svg',

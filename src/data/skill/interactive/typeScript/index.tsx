@@ -7,7 +7,7 @@ export default {
   // 目标阶段
   ftStep: SkillStep.good,
   // 当前阶段
-  step: SkillStep.overview,
+  step: 40,
   logo: {
     type: 'jpg',
     url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3746182100,898429560&fm=26&gp=0.jpg',

@@ -7,9 +7,10 @@ export default {
     version: '2',
     major: true,
     ftStep: SkillStep.overview,
-    step: SkillStep.good,
+    step: 100,
     logo: {
         type: 'png',
+        full: true,
         url: 'https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png',
     },
     url: 'https://www.yarnpkg.cn/',

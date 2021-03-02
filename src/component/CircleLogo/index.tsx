@@ -46,7 +46,7 @@ export default (payload: unitLogoPlayload) => {
             width: size,
             height: size,
             borderRadius: radius ? radius : size,
-            borderWidth: theme.borderWidth,
+            borderWidth: data.full ? 0 : theme.borderWidth,
             borderColor: theme.borderColor,
             justifyContent: 'center',
             alignItems: 'center',

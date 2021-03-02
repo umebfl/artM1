@@ -1,15 +1,15 @@
 // 技术阶段
 export enum SkillStep {
   // 标记
-  flag = 'flag-variant-outline',
+  flag = 'flag-variant-outline',  // 20
   // 总览大纲
-  overview = 'table-of-contents',
+  overview = 'table-of-contents',  // 40
   // 章节
-  section = 'file-word-box-outline',
+  section = 'file-word-box-outline',  // 60
   // 熟悉
-  know = 'read',
+  know = 'read',  // 80
   // 精通
-  good = 'checkbox-marked-circle-outline',
+  good = 'checkbox-marked-circle-outline',  // 100
 }
 
 // 技术运行平台
