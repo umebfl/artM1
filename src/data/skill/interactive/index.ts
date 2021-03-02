@@ -14,7 +14,7 @@ const JavaScript = {
     logo: {
         type: 'jpg',
         full: true,
-        url: 'https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7ca7bcb5f6d2155a9096b63f62403df?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
+        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jinqiaojob.com%2Fuploads%2Fallimg%2F200113%2F1-200113194504a8.jpg&refer=http%3A%2F%2Fwww.jinqiaojob.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253889&t=c33f92d7fd8556ce833a0f923537b3fb',
     },
     url: 'https://www.w3school.com.cn/js/index.asp',
     // 文档列表
@@ -31,8 +31,8 @@ const Dart = {
     name: 'Dart',
     def: '一个为全平台构建快速应用的编程语言',
     logo: {
-        type: 'png',
-        url: 'https://dartpad.cn/dart-192.png',
+        type: 'jpg',
+        url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=977863321,390860137&fm=15&gp=0.jpg',
     },
     url: 'https://dart.cn/',
     // 文档列表
@@ -50,7 +50,8 @@ const Html5 = {
     def: '超文本标记语言',
     logo: {
         type: 'jpg',
-        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.0574nb.cn%2FUploadImg%2Fnews%2F1429244091.jpg&refer=http%3A%2F%2Fwww.0574nb.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612878791&t=0b8239772e21f05663d2d865c836041a',
+        full: true,
+        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F89%2F73%2F3456ee42a409867.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253923&t=7f465f9ddf774853926f72537bb1c0c8',
     },
     url: 'https://www.w3school.com.cn/html5/index.asp',
     // 文档列表
@@ -68,7 +69,8 @@ const Less = {
     def: '一门向后兼容的 CSS 扩展语言',
     logo: {
         type: 'jpg',
-        url: 'https://less.bootcss.com/public/img/less_logo.png',
+        full: true,
+        url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2500836854,3966017427&fm=15&gp=0.jpg',
     },
     url: 'https://less.bootcss.com/#%E6%A6%82%E8%A7%88',
     // 文档列表
@@ -87,7 +89,8 @@ const Css = {
     major: true,
     logo: {
         type: 'jpg',
-        url: 'https://bkimg.cdn.bcebos.com/pic/279759ee3d6d55fbe2fea0a66f224f4a20a4dd72?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
+        full: true,
+        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F86%2F51%2F2456eb8bc0270d9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253990&t=239b9cd2dcbb9423540085c11ed93e1d',
     },
     url: 'https://www.runoob.com/css/css-intro.html',
 }
@@ -117,7 +120,9 @@ const Ramda = {
     major: true,
     logo: {
         type: 'png',
-        url: 'http://www.ruanyifeng.com/blogimg/asset/2017/bg2017030901.jpg',
+        full: true,
+        // url: 'http://www.ruanyifeng.com/blogimg/asset/2017/bg2017030901.jpg',
+        url: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4174873472,1476613346&fm=26&gp=0.jpg',
     },
     url: 'https://ramda.cn/',
     // 文档列表
@@ -146,8 +151,8 @@ const AntDesign = {
     major: true,
     platform: SkillPlatform.react,
     logo: {
-        type: 'svg',
-        url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+        type: 'jpg',
+        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f',
     },
     url: 'https://ant.design/docs/react/introduce-cn',
 }
@@ -158,7 +163,9 @@ const Webpack = {
     major: true,
     logo: {
         type: 'png',
+        // full: true,
         url: 'https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png',
+        // url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180305%2F240dc32f8648479eaad84a7ab28a0469.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255747&t=a661639a6e294d2f973feee8a45334a9',
     },
     url: 'https://webpack.docschina.org/',
 }

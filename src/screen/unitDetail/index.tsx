@@ -9,6 +9,7 @@ import {
     Text,
     ImageBackground,
     Dimensions,
+    Clipboard,
 } from 'react-native'
 
 import ScrollableTabView from 'react-native-scrollable-tab-view'
@@ -34,6 +35,76 @@ import {
 } from '../../component/Text'
 
 const moban = require('../../../resource/image/template/m2.jpeg')
+
+export const DetailHead = ({payload, imageSize, navigation, theme}) => {
+
+    const handlePress = text => {
+        // Clipboard.setString(text)
+        navigation.push('readWebview', { url: payload.url, })
+    }
+
+    return (
+        <View style={{
+            paddingLeft: 26,
+            paddingRight: 26,
+            paddingTop: 10,
+            paddingBottom: 14,
+            // marginBottom: 4,
+            // height: 160,
+            // backgroundColor: 'rgba(100, 100, 100, 0.2)',
+            flexDirection: 'row',
+        }}>
+            <View>
+                {
+                    payload.logo
+                        ? <UnitLogo style={{ marginRight: 16, }} data={payload.logo} size={imageSize} ></UnitLogo>
+                        : null
+                }
+            </View>
+            <View style={{
+                flex: 1,
+                paddingTop: 4,
+                // backgroundColor: 'rgba(100, 100, 100, 0.2)',
+            }}>
+                <MidTitle>{payload.name || payload.title}</MidTitle>
+                <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 12, }}>{payload.def}</DefText>
+
+                <View style={{
+                    marginTop: 30,
+                }}>
+                    {
+                        payload.url
+                            ? (
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'flex-end',
+                                }}>
+                                    <TouchView onPress={() => handlePress(payload.url)}>
+                                        <View style={{
+                                            width: 76,
+                                            height: 28,
+                                            backgroundColor: theme.main,
+                                            // opacity: 0.6,
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            borderRadius: 14,
+                                        }}>
+                                            <Text style={{
+                                                color: 'white',
+                                                fontSize: 14,
+                                                fontWeight: 'bold',
+                                            }}>参考</Text>
+                                        </View>
+                                    </TouchView>
+                                </View>
+                            )
+                            : null
+                    }
+                </View>
+            </View>
+        </View>
+    )
+}
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
@@ -94,61 +165,8 @@ export default ({ route, navigation }) => {
                         // height: '100%',
                     }}
                     style={{ flex: 1, }}>
-                    <View style={{
-                        paddingLeft: 26,
-                        paddingRight: 26,
-                        paddingTop: 10,
-                        paddingBottom: 14,
-                        // marginBottom: 4,
-                        // height: 160,
-                        // backgroundColor: 'rgba(100, 100, 100, 0.2)',
-                        flexDirection: 'row',
-                    }}>
-                        <View>
-                            {
-                                payload.logo
-                                    ? <UnitLogo data={payload.logo} size={imageSize} ></UnitLogo>
-                                    : null
-                            }
-                        </View>
-                        <View style={{
-                            flex: 1,
-                            paddingTop: 4,
-                            paddingLeft: 16,
-                            // backgroundColor: 'rgba(100, 100, 100, 0.2)',
-                        }}>
-                            <MidTitle>{payload.name || payload.title}</MidTitle>
-                            <DefText numberOfLines={2} style={{ fontSize: 14, marginTop: 8, }}>{payload.def}</DefText>
 
-                            <View style={{
-                                marginTop: 30,
-                            }}>
-                                {
-                                    payload.url
-                                        ? (
-                                            <TouchView onPress={() => navigation.push('readWebview', { url: payload.url, })}>
-                                                <View style={{
-                                                    width: 76,
-                                                    height: 28,
-                                                    backgroundColor: theme.main,
-                                                    // opacity: 0.6,
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    borderRadius: 14,
-                                                }}>
-                                                    <Text style={{
-                                                        color: 'white',
-                                                        fontSize: 14,
-                                                        fontWeight: 'bold',
-                                                    }}>参考</Text>
-                                                </View>
-                                            </TouchView>
-                                        )
-                                        : null
-                                }
-                            </View>
-                        </View>
-                    </View>
+                    <DetailHead payload={payload} imageSize={imageSize} navigation={navigation} theme={theme} />
 
                     <ScrollableTabView
                         prerenderingSiblingsNumber={Infinity}

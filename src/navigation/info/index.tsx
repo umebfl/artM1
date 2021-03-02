@@ -134,11 +134,16 @@ export default ({ navigation, }) => {
                                     left: 120,
                                     opacity: 0.3,
                                 }}
-                                onPress={() => navigation.push('debugView')}
+                                onPress={handleReload}
                                 visible={true}
                                 // position={Toast.positions.TOP}
                                 // opacity={0.3}
-                                hideOnPress={false}>跟踪</Toast>
+                                hideOnPress={false}>
+                                <Icon style={{
+                                    marginLeft: 6,
+                                    marginRight: 8,
+                                }} name={'reload'} size={22} color={'white'} />
+                            </Toast>
 
                             <Toast
                                 containerStyle={{
@@ -152,7 +157,7 @@ export default ({ navigation, }) => {
                                     left: 130,
                                     opacity: 0.2,
                                 }}
-                                onPress={handleReload}
+                                onPress={() => navigation.push('debugView')}
                                 visible={true}
                                 // position={Toast.positions.TOP}
                                 // opacity={0.3}
@@ -160,7 +165,8 @@ export default ({ navigation, }) => {
                                 <Icon style={{
                                     marginLeft: 6,
                                     marginRight: 8,
-                                }} name={'reload'} size={22} color={'white'} />
+                                }} name={'android-debug-bridge'} size={22} color={'white'} />
+
                             </Toast>
 
                             <Toast

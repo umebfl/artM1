@@ -28,11 +28,6 @@ import Context from '../../../reducer'
 
 import { info, } from '../../../util/log'
 
-interface LinePayload {
-    val: number
-    color: string
-}
-
 class Line extends Component {
 
     constructor(props) {
@@ -72,7 +67,9 @@ class Line extends Component {
                 marginRight: 4,
                 marginLeft: 4,
                 borderRadius: 4,
-            }}></Animated.View>
+            }}>
+
+            </Animated.View>
         )
     }
 

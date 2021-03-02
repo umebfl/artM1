@@ -27,6 +27,8 @@ import ScreenHeader from '../../component/ScreenHeader'
 import TabBar from '../../component/ScrollableTabBar'
 import TouchView from '../../component/TouchView'
 
+import { DetailHead, } from '../unitDetail'
+
 import {
     LargeTitle,
     MidTitle,
@@ -77,53 +79,8 @@ export default ({ route, navigation }) => {
                     // height: '100%',
                 }}
                 style={{ flex: 1, }}>
-                <View style={{
-                    padding: 15,
-                    // backgroundColor: 'rgba(100, 100, 100, 0.2)',
-                    flexDirection: 'row',
-                    borderBottomWidth: 0.3,
-                    borderBottomColor: theme.borderColor,
-                }}>
-                    <View style={{
-                        flex: 1,
-                        paddingTop: 4,
-                        paddingLeft: 16,
-                        // backgroundColor: 'rgba(100, 100, 100, 0.2)',
-                    }}>
 
-                        <View style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                        }}>
-                            <MidTitle>{payload.title}</MidTitle>
-
-                            {
-                                payload.url
-                                    ? (
-                                        <TouchView onPress={() => navigation.push('readWebview', { url: payload.url, })}>
-                                            <View style={{
-                                                width: 76,
-                                                height: 28,
-                                                backgroundColor: theme.main,
-                                                // opacity: 0.6,
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                borderRadius: 14,
-                                            }}>
-                                                <Text style={{
-                                                    color: 'white',
-                                                    fontSize: 14,
-                                                    fontWeight: 'bold',
-                                                }}>参考</Text>
-                                            </View>
-                                        </TouchView>
-                                    )
-                                    : null
-                            }
-                        </View>
-                        <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 12, }}>{payload.def}</DefText>
-                    </View>
-                </View>
+                <DetailHead payload={payload} navigation={navigation} theme={theme} />
 
                 <View style={{
                     padding: 15,

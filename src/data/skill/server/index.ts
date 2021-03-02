@@ -12,8 +12,9 @@ export default {
                     major: true,
                     platform: SkillPlatform.node,
                     logo: {
-                      type: 'svg',
-                      url: 'http://static.nodejs.cn/_static/img/logo.svg',
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=238001970,1745368623&fm=26&gp=0.jpg',
                     },
                     url: 'https://nodejs.org/zh-cn/',
                 },
@@ -29,6 +30,7 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'png',
+                      full: true,
                       url: 'https://nestjs.bootcss.com/img/logo.png',
                     },
                     url: 'https://nestjs.bootcss.com/',
@@ -40,6 +42,7 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'svg',
+                      full: true,
                       url: 'https://zos.alipayobjects.com/rmsportal/VTcUYAaoKqXyHJbLAPyF.svg',
                     },
                     url: 'https://eggjs.org/zh-cn/intro/index.html',
@@ -49,10 +52,11 @@ export default {
                     def: '基于 Node.js 平台，快速、开放、极简的 Web 开发框架',
                     major: false,
                     platform: SkillPlatform.node,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://nestjs.bootcss.com/img/logo.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2693920121,3280527363&fm=15&gp=0.jpg',
+                    },
                     url: 'https://www.expressjs.com.cn/',
                 },
             ],
@@ -67,6 +71,7 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'png',
+                      full: true,
                       url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3435757484,2524118334&fm=26&gp=0.jpg',
                     },
                     url: 'https://www.runoob.com/mongodb/mongodb-tutorial.html',
@@ -78,6 +83,7 @@ export default {
                     platform: SkillPlatform.all,
                     logo: {
                       type: 'png',
+                      full: true,
                       url: 'https://www.runoob.com/wp-content/uploads/2014/03/mysql.jpg',
                     },
                     url: 'https://www.runoob.com/mysql/mysql-tutorial.html',
@@ -89,6 +95,7 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'png',
+                      full: true,
                       url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2188650053,2502556176&fm=26&gp=0.jpg',
                     },
                     url: 'https://nosqlbooster.com/',
@@ -100,6 +107,7 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'png',
+                      full: true,
                       url: 'http://www.navicat.com.cn/images/02.Product_00_AllProducts_Premium15.png',
                     },
                     url: 'http://www.navicat.com.cn/',
@@ -116,6 +124,7 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'png',
+                      full: true,
                       url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
                     },
                     url: 'https://www.postman.com/',
@@ -130,10 +139,11 @@ export default {
                     def: 'JavaScript 日期处理类库',
                     major: false,
                     platform: SkillPlatform.node,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://tse1-mm.cn.bing.net/th/id/OIP.3uK6AdhfnwXu5FTXU1KIBwHaDR?pid=ImgDet&w=536&h=237&rs=1',
+                    },
                     url: 'http://momentjs.cn/',
                 },
                 {
@@ -141,10 +151,11 @@ export default {
                     def: '选择log4js来完成日志记录的功能',
                     major: false,
                     platform: SkillPlatform.node,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://tse4-mm.cn.bing.net/th/id/OIP.JTYuTy6aCFnl5erX7_WgfwAAAA?pid=ImgDet&rs=1',
+                    },
                     url: 'https://gitee.com/mirrors/log4js',
                 },
                 {
@@ -152,10 +163,11 @@ export default {
                     def: '帮助你快速简单执行定时循环操作的JavaScript类库',
                     major: false,
                     platform: SkillPlatform.node,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://tse4-mm.cn.bing.net/th/id/OIP.3EDqMLBIwIK_023KQyDEygHaCg?pid=ImgDet&rs=1',
+                    },
                     url: 'https://blog.csdn.net/tyygming/article/details/84542298',
                 },
             ],
@@ -170,7 +182,8 @@ export default {
                     platform: SkillPlatform.node,
                     logo: {
                       type: 'png',
-                      url: 'https://pm2.keymetrics.io/assets/pm2-logo-1.png',
+                      full: true,
+                      url: 'https://tse2-mm.cn.bing.net/th/id/OIP.nio3CzcEkbTmBFTVLTfdsgHaBz?pid=ImgDet&w=6138&h=1493&rs=1',
                     },
                     url: 'https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/',
                 },
@@ -179,10 +192,11 @@ export default {
                     def: 'nodejs的守护进程,能够启动,停止,重启应用',
                     major: false,
                     platform: SkillPlatform.node,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://pm2.keymetrics.io/assets/pm2-logo-1.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://th.bing.com/th/id/Re7b197224f2d04d6f125f1c2ea7ea1c5?rik=U04iTBz2NGMpfw&riu=http%3a%2f%2fwww.originaloe.com%2fmedias%2fimages%2flogo-fbo-1.jpg&ehk=Xrf3SWXF19FqM1u0KvQzFLHcV6yVNJvBz4tnkcBlWWs%3d&risl=&pid=ImgRaw',
+                    },
                     url: 'https://www.npmjs.com/package/forever',
                 },
             ],
@@ -195,10 +209,11 @@ export default {
                     def: 'Node.js可以利用ApiDoc生成接口文档',
                     major: false,
                     platform: SkillPlatform.node,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://th.bing.com/th/id/R8f3be1eec793aa6cc88366d6332a3a97?rik=jBkxqd4vSbuFCQ&riu=http%3a%2f%2fgreendoc.hu%2ffaces%2fjavax.faces.resource%2flogo-488x400.png%3bjsessionid%3de4f3c3476674e53712fc89f3c723%3fln%3dimages&ehk=nkZR9kL%2fkTA3zuS7kw82%2frX240x80M2E6auanYfxvOE%3d&risl=&pid=ImgRaw',
+                    },
                     url: 'https://apidocjs.com/',
                 },
 

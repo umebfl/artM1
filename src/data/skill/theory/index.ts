@@ -12,8 +12,9 @@ export default {
                     major: false,
                     platform: SkillPlatform.all,
                     logo: {
-                      type: 'icon',
-                      url: 'web',
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://tse1-mm.cn.bing.net/th/id/OIP.lc-6FOUQnY6V-79dt3FdpgHaD_?pid=ImgDet&rs=1',
                     },
                     url: 'https://www.runoob.com/http/http-tutorial.html',
                 },
@@ -23,8 +24,9 @@ export default {
                     major: false,
                     platform: SkillPlatform.all,
                     logo: {
-                      type: 'icon',
-                      url: 'battlenet',
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fftp.chinafix.com%2Fportal%2F201711%2F20%2F092900iii5p55lrfngiliy.jpg&refer=http%3A%2F%2Fftp.chinafix.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617274553&t=ab472e17b2950f7218edc83dea14e018',
                     },
                     url: 'https://www.runoob.com/tcpip/tcpip-tutorial.html',
                 },
@@ -34,8 +36,9 @@ export default {
                     major: false,
                     platform: SkillPlatform.all,
                     logo: {
-                      type: 'icon',
-                      url: 'contactless-payment',
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3861921816,2794589959&fm=26&gp=0.jpg',
                     },
                     url: '',
                 },
@@ -61,8 +64,9 @@ export default {
                     major: false,
                     platform: SkillPlatform.web,
                     logo: {
-                      type: 'icon',
-                      url: 'security',
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://tse1-mm.cn.bing.net/th/id/OIP.b_YutsV4U7BKA-s4A40T4AAAAA?pid=ImgDet&rs=1',
                     },
                     url: 'https://www.cnblogs.com/liubingyjui/p/10804785.html',
                 },
@@ -76,11 +80,25 @@ export default {
                     def: '一种自由和开放源码的类 UNIX 操作系统',
                     major: false,
                     platform: SkillPlatform.all,
-                    // logo: {
-                    //   type: 'icon',
-                    //   url: 'security',
-                    // },
+                    logo: {
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://th.bing.com/th/id/Rf57bbb6295ffade226d015f4850937e8?rik=xTV1rU3CW4k2xg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f03%2fColor-of-the-Linux-Logo.jpg&ehk=Hii7pvgOcDq2g41%2b9D%2bfbEoQqCN%2bTmPuB%2b9mujPkcnk%3d&risl=&pid=ImgRaw',
+                    },
                     url: 'https://www.runoob.com/linux/linux-tutorial.html',
+                },
+
+                {
+                    name: 'macOS',
+                    def: '基于XNU混合内核的图形化操作系统',
+                    major: false,
+                    platform: SkillPlatform.all,
+                    logo: {
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1403754502,2928659230&fm=15&gp=0.jpg',
+                    },
+                    url: 'https://support.apple.com/zh-cn/macos',
                 },
             ],
         },
@@ -92,10 +110,11 @@ export default {
                     def: '一种为 shell 编写的脚本程序',
                     major: false,
                     platform: SkillPlatform.all,
-                    // logo: {
-                    //   type: 'icon',
-                    //   url: 'security',
-                    // },
+                    logo: {
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.tuicool.com%2FymyyyqV.jpg%21web&refer=http%3A%2F%2Fimg2.tuicool.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275886&t=0d7535f81586093ce0d5d1e98c055ab2',
+                    },
                     url: 'https://www.runoob.com/linux/linux-shell.html',
                 },
                 {
@@ -119,10 +138,11 @@ export default {
                     def: '一种编程范式',
                     major: false,
                     platform: SkillPlatform.all,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://git-scm.com/images/logo@2x.png',
-                    // },
+                    logo: {
+                      type: 'png',
+                      full: true,
+                      url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp2.music.126.net%2FvbGh8tpNUIiXr6xqzJemiQ%3D%3D%2F109951163373186733.jpg&refer=http%3A%2F%2Fp2.music.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275968&t=6a4673572731df4f888b1254befe0d32',
+                    },
                     url: 'https://github.com/getify/Functional-Light-JS',
                 },
             ],
@@ -135,10 +155,11 @@ export default {
                     def: '一种字符串匹配的模式',
                     major: false,
                     platform: SkillPlatform.all,
-                    // logo: {
-                    //   type: 'png',
-                    //   url: 'https://git-scm.com/images/logo@2x.png',
-                    // },
+                    logo: {
+                      type: 'jpg',
+                      full: true,
+                      url: 'https://tse1-mm.cn.bing.net/th/id/OIP.cJ3K16wNAanyNzkLe9wJvQHaHa?pid=ImgDet&rs=1',
+                    },
                     url: 'https://www.runoob.com/regexp/regexp-syntax.html',
                 },
             ],
@@ -206,6 +227,7 @@ export default {
                     platform: SkillPlatform.all,
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg',
                     },
                     url: 'https://reactnative.cn/docs/debugging',
@@ -233,6 +255,7 @@ export default {
                     platform: SkillPlatform.all,
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://www.gstatic.cn/analytics-suite/header/suite/v2/ic_analytics.svg',
                     },
                     url: '',
@@ -255,6 +278,7 @@ export default {
                     platform: SkillPlatform.all,
                     logo: {
                         type: 'svg',
+                        full: true,
                         url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
                     },
                     url: 'https://ant.design/docs/spec/introduce-cn',
@@ -308,6 +332,7 @@ export default {
                     platform: SkillPlatform.all,
                     logo: {
                         type: 'jpg',
+                        full: true,
                         url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3102802095,1274108669&fm=26&gp=0.jpg',
                     },
                     url: 'https://code.visualstudio.com/',
@@ -319,7 +344,8 @@ export default {
                     platform: SkillPlatform.all,
                     logo: {
                         type: 'png',
-                        url: 'https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png',
+                        full: true,
+                        url: 'https://pics7.baidu.com/feed/0e2442a7d933c895127557994747e4f6830200a0.jpeg?token=dd60bf6a4a798e4e8c6bef785950a4d0',
                     },
                     url: 'https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png',
                 },

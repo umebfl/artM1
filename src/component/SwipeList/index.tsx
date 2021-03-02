@@ -11,6 +11,7 @@ import {
     Dimensions,
     TouchableOpacity,
     TouchableWithoutFeedback,
+    Pressable,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -85,10 +86,12 @@ export default payload => {
             </WingBlank>
 
             <ScrollView
+                alwaysBounceVertical={false}
                 scrollEnabled={unit.length > LIST_MAX_LEN}
                 removeClippedSubviews={false}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
+                // bounces={false}
                 pagingEnabled={true}
                 style={{
                     // backgroundColor: 'yellow',
@@ -132,7 +135,7 @@ export const SwipeListItem = ({
     navigation,
 }) => {
 
-    const iconSize = 62
+    const iconSize = 54
 
     return (
         <TouchView onPress={() => { navigation.push('unitDetailView', { payload: item }) }}>

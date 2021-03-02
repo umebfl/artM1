@@ -10,6 +10,7 @@ import {
     NativeModules,
     Platform,
     StatusBar,
+    Clipboard,
 } from 'react-native'
 
 
@@ -118,6 +119,10 @@ export default ({ route, navigation }) => {
         setFullScreen(!fullScreen)
     }
 
+    const handleCopyUrl = (text) => {
+        Clipboard.setString(text)
+    }
+
     useEffect(() => {
 
         // 渲染计时 结束时间
@@ -167,10 +172,20 @@ export default ({ route, navigation }) => {
                     : (
                         <ScreenHeader
                             right={
-                                <TouchView onPress={handleToggleFullScreen}>
-                                    <Icon style={{ marginRight: 8, }}
-                                        name={'crop-free'} size={30} color={theme.grey[0]} />
-                                </TouchView>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                }}>
+                                    <TouchView onPress={() => handleCopyUrl(url)}>
+                                        <Icon style={{ marginRight: 4, }}
+                                            name={'content-copy'} size={26} color={theme.grey[0]} />
+                                    </TouchView>
+
+                                    <TouchView onPress={handleToggleFullScreen}>
+                                        <Icon style={{ marginRight: 8, }}
+                                            name={'crop-free'} size={30} color={theme.grey[0]} />
+                                    </TouchView>
+                                </View>
                             }
                             safeArea={true}
                             navigation={navigation}

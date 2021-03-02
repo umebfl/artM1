@@ -4,8 +4,9 @@ export default {
   def: '一个令人愉快的 JavaScript 测试框架，专注于 简洁明快',
   major: true,
   logo: {
-    type: 'icon',
-    url: 'check-decagram',
+    type: 'jpg',
+    // full: true,
+    url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fjestesmyaktywni.pcpr.pl%2Fdownload%2Fzalacznik_1601.jpg&refer=http%3A%2F%2Fjestesmyaktywni.pcpr.pl&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255622&t=95be6f08253a25e06cc6d534c31f4b24',
   },
   url: 'https://www.jestjs.cn/docs/getting-started',
   // 文档列表

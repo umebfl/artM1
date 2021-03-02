@@ -15,6 +15,7 @@ import { SvgCssUri, SvgXml, } from 'react-native-svg'
 import Context from '../../reducer'
 
 interface unitLogoPlayload {
+    style?: Object
     size: number
     data?: {
         url: String,
@@ -35,6 +36,7 @@ export default (payload: unitLogoPlayload) => {
     const {
         size,
         data,
+        style,
     } = payload
 
     const full = data ? data.full : false
@@ -46,12 +48,13 @@ export default (payload: unitLogoPlayload) => {
             width: size,
             height: size,
             borderRadius: size * 0.2,
-            borderWidth: theme.borderWidth,
+            borderWidth: full ? 0 : theme.borderWidth,
             borderColor: theme.borderColor,
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: data ? data.bg : 'white',
             overflow: 'hidden',
+            ...style,
         }}>
             {
                 R.cond([

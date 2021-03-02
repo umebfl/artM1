@@ -51,7 +51,7 @@ const ScreenWrapper = (payload: payload) => {
         start={{ x: 0.5, y: 0.5 }} end={{ x: 0.5, y: 1.0 }}
         style={{
           flex: 1,
-          // opacity: 0.5,
+          // opacity: 0.5,v
         }}
         colors={
           imageBackground
@@ -63,17 +63,19 @@ const ScreenWrapper = (payload: payload) => {
           {
             ContentViewType === 'View'
               ? (
-                <View style={{ flex: 1, paddingTop: statusBarHeight, paddingBottom: 20, }}>
+                <View style={{ flex: 1, paddingTop: statusBarHeight, paddingBottom: 40, }}>
                   {
                     children ? children : null
                   }
+                  <View style={{ height: 80, }}></View>
                 </View>
               )
               : (
-                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, paddingTop: statusBarHeight, paddingBottom: 20,  }}>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, paddingTop: statusBarHeight,  }}>
                   {
                     children ? children : null
                   }
+                  <View style={{ height: 80, }}></View>
                 </ScrollView>
               )
           }
