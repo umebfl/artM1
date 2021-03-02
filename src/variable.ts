@@ -1,4 +1,16 @@
-
+// 技术阶段
+export enum SkillStep {
+  // 标记
+  flag = 'flag-variant-outline',
+  // 总览大纲
+  overview = 'table-of-contents',
+  // 章节
+  section = 'file-word-box-outline',
+  // 熟悉
+  know = 'read',
+  // 精通
+  good = 'checkbox-marked-circle-outline',
+}
 
 // 技术运行平台
 export enum SkillPlatform {
@@ -16,7 +28,7 @@ export enum SkillPlatform {
   
     // 全部
     all,
-  }
+}
   
 // 技能信息
 export interface SkillUnit {

@@ -1,9 +1,10 @@
-import { SkillPlatform, SkillUnit, } from '../../../variable'
+import { SkillPlatform, SkillUnit, SkillStep, } from '../../../variable'
 
 import jest from './jest'
 import react from './react'
 import reactNative from './react-native'
 import typeScript from './typeScript'
+import Yarn from './yarn'
 
 
 const JavaScript = {
@@ -160,16 +161,6 @@ const Webpack = {
         url: 'https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png',
     },
     url: 'https://webpack.docschina.org/',
-}
-
-const Yarn = {
-    name: 'Yarn',
-    def: '快速、可靠、安全的依赖管理工具',
-    logo: {
-        type: 'png',
-        url: 'https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png',
-    },
-    url: 'https://www.yarnpkg.cn/',
 }
 
 export default {
@@ -413,6 +404,8 @@ export default {
                     name: 'gulp',
                     def: '用自动化构建工具增强你的工作流程',
                     major: false,
+                    ftStep: SkillStep.flag,
+                    step: SkillStep.good,
                     logo: {
                         type: 'svg',
                         url: 'https://www.gulpjs.com.cn/img/gulp-white-text.svg',
@@ -486,6 +479,10 @@ export default {
                 {
                     name: 'statsjs',
                     def: '帮助您监视代码性能',
+                    // 目标阶段
+                    ftStep: SkillStep.good,
+                    // 当前阶段
+                    step: SkillStep.flag,
                     platform: SkillPlatform.react,
                     url: 'https://www.npmjs.com/package/stats-js',
                 },
@@ -540,6 +537,10 @@ export default {
                     def: '智能PNG和JPEG压缩',
                     major: true,
                     platform: SkillPlatform.react,
+                    // 目标阶段
+                    ftStep: SkillStep.flag,
+                    // 当前阶段
+                    step: SkillStep.good,
                     // logo: {
                     //     type: 'svg',
                     //     url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
@@ -550,6 +551,10 @@ export default {
                     name: 'uupoop',
                     def: '在线PS,轻松编辑你的图片',
                     major: true,
+                    // 目标阶段
+                    ftStep: SkillStep.flag,
+                    // 当前阶段
+                    step: SkillStep.good,
                     platform: SkillPlatform.react,
                     // logo: {
                     //     type: 'svg',
@@ -557,6 +562,33 @@ export default {
                     // },
                     url: 'https://www.uupoop.com/#/',
                 },
+                {
+                    name: 'pushy',
+                    def: 'ReactNative 热更新',
+                    major: true,
+                    ftStep: SkillStep.flag,
+                    step: SkillStep.good,
+                    platform: SkillPlatform.reactNative,
+                    // logo: {
+                    //     type: 'svg',
+                    //     url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                    // },
+                    url: 'https://pushy.reactnative.cn/',
+                },
+                {
+                    name: 'react-native-debugger',
+                    def: 'ReactNative调试工具',
+                    major: true,
+                    ftStep: SkillStep.flag,
+                    step: SkillStep.good,
+                    platform: SkillPlatform.reactNative,
+                    // logo: {
+                    //     type: 'svg',
+                    //     url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                    // },
+                    url: 'https://github.com/jhen0409/react-native-debugger',
+                },
+
             ],
         },
     ],

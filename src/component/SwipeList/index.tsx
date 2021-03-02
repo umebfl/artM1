@@ -27,6 +27,7 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
+import { SkillStep } from '../../variable'
 
 // 列表最长长度
 const LIST_MAX_LEN = 4
@@ -163,9 +164,41 @@ export const SwipeListItem = ({
                                 )
                                 : null
                         }
+
+                        {
+                            item.ftStep
+                                ? (
+                                    <Icon style={{
+                                        width: 15,
+                                        height: 15,
+                                        // position: 'absolute',
+                                        // right: 0,
+                                        // bottom: 0,
+                                    }} name={item.ftStep} size={12} color={theme.grey[0]} />
+                                )
+                                : null
+                        }
                     </View>
                     <DefText style={{ marginTop: 6, }}>{item.def}</DefText>
 
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'flex-end',
+                    }}>
+                        {
+                            item.step
+                                ? (
+                                    <Icon style={{
+                                        width: 15,
+                                        height: 15,
+                                        // position: 'absolute',
+                                        // right: 0,
+                                        // bottom: 0,
+                                    }} name={item.step} size={12} color={theme.grey[0]} />
+                                )
+                                : null
+                        }
+                    </View>
                 </WingBlank>
             </View>
         </TouchView>
