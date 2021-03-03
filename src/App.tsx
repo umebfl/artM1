@@ -27,6 +27,8 @@ import UnitListView from './screen/unitListView'
 import UnitDetail from './screen/unitDetail'
 import unitDetailCode from './screen/unitDetailCode'
 import unitEditCategoryView from './screen/unitEditCategoryView'
+import unitEditLv1View from './screen/unitEditLv1View'
+import unitEditLv1DetailView from './screen/unitEditLv1DetailView'
 
 import { getData, clearData, } from './reducer'
 
@@ -86,7 +88,9 @@ const App = () => {
           <RootStack.Screen name='unitDetailView' component={UnitDetail} />
           <RootStack.Screen name='unitDetailCodeView' component={unitDetailCode} />
           <RootStack.Screen name='unitEditCategoryView' component={unitEditCategoryView} />
-
+          <RootStack.Screen name='unitEditLv1View' component={unitEditLv1View} />
+          <RootStack.Screen name='unitEditLv1DetailView' component={unitEditLv1DetailView} />
+          
           <RootStack.Screen name='renderTime' component={RenderTime} />
           <RootStack.Screen name='about' component={About} />
           <RootStack.Screen name='dataView' component={DataView} />

@@ -100,7 +100,7 @@ export default ({ route, navigation }) => {
         }
     }
 
-    const handleEditCategoryName = (id, val) => {
+    const handleEditCategoryName = (id: string, val: string) => {
         dispatch({
             mod: 'system',
             type: 'editCategoryName',
@@ -181,10 +181,12 @@ export default ({ route, navigation }) => {
                     {
                         R.addIndex(R.map)(
                             (v, k) => (
-                                <Item
+                                <EditItem
                                     id={v.id}
                                     name={v.name}
                                     theme={theme}
+                                    useInnerEditer={true}
+                                    handleJump={() => navigation.push('unitEditLv1View', { modKey, categoryId: v.id, })}
                                     handleEdit={handleEditCategoryName}
                                     handleDelPress={
                                         () => {
@@ -206,15 +208,17 @@ export default ({ route, navigation }) => {
     )
 }
 
-interface ItemPayload {
+interface EditItemPayload {
     id: string
     name: string
     theme: any
-    handleDelPress: () => {}
-    handleEdit: () => {}
+    handleJump: () => void
+    handleDelPress: () => void
+    handleEdit: (id: string, val: string) => void
+    useInnerEditer: boolean
 }
 
-const Item = (payload) => {
+export const EditItem = (payload: EditItemPayload) => {
 
     const [editing, setEditing] = useState(false)
     const inputEl = useRef(null)
@@ -223,20 +227,24 @@ const Item = (payload) => {
         id,
         name,
         theme,
+        useInnerEditer,
         handleDelPress,
         handleEdit,
+        handleJump,
     } = payload
 
     return (
-        <View style={{
+        <TouchView onPress={handleJump}>
+            <View  style={{
             backgroundColor: 'white',
             flexDirection: 'row',
+            flex: 1,
             justifyContent: 'space-between',
             alignItems: 'center',
             marginBottom: 10,
             borderRadius: 8,
             height: 45,
-            paddingLeft: 15,
+            // paddingLeft: 15,
             paddingRight: 5,
         }}>
             {
@@ -269,11 +277,13 @@ const Item = (payload) => {
                         </View>
                     )
                     : (
-                        <TouchView onPress={() => { alert(1) }}>
-                            <Text>
+                        <View>
+                            <Text style={{
+                                padding: 15,
+                            }}>
                                 {name}
                             </Text>
-                        </TouchView>
+                        </View>
                     )
             }
 
@@ -297,7 +307,11 @@ const Item = (payload) => {
                         {
                             name: 'circle-edit-outline',
                             color: theme.grey[0],
-                            handlePress: () => { setEditing(true) },
+                            handlePress: () => {
+                                useInnerEditer
+                                    ? setEditing(true)
+                                    : handleEdit(id)
+                            },
                         },
                         {
                             name: 'delete-outline',
@@ -315,6 +329,7 @@ const Item = (payload) => {
                 }
 
             </View>
-        </View>
+            </View>
+        </TouchView>
     )
 }

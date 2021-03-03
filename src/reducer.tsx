@@ -471,6 +471,91 @@ export const reducer = (state, action) => {
                         return newState
                     },
                 ],
+
+                [
+                    R.equals('addCategoryLv1'),
+                    () => {
+                        const {
+                            target,
+                            categoryId,
+                            value,
+                        } = action.payload
+
+                        const path = ['navigation', 'home', 'tab', target, 'data', 'list']
+                        const list = R.path(path)(state)
+
+                        const categoryIndex = R.findIndex(
+                            v => v.id === categoryId
+                        )(list)
+
+                        const category = list[categoryIndex]
+
+                        const newList = R.adjust(
+                            categoryIndex,
+                            v => ({
+                                ...category,
+                                list: [
+                                    {
+                                        id: idBuilder(category.list.length),
+                                        name: value,
+                                        def: 'def',
+                                        major: true,
+                                        logo: {
+                                            type: "jpg",
+                                            full: true,
+                                            url: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jinqiaojob.com%2Fuploads%2Fallimg%2F200113%2F1-200113194504a8.jpg&refer=http%3A%2F%2Fwww.jinqiaojob.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253889&t=c33f92d7fd8556ce833a0f923537b3fb"
+                                        },
+                                        url: "https://www.w3school.com.cn/js/index.asp",
+                                        features: [],
+                                        article: [],
+                                        api: [],
+                                    },
+                                    ...category.list,
+                                ],
+                            }),
+                            list
+                        )
+
+                        const newState = R.assocPath(path, newList)(state)
+
+                        setData(newState)
+                        return newState
+                    },
+                ],
+
+                [
+                    R.equals('removeCategoryLv1'),
+                    () => {
+                        const {
+                            target,
+                            categoryId,
+                            nodeId,
+                        } = action.payload
+
+                        const path = ['navigation', 'home', 'tab', target, 'data', 'list']
+                        const list = R.path(path)(state)
+
+                        const categoryIndex = R.findIndex(
+                            v => v.id === categoryId
+                        )(list)
+
+                        const category = list[categoryIndex]
+
+                        const newList = R.adjust(
+                            categoryIndex,
+                            v => ({
+                                ...category,
+                                list: R.filter(v => v.id !== nodeId)(category.list),
+                            }),
+                            list
+                        )
+
+                        const newState = R.assocPath(path, newList)(state)
+
+                        setData(newState)
+                        return newState
+                    },
+                ],
                 
                 [
                     R.equals('editCategoryName'),
