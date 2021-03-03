@@ -44,7 +44,7 @@ const App = () => {
 
     if (data) {
       info('更新本地缓存')
-    
+
       dispatch({
         mod: 'system',
         type: 'init',
@@ -58,6 +58,12 @@ const App = () => {
 
   useEffect(() => {
     init()
+
+    // dispatch({
+    //   mod: 'system',
+    //   type: 'fix',
+    // })
+  
   }, [])
 
   info('渲染App')

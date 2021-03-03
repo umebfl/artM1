@@ -1,4 +1,4 @@
-import React, { useContext, } from 'react'
+import React, { useContext, useRef, } from 'react'
 
 import R from 'ramda'
 
@@ -12,6 +12,7 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     Pressable,
+    TextInput,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -40,7 +41,8 @@ interface payload {
 }
 
 export default payload => {
-    const { state, } = useContext(Context)
+    const { state, dispatch, } = useContext(Context)
+    const inputEl = useRef(null) 
 
     const {
         theme,
@@ -49,7 +51,9 @@ export default payload => {
     const winWidth = Dimensions.get('window').width
 
     const {
+        modKey,
         title,
+        edit,
         unit,
         navigation,
     } = payload
@@ -59,6 +63,18 @@ export default payload => {
 
     const showWidth = 20
     const listWidth = winWidth - showWidth * 2
+
+    const handleEditCategoryName = () => {
+        dispatch({
+            mod: 'system',
+            type: 'editCategoryName',
+            payload: {
+                target: modKey,
+                key: title,
+                value: inputEl.current.value,
+            },
+        })
+    }
 
     return (
         <View style={{ marginTop: 0, marginBottom: 10, }}>
@@ -71,7 +87,55 @@ export default payload => {
                 justifyContent: 'space-between',
                 alignItems: 'baseline',
             }}>
-                <MidTitle>{title}</MidTitle>
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'flex-start',
+                    alignItems: 'center',
+                }}>
+                    {
+                        edit === true
+                            ? (
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                }}>
+                                    <TextInput
+                                        style={{
+                                            width: 150,
+                                            height: 30,
+                                            // backgroundColor: 'red',
+                                            borderRadius: 8,
+                                            borderWidth: theme.borderWidth,
+                                            borderColor: theme.borderColor,
+                                        }}
+                                        ref={inputEl}
+                                        onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
+                                        onSubmitEditing={handleEditCategoryName}
+                                        // onBlur={handleEditCategoryName}
+                                        maxLength={20}
+                                        enablesReturnKeyAutomatically={true}
+                                        autoCorrect={true}
+                                        clearButtonMode={'while-editing'}
+                                        blurOnSubmit={true}
+                                        autoFocus={true}
+                                        placeholder={'请输入分类名称'}/>
+                                    <TouchView onPress={handleEditCategoryName}>
+                                        <Icon style={{ marginLeft: 5, width: 30, height: 30, }} name={'check'} size={26} color={theme.grey[0]} />
+                                    </TouchView>
+                                </View>
+                            )
+                            : (
+                                <View style={{
+                                    flexDirection: 'row',
+                                }}>
+                                    <MidTitle>{title}</MidTitle>
+                                    <TouchView onPress={() => { }}>
+                                        <Icon style={{ marginLeft: 5, width: 24, height: 24, }} name={'circle-edit-outline'} size={16} color={theme.grey[0]} />
+                                    </TouchView>
+                                </View>
+                            )
+                    }
+                </View>
 
                 {
                     unit.length > LIST_MAX_LEN

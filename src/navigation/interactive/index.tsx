@@ -59,7 +59,7 @@ export default ({ navigation, }) => {
 
     info('interactive render')
 
-    const Node = () => <SkillListView navigation={navigation} data={data} />
+    const Node = () => <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
 
     const node = useMemo(
         () => <Node />,

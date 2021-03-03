@@ -1026,7 +1026,6 @@
               "name": "语言",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "JavaScript",
                   "def": "一种解释型或即时编译型的编程语言",
                   "major": true,
@@ -1037,11 +1036,9 @@
                   },
                   "url": "https://www.w3school.com.cn/js/index.asp",
                   "doc": [],
-                  "features": [],
-                  "article": []
+                  "features": []
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "TypeScript",
                   "def": "JS的超集，支持ECMAScript6标准",
                   "major": true,
@@ -1055,11 +1052,9 @@
                   "url": "https://www.tslang.cn",
                   "article": [
                     {
-                      "id": "0-1614754472542",
                       "title": "教程",
                       "list": [
                         {
-                          "id": "0-1614754472542",
                           "title": "TypeScript 教程",
                           "url": "https://www.runoob.com/typescript/ts-tutorial.html",
                           "def": "基础教程",
@@ -1070,68 +1065,58 @@
                   ],
                   "features": [
                     {
-                      "id": "0-1614754244307",
                       "title": "基础类型",
                       "def": "TypeScript支持与JavaScript几乎相同的数据类型",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "boolean",
                           "def": "简单的true/false值",
                           "jump": "code",
                           "code": "\nlet isDone: boolean = false\n            "
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "number",
                           "def": "TypeScript里的所有数字都是浮点数",
                           "jump": "code",
                           "code": "\nlet decLiteral: number = 6;\nlet hexLiteral: number = 0xf00d;\nlet binaryLiteral: number = 0b1010;\nlet octalLiteral: number = 0o744;\n            "
                         },
                         {
-                          "id": "2-1614754244307",
                           "title": "string",
                           "def": "文本数据类型",
                           "jump": "code",
                           "code": "\nlet name: string = \"bob\";\nname = \"smith\";\n            "
                         },
                         {
-                          "id": "3-1614754244307",
                           "title": "数组",
                           "def": "有两种方式可以定义数组",
                           "jump": "code",
                           "code": "\nlet list: number[] = [1, 2, 3];\nlet list: Array<number> = [1, 2, 3];\n            "
                         },
                         {
-                          "id": "4-1614754244307",
                           "title": "元组 Tuple",
                           "def": "元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同",
                           "jump": "code",
                           "code": "\n// Declare a tuple type\nlet x: [string, number];\n// Initialize it\nx = ['hello', 10]; // OK\n// Initialize it incorrectly\nx = [10, 'hello']; // Error\n\n// 当访问一个已知索引的元素，会得到正确的类型：\nconsole.log(x[0].substr(1)); // OK\nconsole.log(x[1].substr(1)); // Error, 'number' does not have 'substr'\n\n// 当访问一个越界的元素，会使用联合类型替代：\nx[3] = 'world'; // OK, 字符串可以赋值给(string | number)类型\n\nconsole.log(x[5].toString()); // OK, 'string' 和 'number' 都有 toString\n\nx[6] = true; // Error, 布尔不是(string | number)类型\n            "
                         },
                         {
-                          "id": "5-1614754244307",
                           "title": "枚举",
                           "def": "对JavaScript标准数据类型的一个补充",
                           "jump": "code",
                           "code": "\nenum Color {Red, Green, Blue}\nlet c: Color = Color.Green;\n\n//  Up使用初始化为 1。 其余的成员会从 1开始自动增长。\nenum Direction {\n  Up = 1,\n  Down,\n  Left,\n  Right\n}\n\n// 字符串enum\nenum Direction {\n  Up = \"UP\",\n  Down = \"DOWN\",\n  Left = \"LEFT\",\n  Right = \"RIGHT\",\n}\n\n// 反向映射\nenum Enum {\n  A\n}\nlet a = Enum.A;\nlet nameOfA = Enum[a]; // \"A\"\n\n\n\n            "
                         },
                         {
-                          "id": "6-1614754244307",
                           "title": "Any",
                           "def": "为那些在编程阶段还不清楚类型的变量指定一个类型",
                           "jump": "code",
                           "code": "\nlet notSure: any = 4;\nnotSure = \"maybe a string instead\";\nnotSure = false; // okay, definitely a boolean\n\n//\nlet list: any[] = [1, true, \"free\"];\n\nlist[1] = 100;\n            "
                         },
                         {
-                          "id": "7-1614754244307",
                           "title": "Void",
                           "def": "void类型像是与any类型相反，它表示没有任何类型",
                           "jump": "code",
                           "code": "\nfunction warnUser(): void {\n  console.log(\"This is my warning message\");\n}\n            "
                         },
                         {
-                          "id": "8-1614754244307",
                           "title": "Null 和 Undefined",
                           "def": "Undefined用于初始化变量为一个未定义的值; Null表示对象值缺失, 表示一个空对象引用",
                           "jump": "code",
@@ -1142,7 +1127,6 @@
                           "code": "\n// Not much else we can assign to these variables!\nlet u: undefined = undefined;\nlet n: null = null;\n\n// 启用 --strictNullChecks\nlet x: number;\nx = 1; // 运行正确\nx = undefined;    // 运行错误\nx = null;    // 运行错误\n\n// 启用 --strictNullChecks\nlet x: number | null | undefined;\nx = 1; // 运行正确\nx = undefined;    // 运行正确\nx = null;    // 运行正确\n            "
                         },
                         {
-                          "id": "9-1614754244307",
                           "title": "Never",
                           "def": "永不存在的值的类型",
                           "jump": "code",
@@ -1152,14 +1136,12 @@
                           "code": "\n// 返回never的函数必须存在无法达到的终点\nfunction error(message: string): never {\n    throw new Error(message);\n}\n\n// 推断的返回值类型为never\nfunction fail() {\n    return error(\"Something failed\");\n}\n\n// 返回never的函数必须存在无法达到的终点\nfunction infiniteLoop(): never {\n    while (true) {\n    }\n}\n            "
                         },
                         {
-                          "id": "10-1614754244307",
                           "title": "Object",
                           "def": "object表示非原始类型，也就是除number，string，boolean，symbol，null或undefined之外的类型。",
                           "jump": "code",
                           "code": "\ndeclare function create(o: object | null): void;\n\ncreate({ prop: 0 }); // OK\ncreate(null); // OK\n\ncreate(42); // Error\ncreate(\"string\"); // Error\ncreate(false); // Error\ncreate(undefined); // Error\n            "
                         },
                         {
-                          "id": "11-1614754244307",
                           "title": "转型",
                           "def": "类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。",
                           "jump": "code",
@@ -1169,7 +1151,6 @@
                           "code": "\nlet someValue: any = \"this is a string\";\n\nlet strLength: number = (<string>someValue).length;\n\n//\n\nlet someValue: any = \"this is a string\";\n\nlet strLength: number = (someValue as string).length;\n            "
                         },
                         {
-                          "id": "12-1614754244307",
                           "title": "泛型",
                           "def": "类型参数只影响使用其做为类型一部分的结果类型",
                           "jump": "code",
@@ -1179,7 +1160,6 @@
                           "code": "\n\n// x和y是兼容的，因为它们的结构使用类型参数时并没有什么不同\ninterface Empty<T> {\n}\nlet x: Empty<number>;\nlet y: Empty<string>;\n\nx = y;  // OK, because y matches structure of x\n\n//\ninterface NotEmpty<T> {\n  data: T;\n}\nlet x: NotEmpty<number>;\nlet y: NotEmpty<string>;\n\nx = y;  // Error, because x and y are not compatible\n\n// 对于没指定泛型类型的泛型参数时，会把所有泛型参数当成any比较。\nlet identity = function<T>(x: T): T {\n  // ...\n}\n\nlet reverse = function<U>(y: U): U {\n  // ...\n}\n\nidentity = reverse;  // OK, because (x: any) => any matches (y: any) => any\n\n\n\n            "
                         },
                         {
-                          "id": "13-1614754244307",
                           "title": "类型推论",
                           "def": "",
                           "jump": "code",
@@ -1191,19 +1171,16 @@
                       ]
                     },
                     {
-                      "id": "1-1614754244307",
                       "title": "函数",
                       "def": "主要的定义行为的地方",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "定义",
                           "def": "可以创建有名字的函数和匿名函数",
                           "jump": "code",
                           "code": "\nfunction add(x: number, y: number): number {\n    return x + y;\n}\n\nlet myAdd = function(x: number, y: number): number { return x + y; };\n\n\n// 书写完整函数类型\nlet myAdd: (baseValue: number, increment: number) => number =\n    function(x: number, y: number): number { return x + y; };\n\n// 推断类型\n// myAdd has the full function type\nlet myAdd = function(x: number, y: number): number { return x + y; };\n\n// The parameters x and y have the type number\nlet myAdd: (baseValue: number, increment: number) => number =\n    function(x, y) { return x + y; };\n            "
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "可选参数和默认参数",
                           "def": "设置参数可选的，可传可不传",
                           "jump": "code",
@@ -1219,26 +1196,22 @@
                       ]
                     },
                     {
-                      "id": "2-1614754244307",
                       "title": "接口",
                       "def": "一系列抽象方法的声明，是一些方法特征的集合",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "定义",
                           "def": "这些方法都应该是抽象的，需要由具体的类去实现，然后第三方就可以通过这组抽象方法调用，让具体的类执行具体的方法",
                           "jump": "code",
                           "code": "\ninterface IPerson { \n    firstName:string, \n    lastName:string, \n    sayHi: ()=>string o\n} \n  \nvar customer:IPerson = { \n    firstName:\"Tom\",\n    lastName:\"Hanks\", \n    sayHi: ():string =>{return \"Hi there\"} \n} \n            "
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "接口和数组",
                           "def": "将数组的索引值和元素设置为不同类型，索引值可以是数字或字符串",
                           "jump": "code",
                           "code": "\ninterface namelist { \n  [index:number]:string \n} \n\nvar list2:namelist = [\"John\",1,\"Bran\"] // 错误元素 1 不是 string 类型\ninterface ages { \n  [index:string]:number \n} \n\nvar agelist:ages; \nagelist[\"John\"] = 15   // 正确 \nagelist[2] = \"nine\"   // 错误\n            "
                         },
                         {
-                          "id": "2-1614754244307",
                           "title": "接口继承",
                           "def": "通过其他接口来扩展自己, 允许接口继承多个接口",
                           "jump": "code",
@@ -1247,26 +1220,22 @@
                       ]
                     },
                     {
-                      "id": "3-1614754244307",
                       "title": "对象",
                       "def": "对象是包含一组键值对的实例。 值可以是标量、函数、数组、对象等",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "对象实例",
                           "def": "实例化",
                           "jump": "code",
                           "code": "\n  var object_name = { \n    key1: \"value1\", // 标量\n    key2: \"value\",  \n    key3: function() {\n        // 函数\n    }, \n    key4:[\"content1\", \"content2\"] //集合\n}\n            "
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "类型模板",
                           "def": "Typescript 中的对象必须是特定类型的实例",
                           "jump": "code",
                           "code": "\nvar sites = {\n    site1: \"Runoob\",\n    site2: \"Google\",\n    sayHello: function () { } // 类型模板\n};\nsites.sayHello = function () {\n    console.log(\"hello \" + sites.site1);\n};\nsites.sayHello();\n            "
                         },
                         {
-                          "id": "2-1614754244307",
                           "title": "Duck Typing",
                           "def": "动态类型的一种风格，是多态(polymorphism)的一种形式",
                           "jump": "code",
@@ -1275,12 +1244,10 @@
                       ]
                     },
                     {
-                      "id": "4-1614754244307",
                       "title": "其他",
                       "def": "细节",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "Symbols",
                           "def": "新的原生类型, 不可改变且唯一",
                           "jump": "code",
@@ -1291,7 +1258,6 @@
                   ]
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "Swift",
                   "def": "一种功能强大且直观的编程语言",
                   "logo": {
@@ -1301,11 +1267,9 @@
                   },
                   "url": "https://developer.apple.com/swift/",
                   "doc": [],
-                  "features": [],
-                  "article": []
+                  "features": []
                 },
                 {
-                  "id": "3-1614751541818",
                   "name": "Dart",
                   "def": "一个为全平台构建快速应用的编程语言",
                   "logo": {
@@ -1315,11 +1279,9 @@
                   },
                   "url": "https://dart.cn/",
                   "doc": [],
-                  "features": [],
-                  "article": []
+                  "features": []
                 },
                 {
-                  "id": "4-1614751541818",
                   "name": "Html5",
                   "def": "超文本标记语言",
                   "logo": {
@@ -1329,11 +1291,9 @@
                   },
                   "url": "https://www.w3school.com.cn/html5/index.asp",
                   "doc": [],
-                  "features": [],
-                  "article": []
+                  "features": []
                 },
                 {
-                  "id": "5-1614751541818",
                   "name": "Less",
                   "def": "一门向后兼容的 CSS 扩展语言",
                   "logo": {
@@ -1343,11 +1303,9 @@
                   },
                   "url": "https://less.bootcss.com/#%E6%A6%82%E8%A7%88",
                   "doc": [],
-                  "features": [],
-                  "article": []
+                  "features": []
                 },
                 {
-                  "id": "6-1614751541818",
                   "name": "Css",
                   "def": "控制网页的样式和布局",
                   "major": true,
@@ -1356,9 +1314,7 @@
                     "full": true,
                     "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F86%2F51%2F2456eb8bc0270d9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253990&t=239b9cd2dcbb9423540085c11ed93e1d"
                   },
-                  "url": "https://www.runoob.com/css/css-intro.html",
-                  "features": [],
-                  "article": []
+                  "url": "https://www.runoob.com/css/css-intro.html"
                 }
               ]
             },
@@ -1367,7 +1323,6 @@
               "name": "视图",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "React",
                   "def": "用于构建用户界面的 JavaScript 库",
                   "major": true,
@@ -1379,32 +1334,27 @@
                   "url": "https://react.html.cn/",
                   "article": [
                     {
-                      "id": "0-1614754472542",
                       "title": "Hooks",
                       "list": [
                         {
-                          "id": "0-1614754472543",
                           "title": "React Hooks完全上手指南",
                           "def": "蚂蚁 RichLab 前端团队",
                           "jump": "webview",
                           "url": "https://zhuanlan.zhihu.com/p/92211533"
                         },
                         {
-                          "id": "1-1614754472543",
                           "title": "useEffect和useLayoutEffect的区别",
                           "def": "简书文章",
                           "jump": "webview",
                           "url": "https://www.jianshu.com/p/412c874c5add"
                         },
                         {
-                          "id": "2-1614754472543",
                           "title": "React Hooks 使用详解",
                           "def": "表述清晰",
                           "jump": "webview",
                           "url": "https://blog.csdn.net/sinat_17775997/article/details/89087266"
                         },
                         {
-                          "id": "3-1614754472543",
                           "title": "React Hooks",
                           "def": "官方文档",
                           "jump": "webview",
@@ -1415,12 +1365,10 @@
                   ],
                   "features": [
                     {
-                      "id": "0-1614754244307",
                       "title": "核心组件",
                       "def": "一些内置的核心组件",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "react-native-webview",
                           "def": "创建一个原生的WebView",
                           "jump": "code",
@@ -1428,7 +1376,6 @@
                           "code": "\n<WebView\nuseWebKit={true}\nstartInLoadingState={true}\nonNavigationStateChange={handleJump}\nref={webRef}\nstyle={{\n    flex: 1,\n    backgroundColor: theme.navigationTabBarBackgound,\n}} source={{ uri: 'https://cn.bing.com/search?q=react' }} />\n          "
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "@react-native-async-storage",
                           "def": "用于React Native的异步键值存储系统",
                           "jump": "code",
@@ -1438,12 +1385,10 @@
                       ]
                     },
                     {
-                      "id": "1-1614754244307",
                       "title": "Hooks",
                       "def": "在不更改组件层次结构的情况下重用有状态逻辑(16.7)",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "useState",
                           "def": "返回 stateful(有状态) 值，以及更新这个状态值的函数",
                           "url": "https://react.html.cn/docs/hooks-reference.html#basic-hooks",
@@ -1469,7 +1414,6 @@
                           ]
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "useEffect",
                           "def": "接受一个函数，该函数包含强制性，可能有 effectful（副作用） 代码的函数",
                           "url": "https://react.html.cn/docs/hooks-reference.html#basic-hooks",
@@ -1486,7 +1430,6 @@
                           ]
                         },
                         {
-                          "id": "2-1614754244307",
                           "title": "useContext",
                           "def": "接受一个 context（上下文）对象（从 React.createContext 返回的值）并返回当前 context 值，由最近 context 提供程序给 context",
                           "jump": "code",
@@ -1496,7 +1439,6 @@
                           ]
                         },
                         {
-                          "id": "3-1614754244307",
                           "title": "useReducer",
                           "def": "useState 的替代方案",
                           "explain": [
@@ -1525,7 +1467,6 @@
                           ]
                         },
                         {
-                          "id": "4-1614754244307",
                           "title": "useCallback",
                           "def": "将返回一个 callback(回调) 的 memoized 版本，该版本仅在其中一个输入发生更改时才会更改",
                           "url": "https://zhuanlan.zhihu.com/p/56975681",
@@ -1535,7 +1476,6 @@
                           ]
                         },
                         {
-                          "id": "5-1614754244307",
                           "title": "useMemo",
                           "def": "帮助我们优化子组件的渲染",
                           "jump": "code",
@@ -1551,7 +1491,6 @@
                           ]
                         },
                         {
-                          "id": "6-1614754244307",
                           "title": "useRef",
                           "def": "返回一个可变的 ref 对象",
                           "jump": "code",
@@ -1561,14 +1500,12 @@
                           ]
                         },
                         {
-                          "id": "7-1614754244307",
                           "title": "useImperativeMethods",
                           "def": "公开子类ref给父组件使用",
                           "jump": "code",
                           "code": "\nfunction FancyInput(props, ref) {\n    const inputRef = useRef();\n    useImperativeMethods(ref, () => ({\n        /* 在此示例中，渲染 <FancyInput ref={fancyInputRef} /> 的父组件将能够调用 fancyInputRef.current.focus() */\n        focus: () => {\n        inputRef.current.focus();\n        }\n    }));\n    return <input ref={inputRef} ... />;\n}\n\nFancyInput = forwardRef(FancyInput);\n"
                         },
                         {
-                          "id": "8-1614754244307",
                           "title": "useLayoutEffect",
                           "def": "与 useEffect 相同，但在所有 DOM 变化后同步触发",
                           "explain": [
@@ -1578,7 +1515,6 @@
                           "code": "\nimport React, { useEffect, useLayoutEffect, useRef } from \"react\";\nimport TweenMax from \"gsap/TweenMax\";\nimport './index.less';\n\nconst Animate = () => {\n    const REl = useRef(null);\n    useEffect(() => {\n        /*下面这段代码的意思是当组件加载完成后,在0秒的时间内,将方块的横坐标位置移到600px的位置*/\n        TweenMax.to(REl.current, 0, {x: 600})\n    }, []);\n    return (\n        <div className='animate'>\n            <div ref={REl} className=\"square\">square</div>\n        </div>\n    );\n};\n\nexport default Animate;\n"
                         },
                         {
-                          "id": "9-1614754244307",
                           "title": "自定义hooks",
                           "def": "构建你自己的 Hooks",
                           "explain": [
@@ -1592,7 +1528,6 @@
                           ]
                         },
                         {
-                          "id": "10-1614754244307",
                           "title": "在 Hooks 之间传递信息",
                           "def": "由于 Hooks 是函数，所以我们可以在它们之间传递信息",
                           "jump": "code",
@@ -1601,12 +1536,10 @@
                       ]
                     },
                     {
-                      "id": "2-1614754244307",
                       "title": "代码拆分",
                       "def": "减少了初始加载过程中的代码量",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "动态import()",
                           "def": "将代码拆分引入到应用程序中的最好方法是通过动态 import() 语法。",
                           "jump": "code",
@@ -1616,28 +1549,24 @@
                           ]
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "React.lazy",
                           "def": "函数允许您渲染动态导入为常规组件",
                           "jump": "code",
                           "code": "\nconst OtherComponent = React.lazy(() => import('./OtherComponent'));\n\nfunction MyComponent() {\n  return (\n    <div>\n      <OtherComponent />\n    </div>\n  );\n}\n\n\n// 之前:\nimport OtherComponent from './OtherComponent';\n\nfunction MyComponent() {\n  return (\n    <div>\n      <OtherComponent />\n    </div>\n  );\n}\n"
                         },
                         {
-                          "id": "2-1614754244307",
                           "title": "Suspense",
                           "def": "渲染时尚未加载包含 OtherComponent 的模块，我们必须在等待加载时显示一些后备内容",
                           "jump": "code",
                           "code": "\nconst OtherComponent = React.lazy(() => import('./OtherComponent'));\nconst AnotherComponent = React.lazy(() => import('./AnotherComponent'));\n\nfunction MyComponent() {\n  return (\n    <div>\n      <Suspense fallback={<div>Loading...</div>}>\n        <section>\n          <OtherComponent />\n          <AnotherComponent />\n        </section>\n      </Suspense>\n    </div>\n  );\n}\n"
                         },
                         {
-                          "id": "3-1614754244307",
                           "title": "基于路由的代码拆分",
                           "def": "网上的大多数人都习惯于页面过渡，知道页面需要花费一定的时间来加载。",
                           "jump": "code",
                           "code": "\nimport { BrowserRouter as Router, Route, Switch } from 'react-router-dom';\nimport React, { Suspense, lazy } from 'react';\n\nconst Home = lazy(() => import('./routes/Home'));\nconst About = lazy(() => import('./routes/About'));\n\nconst App = () => (\n  <Router>\n    <Suspense fallback={<div>Loading...</div>}>\n      <Switch>\n        <Route exact path=\"/\" component={Home}/>\n        <Route path=\"/about\" component={About}/>\n      </Switch>\n    </Suspense>\n  </Router>\n);\n"
                         },
                         {
-                          "id": "4-1614754244307",
                           "title": "命名导出(Exports)",
                           "def": "React.lazy 目前仅支持默认导出",
                           "jump": "code",
@@ -1648,7 +1577,6 @@
                   ]
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "React-native",
                   "def": "使用React和应用平台的原生功能来构建 Android 和 iOS 应用的开源框架",
                   "version": "0.63",
@@ -1661,11 +1589,9 @@
                   "url": "https://www.react-native.cn/docs/intro-react-native-components",
                   "article": [
                     {
-                      "id": "0-1614754472543",
                       "title": "Hooks",
                       "list": [
                         {
-                          "id": "0-1614754472543",
                           "title": "Ramda 函数库参考教程",
                           "url": "http://www.ruanyifeng.com/blog/2017/03/ramda.html",
                           "def": "简书文章",
@@ -1676,12 +1602,10 @@
                   ],
                   "features": [
                     {
-                      "id": "0-1614754244307",
                       "title": "开发指南",
                       "def": "常见场景处理",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "正式发布",
                           "def": "常见场景处理",
                           "url": "https://www.react-native.cn/docs/publishing-to-app-store",
@@ -1709,7 +1633,6 @@
                           ]
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "链接原生库",
                           "def": "根据自己的需求添加需要的特性",
                           "jump": "code",
@@ -1717,7 +1640,6 @@
                           "code": "\n自动链接\n    npm install 某个带有原生依赖的库\n    npx react-native link\n    如果只需要链接某一个库：\n    react-native link 某已安装的具体库名\n\n\n手动链接\n                    "
                         },
                         {
-                          "id": "2-1614754244307",
                           "title": "在iOS模拟器上运行",
                           "def": "启动模拟器",
                           "jump": "code",
@@ -1725,7 +1647,6 @@
                           "code": "\n启动模拟器\nnpx react-native run-ios\n\n指定模拟的设备类型\nnpx react-native run-ios --simulator \"iPhone 4s\"\n查看具体可用的设备名称\nxcrun simctl list devices\n\n                    "
                         },
                         {
-                          "id": "3-1614754244307",
                           "title": "和原生端通信",
                           "def": "启动模拟器",
                           "jump": "code",
@@ -1733,7 +1654,6 @@
                           "code": "\n\n                    "
                         },
                         {
-                          "id": "4-1614754244307",
                           "title": "iOS应用扩展",
                           "def": "在主应用程序之外提供自定义功能和内容",
                           "jump": "code",
@@ -1741,7 +1661,6 @@
                           "code": "\n\n                    "
                         },
                         {
-                          "id": "5-1614754244307",
                           "title": "直接操作节点更新",
                           "def": "有时候我们需要直接改动组件并触发局部的刷新，但不使用 state 或是 props",
                           "jump": "code",
@@ -1754,7 +1673,6 @@
                           "code": "\nsetOpacityTo(value) {\n    // Redacted: animation related code\n    this.refs[CHILD_REF].setNativeProps({\n      opacity: value\n    });\n  },\n                    "
                         },
                         {
-                          "id": "6-1614754244307",
                           "title": "访问网络",
                           "def": "从远程地址中获取数据或资源",
                           "jump": "code",
@@ -1765,7 +1683,6 @@
                           "code": "\nfetch(\"https://mywebsite.com/endpoint/\", {\n    method: \"POST\",\n    headers: {\n        Accept: \"application/json\",\n        \"Content-Type\": \"application/json\",\n    },\n    body: JSON.stringify({\n        firstParam: \"yourValue\",\n        secondParam: \"yourOtherValue\",\n    }),\n    });\n\n\n// 注意这个方法前面有async关键字\nasync function getMoviesFromApi() {\n  try {\n    // 注意这里的await语句，其所在的函数必须有async关键字声明\n    let response = await fetch(\n      \"https://facebook.github.io/react-native/movies.json\"\n    );\n    let responseJson = await response.json();\n    return responseJson.movies;\n  } catch (error) {\n    console.error(error);\n  }\n}\n                    "
                         },
                         {
-                          "id": "7-1614754244307",
                           "title": "网络安全策略",
                           "def": "搭建一个完全无懈可击的软件是不可能的",
                           "jump": "detailLv2",
@@ -1820,7 +1737,6 @@
                           ]
                         },
                         {
-                          "id": "8-1614754244307",
                           "title": "iOS 原生模块",
                           "def": "在主应用程序之外提供自定义功能和内容",
                           "jump": "code",
@@ -1832,7 +1748,6 @@
                           "code": "\n\n                    "
                         },
                         {
-                          "id": "9-1614754244307",
                           "title": "JavaScript环境",
                           "def": "-",
                           "jump": "code",
@@ -1840,7 +1755,6 @@
                           "code": "\n// JavaScript运行时环境\n大多数情况下，React Native使用的是JavaScriptCore，也就是Safari所使用的JavaScript引擎。但是在iOS上JavaScriptCore并没有使用即时编译技术（JIT），因为在iOS中应用无权拥有可写写入的内存页（因此无法动态生成代码）。\n在使用Chrome调试时，所有的JavaScript代码都运行在Chrome中，并通过WebSocket与原生代码通信。此时的运行环境是V8引擎。\n\n// JavaScript语法转换器\nReact Native内置了Babel转换器。您可以查看Babel的文档来了解有关它可以转换的语法的详情。\n                    "
                         },
                         {
-                          "id": "10-1614754244307",
                           "title": "定时器",
                           "def": "React Native实现了和浏览器一致的计时器Timer。",
                           "jump": "code",
@@ -1851,7 +1765,6 @@
                           "code": "\nsetTimeout，clearTimeout\nsetInterval，clearInterval\nsetImmediate，clearImmediate\nrequestAnimationFrame，cancelAnimationFrame\n\nrequestAnimationFrame（）：用于执行在内部内部控制视图动画的代码\nsetImmediate / setTimeout / setInterval（）：在稍后执行代码。\nrunAfterInteractions（）：在以后执行代码，不会延迟当前进行的动画。\n                    "
                         },
                         {
-                          "id": "11-1614754244307",
                           "title": "iOS 原生UI组件",
                           "def": "在 React Naitve 应用程序中封装和植入已有的组件",
                           "jump": "code",
@@ -1861,12 +1774,10 @@
                       ]
                     },
                     {
-                      "id": "1-1614754244307",
                       "title": "性能调优",
                       "def": "",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "性能总结",
                           "def": "使用React Native替代基于WebView的框架来开发App的一个强大的理由，就是为了使App可以达到每秒60帧（足够流畅），并且能有类似原生App的外观和手感",
                           "url": "https://www.react-native.cn/docs/performance",
@@ -1910,12 +1821,10 @@
                       ]
                     },
                     {
-                      "id": "2-1614754244307",
                       "title": "交互",
                       "def": "一些内置的核心组件",
                       "list": [
                         {
-                          "id": "0-1614754244307",
                           "title": "动画",
                           "def": "流畅、有意义的动画对于移动应用用户体验来说是非常重要的",
                           "url": "https://www.react-native.cn/docs/animations",
@@ -1950,7 +1859,6 @@
                           ]
                         },
                         {
-                          "id": "1-1614754244307",
                           "title": "处理触摸事件",
                           "def": "移动应用上的用户交互基本靠“摸”",
                           "url": "https://www.react-native.cn/docs/handling-touches",
@@ -2009,7 +1917,6 @@
               "name": "数据",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Ramda",
                   "def": "实用的 JavaScript 函数式编程库",
                   "major": true,
@@ -2021,11 +1928,9 @@
                   "url": "https://ramda.cn/",
                   "article": [
                     {
-                      "id": "0-1614754472543",
                       "title": "Hooks",
                       "list": [
                         {
-                          "id": "0-1614754472543",
                           "title": "Ramda 函数库参考教程",
                           "url": "http://www.ruanyifeng.com/blog/2017/03/ramda.html",
                           "def": "简书文章",
@@ -2037,7 +1942,6 @@
                   "features": []
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "Ahooks",
                   "def": "致力于面向中台场景的Hooks库",
                   "major": true,
@@ -2071,12 +1975,9 @@
                         }
                       ]
                     }
-                  ],
-                  "features": [],
-                  "article": []
+                  ]
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "Redux",
                   "def": "JavaScript 状态容器，提供可预测化的状态管理",
                   "major": true,
@@ -2086,9 +1987,7 @@
                     "full": true,
                     "url": "https://tse3-mm.cn.bing.net/th/id/OIP.yPRN87C9vjrdtIBY7UTAiAHaGs?pid=ImgDet&rs=1"
                   },
-                  "url": "https://www.redux.org.cn/",
-                  "features": [],
-                  "article": []
+                  "url": "https://www.redux.org.cn/"
                 }
               ]
             },
@@ -2097,7 +1996,6 @@
               "name": "数据可视化",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Ant Design Charts",
                   "def": "基于React、TypeScript封装了所有的G2Plot图表",
                   "major": true,
@@ -2107,12 +2005,9 @@
                     "full": true,
                     "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f"
                   },
-                  "url": "https://charts.ant.design/zh-CN/guide",
-                  "features": [],
-                  "article": []
+                  "url": "https://charts.ant.design/zh-CN/guide"
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "Antv",
                   "def": "蚂蚁集团全新一代数据可视化解决方案",
                   "logo": {
@@ -2120,12 +2015,9 @@
                     "full": true,
                     "url": "https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png"
                   },
-                  "url": "https://antv.vision/",
-                  "features": [],
-                  "article": []
+                  "url": "https://antv.vision/"
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "D3",
                   "def": "帮助您使用HTML，SVG和CSS使数据栩栩如生",
                   "logo": {
@@ -2133,12 +2025,9 @@
                     "full": true,
                     "url": "https://tse2-mm.cn.bing.net/th/id/OIP.oPv8HjQNqIhP_MoIgDR4jQHaHa?pid=ImgDet&w=1000&h=1000&rs=1"
                   },
-                  "url": "https://observablehq.com/@d3/gallery",
-                  "features": [],
-                  "article": []
+                  "url": "https://observablehq.com/@d3/gallery"
                 },
                 {
-                  "id": "3-1614751541818",
                   "name": "echarts",
                   "def": "一个基于 JavaScript 的开源可视化图表库",
                   "logo": {
@@ -2146,12 +2035,9 @@
                     "full": true,
                     "url": "https://tse2-mm.cn.bing.net/th/id/OIP.1lgJbCNUvlpbXUJBzo5pDAHaIl?pid=ImgDet&rs=1"
                   },
-                  "url": "https://echarts.apache.org/zh/index.html",
-                  "features": [],
-                  "article": []
+                  "url": "https://echarts.apache.org/zh/index.html"
                 },
                 {
-                  "id": "4-1614751541818",
                   "name": "React-native-chart-kit",
                   "def": "基于React、TypeScript封装了所有的G2Plot图表",
                   "major": true,
@@ -2167,9 +2053,7 @@
                       "title": "基本使用",
                       "path": "skill/demo/1"
                     }
-                  ],
-                  "features": [],
-                  "article": []
+                  ]
                 }
               ]
             },
@@ -2178,7 +2062,6 @@
               "name": "路由导航",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "React-Navigation",
                   "def": "React Native中应用的路由和导航",
                   "major": true,
@@ -2193,21 +2076,15 @@
                       "title": "React-Navigation中文网",
                       "url": "https://www.reactnavigation.org.cn/docs/guide-intro"
                     }
-                  ],
-                  "features": [],
-                  "article": []
+                  ]
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "React-Native-Swiper",
                   "def": "适用于React Native的Swiper组件",
                   "url": "https://github.com/leecade/react-native-swiper#installation",
-                  "website": [],
-                  "features": [],
-                  "article": []
+                  "website": []
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "React-Native-Tab-View",
                   "def": "用于React Native的跨平台Tab组件",
                   "logo": {
@@ -2215,17 +2092,12 @@
                     "full": true,
                     "url": "https://d1wp6m56sqw74a.cloudfront.net/~assets/8c5bf6c47149bcc9550601ac917f81b5"
                   },
-                  "url": "https://github.com/satya164/react-native-tab-view",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/satya164/react-native-tab-view"
                 },
                 {
-                  "id": "3-1614751541818",
                   "name": "React-Native-Scrollable-Tab-View",
                   "def": "这是React Native纯JS实现导航",
-                  "url": "https://github.com/ptomasroos/react-native-scrollable-tab-view",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/ptomasroos/react-native-scrollable-tab-view"
                 }
               ]
             },
@@ -2234,7 +2106,6 @@
               "name": "测试",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Jest",
                   "def": "一个令人愉快的 JavaScript 测试框架，专注于 简洁明快",
                   "major": true,
@@ -2246,11 +2117,9 @@
                   "url": "https://www.jestjs.cn/docs/getting-started",
                   "article": [
                     {
-                      "id": "0-1614754472543",
                       "title": "Hooks",
                       "list": [
                         {
-                          "id": "0-1614754472543",
                           "title": "常用expect方法",
                           "url": "https://blog.csdn.net/qq_37464887/article/details/88640412",
                           "def": "简单明了",
@@ -2261,12 +2130,10 @@
                   ],
                   "features": [
                     {
-                      "id": "0-1614754244308",
                       "title": "Global",
                       "def": "全局方法",
                       "list": [
                         {
-                          "id": "0-1614754244308",
                           "title": "describe(name, fn)",
                           "def": "创建一个将几个相关测试组合在一起作为一个模块",
                           "url": "https://jestjs.io/docs/zh-Hans/api#describename-fn",
@@ -2274,7 +2141,6 @@
                           "code": "\nconst myBeverage = {\n  delicious: true,\n  sour: false,\n};\n\ndescribe('my beverage', () => {\n  test('is delicious', () => {\n    expect(myBeverage.delicious).toBeTruthy();\n  });\n\n  test('is not sour', () => {\n    expect(myBeverage.sour).toBeFalsy();\n  });\n});\n          "
                         },
                         {
-                          "id": "1-1614754244308",
                           "title": "it(name, fn, timeout)",
                           "def": "运行测试的方法",
                           "url": "https://jestjs.io/docs/zh-Hans/api#describename-fn",
@@ -2282,7 +2148,6 @@
                           "code": "\ntest('did not rain', () => {\n  expect(inchesOfRain()).toBe(0);\n});\n          "
                         },
                         {
-                          "id": "2-1614754244308",
                           "title": "it.todo(name)",
                           "def": "编写测试计划",
                           "url": "https://jestjs.io/docs/zh-Hans/api#describename-fn",
@@ -2292,12 +2157,10 @@
                       ]
                     },
                     {
-                      "id": "1-1614754244308",
                       "title": "Expect",
                       "def": "断言",
                       "list": [
                         {
-                          "id": "0-1614754244308",
                           "title": "expect(value)",
                           "def": "断言某个值",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2305,7 +2168,6 @@
                           "code": "\ntest('the best flavor is grapefruit', () => {\n  expect(bestLaCroixFlavor()).toBe('grapefruit');\n});\n          "
                         },
                         {
-                          "id": "1-1614754244308",
                           "title": "expect.anything()",
                           "def": "匹配null或undefined以外的任何内容",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2313,7 +2175,6 @@
                           "code": "\n// 如果要检查是否使用非空参数调用了模拟函数\ntest('map calls its argument with a non-null argument', () => {\n  const mock = jest.fn();\n  [1].map(x => mock(x));\n  expect(mock).toBeCalledWith(expect.anything());\n});\n          "
                         },
                         {
-                          "id": "2-1614754244308",
                           "title": "expect.arrayContaining(array)",
                           "def": "期望的数组是接收到的数组的子集",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2321,7 +2182,6 @@
                           "code": "\ndescribe('arrayContaining', () => {\n  const expected = ['Alice', 'Bob'];\n  it('matches even if received contains additional elements', () => {\n    expect(['Alice', 'Bob', 'Eve']).toEqual(expect.arrayContaining(expected));\n  });\n  it('does not match if received does not contain expected elements', () => {\n    expect(['Bob', 'Eve']).not.toEqual(expect.arrayContaining(expected));\n  });\n});\n          "
                         },
                         {
-                          "id": "3-1614754244308",
                           "title": "expect.toBe(value)",
                           "def": "比较原始值或检查对象实例的引用一致性",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2332,7 +2192,6 @@
                           "code": "\nconst can = {\n  name: 'pamplemousse',\n  ounces: 12,\n};\n\ndescribe('the can', () => {\n  test('has 12 ounces', () => {\n    expect(can.ounces).toBe(12);\n  });\n\n  test('has a sophisticated name', () => {\n    expect(can.name).toBe('pamplemousse');\n  });\n});\n          "
                         },
                         {
-                          "id": "4-1614754244308",
                           "title": "expect.toEqual(value)",
                           "def": "递归比较对象实例的所有属性",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2340,7 +2199,6 @@
                           "code": "\nconst can1 = {\n  flavor: 'grapefruit',\n  ounces: 12,\n};\nconst can2 = {\n  flavor: 'grapefruit',\n  ounces: 12,\n};\n\ndescribe('the La Croix cans on my desk', () => {\n  test('have all the same properties', () => {\n    expect(can1).toEqual(can2);\n  });\n  test('are not the exact same can', () => {\n    expect(can1).not.toBe(can2);\n  });\n});\n          "
                         },
                         {
-                          "id": "5-1614754244308",
                           "title": "expect.toBeCalled()",
                           "def": "确认模拟功能得到调用",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2348,7 +2206,6 @@
                           "code": "\nfunction drinkAll(callback, flavour) {\n  if (flavour !== 'octopus') {\n    callback(flavour);\n  }\n}\n\ndescribe('drinkAll', () => {\n  test('drinks something lemon-flavoured', () => {\n    const drink = jest.fn();\n    drinkAll(drink, 'lemon');\n    expect(drink).toHaveBeenCalled();\n  });\n\n  test('does not drink something octopus-flavoured', () => {\n    const drink = jest.fn();\n    drinkAll(drink, 'octopus');\n    expect(drink).not.toHaveBeenCalled();\n  });\n});\n          "
                         },
                         {
-                          "id": "6-1614754244308",
                           "title": "expect.toHaveReturned()",
                           "def": "至少一次测试该模拟功能是否成功返回",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2356,7 +2213,6 @@
                           "code": "\ntest('drinks returns', () => {\n  const drink = jest.fn(() => true);\n\n  drink();\n\n  expect(drink).toHaveReturned();\n});\n          "
                         },
                         {
-                          "id": "7-1614754244308",
                           "title": "expect.toHaveReturnedWith(value)",
                           "def": "确保模拟函数返回的特定值",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2364,7 +2220,6 @@
                           "code": "\ntest('drink returns La Croix', () => {\n  const beverage = {name: 'La Croix'};\n  const drink = jest.fn(beverage => beverage.name);\n\n  drink(beverage);\n\n  expect(drink).toHaveReturnedWith('La Croix');\n});\n          "
                         },
                         {
-                          "id": "8-1614754244308",
                           "title": "expect.toContain(item)",
                           "def": "要检查的项目是在数组中",
                           "url": "https://jestjs.io/docs/zh-Hans/expect",
@@ -2372,7 +2227,6 @@
                           "code": "\ntest('the flavor list contains lime', () => {\n  expect(getAllFlavors()).toContain('lime');\n});\n          "
                         },
                         {
-                          "id": "9-1614754244308",
                           "title": "Expect.assertions",
                           "def": "验证在测试期间调用了一定数量的断言。在测试异步代码时，这通常很有用，以确保实际调用了回调中的断言。",
                           "url": "https://www.bookstack.cn/read/jest-v24.1/spilt.6.30.md",
@@ -2382,12 +2236,10 @@
                       ]
                     },
                     {
-                      "id": "2-1614754244308",
                       "title": "快照测试",
                       "def": "确保自己的UI不会有意外的改变",
                       "list": [
                         {
-                          "id": "0-1614754244308",
                           "title": "基本使用",
                           "def": "测试React组件时可以采用类似的方法",
                           "url": "https://jestjs.io/docs/zh-Hans/snapshot-testing",
@@ -2395,13 +2247,11 @@
                           "code": "\nimport React from 'react';\nimport renderer from 'react-test-renderer';\nimport Link from '../Link.react';\n\nit('renders correctly', () => {\n  const tree = renderer\n    .create(<Link page=\"http://www.facebook.com\">Facebook</Link>)\n    .toJSON();\n  expect(tree).toMatchSnapshot();\n});\n          "
                         },
                         {
-                          "id": "1-1614754244308",
                           "title": "更新快照",
                           "def": "执行 jest -u",
                           "jump": "code"
                         },
                         {
-                          "id": "2-1614754244308",
                           "title": "变量通配",
                           "def": "Jest允许为任何属性提供非对称匹配器",
                           "jump": "code",
@@ -2418,7 +2268,6 @@
               "name": "工程化",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Webpack",
                   "def": "用于现代 JavaScript 应用程序的_静态模块打包工具",
                   "major": true,
@@ -2427,12 +2276,9 @@
                     "full": true,
                     "url": "https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png"
                   },
-                  "url": "https://webpack.docschina.org/",
-                  "features": [],
-                  "article": []
+                  "url": "https://webpack.docschina.org/"
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "Yarn",
                   "def": "快速、可靠、安全的依赖管理工具",
                   "version": "2",
@@ -2447,11 +2293,9 @@
                   "url": "https://www.yarnpkg.cn/",
                   "article": [
                     {
-                      "id": "0-1614754472543",
                       "title": "教程",
                       "list": [
                         {
-                          "id": "0-1614754472543",
                           "title": "yarn、npm、cnpm三者如何优雅的在一起使用 ？",
                           "def": "yarn与npm的区别",
                           "url": "https://segmentfault.com/a/1190000019299845",
@@ -2462,19 +2306,16 @@
                   ],
                   "features": [
                     {
-                      "id": "0-1614754244308",
                       "title": "基础",
                       "def": "-",
                       "list": [
                         {
-                          "id": "0-1614754244308",
                           "title": "使用",
                           "def": "yarn init",
                           "jump": "code",
                           "code": "\n// 初始化一个新项目\nyarn init\n\n// 添加依赖包\nyarn add [package]\nyarn add [package]@[version]\nyarn add [package]@[tag]\n\n// 分别添加到 devDependencies、peerDependencies 和 optionalDependencies 类别\nyarn add [package] --dev\nyarn add [package] --peer\nyarn add [package] --optional\n\n// 升级依赖包\nyarn upgrade [package]\nyarn upgrade [package]@[version]\nyarn upgrade [package]@[tag]\n\n// 移除依赖包\nyarn remove [package]\n\n// 安装项目的全部依赖\nyarn install\n              "
                         },
                         {
-                          "id": "1-1614754244308",
                           "title": "配置",
                           "def": "package.json各项配置",
                           "jump": "code",
@@ -2482,7 +2323,6 @@
                           "code": "\n              "
                         },
                         {
-                          "id": "2-1614754244308",
                           "title": "固化依赖",
                           "def": "yarn.lock 文件来确保依赖解析时又快又稳定",
                           "jump": "code",
@@ -2498,7 +2338,6 @@
                   ]
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "Babel",
                   "def": "一个 JavaScript 编译器",
                   "major": true,
@@ -2507,12 +2346,9 @@
                     "full": true,
                     "url": "https://www.babeljs.cn/img/babel.png"
                   },
-                  "url": "https://www.babeljs.cn/",
-                  "features": [],
-                  "article": []
+                  "url": "https://www.babeljs.cn/"
                 },
                 {
-                  "id": "3-1614751541818",
                   "name": "eslint",
                   "def": "查找并修复JavaScript代码中的问题",
                   "logo": {
@@ -2520,12 +2356,9 @@
                     "full": true,
                     "url": "https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg"
                   },
-                  "url": "https://eslint.org/",
-                  "features": [],
-                  "article": []
+                  "url": "https://eslint.org/"
                 },
                 {
-                  "id": "4-1614751541818",
                   "name": "gulp",
                   "def": "用自动化构建工具增强你的工作流程",
                   "major": false,
@@ -2536,9 +2369,7 @@
                     "full": true,
                     "url": "https://cdn.freebiesupply.com/logos/large/2x/gulp-1-logo-png-transparent.png"
                   },
-                  "url": "https://www.gulpjs.com.cn/",
-                  "features": [],
-                  "article": []
+                  "url": "https://www.gulpjs.com.cn/"
                 }
               ]
             },
@@ -2547,7 +2378,6 @@
               "name": "UI组件",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Ant Design",
                   "def": "基于 Ant Design 设计体系的 React UI 组件库",
                   "major": true,
@@ -2563,12 +2393,10 @@
                   "step": 20,
                   "features": [
                     {
-                      "id": "0-1614754244308",
                       "title": "\b开始使用",
                       "def": "",
                       "list": [
                         {
-                          "id": "0-1614754244308",
                           "title": "概要",
                           "def": "基本理念及优点",
                           "jump": "code",
@@ -2584,7 +2412,6 @@
                           ]
                         },
                         {
-                          "id": "1-1614754244308",
                           "title": "兼容浏览器",
                           "def": "基本理念及优点",
                           "jump": "code",
@@ -2594,7 +2421,6 @@
                           ]
                         },
                         {
-                          "id": "2-1614754244308",
                           "title": "快速上手",
                           "def": "一个例子",
                           "jump": "code",
@@ -2606,12 +2432,10 @@
                       ]
                     },
                     {
-                      "id": "1-1614754244308",
                       "title": "组件",
                       "def": "antd 为 Web 应用提供了丰富的基础 UI 组件，我们还将持续探索企业级应用的最佳 UI 实践",
                       "list": [
                         {
-                          "id": "0-1614754244308",
                           "title": "通用",
                           "def": "基础类型组件合集",
                           "jump": "detailLv2",
@@ -2679,92 +2503,64 @@
                         }
                       ]
                     }
-                  ],
-                  "article": []
+                  ]
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "React-native-blur",
                   "def": "一种模糊的毛玻璃效果",
-                  "url": "https://github.com/Kureev/react-native-blur",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/Kureev/react-native-blur"
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "React-native-syntax-highlighter",
                   "def": "RN的代码高亮组件",
-                  "url": "https://github.com/conorhastings/react-native-syntax-highlighter",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/conorhastings/react-native-syntax-highlighter"
                 },
                 {
-                  "id": "3-1614751541818",
                   "name": "React-native-actionsheet",
                   "def": "该组件实现了自定义ActionSheet",
                   "major": true,
                   "platform": 1,
-                  "url": "https://github.com/beefe/react-native-actionsheet",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/beefe/react-native-actionsheet"
                 },
                 {
-                  "id": "4-1614751541818",
                   "name": "React-json-view",
                   "def": "用于显示和编辑javascript数组和JSON对象",
                   "platform": 0,
-                  "url": "https://github.com/mac-s-g/react-json-view",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/mac-s-g/react-json-view"
                 },
                 {
-                  "id": "5-1614751541818",
                   "name": "React-native-json-tree",
                   "def": "基于react-json-tree的React Native JSON Viewer组件",
                   "major": true,
                   "platform": 1,
-                  "url": "https://github.com/mac-s-g/react-json-view",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/mac-s-g/react-json-view"
                 },
                 {
-                  "id": "6-1614751541818",
                   "name": "React-native-root-toast",
                   "def": "React Native的toast组件",
                   "major": true,
                   "platform": 1,
-                  "url": "https://github.com/magicismight/react-native-root-toast",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/magicismight/react-native-root-toast"
                 },
                 {
-                  "id": "7-1614751541818",
                   "name": "react-native-easy-toast",
                   "def": "React Native的toast组件",
                   "platform": 1,
-                  "url": "https://github.com/crazycodeboy/react-native-easy-toast",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/crazycodeboy/react-native-easy-toast"
                 },
                 {
-                  "id": "8-1614751541818",
                   "name": "statsjs",
                   "def": "帮助您监视代码性能",
                   "ftStep": "精通",
                   "step": 20,
                   "platform": 0,
-                  "url": "https://www.npmjs.com/package/stats-js",
-                  "features": [],
-                  "article": []
+                  "url": "https://www.npmjs.com/package/stats-js"
                 },
                 {
-                  "id": "9-1614751541818",
                   "name": "react-native-splash-screen",
                   "def": "控制启动页显示和隐藏, 处理启动白屏问题",
                   "platform": 1,
-                  "url": "https://github.com/crazycodeboy/react-native-splash-screen",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/crazycodeboy/react-native-splash-screen"
                 }
               ]
             },
@@ -2773,7 +2569,6 @@
               "name": "集成框架",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Ant Design Pro",
                   "def": "企业级中后台前端/设计解决方案",
                   "major": true,
@@ -2783,9 +2578,7 @@
                     "full": true,
                     "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   },
-                  "url": "https://beta-pro.ant.design/docs/introduction-cn",
-                  "features": [],
-                  "article": []
+                  "url": "https://beta-pro.ant.design/docs/introduction-cn"
                 }
               ]
             },
@@ -2794,7 +2587,6 @@
               "name": "动画",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "Ant Motion",
                   "def": "快速在 React 框架中使用动画",
                   "major": true,
@@ -2804,9 +2596,7 @@
                     "full": true,
                     "url": "https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg"
                   },
-                  "url": "https://motion.ant.design/index-cn",
-                  "features": [],
-                  "article": []
+                  "url": "https://motion.ant.design/index-cn"
                 }
               ]
             },
@@ -2815,52 +2605,40 @@
               "name": "辅助开发",
               "list": [
                 {
-                  "id": "0-1614751541818",
                   "name": "TinyPNG",
                   "def": "智能PNG和JPEG压缩",
                   "major": true,
                   "platform": 0,
                   "ftStep": "标记",
                   "step": 100,
-                  "url": "https://tinypng.com/",
-                  "features": [],
-                  "article": []
+                  "url": "https://tinypng.com/"
                 },
                 {
-                  "id": "1-1614751541818",
                   "name": "uupoop",
                   "def": "在线PS,轻松编辑你的图片",
                   "major": true,
                   "ftStep": "标记",
                   "step": 100,
                   "platform": 0,
-                  "url": "https://www.uupoop.com/#/",
-                  "features": [],
-                  "article": []
+                  "url": "https://www.uupoop.com/#/"
                 },
                 {
-                  "id": "2-1614751541818",
                   "name": "pushy",
                   "def": "ReactNative 热更新",
                   "major": true,
                   "ftStep": "标记",
                   "step": 100,
                   "platform": 1,
-                  "url": "https://pushy.reactnative.cn/",
-                  "features": [],
-                  "article": []
+                  "url": "https://pushy.reactnative.cn/"
                 },
                 {
-                  "id": "3-1614751541818",
                   "name": "react-native-debugger",
                   "def": "ReactNative调试工具",
                   "major": true,
                   "ftStep": "标记",
                   "step": 100,
                   "platform": 1,
-                  "url": "https://github.com/jhen0409/react-native-debugger",
-                  "features": [],
-                  "article": []
+                  "url": "https://github.com/jhen0409/react-native-debugger"
                 }
               ]
             }
@@ -2879,7 +2657,6 @@
               "name": "平台",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "node",
                   "def": "一个基于 Chrome V8 引擎 的 JavaScript 运行时。",
                   "major": true,
@@ -2889,8 +2666,7 @@
                     "full": true,
                     "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=238001970,1745368623&fm=26&gp=0.jpg"
                   },
-                  "url": "https://nodejs.org/zh-cn/",
-                  "features": []
+                  "url": "https://nodejs.org/zh-cn/"
                 }
               ]
             },
@@ -2899,7 +2675,6 @@
               "name": "框架",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "nest",
                   "def": "用于构建高效、可扩展的 Node.js 服务器端应用程序的开发框架",
                   "major": true,
@@ -2909,11 +2684,9 @@
                     "full": true,
                     "url": "https://nestjs.bootcss.com/img/logo.png"
                   },
-                  "url": "https://nestjs.bootcss.com/",
-                  "features": []
+                  "url": "https://nestjs.bootcss.com/"
                 },
                 {
-                  "id": "1-1614751530668",
                   "name": "egg",
                   "def": "为企业级框架和应用而生",
                   "major": false,
@@ -2923,11 +2696,9 @@
                     "full": true,
                     "url": "https://zos.alipayobjects.com/rmsportal/VTcUYAaoKqXyHJbLAPyF.svg"
                   },
-                  "url": "https://eggjs.org/zh-cn/intro/index.html",
-                  "features": []
+                  "url": "https://eggjs.org/zh-cn/intro/index.html"
                 },
                 {
-                  "id": "2-1614751530668",
                   "name": "express",
                   "def": "基于 Node.js 平台，快速、开放、极简的 Web 开发框架",
                   "major": false,
@@ -2937,8 +2708,7 @@
                     "full": true,
                     "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2693920121,3280527363&fm=15&gp=0.jpg"
                   },
-                  "url": "https://www.expressjs.com.cn/",
-                  "features": []
+                  "url": "https://www.expressjs.com.cn/"
                 }
               ]
             },
@@ -2947,7 +2717,6 @@
               "name": "数据库",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "MongoDB",
                   "def": "一个基于分布式文件存储的数据库",
                   "major": true,
@@ -2957,11 +2726,9 @@
                     "full": true,
                     "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3435757484,2524118334&fm=26&gp=0.jpg"
                   },
-                  "url": "https://www.runoob.com/mongodb/mongodb-tutorial.html",
-                  "features": []
+                  "url": "https://www.runoob.com/mongodb/mongodb-tutorial.html"
                 },
                 {
-                  "id": "1-1614751530668",
                   "name": "mysql",
                   "def": "关系型数据库管理系统",
                   "major": false,
@@ -2971,11 +2738,9 @@
                     "full": true,
                     "url": "https://www.runoob.com/wp-content/uploads/2014/03/mysql.jpg"
                   },
-                  "url": "https://www.runoob.com/mysql/mysql-tutorial.html",
-                  "features": []
+                  "url": "https://www.runoob.com/mysql/mysql-tutorial.html"
                 },
                 {
-                  "id": "2-1614751530668",
                   "name": "mongobooster",
                   "def": "MongoDB CLI界面中非常流行的GUI工具",
                   "major": true,
@@ -2985,11 +2750,9 @@
                     "full": true,
                     "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2188650053,2502556176&fm=26&gp=0.jpg"
                   },
-                  "url": "https://nosqlbooster.com/",
-                  "features": []
+                  "url": "https://nosqlbooster.com/"
                 },
                 {
-                  "id": "3-1614751530668",
                   "name": "navicat for mysql",
                   "def": "mysql CLI界面中非常流行的GUI工具",
                   "major": true,
@@ -2999,8 +2762,7 @@
                     "full": true,
                     "url": "http://www.navicat.com.cn/images/02.Product_00_AllProducts_Premium15.png"
                   },
-                  "url": "http://www.navicat.com.cn/",
-                  "features": []
+                  "url": "http://www.navicat.com.cn/"
                 }
               ]
             },
@@ -3009,7 +2771,6 @@
               "name": "网络请求",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "postman",
                   "def": "API & HTTP 请求调试插件",
                   "major": false,
@@ -3019,8 +2780,7 @@
                     "full": true,
                     "url": "https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png"
                   },
-                  "url": "https://www.postman.com/",
-                  "features": []
+                  "url": "https://www.postman.com/"
                 }
               ]
             },
@@ -3029,7 +2789,6 @@
               "name": "工具库",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "Moment.js",
                   "def": "JavaScript 日期处理类库",
                   "major": false,
@@ -3039,11 +2798,9 @@
                     "full": true,
                     "url": "https://tse1-mm.cn.bing.net/th/id/OIP.3uK6AdhfnwXu5FTXU1KIBwHaDR?pid=ImgDet&w=536&h=237&rs=1"
                   },
-                  "url": "http://momentjs.cn/",
-                  "features": []
+                  "url": "http://momentjs.cn/"
                 },
                 {
-                  "id": "1-1614751530668",
                   "name": "log4js",
                   "def": "选择log4js来完成日志记录的功能",
                   "major": false,
@@ -3053,11 +2810,9 @@
                     "full": true,
                     "url": "https://tse4-mm.cn.bing.net/th/id/OIP.JTYuTy6aCFnl5erX7_WgfwAAAA?pid=ImgDet&rs=1"
                   },
-                  "url": "https://gitee.com/mirrors/log4js",
-                  "features": []
+                  "url": "https://gitee.com/mirrors/log4js"
                 },
                 {
-                  "id": "2-1614751530668",
                   "name": "Later.js",
                   "def": "帮助你快速简单执行定时循环操作的JavaScript类库",
                   "major": false,
@@ -3067,8 +2822,7 @@
                     "full": true,
                     "url": "https://tse4-mm.cn.bing.net/th/id/OIP.3EDqMLBIwIK_023KQyDEygHaCg?pid=ImgDet&rs=1"
                   },
-                  "url": "https://blog.csdn.net/tyygming/article/details/84542298",
-                  "features": []
+                  "url": "https://blog.csdn.net/tyygming/article/details/84542298"
                 }
               ]
             },
@@ -3077,7 +2831,6 @@
               "name": "部署",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "pm2",
                   "def": "简化性能监控、自动重启、负载均衡等繁琐任务",
                   "major": false,
@@ -3087,11 +2840,9 @@
                     "full": true,
                     "url": "https://tse2-mm.cn.bing.net/th/id/OIP.nio3CzcEkbTmBFTVLTfdsgHaBz?pid=ImgDet&w=6138&h=1493&rs=1"
                   },
-                  "url": "https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/",
-                  "features": []
+                  "url": "https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/"
                 },
                 {
-                  "id": "1-1614751530668",
                   "name": "forever",
                   "def": "nodejs的守护进程,能够启动,停止,重启应用",
                   "major": false,
@@ -3101,8 +2852,7 @@
                     "full": true,
                     "url": "https://th.bing.com/th/id/Re7b197224f2d04d6f125f1c2ea7ea1c5?rik=U04iTBz2NGMpfw&riu=http%3a%2f%2fwww.originaloe.com%2fmedias%2fimages%2flogo-fbo-1.jpg&ehk=Xrf3SWXF19FqM1u0KvQzFLHcV6yVNJvBz4tnkcBlWWs%3d&risl=&pid=ImgRaw"
                   },
-                  "url": "https://www.npmjs.com/package/forever",
-                  "features": []
+                  "url": "https://www.npmjs.com/package/forever"
                 }
               ]
             },
@@ -3111,7 +2861,6 @@
               "name": "开发辅助",
               "list": [
                 {
-                  "id": "0-1614751530668",
                   "name": "ApiDoc",
                   "def": "Node.js可以利用ApiDoc生成接口文档",
                   "major": false,
@@ -3121,8 +2870,7 @@
                     "full": true,
                     "url": "https://th.bing.com/th/id/R8f3be1eec793aa6cc88366d6332a3a97?rik=jBkxqd4vSbuFCQ&riu=http%3a%2f%2fgreendoc.hu%2ffaces%2fjavax.faces.resource%2flogo-488x400.png%3bjsessionid%3de4f3c3476674e53712fc89f3c723%3fln%3dimages&ehk=nkZR9kL%2fkTA3zuS7kw82%2frX240x80M2E6auanYfxvOE%3d&risl=&pid=ImgRaw"
                   },
-                  "url": "https://apidocjs.com/",
-                  "features": []
+                  "url": "https://apidocjs.com/"
                 }
               ]
             }
@@ -3138,9 +2886,9 @@
           "list": [
             {
               "id": "0-1614751176832",
+              "name": "网络",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "HTTP",
                   "def": "一个基于TCP/IP通信协议来传递数据",
                   "major": false,
@@ -3150,11 +2898,9 @@
                     "full": true,
                     "url": "https://tse1-mm.cn.bing.net/th/id/OIP.lc-6FOUQnY6V-79dt3FdpgHaD_?pid=ImgDet&rs=1"
                   },
-                  "url": "https://www.runoob.com/http/http-tutorial.html",
-                  "features": []
+                  "url": "https://www.runoob.com/http/http-tutorial.html"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "TCP",
                   "def": "面向连接的、可靠的、基于字节流的传输层通信协议",
                   "major": false,
@@ -3164,11 +2910,9 @@
                     "full": true,
                     "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fftp.chinafix.com%2Fportal%2F201711%2F20%2F092900iii5p55lrfngiliy.jpg&refer=http%3A%2F%2Fftp.chinafix.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617274553&t=ab472e17b2950f7218edc83dea14e018"
                   },
-                  "url": "https://www.runoob.com/tcpip/tcpip-tutorial.html",
-                  "features": []
+                  "url": "https://www.runoob.com/tcpip/tcpip-tutorial.html"
                 },
                 {
-                  "id": "2-1614751487102",
                   "name": "UDP",
                   "def": "一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务",
                   "major": false,
@@ -3178,17 +2922,15 @@
                     "full": true,
                     "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3861921816,2794589959&fm=26&gp=0.jpg"
                   },
-                  "url": "",
-                  "features": []
+                  "url": ""
                 }
-              ],
-              "name": "网络"
+              ]
             },
             {
               "id": "1-1614751176832",
+              "name": "安全",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "跨域",
                   "def": "现代浏览器所通用的\"同源策略\"",
                   "major": false,
@@ -3197,11 +2939,9 @@
                     "type": "icon",
                     "url": "repeat-off"
                   },
-                  "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html",
-                  "features": []
+                  "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "常见前端网络攻击",
                   "def": "XSS, CSRF, 点击劫持攻击防御等",
                   "major": false,
@@ -3211,17 +2951,15 @@
                     "full": true,
                     "url": "https://tse1-mm.cn.bing.net/th/id/OIP.b_YutsV4U7BKA-s4A40T4AAAAA?pid=ImgDet&rs=1"
                   },
-                  "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html",
-                  "features": []
+                  "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html"
                 }
-              ],
-              "name": "安全"
+              ]
             },
             {
               "id": "2-1614751176832",
+              "name": "操作系统",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "linux",
                   "def": "一种自由和开放源码的类 UNIX 操作系统",
                   "major": false,
@@ -3231,11 +2969,9 @@
                     "full": true,
                     "url": "https://th.bing.com/th/id/Rf57bbb6295ffade226d015f4850937e8?rik=xTV1rU3CW4k2xg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f03%2fColor-of-the-Linux-Logo.jpg&ehk=Hii7pvgOcDq2g41%2b9D%2bfbEoQqCN%2bTmPuB%2b9mujPkcnk%3d&risl=&pid=ImgRaw"
                   },
-                  "url": "https://www.runoob.com/linux/linux-tutorial.html",
-                  "features": []
+                  "url": "https://www.runoob.com/linux/linux-tutorial.html"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "macOS",
                   "def": "基于XNU混合内核的图形化操作系统",
                   "major": false,
@@ -3245,17 +2981,15 @@
                     "full": true,
                     "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1403754502,2928659230&fm=15&gp=0.jpg"
                   },
-                  "url": "https://support.apple.com/zh-cn/macos",
-                  "features": []
+                  "url": "https://support.apple.com/zh-cn/macos"
                 }
-              ],
-              "name": "操作系统"
+              ]
             },
             {
               "id": "3-1614751176832",
+              "name": "脚本",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "shell",
                   "def": "一种为 shell 编写的脚本程序",
                   "major": false,
@@ -3265,26 +2999,22 @@
                     "full": true,
                     "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.tuicool.com%2FymyyyqV.jpg%21web&refer=http%3A%2F%2Fimg2.tuicool.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275886&t=0d7535f81586093ce0d5d1e98c055ab2"
                   },
-                  "url": "https://www.runoob.com/linux/linux-shell.html",
-                  "features": []
+                  "url": "https://www.runoob.com/linux/linux-shell.html"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "linux命令行",
                   "def": "linux命令行常用命令",
                   "major": false,
                   "platform": 5,
-                  "url": "https://www.runoob.com/linux/linux-command-manual.html",
-                  "features": []
+                  "url": "https://www.runoob.com/linux/linux-command-manual.html"
                 }
-              ],
-              "name": "脚本"
+              ]
             },
             {
               "id": "4-1614751176832",
+              "name": "编程范式",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "函数式编程",
                   "def": "一种编程范式",
                   "major": false,
@@ -3294,17 +3024,15 @@
                     "full": true,
                     "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp2.music.126.net%2FvbGh8tpNUIiXr6xqzJemiQ%3D%3D%2F109951163373186733.jpg&refer=http%3A%2F%2Fp2.music.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275968&t=6a4673572731df4f888b1254befe0d32"
                   },
-                  "url": "https://github.com/getify/Functional-Light-JS",
-                  "features": []
+                  "url": "https://github.com/getify/Functional-Light-JS"
                 }
-              ],
-              "name": "编程范式"
+              ]
             },
             {
               "id": "5-1614751176832",
+              "name": "数据",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "正则表达式",
                   "def": "一种字符串匹配的模式",
                   "major": false,
@@ -3314,17 +3042,15 @@
                     "full": true,
                     "url": "https://tse1-mm.cn.bing.net/th/id/OIP.cJ3K16wNAanyNzkLe9wJvQHaHa?pid=ImgDet&rs=1"
                   },
-                  "url": "https://www.runoob.com/regexp/regexp-syntax.html",
-                  "features": []
+                  "url": "https://www.runoob.com/regexp/regexp-syntax.html"
                 }
-              ],
-              "name": "数据"
+              ]
             },
             {
               "id": "6-1614751176832",
+              "name": "代码管理",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "git",
                   "def": "开源的分布式版本控制系统",
                   "major": false,
@@ -3333,17 +3059,15 @@
                     "type": "png",
                     "url": "https://git-scm.com/images/logo@2x.png"
                   },
-                  "url": "https://www.runoob.com/git/git-tutorial.html",
-                  "features": []
+                  "url": "https://www.runoob.com/git/git-tutorial.html"
                 }
-              ],
-              "name": "代码管理"
+              ]
             },
             {
               "id": "7-1614751176832",
+              "name": "项目管理",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "JIRA",
                   "def": "集项目计划、任务分配、需求管理、错误跟踪于一体",
                   "major": true,
@@ -3353,11 +3077,9 @@
                     "full": true,
                     "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3574637191,1493203823&fm=26&gp=0.jpg"
                   },
-                  "url": "https://zhuanlan.zhihu.com/p/44837233",
-                  "features": []
+                  "url": "https://zhuanlan.zhihu.com/p/44837233"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "Project",
                   "def": "囊括项目管理各个阶段",
                   "major": true,
@@ -3367,26 +3089,22 @@
                     "full": true,
                     "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fvasilijegroup.com%2Fwp-content%2Fuploads%2F2014%2F06%2FMSProject-logo.png&refer=http%3A%2F%2Fvasilijegroup.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617075317&t=28890aac09b901f17dd715d74b13cc08"
                   },
-                  "url": "https://blog.csdn.net/huangxinfeng/article/details/81194380",
-                  "features": []
+                  "url": "https://blog.csdn.net/huangxinfeng/article/details/81194380"
                 }
-              ],
-              "name": "项目管理"
+              ]
             },
             {
               "id": "8-1614751176832",
+              "name": "调试",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "浏览器调试",
                   "def": "使用浏览器的调试工具",
                   "major": true,
                   "platform": 5,
-                  "url": "https://www.runoob.com/js/js-debugging.html",
-                  "features": []
+                  "url": "https://www.runoob.com/js/js-debugging.html"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "ReactNative调试",
                   "def": "使用ReactNative调试App",
                   "major": true,
@@ -3396,26 +3114,22 @@
                     "full": true,
                     "url": "https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg"
                   },
-                  "url": "https://reactnative.cn/docs/debugging",
-                  "features": []
+                  "url": "https://reactnative.cn/docs/debugging"
                 }
-              ],
-              "name": "调试"
+              ]
             },
             {
               "id": "9-1614751176832",
+              "name": "跟踪",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "日志埋点跟踪",
                   "def": "通过分级日志输出跟踪信息",
                   "major": true,
                   "platform": 5,
-                  "url": "https://blog.csdn.net/u012852374/article/details/78134346/",
-                  "features": []
+                  "url": "https://blog.csdn.net/u012852374/article/details/78134346/"
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "Google Analytics",
                   "def": "了解和研究访问者的行为",
                   "major": true,
@@ -3425,22 +3139,20 @@
                     "full": true,
                     "url": "https://www.gstatic.cn/analytics-suite/header/suite/v2/ic_analytics.svg"
                   },
-                  "url": "",
-                  "features": []
+                  "url": ""
                 }
-              ],
-              "name": "跟踪"
+              ]
             },
             {
               "id": "10-1614751176832",
-              "list": [],
-              "name": "性能优化"
+              "name": "性能优化",
+              "list": []
             },
             {
               "id": "11-1614751176832",
+              "name": "交互设计",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "Ant Design - 设计",
                   "def": "专注于更好的用户体验",
                   "major": true,
@@ -3450,47 +3162,45 @@
                     "full": true,
                     "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   },
-                  "url": "https://ant.design/docs/spec/introduce-cn",
-                  "features": []
+                  "url": "https://ant.design/docs/spec/introduce-cn"
                 }
-              ],
-              "name": "交互设计"
+              ]
             },
             {
               "id": "12-1614751176832",
-              "list": [],
-              "name": "面试"
+              "name": "面试",
+              "list": []
             },
             {
               "id": "13-1614751176832",
-              "list": [],
-              "name": "代码规范"
+              "name": "代码规范",
+              "list": []
             },
             {
               "id": "14-1614751176832",
-              "list": [],
-              "name": "算法"
+              "name": "算法",
+              "list": []
             },
             {
               "id": "15-1614751176832",
-              "list": [],
-              "name": "重构"
+              "name": "重构",
+              "list": []
             },
             {
               "id": "16-1614751176832",
-              "list": [],
-              "name": "技术选型"
+              "name": "技术选型",
+              "list": []
             },
             {
               "id": "17-1614751176832",
-              "list": [],
-              "name": "敏捷开发"
+              "name": "敏捷开发",
+              "list": []
             },
             {
               "id": "18-1614751176832",
+              "name": "编辑器",
               "list": [
                 {
-                  "id": "0-1614751487102",
                   "name": "VS Code",
                   "def": "免费的。 建立在开源上。无处不在。",
                   "major": true,
@@ -3503,12 +3213,10 @@
                   "url": "https://code.visualstudio.com/",
                   "features": [
                     {
-                      "id": "0-1614754277036",
                       "title": "使用",
                       "def": "",
                       "list": [
                         {
-                          "id": "0-1614754277036",
                           "title": "折叠代码",
                           "def": "折叠代码快捷键使用",
                           "jump": "code",
@@ -3523,7 +3231,6 @@
                   ]
                 },
                 {
-                  "id": "1-1614751487102",
                   "name": "Atom",
                   "def": "github专门为程序员推出的一个跨平台文本编辑器",
                   "platform": 5,
@@ -3532,11 +3239,9 @@
                     "full": true,
                     "url": "https://pics7.baidu.com/feed/0e2442a7d933c895127557994747e4f6830200a0.jpeg?token=dd60bf6a4a798e4e8c6bef785950a4d0"
                   },
-                  "url": "https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png",
-                  "features": []
+                  "url": "https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png"
                 }
-              ],
-              "name": "编辑器"
+              ]
             }
           ]
         }

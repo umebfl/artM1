@@ -112,14 +112,14 @@ export default ({ navigation, }) => {
                             }}>暂无日志</Text>
                         </View>
                     )}
-                    getItemLayout={(data, index) => (
-                        {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
-                    )}
+                    // getItemLayout={(data, index) => (
+                    //     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+                    // )}
                     renderItem={({ item, index, separators }) => (
                         <WingBlank key={item.id} style={{
                             flexDirection: 'row',
                             // overflow: 'hidden',
-                            height: ITEM_HEIGHT,
+                            // height: ITEM_HEIGHT,
                             paddingBottom: 10,
                         }}>
                             <Text style={{ marginRight: 5, fontSize: 12, }}>

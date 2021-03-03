@@ -13,6 +13,7 @@ import theory from './data/skill/theory'
 import navigation from './data/navigation.json'
 
 import { info, debug, error, } from './util/log'
+import idBuilder from './util/idBuilder'
 
 const STORE_DATA_KEY = 'STORE_DATA_KEY'
 
@@ -224,7 +225,7 @@ export const initState = {
     //                                     url: 'https://static.kancloud.cn/asset/app/images/logo.png',
     //                                 },
     //                             },
-                                
+
     //                         ],
     //                     },
     //                 },
@@ -329,7 +330,7 @@ export const reducer = (state, action) => {
                     R.equals('renderTime_add'),
                     () => R.compose(
                         // R.tap(newState => setData(newState)),
-                        R.assocPath(['debug', 'renderTime'], [ action.payload, ...state.debug.renderTime, ]),
+                        R.assocPath(['debug', 'renderTime'], [action.payload, ...state.debug.renderTime,]),
                     )(state),
                 ],
             ])(action.type),
@@ -348,6 +349,120 @@ export const reducer = (state, action) => {
                     // ),
                     () => R.mergeDeepRight(state, action.payload),
                 ],
+
+                [
+                    R.equals('fix'),
+                    // () => R.compose(
+                    //     // v => {
+                    //     //     alert(`system init: ${JSON.stringify(v)}`)
+                    //     //     return v
+                    //     // },
+                    //     R.mergeDeepRight(state, action.payload)
+                    // ),
+                    () => {
+                        // 将列表都添加id
+                        const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
+                        // const path = ['navigation', 'home', 'tab', 'server', 'data', 'list']
+                        // const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
+
+                        const list = R.path(path)(state)
+
+                        const newList = R.addIndex(R.map)(
+                            (v, k) => ({
+                                id: idBuilder(k),
+                                ...v,
+                                list: R.addIndex(R.map)(
+                                    (v2, k2) => ({
+                                        id: idBuilder(k2),
+                                        ...v2,
+                                        article: R.addIndex(R.map)(
+                                            (v3, k3) => ({
+                                                id: idBuilder(k3),
+                                                ...v3,
+                                                list: R.addIndex(R.map)(
+                                                    (v4, k4) => ({
+                                                        id: idBuilder(k4),
+                                                        ...v4,
+                                                    }),
+                                                )(v3.list || []),
+                                            })
+                                        )(v2.article || []),
+
+                                        features: R.addIndex(R.map)(
+                                            (v3, k3) => ({
+                                                id: idBuilder(k3),
+                                                ...v3,
+                                                list: R.addIndex(R.map)(
+                                                    (v4, k4) => ({
+                                                        id: idBuilder(k4),
+                                                        ...v4,
+                                                    }),
+                                                )(v3.list || []),
+                                            })
+                                        )(v2.features || [])
+                                    })
+                                )(v.list),
+                            })
+                        )(list)
+
+                        const newState = R.assocPath(path, newList)(state)
+
+                        return newState
+                    },
+                ],
+                [
+                    R.equals('addCategory'),
+                    () => {
+
+                        const {
+                            // 修改的目标 
+                            target,
+                        } = action.payload
+
+                        const path = ['navigation', 'home', 'tab', target, 'data', 'list']
+                        const list = R.path(path)(state)
+                        const newState = R.assocPath(path, [{
+                            name: '',
+                            // 编辑状态
+                            edit: true,
+                            list: [],
+                        }, ...list])(state)
+
+                        // info(JSON.stringify(newState, null, 2))
+
+                        // setData(newState)
+                        return newState
+                    },
+                ],
+                [
+                    R.equals('editCategoryName'),
+                    () => {
+
+                        const {
+                            target,
+                            key,
+                            value,
+                        } = action.payload
+
+                        const path = ['navigation', 'home', 'tab', target, 'data', 'list']
+                        const list = R.path(path)(state)
+                        const newList = R.filter(
+                            v => v.name === key
+                        )(list)
+                        const newState = R.assocPath(path, [{
+                            name: '',
+                            // 编辑状态
+                            edit: true,
+                            list: [],
+                        }, ...newList])(state)
+
+                        // info(JSON.stringify(newState, null, 2))
+
+                        // setData(newState)
+                        return newState
+                    },
+                ],
+
             ])(action.type),
         ],
         [

@@ -62,7 +62,7 @@ export default ({ navigation, }) => {
 
     info('theory render')
 
-    const Node = () => <SkillListView navigation={navigation} data={data} />
+    const Node = () => <SkillListView navigation={navigation} data={data} modKey={'theory'} />
 
     const node = useMemo(
         () => <Node />,

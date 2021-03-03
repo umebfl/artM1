@@ -12,9 +12,11 @@ import {
     NativeModules,
 } from 'react-native'
 
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SwipeList from '../../component/SwipeList'
-import { LargeTitle, } from '../../component/Text'
+import { LargeTitle, DefText, } from '../../component/Text'
 
 import Context from '../../reducer'
 
@@ -24,22 +26,16 @@ import { statusBarHeight, } from '../../util/StatusBarManager'
 import WhiteSpace from '../../component/WhiteSpace'
 import SwipeIconList from '../../component/SwipeIconList'
 import WingBlank from '../../component/WingBlank'
+import TouchView from '../../component/TouchView'
 
-export default ({ navigation, data, }) => {
+export default ({ navigation, data, modKey, }) => {
 
     const { state, dispatch, } = useContext(Context)
 
     const {
         theme,
-        navigation: {
-            home: {
-                tab: {
-                    theory,
-                },
-            },
-        },
     } = state
-    // alert(type)
+
     const item = data
 
     // const list = useMemo(
@@ -82,6 +78,16 @@ export default ({ navigation, data, }) => {
     // }, [])
 
     info(`${item.name} -> skillListView render`)
+
+    const handleAdd = data => {
+        dispatch({
+            mod: 'system',
+            type: 'addCategory',
+            payload: {
+                target: modKey,
+            },
+        })
+    }
 
     return (
         <View style={{
@@ -126,6 +132,26 @@ export default ({ navigation, data, }) => {
                                     : null
 
                             }
+
+                            {/* 添加分类 */}
+                            <TouchView onPress={() => handleAdd(item)}>
+                                <WingBlank style={{
+                                    // backgroundColor: 'red',
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    marginTop: 10,
+                                    height: 30,
+                                    borderRadius: 4,
+                                    borderStyle: 'dashed',
+                                    borderWidth: theme.borderWidth,
+                                    borderColor: theme.borderColor,
+                                    opacity: 0.8,
+                                }}>
+                                    <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
+                                    <DefText>添加分类</DefText>
+                                </WingBlank>
+                            </TouchView>
                         </View>
                     )
                 }}
@@ -152,7 +178,13 @@ export default ({ navigation, data, }) => {
                 data={item.list}
                 initialNumToRender={3}
                 renderItem={({ item, index, separators }) => (
-                    <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
+                    <SwipeList
+                        modKey={modKey}
+                        keyExtractor={item.name + index}
+                        navigation={navigation}
+                        edit={item.edit}
+                        title={item.name}
+                        unit={item.list} />
                 )} />
 
             {/* {list} */}

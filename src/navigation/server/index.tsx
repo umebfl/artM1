@@ -62,7 +62,7 @@ export default ({ navigation, }) => {
 
     info('server render')
 
-    const Node = () => <SkillListView navigation={navigation} data={data} />
+    const Node = () => <SkillListView navigation={navigation} data={data} modKey={'server'} />
 
     const node = useMemo(
         () => <Node />,

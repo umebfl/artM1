@@ -63,11 +63,10 @@ const ScreenWrapper = (payload: payload) => {
           {
             ContentViewType === 'View'
               ? (
-                <View style={{ flex: 1, paddingTop: statusBarHeight, paddingBottom: 40, }}>
+                <View style={{ flex: 1, paddingTop: statusBarHeight, }}>
                   {
                     children ? children : null
                   }
-                  <View style={{ height: 80, }}></View>
                 </View>
               )
               : (
