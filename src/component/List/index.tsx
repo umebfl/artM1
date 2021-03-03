@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import WingBlank from '../../component/WingBlank'
 import WhiteSpace from '../../component/WhiteSpace'
 import TouchView from '../../component/TouchView'
+import { DefText, } from '../../component/Text'
 
 import Context from '../../reducer'
 
@@ -123,6 +124,12 @@ export const Item = payload => {
                                     onValueChange={handlePress}
                                     value={value}
                                 />
+                            ),
+                        ],
+                        [
+                            R.equals('msg'),
+                            () => (
+                                <DefText>{value}</DefText>
                             ),
                         ],
                         [

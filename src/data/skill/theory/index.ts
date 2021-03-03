@@ -1,4 +1,5 @@
-import { SkillPlatform, SkillUnit, } from '../../../variable'
+import { SkillPlatform, SkillUnit, SkillStep, SKillJumpToURI, } from '../../../variable'
+
 
 export default {
     name: '基础',
@@ -336,6 +337,25 @@ export default {
                         url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3102802095,1274108669&fm=26&gp=0.jpg',
                     },
                     url: 'https://code.visualstudio.com/',
+                    
+                    features: [
+                        {
+                            title: '使用',
+                            def: '',
+                            list: [
+                                {
+                                    title: '折叠代码',
+                                    def: '折叠代码快捷键使用',
+                                    jump: SKillJumpToURI.code,
+                                    url: 'https://www.cnblogs.com/eret9616/p/11607947.html',
+                                    explain: [
+                                        '设置 -> 快捷键设置 -> 输入fold -> 点击设置',
+                                        '当前设置: 折叠: alt + 1-7 | 展开所有 alt + 0',
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
                 },
 
                 {

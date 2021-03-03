@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, } from 'react'
+import React, { useContext, useEffect, useRef, useState, } from 'react'
 
 import {
     SafeAreaView,
@@ -12,6 +12,8 @@ import {
 
 import Restart from 'react-native-restart'
 import ActionSheet from 'react-native-actionsheet'
+
+import Clipboard from '@react-native-community/clipboard'
 
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
@@ -32,6 +34,7 @@ export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
+    const [copyed, setCopyed] = useState(false)
 
     const {
         theme,
@@ -61,6 +64,11 @@ export default ({ navigation, }) => {
             mod: 'debug',
             type: 'toggle',
         })
+    }
+
+    const handleCopyData = () => {
+        Clipboard.setString(JSON.stringify(state.navigation, null, 2))
+        setCopyed(true)
     }
 
     const startTime = new Date()
@@ -107,6 +115,7 @@ export default ({ navigation, }) => {
                 <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
                 <Item title={'渲染耗时'} icon={'chart-bar'} jumpTo={'renderTime'} navigation={navigation} />
                 <Item title={'项目代码'} icon={'github'} handlePress={handleProSource} />
+                <Item title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''}/>
             </List>
 
             <List>

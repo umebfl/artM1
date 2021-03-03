@@ -169,6 +169,168 @@ render(<App />, document.getElementById('root'));
 
                                     ],
                                 },
+
+                                {
+                                    title: 'Typography',
+                                    def: '文本的基本格式排版。',
+                                    jump: SKillJumpToURI.code,
+                                    url: 'https://ant.design/components/icon-cn/',
+                                    explain: [
+                                        '何时使用',
+                                        '代码演示',
+                                        '介绍',
+                                        '设计资源',
+                                        'API',
+                                        'FAQ',
+                                    ],
+                                    code: [
+`import { Typography } from 'antd';
+
+const { Title } = Typography;
+
+ReactDOM.render(
+  <>
+    <Title>h1. Ant Design</Title>
+    <Title level={2}>h2. Ant Design</Title>
+    <Title level={3}>h3. Ant Design</Title>
+    <Title level={4}>h4. Ant Design</Title>
+    <Title level={5}>h5. Ant Design</Title>
+  </>,
+  mountNode,
+);`,
+
+`
+import { Typography, Space } from 'antd';
+
+const { Text, Link } = Typography;
+
+ReactDOM.render(
+  <Space direction="vertical">
+    <Text>Ant Design (default)</Text>
+    <Text type="secondary">Ant Design (secondary)</Text>
+    <Text type="success">Ant Design (success)</Text>
+    <Text type="warning">Ant Design (warning)</Text>
+    <Text type="danger">Ant Design (danger)</Text>
+    <Text disabled>Ant Design (disabled)</Text>
+    <Text mark>Ant Design (mark)</Text>
+    <Text code>Ant Design (code)</Text>
+    <Text keyboard>Ant Design (keyboard)</Text>
+    <Text underline>Ant Design (underline)</Text>
+    <Text delete>Ant Design (delete)</Text>
+    <Text strong>Ant Design (strong)</Text>
+    <Link href="https://ant.design" target="_blank">
+      Ant Design (Link)
+    </Link>
+  </Space>,
+  mountNode,
+);
+`,
+
+`
+import React, { useState } from 'react';
+import { Typography } from 'antd';
+import { HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
+
+const { Paragraph } = Typography;
+
+const Demo: React.FC = () => {
+  const [editableStr, setEditableStr] = useState('This is an editable text.');
+  const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
+  const [hideTooltipStr, setHideTooltipStr] = useState('Hide Edit tooltip.');
+  const [lengthLimitedStr, setLengthLimitedStr] = useState(
+    'This is an editable text with limited length.',
+  );
+
+  return (
+    <>
+      <Paragraph editable={{ onChange: setEditableStr }}>{editableStr}</Paragraph>
+      <Paragraph
+        editable={{
+          icon: <HighlightOutlined />,
+          tooltip: 'click to edit text',
+          onChange: setCustomIconStr,
+        }}
+      >
+        {customIconStr}
+      </Paragraph>
+      <Paragraph editable={{ tooltip: false, onChange: setHideTooltipStr }}>
+        {hideTooltipStr}
+      </Paragraph>
+      <Paragraph
+        editable={{
+          onChange: setLengthLimitedStr,
+          maxLength: 50,
+          autoSize: { maxRows: 5, minRows: 3 },
+        }}
+      >
+        {lengthLimitedStr}
+      </Paragraph>
+      <Paragraph copyable>This is a copyable text.</Paragraph>
+      <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+      <Paragraph
+        copyable={{
+          icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],
+          tooltips: ['click here', 'you clicked!!'],
+        }}
+      >
+        Custom Copy icon and replace tooltips text.
+      </Paragraph>
+      <Paragraph copyable={{ tooltips: false }}>Hide Copy tooltips.</Paragraph>
+    </>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
+`,
+`
+import { Typography, Switch } from 'antd';
+
+const { Paragraph, Text } = Typography;
+
+const Demo = () => {
+  const [ellipsis, setEllipsis] = React.useState(true);
+
+  return (
+    <>
+      <Switch
+        checked={ellipsis}
+        onChange={() => {
+          setEllipsis(!ellipsis);
+        }}
+      />
+
+      <Paragraph ellipsis={ellipsis}>
+        Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team.
+      </Paragraph>
+
+      <Paragraph ellipsis={ellipsis ? { rows: 2, expandable: true, symbol: 'more' } : false}>
+        Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team.
+      </Paragraph>
+
+      <Text
+        style={ellipsis ? { width: 100 } : undefined}
+        ellipsis={ellipsis ? { tooltip: 'I am ellipsis now!' } : false}
+      >
+        Ant Design, a design language for background applications, is refined by Ant UED Team.
+      </Text>
+    </>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
+`,
+                                    ],
+                                },
                             ]
                         },
                     ],

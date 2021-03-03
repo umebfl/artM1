@@ -10,6 +10,8 @@ import interactive from './data/skill/interactive'
 import server from './data/skill/server'
 import theory from './data/skill/theory'
 
+import navigation from './data/navigation.json'
+
 import { info, debug, error, } from './util/log'
 
 const STORE_DATA_KEY = 'STORE_DATA_KEY'
@@ -100,180 +102,182 @@ export const initState = {
     },
 
     // 系统导航数据
-    navigation: {
-        home: {
-            initialRouteName: 'skill',
-            tab: {
-                info: {
-                    name: 'info',
-                    text: '资讯',
-                    icon: 'waze',
-                    tab: {
-                        toRead: {
-                            title: '阅读清单',
-                            list: [
-                                {
-                                    title: '一个强大的管理异步数据请求的一个强大的管理异步数据请求的',
-                                    def: '一个强大的管理异步数据请求的 Hook',
-                                    url: 'https://www.baidu.com/s?ie=UTF-8&wd=useState',
-                                },
-                            ],
-                        },
-                        favWebsite: {
-                            title: '关注站点',
-                            list: [
-                                {
-                                    name: '知乎',
-                                    url: 'https://www.zhihu.com',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F4.pic.paopaoche.net%2Fup%2F2014-5%2F201452817146.png&refer=http%3A%2F%2F4.pic.paopaoche.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616515442&t=35573a5b064ad71011c9d91621bde9a0',
-                                    },
-                                },
-                                {
-                                    name: 'Github',
-                                    url: 'https://github.com',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F202004%2F5e9e4f75b15ec0103b5e897c_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616514382&t=fcc58da0512c5f122a153ba905135da1',
-                                    },
-                                },
-                                {
-                                    name: '开源中国',
-                                    url: 'https://www.oschina.net/project',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=828382003,4039207230&fm=26&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: 'StackOverflow',
-                                    url: 'https://stackoverflow.com/',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2842250216,1189554690&fm=26&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: 'GoogleDev',
-                                    url: 'https://developers.google.cn/china/',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2832977923,3336233045&fm=26&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: '大前端',
-                                    url: 'https://www.daqianduan.com/nav',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2470067681,1546475391&fm=15&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: '印记中文',
-                                    url: 'https://docschina.org/',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F01%2F06%2F2564b954ed6f38916c8e5ecaf1167e79.jpg%21%2Ffwfh%2F804x804%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fku.90sjimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616515852&t=dc45a89d65d6a5fd508dbae319b9ce3f',
-                                    },
-                                },
-                                {
-                                    name: '前端导航',
-                                    url: 'https://www.kwgg2020.com/',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1148848736,974362383&fm=26&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: '博客园',
-                                    url: 'https://www.cnblogs.com/',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3049606950,442899264&fm=26&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: 'W3cplus',
-                                    url: 'https://www.w3cplus.com/',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3694819829,1688866966&fm=26&gp=0.jpg',
-                                    },
-                                },
-                                {
-                                    name: '前端笔记',
-                                    url: 'https://www.kancloud.cn/surahe/front-end-notebook/781957',
-                                    logo: {
-                                        type: 'jpg',
-                                        full: true,
-                                        url: 'https://static.kancloud.cn/asset/app/images/logo.png',
-                                    },
-                                },
+    navigation,
+    // navigation: {
+    //     home: {
+    //         initialRouteName: 'skill',
+    //         tab: {
+    //             info: {
+    //                 name: 'info',
+    //                 text: '资讯',
+    //                 icon: 'waze',
+    //                 tab: {
+    //                     toRead: {
+    //                         title: '阅读清单',
+    //                         list: [
+    //                             {
+    //                                 title: '一个强大的管理异步数据请求的一个强大的管理异步数据请求的',
+    //                                 def: '一个强大的管理异步数据请求的 Hook',
+    //                                 url: 'https://www.baidu.com/s?ie=UTF-8&wd=useState',
+    //                             },
+    //                         ],
+    //                     },
+    //                     favWebsite: {
+    //                         title: '关注站点',
+    //                         list: [
+    //                             {
+    //                                 name: '知乎',
+    //                                 url: 'https://www.zhihu.com',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F4.pic.paopaoche.net%2Fup%2F2014-5%2F201452817146.png&refer=http%3A%2F%2F4.pic.paopaoche.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616515442&t=35573a5b064ad71011c9d91621bde9a0',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: 'Github',
+    //                                 url: 'https://github.com',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F202004%2F5e9e4f75b15ec0103b5e897c_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616514382&t=fcc58da0512c5f122a153ba905135da1',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: '开源中国',
+    //                                 url: 'https://www.oschina.net/project',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=828382003,4039207230&fm=26&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: 'StackOverflow',
+    //                                 url: 'https://stackoverflow.com/',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2842250216,1189554690&fm=26&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: 'GoogleDev',
+    //                                 url: 'https://developers.google.cn/china/',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2832977923,3336233045&fm=26&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: '大前端',
+    //                                 url: 'https://www.daqianduan.com/nav',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2470067681,1546475391&fm=15&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: '印记中文',
+    //                                 url: 'https://docschina.org/',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F01%2F06%2F2564b954ed6f38916c8e5ecaf1167e79.jpg%21%2Ffwfh%2F804x804%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fku.90sjimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616515852&t=dc45a89d65d6a5fd508dbae319b9ce3f',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: '前端导航',
+    //                                 url: 'https://www.kwgg2020.com/',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1148848736,974362383&fm=26&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: '博客园',
+    //                                 url: 'https://www.cnblogs.com/',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3049606950,442899264&fm=26&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: 'W3cplus',
+    //                                 url: 'https://www.w3cplus.com/',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3694819829,1688866966&fm=26&gp=0.jpg',
+    //                                 },
+    //                             },
+    //                             {
+    //                                 name: '前端笔记',
+    //                                 url: 'https://www.kancloud.cn/surahe/front-end-notebook/781957',
+    //                                 logo: {
+    //                                     type: 'jpg',
+    //                                     full: true,
+    //                                     url: 'https://static.kancloud.cn/asset/app/images/logo.png',
+    //                                 },
+    //                             },
                                 
-                            ],
-                        },
-                    },
-                },
-                // skill: {
-                //     name: 'skill',
-                //     text: '技能',
-                //     icon: 'electron-framework',
-                //     tab: {
-                //         interactive,
-                //         server,
-                //         theory,
-                //     },
-                // },
-                interactive: {
-                    name: 'interactive',
-                    text: '前端',
-                    icon: 'electron-framework',
-                    data: interactive,
-                },
-                server: {
-                    name: 'server',
-                    text: '后台',
-                    icon: 'nodejs',
-                    data: server,
-                },
-                theory: {
-                    name: 'theory',
-                    text: '基础',
-                    icon: 'midi-port',
-                    data: theory,
-                },
-                // futu: {
-                //     name: 'futu',
-                //     text: '期货',
-                //     icon: 'battlenet',
-                // },
-                // todo: {
-                //     name: 'todo',
-                //     text: '待办',
-                //     icon: 'checkbox-marked-circle-outline',
-                // },
-                other: {
-                    name: 'other',
-                    text: '设置',
-                    icon: 'vanish',
-                },
-            },
-        },
-    },
+    //                         ],
+    //                     },
+    //                 },
+    //             },
+    //             // skill: {
+    //             //     name: 'skill',
+    //             //     text: '技能',
+    //             //     icon: 'electron-framework',
+    //             //     tab: {
+    //             //         interactive,
+    //             //         server,
+    //             //         theory,
+    //             //     },
+    //             // },
+    //             interactive: {
+    //                 name: 'interactive',
+    //                 text: '前端',
+    //                 icon: 'electron-framework',
+    //                 data: interactive,
+    //             },
+    //             server: {
+    //                 name: 'server',
+    //                 text: '后台',
+    //                 icon: 'nodejs',
+    //                 data: server,
+    //             },
+    //             theory: {
+    //                 name: 'theory',
+    //                 text: '基础',
+    //                 icon: 'midi-port',
+    //                 data: theory,
+    //             },
+    //             // futu: {
+    //             //     name: 'futu',
+    //             //     text: '期货',
+    //             //     icon: 'battlenet',
+    //             // },
+    //             // todo: {
+    //             //     name: 'todo',
+    //             //     text: '待办',
+    //             //     icon: 'checkbox-marked-circle-outline',
+    //             // },
+    //             other: {
+    //                 name: 'other',
+    //                 text: '设置',
+    //                 icon: 'vanish',
+    //             },
+    //         },
+    //     },
+    // },
 
     // 模块
+
     system: {
         version: '2.0.3',
     },
