@@ -32,7 +32,6 @@ import TouchView from '../../component/TouchView'
 export default ({ navigation, data, modKey, }) => {
 
     const { state, dispatch, } = useContext(Context)
-    const inputEl = useRef(null)
 
     const [addingCategory, setAddingCategory] = useState(false)
 
@@ -83,29 +82,22 @@ export default ({ navigation, data, modKey, }) => {
 
     info(`${item.name} -> skillListView render`)
 
-    const handleAdd = () => {
 
-        if( inputEl.current.value ) {
-            dispatch({
-                mod: 'system',
-                type: 'addCategory',
-                payload: {
-                    target: modKey,
-                    value: inputEl.current.value,
-                },
-            })
-
-        } else {
-            setAddingCategory(false)
-        }
-    }
+    // const handleToggleCategoryEditing = () => {
+    //     dispatch({
+    //         mod: 'system',
+    //         type: 'toggleCategoryEditing',
+    //         payload: {
+    //             target: modKey,
+    //         },
+    //     })
+    // }
 
     return (
         <View style={{
             backgroundColor: 'white',
             flex: 1,
         }}>
-
             <FlatList
                 style={{
                     paddingTop: statusBarHeight,
@@ -116,8 +108,16 @@ export default ({ navigation, data, modKey, }) => {
                             paddingTop: 10,
                             paddingBottom: 10,
                         }}>
-                            <WingBlank>
+                            <WingBlank style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                            }}>
                                 <LargeTitle>{item.name}</LargeTitle>
+
+                                <TouchView onPress={() => navigation.push('unitEditCategoryView', { modKey, })}>
+                                    <Icon name={'circle-edit-outline'} size={32} color={theme.main} style={{ opacity: 0.68, }} />
+                                </TouchView>
                             </WingBlank>
 
                             {/* 技术链条 */}
@@ -144,7 +144,7 @@ export default ({ navigation, data, modKey, }) => {
                             }
 
                             {/* 添加分类 */}
-                            <WingBlank style={{
+                            {/* <WingBlank style={{
                                 marginTop: 10,
                                 height: 40,
                             }}>
@@ -161,11 +161,10 @@ export default ({ navigation, data, modKey, }) => {
                                                         pdding: 2,
                                                         paddingLeft: 10,
                                                         height: 40,
-                                                        // backgroundColor: 'red',
                                                         borderRadius: 8,
                                                         borderWidth: theme.borderWidth,
                                                         borderColor: theme.borderColor,
-                                                        fontSize: 12,
+                                                        fontSize: 16,
                                                     }}
                                                     ref={inputEl}
                                                     onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
@@ -178,7 +177,7 @@ export default ({ navigation, data, modKey, }) => {
                                                     blurOnSubmit={true}
                                                     autoFocus={true}
                                                     placeholder={'请输入分类名称'} />
-                                                
+
                                                 <TouchView onPress={() => setAddingCategory(false)}>
                                                     <Text style={{
                                                         // backgroundColor: 'red',
@@ -213,8 +212,7 @@ export default ({ navigation, data, modKey, }) => {
                                             </TouchView>
                                         )
                                 }
-                            </WingBlank>
-
+                            </WingBlank> */}
                         </View>
                     )
                 }}
@@ -244,30 +242,11 @@ export default ({ navigation, data, modKey, }) => {
                     <SwipeList
                         modKey={modKey}
                         id={item.id}
-                        keyExtractor={item.name + index}
+                        key={item.name + index}
                         navigation={navigation}
-                        edit={item.edit}
                         title={item.name}
                         unit={item.list} />
                 )} />
-
-            {/* {list} */}
-
-            {/* <ScrollView
-                showsVerticalScrollIndicator={false}
-                style={{
-                    flex: 1,
-                    paddingTop: 7,
-                    backgroundColor: theme.navigationTabBarBackgound,
-                }}>
-                {
-                    R.addIndex(R.map)(
-                        (v, k) => (
-                            <SwipeList key={k} navigation={navigation} title={v.name} unit={v.list} />
-                        )
-                    )(item.list || [])
-                }
-            </ScrollView> */}
         </View>
     )
 }

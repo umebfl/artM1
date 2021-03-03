@@ -362,48 +362,50 @@ export const reducer = (state, action) => {
                     // ),
                     () => {
                         // 将列表都添加id
-                        const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
+                        // const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
                         // const path = ['navigation', 'home', 'tab', 'server', 'data', 'list']
-                        // const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
+                        const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
 
                         const list = R.path(path)(state)
 
                         const newList = R.addIndex(R.map)(
-                            (v, k) => ({
-                                id: idBuilder(k),
-                                ...v,
-                                list: R.addIndex(R.map)(
-                                    (v2, k2) => ({
-                                        id: idBuilder(k2),
-                                        ...v2,
-                                        article: R.addIndex(R.map)(
-                                            (v3, k3) => ({
-                                                id: idBuilder(k3),
-                                                ...v3,
-                                                list: R.addIndex(R.map)(
-                                                    (v4, k4) => ({
-                                                        id: idBuilder(k4),
-                                                        ...v4,
-                                                    }),
-                                                )(v3.list || []),
-                                            })
-                                        )(v2.article || []),
-
-                                        features: R.addIndex(R.map)(
-                                            (v3, k3) => ({
-                                                id: idBuilder(k3),
-                                                ...v3,
-                                                list: R.addIndex(R.map)(
-                                                    (v4, k4) => ({
-                                                        id: idBuilder(k4),
-                                                        ...v4,
-                                                    }),
-                                                )(v3.list || []),
-                                            })
-                                        )(v2.features || [])
-                                    })
-                                )(v.list),
-                            })
+                            R.compose(
+                                (v, k) => ({
+                                    id: idBuilder(k),
+                                    ...v,
+                                    list: R.addIndex(R.map)(
+                                        (v2, k2) => ({
+                                            id: idBuilder(k2),
+                                            ...v2,
+                                            article: R.addIndex(R.map)(
+                                                (v3, k3) => ({
+                                                    id: idBuilder(k3),
+                                                    ...v3,
+                                                    list: R.addIndex(R.map)(
+                                                        (v4, k4) => ({
+                                                            id: idBuilder(k4),
+                                                            ...v4,
+                                                        }),
+                                                    )(v3.list || []),
+                                                })
+                                            )(v2.article || []),
+    
+                                            features: R.addIndex(R.map)(
+                                                (v3, k3) => ({
+                                                    id: idBuilder(k3),
+                                                    ...v3,
+                                                    list: R.addIndex(R.map)(
+                                                        (v4, k4) => ({
+                                                            id: idBuilder(k4),
+                                                            ...v4,
+                                                        }),
+                                                    )(v3.list || []),
+                                                })
+                                            )(v2.features || [])
+                                        })
+                                    )(v.list),
+                                })
+                            )
                         )(list)
 
                         const newState = R.assocPath(path, newList)(state)
@@ -411,6 +413,26 @@ export const reducer = (state, action) => {
                         return newState
                     },
                 ],
+
+                // [
+                //     R.equals('toggleCategoryEditing'),
+                //     () => {
+                //         const {
+                //             target,
+                //         } = action.payload
+
+                //         const path = ['navigation', 'home', 'tab', target, 'data']
+                //         const data = R.path(path)(state)
+                //         const newState = R.assocPath(path, {
+                //             ...data,
+                //             editing: !data.editing,
+                //         })(state)
+
+                //         setData(newState)
+                //         return newState
+                //     },
+                // ],
+
                 [
                     R.equals('addCategory'),
                     () => {
@@ -424,7 +446,6 @@ export const reducer = (state, action) => {
                         const newState = R.assocPath(path, [{
                             id: idBuilder(list.length),
                             name: value,
-                            edit: false,
                             list: [],
                         }, ...list])(state)
 
@@ -432,6 +453,25 @@ export const reducer = (state, action) => {
                         return newState
                     },
                 ],
+
+                [
+                    R.equals('removeCategory'),
+                    () => {
+                        const {
+                            target,
+                            id,
+                        } = action.payload
+
+                        const path = ['navigation', 'home', 'tab', target, 'data', 'list']
+                        const list = R.path(path)(state)
+                        const newList = R.filter(v => v.id !== id)(list)
+                        const newState = R.assocPath(path, newList)(state)
+
+                        setData(newState)
+                        return newState
+                    },
+                ],
+                
                 [
                     R.equals('editCategoryName'),
                     () => {

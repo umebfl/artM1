@@ -17,6 +17,7 @@
     "@react-navigation/bottom-tabs": "^5.11.7",
     "@react-navigation/native": "^5.9.2",
     "@react-navigation/stack": "^5.14.2",
+    "add": "^2.0.6",
     "ahooks": "^2.9.6",
     "ramda": "^0.27.1",
     "react": "16.13.1",
@@ -35,7 +36,8 @@
     "react-native-svg": "^12.1.0",
     "react-native-syntax-highlighter": "^2.1.0",
     "react-native-vector-icons": "^8.0.0",
-    "react-native-webview": "^11.2.1"
+    "react-native-webview": "^11.2.1",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

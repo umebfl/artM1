@@ -1,4 +1,4 @@
-import React, { useContext, useRef, } from 'react'
+import React, { useContext, useState, useRef, } from 'react'
 
 import R from 'ramda'
 
@@ -35,14 +35,20 @@ import { SkillStep } from '../../variable'
 const LIST_MAX_LEN = 4
 
 interface payload {
+    // unit id
+    id: string
+    // 模块名称
+    modKey: string
     title: String
     unit: any
     navigation: any
 }
 
-export default payload => {
+export default (payload: payload) => {
     const { state, dispatch, } = useContext(Context)
-    const inputEl = useRef(null) 
+
+    const [edit, setEdit] = useState(false)
+    const inputEl = useRef(null)
 
     const {
         theme,
@@ -54,7 +60,6 @@ export default payload => {
         id,
         modKey,
         title,
-        edit,
         unit,
         navigation,
     } = payload
@@ -87,7 +92,8 @@ export default payload => {
                 borderTopColor: theme.borderColor,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'baseline',
+                alignItems: 'center',
+                height: 44,
             }}>
                 <View style={{
                     flexDirection: 'row',
@@ -103,25 +109,28 @@ export default payload => {
                                 }}>
                                     <TextInput
                                         style={{
-                                            width: 150,
-                                            height: 30,
-                                            // backgroundColor: 'red',
+                                            width: 200,
+                                            pdding: 2,
+                                            paddingLeft: 10,
+                                            height: 40,
                                             borderRadius: 8,
                                             borderWidth: theme.borderWidth,
                                             borderColor: theme.borderColor,
+                                            fontSize: 16,
                                         }}
                                         ref={inputEl}
+                                        defaultValue={title}
                                         onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
                                         onSubmitEditing={handleEditCategoryName}
-                                        // onBlur={handleEditCategoryName}
+                                        onBlur={() => setEdit(false)}
                                         maxLength={20}
                                         enablesReturnKeyAutomatically={true}
                                         autoCorrect={true}
                                         clearButtonMode={'while-editing'}
                                         blurOnSubmit={true}
                                         autoFocus={true}
-                                        placeholder={'请输入分类名称'}/>
-                                    
+                                        placeholder={'请输入分类名称'} />
+
                                 </View>
                             )
                             : (
@@ -129,9 +138,21 @@ export default payload => {
                                     flexDirection: 'row',
                                 }}>
                                     <MidTitle>{title}</MidTitle>
-                                    <TouchView onPress={() => { }}>
-                                        <Icon style={{ marginLeft: 5, width: 24, height: 24, }} name={'circle-edit-outline'} size={16} color={theme.grey[0]} />
-                                    </TouchView>
+                                    {/* {
+                                        R.ifElse(
+                                            R.equals(true),
+                                            () => (
+                                                <TouchView onPress={() => setEdit(true)}>
+                                                    <Icon
+                                                        style={{ marginLeft: 5, width: 24, height: 24, }}
+                                                        name={'circle-edit-outline'}
+                                                        size={16}
+                                                        color={theme.grey[0]} />
+                                                </TouchView>
+                                            ),
+                                            () => null
+                                        )(true)
+                                    } */}
                                 </View>
                             )
                     }

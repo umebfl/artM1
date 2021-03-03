@@ -26,11 +26,11 @@ import ReadWebview from './screen/readWebview'
 import UnitListView from './screen/unitListView'
 import UnitDetail from './screen/unitDetail'
 import unitDetailCode from './screen/unitDetailCode'
+import unitEditCategoryView from './screen/unitEditCategoryView'
 
 import { getData, clearData, } from './reducer'
 
 import { info, debug, } from './util/log'
-import { T } from 'ts-toolbelt'
 
 const RootStack = createStackNavigator()
 
@@ -85,12 +85,13 @@ const App = () => {
           <RootStack.Screen name='unitListView' component={UnitListView} />
           <RootStack.Screen name='unitDetailView' component={UnitDetail} />
           <RootStack.Screen name='unitDetailCodeView' component={unitDetailCode} />
+          <RootStack.Screen name='unitEditCategoryView' component={unitEditCategoryView} />
 
           <RootStack.Screen name='renderTime' component={RenderTime} />
           <RootStack.Screen name='about' component={About} />
           <RootStack.Screen name='dataView' component={DataView} />
           <RootStack.Screen name='debugView' component={DebugView} />
-
+          
         </RootStack.Navigator>
       </NavigationContainer>
     </RootContext.Provider>
