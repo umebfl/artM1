@@ -74,7 +74,7 @@ export default ({ navigation, }) => {
           payload: {
             // 模块
             mod: 'other',
-            name: '其他',
+            name: '设置',
             // startTime,
             // endTime,
             // ms

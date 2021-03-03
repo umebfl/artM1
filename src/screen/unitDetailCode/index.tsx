@@ -103,44 +103,52 @@ export default ({ route, navigation }) => {
                             : null
                     }
 
-
-                    <Title style={{
-                        paddingTop: 20,
-                        marginBottom: 10,
-                    }}>例子</Title>
                     {
                         payload.code
                             ? (
-                                R.is(String, payload.code)
-                                    ? (
-                                        <SyntaxHighlighter
-                                            language='javascript'
-                                            style={docco}>
-                                            {payload.code}
-                                        </SyntaxHighlighter>
-                                    )
-                                    : (
-                                        R.addIndex(R.map)(
-                                            (v, k) => (
-                                                <View key={k} style={{
-                                                    marginBottom: 30,
-                                                }}>
-                                                    <Text style={{
-                                                        marginBottom: 10,
-                                                        color: theme.grey[3],
-                                                    }}>实例{k + 1}:</Text>
-                                                    <SyntaxHighlighter
-                                                        language='javascript'
-                                                        style={docco}>
-                                                        {v}
-                                                    </SyntaxHighlighter>
-                                                </View>
+                                <>
+                                    <Title style={{
+                                        paddingTop: 20,
+                                        marginBottom: 10,
+                                    }}>例子</Title>
+                                    {
+                                        payload.code
+                                            ? (
+                                                R.is(String, payload.code)
+                                                    ? (
+                                                        <SyntaxHighlighter
+                                                            language='javascript'
+                                                            style={docco}>
+                                                            {payload.code}
+                                                        </SyntaxHighlighter>
+                                                    )
+                                                    : (
+                                                        R.addIndex(R.map)(
+                                                            (v, k) => (
+                                                                <View key={k} style={{
+                                                                    marginBottom: 30,
+                                                                }}>
+                                                                    <Text style={{
+                                                                        marginBottom: 10,
+                                                                        color: theme.grey[3],
+                                                                    }}>实例{k + 1}:</Text>
+                                                                    <SyntaxHighlighter
+                                                                        language='javascript'
+                                                                        style={docco}>
+                                                                        {v}
+                                                                    </SyntaxHighlighter>
+                                                                </View>
+                                                            )
+                                                        )(payload.code)
+                                                    )
                                             )
-                                        )(payload.code)
-                                    )
+                                            : null
+                                    }
+                                </>
                             )
                             : null
                     }
+
                 </View>
             </ScrollView>
         </View>

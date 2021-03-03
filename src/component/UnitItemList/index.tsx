@@ -63,8 +63,16 @@ export default (payload: payload) => {
                         marginRight: 10,
                         marginBottom: def ? 8 : 4,
                     }}>
-                        <MidTitle style={{ marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
-                        <DefText>{def}</DefText>
+                        {
+                            title
+                                ? <MidTitle style={{ marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
+                                : null
+                        }
+                        {
+                            def
+                                ? <DefText>{def}</DefText>
+                                : null
+                        }
                     </View>
 
                     {

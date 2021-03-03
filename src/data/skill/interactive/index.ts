@@ -1,11 +1,11 @@
-import { SkillPlatform, SkillUnit, SkillStep, } from '../../../variable'
+import { SkillPlatform, SkillUnit, SkillStep, SKillJumpToURI, } from '../../../variable'
 
 import jest from './jest'
 import react from './react'
 import reactNative from './react-native'
 import typeScript from './typeScript'
 import Yarn from './yarn'
-
+import AntDesign from './antDesign'
 
 const JavaScript = {
     name: 'JavaScript',
@@ -146,18 +146,7 @@ const Ramda = {
     ],
 }
 
-const AntDesign = {
-    name: 'Ant Design',
-    def: '基于 Ant Design 设计体系的 React UI 组件库',
-    major: true,
-    platform: SkillPlatform.react,
-    logo: {
-        type: 'jpg',
-        full: true,
-        url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f',
-    },
-    url: 'https://ant.design/docs/react/introduce-cn',
-}
+
 
 const Webpack = {
     name: 'Webpack',
@@ -502,7 +491,7 @@ export default {
                     name: 'statsjs',
                     def: '帮助您监视代码性能',
                     // 目标阶段
-                    ftStep: SkillStep.good,
+                    ftStep: SkillStep.best,
                     // 当前阶段
                     step: 20,
                     platform: SkillPlatform.react,

@@ -5,7 +5,7 @@ export default {
   def: 'JS的超集，支持ECMAScript6标准',
   major: true,
   // 目标阶段
-  ftStep: SkillStep.good,
+  ftStep: SkillStep.best,
   // 当前阶段
   step: 40,
   logo: {

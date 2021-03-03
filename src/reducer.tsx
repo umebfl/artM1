@@ -266,7 +266,7 @@ export const initState = {
                 // },
                 other: {
                     name: 'other',
-                    text: '其它',
+                    text: '设置',
                     icon: 'vanish',
                 },
             },
