@@ -51,6 +51,7 @@ export default payload => {
     const winWidth = Dimensions.get('window').width
 
     const {
+        id,
         modKey,
         title,
         edit,
@@ -65,12 +66,13 @@ export default payload => {
     const listWidth = winWidth - showWidth * 2
 
     const handleEditCategoryName = () => {
+        // alert(inputEl.current.value)
         dispatch({
             mod: 'system',
             type: 'editCategoryName',
             payload: {
                 target: modKey,
-                key: title,
+                id: id,
                 value: inputEl.current.value,
             },
         })
@@ -119,9 +121,7 @@ export default payload => {
                                         blurOnSubmit={true}
                                         autoFocus={true}
                                         placeholder={'请输入分类名称'}/>
-                                    <TouchView onPress={handleEditCategoryName}>
-                                        <Icon style={{ marginLeft: 5, width: 30, height: 30, }} name={'check'} size={26} color={theme.grey[0]} />
-                                    </TouchView>
+                                    
                                 </View>
                             )
                             : (

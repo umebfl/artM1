@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useEffect, useMemo, useState, } from 'react'
+import React, { useContext, useEffect, useMemo, useRef, useState, } from 'react'
 
 import {
     SafeAreaView,
@@ -10,6 +10,7 @@ import {
     Button,
     FlatList,
     NativeModules,
+    TextInput,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -31,6 +32,9 @@ import TouchView from '../../component/TouchView'
 export default ({ navigation, data, modKey, }) => {
 
     const { state, dispatch, } = useContext(Context)
+    const inputEl = useRef(null)
+
+    const [addingCategory, setAddingCategory] = useState(false)
 
     const {
         theme,
@@ -79,14 +83,21 @@ export default ({ navigation, data, modKey, }) => {
 
     info(`${item.name} -> skillListView render`)
 
-    const handleAdd = data => {
-        dispatch({
-            mod: 'system',
-            type: 'addCategory',
-            payload: {
-                target: modKey,
-            },
-        })
+    const handleAdd = () => {
+
+        if( inputEl.current.value ) {
+            dispatch({
+                mod: 'system',
+                type: 'addCategory',
+                payload: {
+                    target: modKey,
+                    value: inputEl.current.value,
+                },
+            })
+
+        } else {
+            setAddingCategory(false)
+        }
     }
 
     return (
@@ -130,28 +141,80 @@ export default ({ navigation, data, modKey, }) => {
                                         )(item.chain)
                                     )
                                     : null
-
                             }
 
                             {/* 添加分类 */}
-                            <TouchView onPress={() => handleAdd(item)}>
-                                <WingBlank style={{
-                                    // backgroundColor: 'red',
-                                    flexDirection: 'row',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    marginTop: 10,
-                                    height: 30,
-                                    borderRadius: 4,
-                                    borderStyle: 'dashed',
-                                    borderWidth: theme.borderWidth,
-                                    borderColor: theme.borderColor,
-                                    opacity: 0.8,
-                                }}>
-                                    <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
-                                    <DefText>添加分类</DefText>
-                                </WingBlank>
-                            </TouchView>
+                            <WingBlank style={{
+                                marginTop: 10,
+                                height: 40,
+                            }}>
+                                {
+                                    addingCategory
+                                        ? (
+                                            <View style={{
+                                                flexDirection: 'row',
+                                                alignItems: 'center',
+                                            }}>
+                                                <TextInput
+                                                    style={{
+                                                        flex: 1,
+                                                        pdding: 2,
+                                                        paddingLeft: 10,
+                                                        height: 40,
+                                                        // backgroundColor: 'red',
+                                                        borderRadius: 8,
+                                                        borderWidth: theme.borderWidth,
+                                                        borderColor: theme.borderColor,
+                                                        fontSize: 12,
+                                                    }}
+                                                    ref={inputEl}
+                                                    onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
+                                                    onSubmitEditing={handleAdd}
+                                                    onBlur={() => setAddingCategory(false)}
+                                                    maxLength={20}
+                                                    enablesReturnKeyAutomatically={true}
+                                                    autoCorrect={true}
+                                                    clearButtonMode={'while-editing'}
+                                                    blurOnSubmit={true}
+                                                    autoFocus={true}
+                                                    placeholder={'请输入分类名称'} />
+                                                
+                                                <TouchView onPress={() => setAddingCategory(false)}>
+                                                    <Text style={{
+                                                        // backgroundColor: 'red',
+                                                        alignItems: 'center',
+                                                        paddingTop: 10,
+                                                        paddingBottom: 10,
+                                                        paddingLeft: 10,
+                                                        paddingRight: 10,
+                                                        color: theme.grey[0],
+                                                        fontSize: 14,
+                                                    }}>取消</Text>
+                                                </TouchView>
+                                            </View>
+                                        )
+                                        : (
+                                            <TouchView onPress={() => setAddingCategory(true)}>
+                                                <View style={{
+                                                    // backgroundColor: 'red',
+                                                    flexDirection: 'row',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    height: 40,
+                                                    borderRadius: 8,
+                                                    borderStyle: 'dashed',
+                                                    borderWidth: theme.borderWidth,
+                                                    borderColor: theme.borderColor,
+                                                    // opacity: 0.8,
+                                                }}>
+                                                    <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
+                                                    <DefText>添加分类</DefText>
+                                                </View>
+                                            </TouchView>
+                                        )
+                                }
+                            </WingBlank>
+
                         </View>
                     )
                 }}
@@ -180,6 +243,7 @@ export default ({ navigation, data, modKey, }) => {
                 renderItem={({ item, index, separators }) => (
                     <SwipeList
                         modKey={modKey}
+                        id={item.id}
                         keyExtractor={item.name + index}
                         navigation={navigation}
                         edit={item.edit}

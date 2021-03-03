@@ -130,9 +130,9 @@ export default ({ navigation, }) => {
                                     borderRadius: 25,
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    bottom: 100,
-                                    left: 120,
-                                    opacity: 0.3,
+                                    bottom: 60,
+                                    left: 150,
+                                    opacity: 0.1,
                                 }}
                                 onPress={handleReload}
                                 visible={true}
@@ -153,9 +153,9 @@ export default ({ navigation, }) => {
                                     borderRadius: 25,
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    bottom: 160,
-                                    left: 130,
-                                    opacity: 0.2,
+                                    bottom: 60,
+                                    left: 90,
+                                    opacity: 0.1,
                                 }}
                                 onPress={() => navigation.push('debugView')}
                                 visible={true}
@@ -177,8 +177,8 @@ export default ({ navigation, }) => {
                                     borderRadius: 25,
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    bottom: 200,
-                                    left: 160,
+                                    bottom: 60,
+                                    left: 40,
                                     opacity: 0.1,
                                     padding: 0,
                                 }}

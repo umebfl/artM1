@@ -37,19 +37,20 @@ const setData = async (value) => {
             debug: {
                 open: value.debug.open,
             },
-            navigation: {
-                home: {
-                    tab: {
-                        info: {
-                            tab: {
-                                toRead: {
-                                    list: value.navigation.home.tab.info.tab.toRead.list,
-                                },
-                            },
-                        },
-                    },
-                },
-            },
+            navigation: value.navigation,
+            // navigation: {
+            //     home: {
+            //         tab: {
+            //             info: {
+            //                 tab: {
+            //                     toRead: {
+            //                         list: value.navigation.home.tab.info.tab.toRead.list,
+            //                     },
+            //                 },
+            //             },
+            //         },
+            //     },
+            // },
         }
 
         const jsonValue = JSON.stringify(data)
@@ -413,22 +414,19 @@ export const reducer = (state, action) => {
                 [
                     R.equals('addCategory'),
                     () => {
-
                         const {
-                            // 修改的目标 
                             target,
+                            value,
                         } = action.payload
 
                         const path = ['navigation', 'home', 'tab', target, 'data', 'list']
                         const list = R.path(path)(state)
                         const newState = R.assocPath(path, [{
-                            name: '',
-                            // 编辑状态
-                            edit: true,
+                            id: idBuilder(list.length),
+                            name: value,
+                            edit: false,
                             list: [],
                         }, ...list])(state)
-
-                        // info(JSON.stringify(newState, null, 2))
 
                         // setData(newState)
                         return newState
@@ -440,25 +438,44 @@ export const reducer = (state, action) => {
 
                         const {
                             target,
-                            key,
+                            id,
                             value,
                         } = action.payload
 
+
                         const path = ['navigation', 'home', 'tab', target, 'data', 'list']
                         const list = R.path(path)(state)
-                        const newList = R.filter(
-                            v => v.name === key
-                        )(list)
-                        const newState = R.assocPath(path, [{
-                            name: '',
-                            // 编辑状态
-                            edit: true,
-                            list: [],
-                        }, ...newList])(state)
+
+
+                        // const fix = (id, value, path, list, state) => {
+
+                            const index = R.findIndex(
+                                v => v.id === id
+                            )(list)
+
+                            const newList = R.adjust(
+                                index,
+                                v => ({
+                                    ...v,
+                                    name: value,
+                                    edit: false,
+                                }),
+                                list
+                            )
+
+                            // alert(JSON.stringify(newList[0]))
+
+
+                            const newState = R.assocPath(path, newList)(state)
+
+                            // return newState
+                        // }
+
+                        // const newState = fix(id, value, path, list, state)
 
                         // info(JSON.stringify(newState, null, 2))
 
-                        // setData(newState)
+                        setData(newState)
                         return newState
                     },
                 ],
