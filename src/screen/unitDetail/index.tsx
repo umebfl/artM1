@@ -187,10 +187,12 @@ export default ({ route, navigation }) => {
 
 export const ScrollItem = ({ navigation, data }) => {
 
+    const fixData = R.values(data)
+
     return (
         <View>
             {
-                data && data.length > 0
+                fixData && fixData.length > 0
                     ? null
                     : (
                         <View style={{
@@ -203,7 +205,7 @@ export const ScrollItem = ({ navigation, data }) => {
                         </View>
                     )
             }
-            <UnitItemList data={data} handlePress={item => {
+            <UnitItemList data={fixData} handlePress={item => {
                 R.cond([
                     [
                         R.equals('detailLv2'),

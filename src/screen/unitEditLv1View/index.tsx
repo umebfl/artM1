@@ -95,6 +95,10 @@ export default ({ route, navigation }) => {
         })
     }
 
+    const handleJumpLv2 = (id) => {
+        navigation.push('unitEditLv2View', { modKey, nodeId: id, })
+    }
+
     return (
         <View style={{
             flex: 1,
@@ -150,7 +154,7 @@ export default ({ route, navigation }) => {
                                         id={item.id}
                                         name={item.name}
                                         theme={theme}
-                                        handleJump={() => { }}
+                                        handleJump={() => handleJumpLv2(item.id)}
                                         handleEdit={() => handleJumpDetail(item.id)}
                                         handleDelPress={
                                             () => {

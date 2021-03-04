@@ -19,7 +19,7 @@ import Context from '../../reducer'
 interface payload {
     data: []
     navigation: any
-    radius: number
+    radius?: number
     title?: String
     onPress?: Function
 }

@@ -54,6 +54,9 @@ export default ({ route, navigation }) => {
                 tab,
             },
         },
+        data: {
+            toRead,
+        },
         theme,
     } = state
 
@@ -68,7 +71,15 @@ export default ({ route, navigation }) => {
     const iconColorDisable = theme.grey[0]
 
     // 存在阅读清单内
-    const onToRead = R.find(R.propEq('url', currentUrl))(tab.info.tab.toRead.list)
+    let onToRead = !!toRead.node[currentUrl]
+
+    // R.map(
+    //     v => {
+    //         if(v.url === currentUrl) {
+    //             onToRead = true
+    //         }
+    //     }
+    // )(toRead.node)
 
     const handleLeft = () => {
         webRef.current.goBack()

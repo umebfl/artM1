@@ -609,19 +609,19 @@ export const reducer = (state, action) => {
                         //                 node: R.compose(
                         //                     v2 => {
                         //                         let obj = {}
-                
+
                         //                         R.map(
                         //                             v3 => {
                         //                                 obj[v3] = null
                         //                             }
                         //                         )(v2)
-                
+
                         //                         return obj
                         //                     },
                         //                     R.map(
                         //                         v2 => {
                         //                             let node = null
-    
+
                         //                             R.map(
                         //                                 v3 => {
                         //                                     if(v2.name === v3.name) {
@@ -629,7 +629,7 @@ export const reducer = (state, action) => {
                         //                                     }
                         //                                 }
                         //                             )(state.data.node)
-    
+
                         //                             return node.id
                         //                         }
                         //                     )   
@@ -682,10 +682,214 @@ export const reducer = (state, action) => {
 
                         // return newState
 
+                        // const newState = {
+                        //     ...state,
+                        //     data: {
+                        //         ...state.data,
+                        //         node: R.map(
+                        //             v => ({
+                        //                 ...v,
+                        //                 features: R.compose(
+                        //                     v2 => {
+                        //                         // 1
+                        //                         const obj = {}
 
-                        const newState = state
+                        //                         R.map(
+                        //                             v3 => {
+                        //                                 obj[v3.id] = ({
+                        //                                     ...v3,
+                        //                                     list: R.compose(
+                        //                                         v4 => {
+                        //                                             // 2
+                        //                                             const obj = {}
 
-                        return newState
+                        //                                             R.map(
+                        //                                                 v5 => {
+                        //                                                     obj[v5.id] = v5
+
+                        //                                                     // if(v5.features !== null) {
+                        //                                                     //     obj[v5.id] = ({
+                        //                                                     //         ...v5,
+                        //                                                     //         features: R.compose(
+                        //                                                     //             v6 => {
+                        //                                                     //                 const obj = {}
+
+                        //                                                     //                 R.map(
+                        //                                                     //                     v7 => {
+                        //                                                     //                         obj[v7.id] = v6
+                        //                                                     //                     }
+                        //                                                     //                 )(v6)
+
+                        //                                                     //                 return obj
+                        //                                                     //             }
+                        //                                                     //         )(v5.features || []),
+                        //                                                     //     })
+                        //                                                     // }
+                        //                                                 }
+                        //                                             )(v4)
+
+                        //                                             return obj
+                        //                                         }
+                        //                                     )(v3.list || {}),
+                        //                                 })
+                        //                             }
+                        //                         )(v2)
+
+                        //                         return obj
+                        //                     }
+                        //                 )(v.features || []),
+                        //                 api: R.map(
+                        //                     v2 => {
+                        //                         // 1
+                        //                         const obj = {}
+
+                        //                         R.map(
+                        //                             v3 => {
+                        //                                 obj[v3.id] = ({
+                        //                                     ...v3,
+                        //                                     list: R.compose(
+                        //                                         v4 => {
+                        //                                             // 2
+                        //                                             const obj = {}
+
+                        //                                             R.map(
+                        //                                                 v5 => {
+                        //                                                     obj[v5.id] = v5
+                        //                                                 }
+                        //                                             )(v4)
+
+                        //                                             return obj
+                        //                                         }
+                        //                                     )(v3.list || {}),
+                        //                                 })
+                        //                             }
+                        //                         )(v2)
+
+                        //                         return obj
+                        //                     }
+                        //                 )(v.api || []),
+                        //                 article: R.compose(
+                        //                     v2 => {
+                        //                         // 1
+                        //                         const obj = {}
+
+                        //                         R.map(
+                        //                             v3 => {
+                        //                                 obj[v3.id] = ({
+                        //                                     ...v3,
+                        //                                     list: R.compose(
+                        //                                         v4 => {
+                        //                                             // 2
+                        //                                             const obj = {}
+
+                        //                                             R.map(
+                        //                                                 v5 => {
+                        //                                                     obj[v5.id] = v5
+                        //                                                 }
+                        //                                             )(v4)
+
+                        //                                             return obj
+                        //                                         }
+                        //                                     )(v3.list || {}),
+                        //                                 })
+                        //                             }
+                        //                         )(v2)
+
+                        //                         return obj
+                        //                     }
+                        //                 )(v.article || []),
+                        //             })
+                        //         )(state.data.node),
+                        //     },
+                        // }
+
+                        // const newState = {
+                        //     ...state,
+                        //     data: {
+                        //         ...state.data,
+                        //         node: R.map(
+                        //             v => ({
+                        //                 ...v,
+                        //                 features: R.map(
+                        //                     v2 => R.dissoc('list')({
+                        //                         ...v2,
+                        //                         node: R.map(
+                        //                             v3 => {
+                        //                                 if(v3.features) {
+                        //                                     let i = 0
+        
+                        //                                     // info(`xx${JSON.stringify(v3.features)}`)
+
+                        //                                     return ({
+                        //                                         ...v3,
+                        //                                         features: R.compose(
+                        //                                             v4 => {
+                        //                                                 let obj = {}
+        
+                        //                                                 R.map(
+                        //                                                     v5 => {
+                        //                                                         obj[v5.id] = v5
+                        //                                                     }
+                        //                                                 )(v4)
+        
+                        //                                                 return obj
+                        //                                             },
+                        //                                             R.map(
+                        //                                                 v4 => R.dissoc('list')({
+                        //                                                     ...v4,
+                        //                                                     id: idBuilder(i++),
+                        //                                                     node: R.compose(
+                        //                                                         v6 => {
+                        //                                                             let obj = {}
+                    
+                        //                                                             R.map(
+                        //                                                                 v7 => {
+                        //                                                                     obj[v7.id] = v7
+                        //                                                                 }
+                        //                                                             )(v6)
+                    
+                        //                                                             return obj
+                        //                                                         },
+                        //                                                         R.map(
+                        //                                                             v5 => ({
+                        //                                                                 ...v5,
+                        //                                                                 id: idBuilder(i++),
+                        //                                                             })
+                        //                                                         )
+                        //                                                     )(v4.list)
+                        //                                                 })
+                        //                                             )
+                        //                                         )(v3.features),
+                        //                                     })
+        
+                        //                                 } else {
+                        //                                     return v3
+                        //                                 }
+                        //                             }
+                        //                         )(v2.list)
+                        //                     })
+                        //                 )(v.features)
+                        //             }),
+                        //         )(state.data.node),
+                        //     },
+                        // }
+
+                        // return newState
+
+                        // "home": {
+                        //     "initialRouteName": "skill",
+                        //     "tab": {
+                        //       "info": {
+                        //         "name": "info",
+                        //         "text": "资讯",
+                        //         "icon": "waze",
+                        //         "tab": {
+                        //           "toRead": {
+                        //             "title": "阅读清单",
+                        //             "list": [
+                        
+                        // return newState
+                        return state
                     },
                 ],
 
@@ -762,7 +966,7 @@ export const reducer = (state, action) => {
                             target,
                             id,
                         } = action.payload
-                        
+
 
                         // const path = ['navigation', 'home', 'tab', target, 'data', 'list']
                         // const list = R.path(path)(state)
@@ -941,7 +1145,7 @@ export const reducer = (state, action) => {
                         const category = R.path(path)(state)
                         const newState = R.assocPath(
                             path,
-                            {...category, name: value},
+                            { ...category, name: value },
                         )(state)
 
 
@@ -1061,25 +1265,22 @@ export const reducer = (state, action) => {
         [
             R.equals('info_toRead'),
             () => {
-                const path = ['navigation', 'home', 'tab', 'info', 'tab', 'toRead', 'list']
-                const list = R.path(path)(state)
+                const path = ['data', 'toRead', 'node']
+                const toRead = R.path(path)(state)
 
                 return R.cond([
                     [
                         R.equals('del'),
-                        () => {
-                            const filterList = R.filter(v => v.url !== action.payload.url)(list)
-                            const newState = R.assocPath(path, filterList)(state)
-                            setData(newState)
-                            return newState
-                        },
+                        () => R.compose(
+                            R.tap(newState => setData(newState)),
+                            R.assocPath(path, R.dissoc(action.payload.url)(toRead)),
+                        )(state),
                     ],
                     [
                         R.equals('add'),
                         () => R.compose(
-                            // 写入到本地存储
                             R.tap(newState => setData(newState)),
-                            R.assocPath(path, [...list, action.payload]),
+                            R.assocPath(path, {...toRead, [action.payload.url]: action.payload,}),
                         )(state),
                     ],
                 ])(action.type)

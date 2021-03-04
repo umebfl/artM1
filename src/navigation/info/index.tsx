@@ -36,17 +36,9 @@ export default ({ navigation, }) => {
     const {
         theme,
         search,
-        navigation: {
-            home: {
-                tab: {
-                    info: {
-                        tab: {
-                            toRead,
-                            favWebsite,
-                        },
-                    },
-                },
-            },
+        data: {
+            toRead,
+            favWebsite,
         },
         debug: {
             open,

@@ -43,7 +43,7 @@ export default (payload: payload) => {
 
     return (
         R.addIndex(R.map)(
-            ({ title, def, list, }, k) => (
+            ({ title, def, node, }, k) => (
                 <View
                     style={{
                         // backgroundColor: theme.navigationTabBarBackgoundSecond,
@@ -120,7 +120,7 @@ export default (payload: payload) => {
                                     </View>
                                 </TouchView>
                             ),
-                            list
+                            R.values(node)
                         )
                     }
 
