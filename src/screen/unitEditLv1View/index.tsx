@@ -39,6 +39,7 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
+import WingBlank from '../../component/WingBlank'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
@@ -124,7 +125,9 @@ export default ({ route, navigation }) => {
     return (
         <View style={{
             flex: 1,
-            backgroundColor: 'rgb(247, 248, 249)',
+            // backgroundColor: 'rgb(247, 248, 249)',
+            backgroundColor: 'white',
+            paddingBottom: 20,
         }}>
             <ScreenHeader navigation={navigation} title={`编辑 - ${data.name}`} safeArea={true} />
 
@@ -138,46 +141,41 @@ export default ({ route, navigation }) => {
             />
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Padding>
-                    <MidTitle>{data.name}</MidTitle>
+                <WhiteSpace>
+                    <WingBlank>
+                        <MidTitle>{data.name}</MidTitle>
 
-                    <TouchView onPress={() => handleJumpDetail(null)}>
-                        <View style={{
-                            flex: 1,
-                            flexDirection: 'row',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            height: 40,
-                            borderRadius: 8,
-                            marginTop: 20,
-                            // borderStyle: 'dashed',
-                            // borderWidth: theme.borderWidth,
-                            // borderColor: theme.borderColor,
-                            backgroundColor: 'white',
-                            // opacity: 0.8,
-                        }}>
-                            <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
-                            <DefText>添加节点</DefText>
-                        </View>
-                    </TouchView>
-
-                    <View style={{
-                        marginTop: 20,
-                        marginBottom: 20,
-                        borderBottomWidth: theme.borderWidth,
-                        borderBottomColor: theme.borderColor,
-                    }}>
-
-                    </View>
+                        <TouchView onPress={() => handleJumpDetail(null)}>
+                            <View style={{
+                                flex: 1,
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                height: 40,
+                                borderRadius: 8,
+                                marginTop: 20,
+                                marginBottom: 10,
+                                borderStyle: 'dashed',
+                                borderWidth: theme.borderWidth,
+                                borderColor: theme.borderColor,
+                                backgroundColor: 'white',
+                                // opacity: 0.8,
+                            }}>
+                                <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
+                                <DefText>添加节点</DefText>
+                            </View>
+                        </TouchView>
+                    </WingBlank>
 
                     {
                         R.addIndex(R.map)(
                             (v, k) => (
                                 <EditItem
                                     id={v.id}
+                                    seq={k}
                                     name={v.name}
                                     theme={theme}
-                                    handleJump={() => {}}
+                                    handleJump={() => { }}
                                     handleEdit={() => handleJumpDetail(v.id)}
                                     handleDelPress={
                                         () => {
@@ -188,7 +186,7 @@ export default ({ route, navigation }) => {
                             )
                         )(data.list)
                     }
-                </Padding>
+                </WhiteSpace>
             </ScrollView>
         </View >
     )

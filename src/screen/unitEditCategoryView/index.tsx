@@ -37,6 +37,7 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
+import WingBlank from '../../component/WingBlank'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
@@ -115,7 +116,9 @@ export default ({ route, navigation }) => {
     return (
         <View style={{
             flex: 1,
-            backgroundColor: 'rgb(247, 248, 249)',
+            // backgroundColor: 'rgb(247, 248, 249)',
+            backgroundColor: 'white',
+            paddingBottom: 20,
         }}>
             <ScreenHeader navigation={navigation} title={'编辑分类'} safeArea={true} />
 
@@ -130,28 +133,29 @@ export default ({ route, navigation }) => {
             />
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Padding>
-                    <MidTitle>{data.name}</MidTitle>
+                <WhiteSpace>
+                    <WingBlank>
+                        <MidTitle>{data.name}</MidTitle>
+                    </WingBlank>
 
-                    <View style={{
+                    <WingBlank style={{
                         flexDirection: 'row',
                         alignItems: 'center',
                         marginTop: 20,
-                        marginBottom: 20,
-                        paddingBottom: 20,
-                        borderBottomColor: theme.borderColor,
-                        borderBottomWidth: theme.borderWidth,
+                        marginBottom: 10,
+                        // paddingBottom: 20,
+                        // borderBottomColor: theme.borderColor,
+                        // borderBottomWidth: theme.borderWidth,
                     }}>
                         <TextInput
                             style={{
                                 flex: 1,
-                                pdding: 2,
-                                paddingLeft: 10,
+                                paddingLeft: 20,
                                 height: 40,
-                                borderRadius: 8,
-                                // borderWidth: theme.borderWidth,
-                                // borderColor: theme.borderColor,
-                                fontSize: 16,
+                                borderRadius: 20,
+                                borderWidth: theme.borderWidth,
+                                borderColor: theme.borderColor,
+                                fontSize: 14,
                                 backgroundColor: 'white',
                             }}
                             clearTextOnFocus={true}
@@ -165,26 +169,31 @@ export default ({ route, navigation }) => {
                             clearButtonMode={'while-editing'}
                             blurOnSubmit={true}
                             // autoFocus={true}
-                            placeholder={'请输入分类名称'} />
+                            placeholder={'添加分类'} />
 
                         <Text style={{
+                            position: 'absolute',
+                            right: 16,
+                            top: 13,
                             // backgroundColor: 'red',
-                            alignItems: 'center',
-                            paddingTop: 10,
-                            paddingBottom: 10,
-                            paddingLeft: 10,
-                            paddingRight: 10,
+                            // alignItems: 'center',
+                            // paddingTop: 10,
+                            // paddingBottom: 10,
+                            // paddingLeft: 10,
+                            // paddingRight: 10,
                             color: theme.grey[0],
                             fontSize: 14,
                         }}>添加</Text>
-                    </View>
+                    </WingBlank>
                     {
                         R.addIndex(R.map)(
                             (v, k) => (
                                 <EditItem
                                     id={v.id}
+                                    seq={k}
                                     name={v.name}
                                     theme={theme}
+                                    list={v.list}
                                     useInnerEditer={true}
                                     handleJump={() => navigation.push('unitEditLv1View', { modKey, categoryId: v.id, })}
                                     handleEdit={handleEditCategoryName}
@@ -197,12 +206,7 @@ export default ({ route, navigation }) => {
                             )
                         )(data.list)
                     }
-                    <Text>
-                        {
-                            // JSON.stringify(tab[modKey].data.list, null, 2)
-                        }
-                    </Text>
-                </Padding>
+                </WhiteSpace>
             </ScrollView>
         </View >
     )
@@ -210,8 +214,10 @@ export default ({ route, navigation }) => {
 
 interface EditItemPayload {
     id: string
+    seq: number,
     name: string
     theme: any
+    list?: []
     handleJump: () => void
     handleDelPress: () => void
     handleEdit: (id: string, val: string) => void
@@ -225,8 +231,10 @@ export const EditItem = (payload: EditItemPayload) => {
 
     const {
         id,
+        seq,
         name,
         theme,
+        list,
         useInnerEditer,
         handleDelPress,
         handleEdit,
@@ -235,100 +243,126 @@ export const EditItem = (payload: EditItemPayload) => {
 
     return (
         <TouchView onPress={handleJump}>
-            <View  style={{
-            backgroundColor: 'white',
-            flexDirection: 'row',
-            flex: 1,
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 10,
-            borderRadius: 8,
-            height: 45,
-            // paddingLeft: 15,
-            paddingRight: 5,
-        }}>
-            {
-                editing
-                    ? (
-                        <View>
-                            <TextInput
-                                style={{
-                                    width: 200,
-                                    pdding: 2,
-                                    paddingLeft: 10,
-                                    height: 40,
-                                    borderRadius: 8,
-                                    borderWidth: theme.borderWidth,
-                                    borderColor: theme.borderColor,
-                                    fontSize: 16,
-                                }}
-                                ref={inputEl}
-                                onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
-                                onSubmitEditing={() => handleEdit(id, inputEl.current.value)}
-                                onBlur={() => { setEditing(false) }}
-                                maxLength={20}
-                                defaultValue={name}
-                                enablesReturnKeyAutomatically={true}
-                                autoCorrect={true}
-                                clearButtonMode={'while-editing'}
-                                blurOnSubmit={true}
-                                autoFocus={true}
-                                placeholder={'请输入分类名称'} />
-                        </View>
-                    )
-                    : (
-                        <View>
-                            <Text style={{
-                                padding: 15,
-                            }}>
-                                {name}
-                            </Text>
-                        </View>
-                    )
-            }
-
-
             <View style={{
+                backgroundColor: 'white',
                 flexDirection: 'row',
+                flex: 1,
+                justifyContent: 'space-between',
                 alignItems: 'center',
+                marginBottom: 10,
+                borderRadius: 8,
+                height: 45,
+                // paddingLeft: 15,
+                paddingRight: 10,
+                // backgroundColor: 'red',
+                paddingLeft: 20,
             }}>
-                {
-                    R.addIndex(R.map)(
-                        (v, k) => (
-                            <TouchView onPress={v.handlePress} key={k}>
-                                <Icon
-                                    name={v.name}
-                                    size={18}
-                                    color={v.color}
-                                    style={{ padding: 5, marginLeft: 4, width: 30, height: 30, }} />
-                            </TouchView>
-                        )
-                    )([
-                        {
-                            name: 'circle-edit-outline',
-                            color: theme.grey[0],
-                            handlePress: () => {
-                                useInnerEditer
-                                    ? setEditing(true)
-                                    : handleEdit(id)
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                }}>
+                    <Text style={{
+                        width: 20,
+                        fontSize: 18,
+                        color: theme.grey[0],
+                    }}>{seq + 1}</Text>
+                    {
+                        editing
+                            ? (
+                                <View>
+                                    <TextInput
+                                        style={{
+                                            width: 200,
+                                            paddingLeft: 10,
+                                            height: 40,
+                                            borderRadius: 8,
+                                            borderWidth: theme.borderWidth,
+                                            borderColor: theme.borderColor,
+                                            fontSize: 16,
+                                        }}
+                                        ref={inputEl}
+                                        onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
+                                        onSubmitEditing={() => handleEdit(id, inputEl.current.value)}
+                                        onBlur={() => { setEditing(false) }}
+                                        maxLength={20}
+                                        defaultValue={name}
+                                        enablesReturnKeyAutomatically={true}
+                                        autoCorrect={true}
+                                        clearButtonMode={'while-editing'}
+                                        blurOnSubmit={true}
+                                        autoFocus={true}
+                                        placeholder={'请输入分类名称'} />
+                                </View>
+                            )
+                            : (
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}>
+                                    <Text style={{
+                                        paddingLeft: 0,
+                                        paddingRight: 3,
+                                        fontSize: 18,
+                                    }}>
+                                        {name}
+                                    </Text>
+                                    {
+                                        list
+                                            ? (
+                                                <Text style={{
+                                                    color: theme.grey[2],
+                                                }}>({list.length})</Text>
+                                            )
+                                            : null
+                                    }
+                                </View>
+                            )
+                    }
+                </View>
+
+
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                }}>
+                    {
+                        R.addIndex(R.map)(
+                            (v, k) => (
+                                <TouchView onPress={v.handlePress} key={k}>
+                                    <Icon
+                                        name={v.name}
+                                        size={24}
+                                        color={v.color}
+                                        style={{ padding: 5, opacity: 0.8, }} />
+                                </TouchView>
+                            )
+                        )([
+                            {
+                                name: 'circle-edit-outline',
+                                color: theme.grey[0],
+                                handlePress: () => {
+                                    useInnerEditer
+                                        ? setEditing(true)
+                                        : handleEdit(id)
+                                },
                             },
-                        },
-                        {
-                            name: 'delete-outline',
-                            color: theme.red[3],
-                            handlePress: handleDelPress,
-                        },
-                        // {
-                        //     name: 'menu',
-                        //     color: theme.grey[0],
-                        //     handlePress: () => {
+                            {
+                                name: 'close',
+                                color: theme.red[2],
+                                handlePress: handleDelPress,
+                            },
+                            // {
+                            //     name: 'menu',
+                            //     color: theme.grey[0],
+                            //     handlePress: () => {
 
-                        //     },
-                        // },
-                    ])
-                }
+                            //     },
+                            // },
+                        ])
+                    }
 
-            </View>
+                </View>
             </View>
         </TouchView>
     )

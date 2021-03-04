@@ -5,7 +5,7 @@ export enum SkillStep {
   // 总览大纲
   overview = '大纲',  // 40
   // 章节
-  section = '详情',  // 60
+  section = '章节',  // 60
   // 熟悉
   well = '熟悉',  // 80
   // 精通
@@ -25,20 +25,21 @@ export enum SkillStep {
 
 // 技术运行平台
 export enum SkillPlatform {
+  // 浏览器
+  web = 'Web',
   // 网页
-  react,
+  react = 'React',
   // rn
-  reactNative,
+  reactNative = 'ReactNative',
 
   // 原生ios
-  swift,
-  // 浏览器
-  web,
+  native = 'Native',
+
   // 后端
-  node,
+  node = 'Node',
 
   // 全部
-  all,
+  all = '全部',
 }
 
 // 跳转类型
@@ -51,8 +52,20 @@ export enum SKillJumpToURI {
   detailLv2 = 'detailLv2',
 }
 
+// 图片类型
+export enum ImageType {
+  jpg = 'jpg',
+  jpeg = 'jpeg',
+  png = 'png',
+  svg = 'svg',
+  icon = 'icon',
+}
+
 // 技能信息
 export interface SkillUnit {
+
+  id: string,
+
   // 名称
   name: String
 
@@ -68,7 +81,7 @@ export interface SkillUnit {
   // logo
   logo?: {
     // 图片类型
-    type: String
+    type: ImageType
     // 地址
     url: String
     // 背景色
@@ -93,8 +106,8 @@ export interface SkillUnit {
 
   // 预期到达阶段
   ftStep: SkillStep
-  // 当前阶段 0-100
-  step: number
+  // 当前阶段 
+  step: SkillStep
 
   // 文章内容
   article?: {
