@@ -1032,17 +1032,12 @@
                   "major": true,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jinqiaojob.com%2Fuploads%2Fallimg%2F200113%2F1-200113194504a8.jpg&refer=http%3A%2F%2Fwww.jinqiaojob.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253889&t=c33f92d7fd8556ce833a0f923537b3fb",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jinqiaojob.com%2Fuploads%2Fallimg%2F200113%2F1-200113194504a8.jpg&refer=http%3A%2F%2Fwww.jinqiaojob.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253889&t=c33f92d7fd8556ce833a0f923537b3fb"
                   },
                   "url": "https://www.w3school.com.cn/js/index.asp",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -1292,10 +1287,7 @@
                         }
                       ]
                     }
-                  ],
-                  "version": "-",
-                  "platform": "全部",
-                  "api": []
+                  ]
                 },
                 {
                   "id": "2-1614751541818",
@@ -1303,18 +1295,13 @@
                   "def": "一种功能强大且直观的编程语言",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://static.oschina.net/uploads/logo/swift-lang_ABKjp.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://static.oschina.net/uploads/logo/swift-lang_ABKjp.png"
                   },
                   "url": "https://developer.apple.com/swift/",
                   "doc": [],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "3-1614751541818",
@@ -1322,18 +1309,13 @@
                   "def": "一个为全平台构建快速应用的编程语言",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=977863321,390860137&fm=15&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=977863321,390860137&fm=15&gp=0.jpg"
                   },
                   "url": "https://dart.cn/",
                   "doc": [],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "4-1614751541818",
@@ -1341,18 +1323,13 @@
                   "def": "超文本标记语言",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F89%2F73%2F3456ee42a409867.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253923&t=7f465f9ddf774853926f72537bb1c0c8",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F89%2F73%2F3456ee42a409867.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253923&t=7f465f9ddf774853926f72537bb1c0c8"
                   },
                   "url": "https://www.w3school.com.cn/html5/index.asp",
                   "doc": [],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "5-1614751541818",
@@ -1360,18 +1337,13 @@
                   "def": "一门向后兼容的 CSS 扩展语言",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2500836854,3966017427&fm=15&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2500836854,3966017427&fm=15&gp=0.jpg"
                   },
                   "url": "https://less.bootcss.com/#%E6%A6%82%E8%A7%88",
                   "doc": [],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "6-1614751541818",
@@ -1380,17 +1352,12 @@
                   "major": true,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F86%2F51%2F2456eb8bc0270d9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253990&t=239b9cd2dcbb9423540085c11ed93e1d",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F86%2F51%2F2456eb8bc0270d9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253990&t=239b9cd2dcbb9423540085c11ed93e1d"
                   },
                   "url": "https://www.runoob.com/css/css-intro.html",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ],
               "edit": false
@@ -1406,8 +1373,8 @@
                   "major": true,
                   "logo": {
                     "type": "svg",
-                    "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-                    "full": true
+                    "full": true,
+                    "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
                   },
                   "url": "https://react.html.cn/",
                   "article": [
@@ -1678,12 +1645,7 @@
                         }
                       ]
                     }
-                  ],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  ]
                 },
                 {
                   "id": "1-1614751541818",
@@ -1693,8 +1655,8 @@
                   "major": true,
                   "logo": {
                     "type": "svg",
-                    "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-                    "full": true
+                    "full": true,
+                    "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
                   },
                   "url": "https://www.react-native.cn/docs/intro-react-native-components",
                   "article": [
@@ -2038,11 +2000,7 @@
                         }
                       ]
                     }
-                  ],
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  ]
                 }
               ]
             },
@@ -2057,8 +2015,8 @@
                   "major": true,
                   "logo": {
                     "type": "png",
-                    "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4174873472,1476613346&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4174873472,1476613346&fm=26&gp=0.jpg"
                   },
                   "url": "https://ramda.cn/",
                   "article": [
@@ -2076,12 +2034,7 @@
                       ]
                     }
                   ],
-                  "features": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -2090,8 +2043,8 @@
                   "major": true,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://pic1.zhimg.com/80/v2-a42735923d9304eed6e74ecf37df81f8_1440w.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://pic1.zhimg.com/80/v2-a42735923d9304eed6e74ecf37df81f8_1440w.jpg"
                   },
                   "url": "https://ahooks.js.org/zh-CN/hooks/async",
                   "doc": [],
@@ -2120,30 +2073,22 @@
                     }
                   ],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记"
+                  "article": []
                 },
                 {
                   "id": "2-1614751541818",
                   "name": "Redux",
                   "def": "JavaScript 状态容器，提供可预测化的状态管理",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "logo": {
                     "type": "png",
-                    "url": "https://tse3-mm.cn.bing.net/th/id/OIP.yPRN87C9vjrdtIBY7UTAiAHaGs?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse3-mm.cn.bing.net/th/id/OIP.yPRN87C9vjrdtIBY7UTAiAHaGs?pid=ImgDet&rs=1"
                   },
                   "url": "https://www.redux.org.cn/",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -2156,19 +2101,15 @@
                   "name": "Ant Design Charts",
                   "def": "基于React、TypeScript封装了所有的G2Plot图表",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f"
                   },
                   "url": "https://charts.ant.design/zh-CN/guide",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -2176,17 +2117,12 @@
                   "def": "蚂蚁集团全新一代数据可视化解决方案",
                   "logo": {
                     "type": "png",
-                    "url": "https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png"
                   },
                   "url": "https://antv.vision/",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "2-1614751541818",
@@ -2194,17 +2130,12 @@
                   "def": "帮助您使用HTML，SVG和CSS使数据栩栩如生",
                   "logo": {
                     "type": "png",
-                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.oPv8HjQNqIhP_MoIgDR4jQHaHa?pid=ImgDet&w=1000&h=1000&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.oPv8HjQNqIhP_MoIgDR4jQHaHa?pid=ImgDet&w=1000&h=1000&rs=1"
                   },
                   "url": "https://observablehq.com/@d3/gallery",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "3-1614751541818",
@@ -2212,28 +2143,23 @@
                   "def": "一个基于 JavaScript 的开源可视化图表库",
                   "logo": {
                     "type": "png",
-                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.1lgJbCNUvlpbXUJBzo5pDAHaIl?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.1lgJbCNUvlpbXUJBzo5pDAHaIl?pid=ImgDet&rs=1"
                   },
                   "url": "https://echarts.apache.org/zh/index.html",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "4-1614751541818",
                   "name": "React-native-chart-kit",
                   "def": "基于React、TypeScript封装了所有的G2Plot图表",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.t_LOUtzMKTl3Y3Xo53CPugHaHa?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.t_LOUtzMKTl3Y3Xo53CPugHaHa?pid=ImgDet&rs=1"
                   },
                   "url": "https://charts.ant.design/zh-CN/guide",
                   "demo": [
@@ -2243,11 +2169,7 @@
                     }
                   ],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -2262,8 +2184,8 @@
                   "major": true,
                   "logo": {
                     "type": "svg",
-                    "url": "https://reactnavigation.org/img/spiro.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://reactnavigation.org/img/spiro.svg"
                   },
                   "url": "https://reactnavigation.org",
                   "website": [
@@ -2273,12 +2195,7 @@
                     }
                   ],
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -2287,17 +2204,7 @@
                   "url": "https://github.com/leecade/react-native-swiper#installation",
                   "website": [],
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "2-1614751541818",
@@ -2305,17 +2212,12 @@
                   "def": "用于React Native的跨平台Tab组件",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://d1wp6m56sqw74a.cloudfront.net/~assets/8c5bf6c47149bcc9550601ac917f81b5",
-                    "full": true
+                    "full": true,
+                    "url": "https://d1wp6m56sqw74a.cloudfront.net/~assets/8c5bf6c47149bcc9550601ac917f81b5"
                   },
                   "url": "https://github.com/satya164/react-native-tab-view",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "3-1614751541818",
@@ -2323,17 +2225,7 @@
                   "def": "这是React Native纯JS实现导航",
                   "url": "https://github.com/ptomasroos/react-native-scrollable-tab-view",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -2348,8 +2240,8 @@
                   "major": true,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fjestesmyaktywni.pcpr.pl%2Fdownload%2Fzalacznik_1601.jpg&refer=http%3A%2F%2Fjestesmyaktywni.pcpr.pl&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255622&t=95be6f08253a25e06cc6d534c31f4b24",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fjestesmyaktywni.pcpr.pl%2Fdownload%2Fzalacznik_1601.jpg&refer=http%3A%2F%2Fjestesmyaktywni.pcpr.pl&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255622&t=95be6f08253a25e06cc6d534c31f4b24"
                   },
                   "url": "https://www.jestjs.cn/docs/getting-started",
                   "article": [
@@ -2517,12 +2409,7 @@
                         }
                       ]
                     }
-                  ],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  ]
                 }
               ]
             },
@@ -2537,17 +2424,12 @@
                   "major": true,
                   "logo": {
                     "type": "png",
-                    "url": "https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png"
                   },
                   "url": "https://webpack.docschina.org/",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -2559,8 +2441,8 @@
                   "step": "大纲",
                   "logo": {
                     "type": "png",
-                    "url": "https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png"
                   },
                   "url": "https://www.yarnpkg.cn/",
                   "article": [
@@ -2613,9 +2495,7 @@
                         }
                       ]
                     }
-                  ],
-                  "platform": "全部",
-                  "api": []
+                  ]
                 },
                 {
                   "id": "2-1614751541818",
@@ -2624,17 +2504,12 @@
                   "major": true,
                   "logo": {
                     "type": "png",
-                    "url": "https://www.babeljs.cn/img/babel.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://www.babeljs.cn/img/babel.png"
                   },
                   "url": "https://www.babeljs.cn/",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "3-1614751541818",
@@ -2642,17 +2517,12 @@
                   "def": "查找并修复JavaScript代码中的问题",
                   "logo": {
                     "type": "svg",
-                    "url": "https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg"
                   },
                   "url": "https://eslint.org/",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "4-1614751541818",
@@ -2663,15 +2533,12 @@
                   "step": "标记",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://cdn.freebiesupply.com/logos/large/2x/gulp-1-logo-png-transparent.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://cdn.freebiesupply.com/logos/large/2x/gulp-1-logo-png-transparent.png"
                   },
                   "url": "https://www.gulpjs.com.cn/",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "platform": "全部",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -2684,12 +2551,12 @@
                   "name": "Ant Design",
                   "def": "基于 Ant Design 设计体系的 React UI 组件库",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "version": "4.1.2",
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f"
                   },
                   "url": "https://ant.design/docs/react/introduce-cn",
                   "ftStep": "熟悉",
@@ -2813,8 +2680,7 @@
                       ]
                     }
                   ],
-                  "article": [],
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -2822,17 +2688,7 @@
                   "def": "一种模糊的毛玻璃效果",
                   "url": "https://github.com/Kureev/react-native-blur",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "2-1614751541818",
@@ -2840,110 +2696,55 @@
                   "def": "RN的代码高亮组件",
                   "url": "https://github.com/conorhastings/react-native-syntax-highlighter",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "platform": "全部",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "3-1614751541818",
                   "name": "React-native-actionsheet",
                   "def": "该组件实现了自定义ActionSheet",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://github.com/beefe/react-native-actionsheet",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "4-1614751541818",
                   "name": "React-json-view",
                   "def": "用于显示和编辑javascript数组和JSON对象",
-                  "platform": "全部",
+                  "platform": 0,
                   "url": "https://github.com/mac-s-g/react-json-view",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "5-1614751541818",
                   "name": "React-native-json-tree",
                   "def": "基于react-json-tree的React Native JSON Viewer组件",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://github.com/mac-s-g/react-json-view",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "6-1614751541818",
                   "name": "React-native-root-toast",
                   "def": "React Native的toast组件",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://github.com/magicismight/react-native-root-toast",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "7-1614751541818",
                   "name": "react-native-easy-toast",
                   "def": "React Native的toast组件",
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://github.com/crazycodeboy/react-native-easy-toast",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "8-1614751541818",
@@ -2951,35 +2752,19 @@
                   "def": "帮助您监视代码性能",
                   "ftStep": "精通",
                   "step": "标记",
-                  "platform": "全部",
+                  "platform": 0,
                   "url": "https://www.npmjs.com/package/stats-js",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "9-1614751541818",
                   "name": "react-native-splash-screen",
                   "def": "控制启动页显示和隐藏, 处理启动白屏问题",
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://github.com/crazycodeboy/react-native-splash-screen",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -2992,19 +2777,15 @@
                   "name": "Ant Design Pro",
                   "def": "企业级中后台前端/设计解决方案",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "logo": {
                     "type": "svg",
-                    "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   },
                   "url": "https://beta-pro.ant.design/docs/introduction-cn",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -3017,19 +2798,15 @@
                   "name": "Ant Motion",
                   "def": "快速在 React 框架中使用动画",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "logo": {
                     "type": "svg",
-                    "url": "https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg"
                   },
                   "url": "https://motion.ant.design/index-cn",
                   "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "article": []
                 }
               ]
             },
@@ -3042,19 +2819,12 @@
                   "name": "TinyPNG",
                   "def": "智能PNG和JPEG压缩",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 0,
                   "ftStep": "标记",
                   "step": "标记",
                   "url": "https://tinypng.com/",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "1-1614751541818",
@@ -3063,17 +2833,10 @@
                   "major": true,
                   "ftStep": "标记",
                   "step": "标记",
-                  "platform": "全部",
+                  "platform": 0,
                   "url": "https://www.uupoop.com/#/",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "2-1614751541818",
@@ -3082,17 +2845,10 @@
                   "major": true,
                   "ftStep": "标记",
                   "step": "标记",
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://pushy.reactnative.cn/",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "api": []
+                  "article": []
                 },
                 {
                   "id": "3-1614751541818",
@@ -3101,17 +2857,10 @@
                   "major": true,
                   "ftStep": "标记",
                   "step": "标记",
-                  "platform": "全部",
+                  "platform": 1,
                   "url": "https://github.com/jhen0409/react-native-debugger",
                   "features": [],
-                  "article": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "version": "-",
-                  "api": []
+                  "article": []
                 }
               ]
             }
@@ -3134,19 +2883,14 @@
                   "name": "node",
                   "def": "一个基于 Chrome V8 引擎 的 JavaScript 运行时。",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=238001970,1745368623&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=238001970,1745368623&fm=26&gp=0.jpg"
                   },
                   "url": "https://nodejs.org/zh-cn/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             },
@@ -3159,57 +2903,42 @@
                   "name": "nest",
                   "def": "用于构建高效、可扩展的 Node.js 服务器端应用程序的开发框架",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://nestjs.bootcss.com/img/logo.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://nestjs.bootcss.com/img/logo.png"
                   },
                   "url": "https://nestjs.bootcss.com/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751530668",
                   "name": "egg",
                   "def": "为企业级框架和应用而生",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "svg",
-                    "url": "https://zos.alipayobjects.com/rmsportal/VTcUYAaoKqXyHJbLAPyF.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://zos.alipayobjects.com/rmsportal/VTcUYAaoKqXyHJbLAPyF.svg"
                   },
                   "url": "https://eggjs.org/zh-cn/intro/index.html",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "2-1614751530668",
                   "name": "express",
                   "def": "基于 Node.js 平台，快速、开放、极简的 Web 开发框架",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2693920121,3280527363&fm=15&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2693920121,3280527363&fm=15&gp=0.jpg"
                   },
                   "url": "https://www.expressjs.com.cn/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             },
@@ -3222,76 +2951,56 @@
                   "name": "MongoDB",
                   "def": "一个基于分布式文件存储的数据库",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3435757484,2524118334&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3435757484,2524118334&fm=26&gp=0.jpg"
                   },
                   "url": "https://www.runoob.com/mongodb/mongodb-tutorial.html",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751530668",
                   "name": "mysql",
                   "def": "关系型数据库管理系统",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "png",
-                    "url": "https://www.runoob.com/wp-content/uploads/2014/03/mysql.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://www.runoob.com/wp-content/uploads/2014/03/mysql.jpg"
                   },
                   "url": "https://www.runoob.com/mysql/mysql-tutorial.html",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "2-1614751530668",
                   "name": "mongobooster",
                   "def": "MongoDB CLI界面中非常流行的GUI工具",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2188650053,2502556176&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2188650053,2502556176&fm=26&gp=0.jpg"
                   },
                   "url": "https://nosqlbooster.com/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "3-1614751530668",
                   "name": "navicat for mysql",
                   "def": "mysql CLI界面中非常流行的GUI工具",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "http://www.navicat.com.cn/images/02.Product_00_AllProducts_Premium15.png",
-                    "full": true
+                    "full": true,
+                    "url": "http://www.navicat.com.cn/images/02.Product_00_AllProducts_Premium15.png"
                   },
                   "url": "http://www.navicat.com.cn/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             },
@@ -3304,19 +3013,14 @@
                   "name": "postman",
                   "def": "API & HTTP 请求调试插件",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png",
-                    "full": true
+                    "full": true,
+                    "url": "https://src.onlinedown.net/d/file/p/2019-03-08/c9cbe27769e1de14c484e9b4130fb8e5.png"
                   },
                   "url": "https://www.postman.com/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             },
@@ -3329,57 +3033,42 @@
                   "name": "Moment.js",
                   "def": "JavaScript 日期处理类库",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.3uK6AdhfnwXu5FTXU1KIBwHaDR?pid=ImgDet&w=536&h=237&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.3uK6AdhfnwXu5FTXU1KIBwHaDR?pid=ImgDet&w=536&h=237&rs=1"
                   },
                   "url": "http://momentjs.cn/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751530668",
                   "name": "log4js",
                   "def": "选择log4js来完成日志记录的功能",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://tse4-mm.cn.bing.net/th/id/OIP.JTYuTy6aCFnl5erX7_WgfwAAAA?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse4-mm.cn.bing.net/th/id/OIP.JTYuTy6aCFnl5erX7_WgfwAAAA?pid=ImgDet&rs=1"
                   },
                   "url": "https://gitee.com/mirrors/log4js",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "2-1614751530668",
                   "name": "Later.js",
                   "def": "帮助你快速简单执行定时循环操作的JavaScript类库",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://tse4-mm.cn.bing.net/th/id/OIP.3EDqMLBIwIK_023KQyDEygHaCg?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse4-mm.cn.bing.net/th/id/OIP.3EDqMLBIwIK_023KQyDEygHaCg?pid=ImgDet&rs=1"
                   },
                   "url": "https://blog.csdn.net/tyygming/article/details/84542298",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             },
@@ -3392,38 +3081,28 @@
                   "name": "pm2",
                   "def": "简化性能监控、自动重启、负载均衡等繁琐任务",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.nio3CzcEkbTmBFTVLTfdsgHaBz?pid=ImgDet&w=6138&h=1493&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse2-mm.cn.bing.net/th/id/OIP.nio3CzcEkbTmBFTVLTfdsgHaBz?pid=ImgDet&w=6138&h=1493&rs=1"
                   },
                   "url": "https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751530668",
                   "name": "forever",
                   "def": "nodejs的守护进程,能够启动,停止,重启应用",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://th.bing.com/th/id/Re7b197224f2d04d6f125f1c2ea7ea1c5?rik=U04iTBz2NGMpfw&riu=http%3a%2f%2fwww.originaloe.com%2fmedias%2fimages%2flogo-fbo-1.jpg&ehk=Xrf3SWXF19FqM1u0KvQzFLHcV6yVNJvBz4tnkcBlWWs%3d&risl=&pid=ImgRaw",
-                    "full": true
+                    "full": true,
+                    "url": "https://th.bing.com/th/id/Re7b197224f2d04d6f125f1c2ea7ea1c5?rik=U04iTBz2NGMpfw&riu=http%3a%2f%2fwww.originaloe.com%2fmedias%2fimages%2flogo-fbo-1.jpg&ehk=Xrf3SWXF19FqM1u0KvQzFLHcV6yVNJvBz4tnkcBlWWs%3d&risl=&pid=ImgRaw"
                   },
                   "url": "https://www.npmjs.com/package/forever",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             },
@@ -3436,19 +3115,14 @@
                   "name": "ApiDoc",
                   "def": "Node.js可以利用ApiDoc生成接口文档",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 4,
                   "logo": {
                     "type": "png",
-                    "url": "https://th.bing.com/th/id/R8f3be1eec793aa6cc88366d6332a3a97?rik=jBkxqd4vSbuFCQ&riu=http%3a%2f%2fgreendoc.hu%2ffaces%2fjavax.faces.resource%2flogo-488x400.png%3bjsessionid%3de4f3c3476674e53712fc89f3c723%3fln%3dimages&ehk=nkZR9kL%2fkTA3zuS7kw82%2frX240x80M2E6auanYfxvOE%3d&risl=&pid=ImgRaw",
-                    "full": true
+                    "full": true,
+                    "url": "https://th.bing.com/th/id/R8f3be1eec793aa6cc88366d6332a3a97?rik=jBkxqd4vSbuFCQ&riu=http%3a%2f%2fgreendoc.hu%2ffaces%2fjavax.faces.resource%2flogo-488x400.png%3bjsessionid%3de4f3c3476674e53712fc89f3c723%3fln%3dimages&ehk=nkZR9kL%2fkTA3zuS7kw82%2frX240x80M2E6auanYfxvOE%3d&risl=&pid=ImgRaw"
                   },
                   "url": "https://apidocjs.com/",
-                  "features": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": [],
-                  "article": []
+                  "features": []
                 }
               ]
             }
@@ -3470,57 +3144,42 @@
                   "name": "HTTP",
                   "def": "一个基于TCP/IP通信协议来传递数据",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.lc-6FOUQnY6V-79dt3FdpgHaD_?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.lc-6FOUQnY6V-79dt3FdpgHaD_?pid=ImgDet&rs=1"
                   },
                   "url": "https://www.runoob.com/http/http-tutorial.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "TCP",
                   "def": "面向连接的、可靠的、基于字节流的传输层通信协议",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fftp.chinafix.com%2Fportal%2F201711%2F20%2F092900iii5p55lrfngiliy.jpg&refer=http%3A%2F%2Fftp.chinafix.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617274553&t=ab472e17b2950f7218edc83dea14e018",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fftp.chinafix.com%2Fportal%2F201711%2F20%2F092900iii5p55lrfngiliy.jpg&refer=http%3A%2F%2Fftp.chinafix.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617274553&t=ab472e17b2950f7218edc83dea14e018"
                   },
                   "url": "https://www.runoob.com/tcpip/tcpip-tutorial.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "2-1614751487102",
                   "name": "UDP",
                   "def": "一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3861921816,2794589959&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3861921816,2794589959&fm=26&gp=0.jpg"
                   },
                   "url": "",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "网络"
@@ -3533,38 +3192,27 @@
                   "name": "跨域",
                   "def": "现代浏览器所通用的\"同源策略\"",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 3,
                   "logo": {
                     "type": "icon",
-                    "url": "repeat-off",
-                    "full": false
+                    "url": "repeat-off"
                   },
                   "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "常见前端网络攻击",
                   "def": "XSS, CSRF, 点击劫持攻击防御等",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 3,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.b_YutsV4U7BKA-s4A40T4AAAAA?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.b_YutsV4U7BKA-s4A40T4AAAAA?pid=ImgDet&rs=1"
                   },
                   "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "安全"
@@ -3577,38 +3225,28 @@
                   "name": "linux",
                   "def": "一种自由和开放源码的类 UNIX 操作系统",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://th.bing.com/th/id/Rf57bbb6295ffade226d015f4850937e8?rik=xTV1rU3CW4k2xg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f03%2fColor-of-the-Linux-Logo.jpg&ehk=Hii7pvgOcDq2g41%2b9D%2bfbEoQqCN%2bTmPuB%2b9mujPkcnk%3d&risl=&pid=ImgRaw",
-                    "full": true
+                    "full": true,
+                    "url": "https://th.bing.com/th/id/Rf57bbb6295ffade226d015f4850937e8?rik=xTV1rU3CW4k2xg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f03%2fColor-of-the-Linux-Logo.jpg&ehk=Hii7pvgOcDq2g41%2b9D%2bfbEoQqCN%2bTmPuB%2b9mujPkcnk%3d&risl=&pid=ImgRaw"
                   },
                   "url": "https://www.runoob.com/linux/linux-tutorial.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "macOS",
                   "def": "基于XNU混合内核的图形化操作系统",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1403754502,2928659230&fm=15&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1403754502,2928659230&fm=15&gp=0.jpg"
                   },
                   "url": "https://support.apple.com/zh-cn/macos",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "操作系统"
@@ -3621,38 +3259,23 @@
                   "name": "shell",
                   "def": "一种为 shell 编写的脚本程序",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.tuicool.com%2FymyyyqV.jpg%21web&refer=http%3A%2F%2Fimg2.tuicool.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275886&t=0d7535f81586093ce0d5d1e98c055ab2",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.tuicool.com%2FymyyyqV.jpg%21web&refer=http%3A%2F%2Fimg2.tuicool.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275886&t=0d7535f81586093ce0d5d1e98c055ab2"
                   },
                   "url": "https://www.runoob.com/linux/linux-shell.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "linux命令行",
                   "def": "linux命令行常用命令",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "url": "https://www.runoob.com/linux/linux-command-manual.html",
-                  "features": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "脚本"
@@ -3665,19 +3288,14 @@
                   "name": "函数式编程",
                   "def": "一种编程范式",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "png",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp2.music.126.net%2FvbGh8tpNUIiXr6xqzJemiQ%3D%3D%2F109951163373186733.jpg&refer=http%3A%2F%2Fp2.music.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275968&t=6a4673572731df4f888b1254befe0d32",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp2.music.126.net%2FvbGh8tpNUIiXr6xqzJemiQ%3D%3D%2F109951163373186733.jpg&refer=http%3A%2F%2Fp2.music.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617275968&t=6a4673572731df4f888b1254befe0d32"
                   },
                   "url": "https://github.com/getify/Functional-Light-JS",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "编程范式"
@@ -3690,19 +3308,14 @@
                   "name": "正则表达式",
                   "def": "一种字符串匹配的模式",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.cJ3K16wNAanyNzkLe9wJvQHaHa?pid=ImgDet&rs=1",
-                    "full": true
+                    "full": true,
+                    "url": "https://tse1-mm.cn.bing.net/th/id/OIP.cJ3K16wNAanyNzkLe9wJvQHaHa?pid=ImgDet&rs=1"
                   },
                   "url": "https://www.runoob.com/regexp/regexp-syntax.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "数据"
@@ -3715,19 +3328,13 @@
                   "name": "git",
                   "def": "开源的分布式版本控制系统",
                   "major": false,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "png",
-                    "url": "https://git-scm.com/images/logo@2x.png",
-                    "full": false
+                    "url": "https://git-scm.com/images/logo@2x.png"
                   },
                   "url": "https://www.runoob.com/git/git-tutorial.html",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "代码管理"
@@ -3740,38 +3347,28 @@
                   "name": "JIRA",
                   "def": "集项目计划、任务分配、需求管理、错误跟踪于一体",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3574637191,1493203823&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3574637191,1493203823&fm=26&gp=0.jpg"
                   },
                   "url": "https://zhuanlan.zhihu.com/p/44837233",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "Project",
                   "def": "囊括项目管理各个阶段",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fvasilijegroup.com%2Fwp-content%2Fuploads%2F2014%2F06%2FMSProject-logo.png&refer=http%3A%2F%2Fvasilijegroup.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617075317&t=28890aac09b901f17dd715d74b13cc08",
-                    "full": true
+                    "full": true,
+                    "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fvasilijegroup.com%2Fwp-content%2Fuploads%2F2014%2F06%2FMSProject-logo.png&refer=http%3A%2F%2Fvasilijegroup.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617075317&t=28890aac09b901f17dd715d74b13cc08"
                   },
                   "url": "https://blog.csdn.net/huangxinfeng/article/details/81194380",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "项目管理"
@@ -3784,38 +3381,23 @@
                   "name": "浏览器调试",
                   "def": "使用浏览器的调试工具",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "url": "https://www.runoob.com/js/js-debugging.html",
-                  "features": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "ReactNative调试",
                   "def": "使用ReactNative调试App",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "svg",
-                    "url": "https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg"
                   },
                   "url": "https://reactnative.cn/docs/debugging",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "调试"
@@ -3828,38 +3410,23 @@
                   "name": "日志埋点跟踪",
                   "def": "通过分级日志输出跟踪信息",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "url": "https://blog.csdn.net/u012852374/article/details/78134346/",
-                  "features": [],
-                  "logo": {
-                    "type": "icon",
-                    "url": "github",
-                    "full": false
-                  },
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "Google Analytics",
                   "def": "了解和研究访问者的行为",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "svg",
-                    "url": "https://www.gstatic.cn/analytics-suite/header/suite/v2/ic_analytics.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://www.gstatic.cn/analytics-suite/header/suite/v2/ic_analytics.svg"
                   },
                   "url": "",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "跟踪"
@@ -3877,19 +3444,14 @@
                   "name": "Ant Design - 设计",
                   "def": "专注于更好的用户体验",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "svg",
-                    "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-                    "full": true
+                    "full": true,
+                    "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   },
                   "url": "https://ant.design/docs/spec/introduce-cn",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "交互设计"
@@ -3932,11 +3494,11 @@
                   "name": "VS Code",
                   "def": "免费的。 建立在开源上。无处不在。",
                   "major": true,
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "jpg",
-                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3102802095,1274108669&fm=26&gp=0.jpg",
-                    "full": true
+                    "full": true,
+                    "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3102802095,1274108669&fm=26&gp=0.jpg"
                   },
                   "url": "https://code.visualstudio.com/",
                   "features": [
@@ -3958,30 +3520,20 @@
                         }
                       ]
                     }
-                  ],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  ]
                 },
                 {
                   "id": "1-1614751487102",
                   "name": "Atom",
                   "def": "github专门为程序员推出的一个跨平台文本编辑器",
-                  "platform": "全部",
+                  "platform": 5,
                   "logo": {
                     "type": "png",
-                    "url": "https://pics7.baidu.com/feed/0e2442a7d933c895127557994747e4f6830200a0.jpeg?token=dd60bf6a4a798e4e8c6bef785950a4d0",
-                    "full": true
+                    "full": true,
+                    "url": "https://pics7.baidu.com/feed/0e2442a7d933c895127557994747e4f6830200a0.jpeg?token=dd60bf6a4a798e4e8c6bef785950a4d0"
                   },
                   "url": "https://atom-china.org/uploads/default/original/2X/2/28ab544a5cc952eda6e8c9860d8b86ee9d582af1.png",
-                  "features": [],
-                  "article": [],
-                  "version": "-",
-                  "ftStep": "标记",
-                  "step": "标记",
-                  "api": []
+                  "features": []
                 }
               ],
               "name": "编辑器"

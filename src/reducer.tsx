@@ -4,7 +4,7 @@ import * as color from '@ant-design/colors'
 import React, { useReducer, createContext, } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { SkillPlatform, SkillUnit, } from './variable'
+import { SkillPlatform, SkillUnit, SkillStep, } from './variable'
 
 import interactive from './data/skill/interactive'
 import server from './data/skill/server'
@@ -362,9 +362,9 @@ export const reducer = (state, action) => {
                     // ),
                     () => {
                         // 将列表都添加id
-                        // const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
+                        const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
                         // const path = ['navigation', 'home', 'tab', 'server', 'data', 'list']
-                        const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
+                        // const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
 
                         const list = R.path(path)(state)
 
@@ -377,6 +377,22 @@ export const reducer = (state, action) => {
                                         (v2, k2) => ({
                                             id: idBuilder(k2),
                                             ...v2,
+
+                                            logo: {
+                                                type: v2.logo ? v2.logo.type : 'icon',
+                                                url: v2.logo ? v2.logo.url : 'github',
+                                                full: v2.logo && typeof v2.logo.full !== 'undefined' ? v2.logo.full : false,
+                                                ...(v2.logo && v2.logo.bg ? {bg: v2.logo.bg} : {}),
+                                            },
+
+                                            version: v2.version ? v2.version : '-',
+
+                                            platform: SkillPlatform.all,
+
+                                            ftStep: v2.ftStep ? v2.ftStep : SkillStep.flag,
+                                            step: v2.step ? v2.step : SkillStep.flag,
+                                            api: v2.api ? v2.api : [],
+
                                             article: R.addIndex(R.map)(
                                                 (v3, k3) => ({
                                                     id: idBuilder(k3),
