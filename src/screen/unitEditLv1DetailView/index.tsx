@@ -127,8 +127,8 @@ export default ({ route, navigation }) => {
 
 
     const handleSave = () => {
-        const data: SkillUnit = {
-            id: nodeId || idBuilder(category.list.length),
+        const node: SkillUnit = {
+            id: nodeId || null,
             name: inputName.current.getValue(),
             def: inputDef.current.getValue(),
             url: inputUrl.current.getValue(),
@@ -144,7 +144,17 @@ export default ({ route, navigation }) => {
             step: pickStep,
         }
 
-        alert(JSON.stringify(data))
+        dispatch({
+            mod: 'system',
+            type: 'editNode',
+            payload: {
+                modKey,
+                categoryId,
+                node,
+            },
+        })
+
+        navigation.goBack()
     }
 
     return (

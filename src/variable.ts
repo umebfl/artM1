@@ -155,5 +155,5 @@ export interface SkillUnit {
     }[]
   }[]
 
-  api: [],
+  api?: [],
 }

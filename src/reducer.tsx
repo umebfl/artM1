@@ -382,7 +382,7 @@ export const reducer = (state, action) => {
                                                 type: v2.logo ? v2.logo.type : 'icon',
                                                 url: v2.logo ? v2.logo.url : 'github',
                                                 full: v2.logo && typeof v2.logo.full !== 'undefined' ? v2.logo.full : false,
-                                                ...(v2.logo && v2.logo.bg ? {bg: v2.logo.bg} : {}),
+                                                ...(v2.logo && v2.logo.bg ? { bg: v2.logo.bg } : {}),
                                             },
 
                                             version: v2.version ? v2.version : '-',
@@ -405,7 +405,7 @@ export const reducer = (state, action) => {
                                                     )(v3.list || []),
                                                 })
                                             )(v2.article || []),
-    
+
                                             features: R.addIndex(R.map)(
                                                 (v3, k3) => ({
                                                     id: idBuilder(k3),
@@ -572,7 +572,7 @@ export const reducer = (state, action) => {
                         return newState
                     },
                 ],
-                
+
                 [
                     R.equals('editCategoryName'),
                     () => {
@@ -590,31 +590,97 @@ export const reducer = (state, action) => {
 
                         // const fix = (id, value, path, list, state) => {
 
-                            const index = R.findIndex(
-                                v => v.id === id
-                            )(list)
+                        const index = R.findIndex(
+                            v => v.id === id
+                        )(list)
 
-                            const newList = R.adjust(
-                                index,
-                                v => ({
-                                    ...v,
-                                    name: value,
-                                    edit: false,
-                                }),
-                                list
-                            )
+                        const newList = R.adjust(
+                            index,
+                            v => ({
+                                ...v,
+                                name: value,
+                                edit: false,
+                            }),
+                            list
+                        )
 
-                            // alert(JSON.stringify(newList[0]))
+                        // alert(JSON.stringify(newList[0]))
 
 
-                            const newState = R.assocPath(path, newList)(state)
+                        const newState = R.assocPath(path, newList)(state)
 
-                            // return newState
+                        // return newState
                         // }
 
                         // const newState = fix(id, value, path, list, state)
 
                         // info(JSON.stringify(newState, null, 2))
+
+                        setData(newState)
+                        return newState
+                    },
+                ],
+
+                [
+                    // 节点 - 添加/修改
+                    R.equals('editNode'),
+                    () => {
+                        const {
+                            modKey,
+                            categoryId,
+                            node,
+                        } = action.payload
+
+                        const path = ['navigation', 'home', 'tab', modKey, 'data', 'list']
+                        const list = R.path(path)(state)
+
+                        const categoryIndex = R.findIndex(
+                            v => v.id === categoryId
+                        )(list)
+
+                        const category = list[categoryIndex]
+
+                        let newList = []
+
+                        // 添加
+                        if (node.id === null) {
+                            node.id = idBuilder(category.list.length)
+
+                            newList = R.adjust(
+                                categoryIndex,
+                                v => ({
+                                    ...category,
+                                    list: [
+                                        node,
+                                        ...category.list,
+                                    ],
+                                }),
+                                list
+                            )
+                        } else {
+                            // 修改
+                            const nodeIndex = R.findIndex(
+                                v => v.id === node.id
+                            )(category.list)
+
+                            newList = R.adjust(
+                                categoryIndex,
+                                v => ({
+                                    ...category,
+                                    list: R.adjust(
+                                        nodeIndex,
+                                        v => ({
+                                            ...v,
+                                            ...node,
+                                        }),
+                                        category.list
+                                    ),
+                                }),
+                                list
+                            )
+                        }
+
+                        const newState = R.assocPath(path, newList)(state)
 
                         setData(newState)
                         return newState
