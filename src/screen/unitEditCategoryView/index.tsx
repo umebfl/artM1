@@ -42,7 +42,6 @@ import WingBlank from '../../component/WingBlank'
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
 
-    const actionSheetREl = useRef(null)
     const inputEl = useRef(null)
     const [newCategoryName, setNewCategoryName] = useState('')
 
@@ -84,32 +83,6 @@ export default ({ route, navigation }) => {
         }
     }
 
-    const handleDelActionSheet = async () => {
-        actionSheetREl.current.show()
-    }
-
-    const handleDelPress = (index) => {
-
-        if (index === 0) {
-            const categoryIndex = actionSheetREl.current.value
-            const item = category[modKey][categoryIndex]
-
-            if (item.list.length !== 0) {
-                alert('分类下面存在节点, 需要移除后删除!')
-                return
-            }
-
-            dispatch({
-                mod: 'system',
-                type: 'removeCategory',
-                payload: {
-                    target: modKey,
-                    id: categoryIndex,
-                },
-            })
-        }
-    }
-
     const handleEditCategoryName = (id: string, val: string) => {
         dispatch({
             mod: 'system',
@@ -134,16 +107,6 @@ export default ({ route, navigation }) => {
             paddingBottom: 20,
         }}>
             <ScreenHeader navigation={navigation} title={'编辑分类'} safeArea={true} />
-
-
-            <ActionSheet
-                ref={actionSheetREl}
-                title={'确认删除?'}
-                options={['删除分类', '取消']}
-                cancelButtonIndex={1}
-                destructiveButtonIndex={0}
-                onPress={handleDelPress}
-            />
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <WhiteSpace>
@@ -352,20 +315,26 @@ export const EditItem = (payload: EditItemPayload) => {
                                 </TouchView>
                             )
                         )([
+                            // {
+                            //     name: 'circle-edit-outline',
+                            //     color: theme.grey[0],
+                            //     handlePress: () => {
+                            //         useInnerEditer
+                            //             ? setEditing(true)
+                            //             : handleEdit(id)
+                            //     },
+                            // },
+                            
                             {
-                                name: 'circle-edit-outline',
+                                name: 'dots-vertical',
                                 color: theme.grey[0],
-                                handlePress: () => {
-                                    useInnerEditer
-                                        ? setEditing(true)
-                                        : handleEdit(id)
-                                },
+                                handlePress: () => {},
                             },
-                            {
-                                name: 'close',
-                                color: theme.red[2],
-                                handlePress: handleDelPress,
-                            },
+                            // {
+                            //     name: 'close',
+                            //     color: theme.red[2],
+                            //     handlePress: handleDelPress,
+                            // },
                             // {
                             //     name: 'menu',
                             //     color: theme.grey[0],

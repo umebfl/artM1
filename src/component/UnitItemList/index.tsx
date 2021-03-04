@@ -23,7 +23,7 @@ import {
 
 interface payload {
     data: any
-    showUrl: boolean
+    showUrl?: boolean
     handlePress: Function
 }
 

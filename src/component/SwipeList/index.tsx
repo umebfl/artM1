@@ -126,12 +126,12 @@ export default (payload: payload) => {
                                         onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
                                         onSubmitEditing={handleEditCategoryName}
                                         onBlur={() => setEdit(false)}
-                                        maxLength={20}
                                         enablesReturnKeyAutomatically={true}
                                         autoCorrect={true}
                                         clearButtonMode={'while-editing'}
                                         blurOnSubmit={true}
                                         autoFocus={true}
+                                        maxLength={20}
                                         placeholder={'请输入分类名称'} />
 
                                 </View>

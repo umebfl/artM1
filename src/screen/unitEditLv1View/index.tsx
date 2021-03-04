@@ -40,6 +40,7 @@ import {
     DefText,
 } from '../../component/Text'
 import WingBlank from '../../component/WingBlank'
+import Paragraph from '../../component/Paragraph'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
@@ -69,23 +70,19 @@ export default ({ route, navigation }) => {
 
     const data = category[modKey][categoryId]
 
-    const handleDelActionSheet = async () => {
-        actionSheetREl.current.show()
-    }
-
-    const handleDelPress = (index) => {
-        if (index === 0) {
-            dispatch({
-                mod: 'system',
-                type: 'removeCategoryLv1',
-                payload: {
-                    modKey,
-                    categoryId,
-                    nodeId: actionSheetREl.current.value,
-                },
-            })
-        }
-    }
+    // const handleDelPress = (index) => {
+    //     if (index === 0) {
+    //         dispatch({
+    //             mod: 'system',
+    //             type: 'removeCategoryLv1',
+    //             payload: {
+    //                 modKey,
+    //                 categoryId,
+    //                 nodeId: actionSheetREl.current.value,
+    //             },
+    //         })
+    //     }
+    // }
 
     const handleJumpDetail = (nodeId) => {
         navigation.push('unitEditLv1DetailView', {
@@ -99,6 +96,50 @@ export default ({ route, navigation }) => {
         navigation.push('unitEditLv2View', { modKey, nodeId: id, })
     }
 
+    const handleEditCategoryName = (id: string, val: string) => {
+        dispatch({
+            mod: 'system',
+            type: 'editCategoryName',
+            payload: {
+                target: modKey,
+                id: id,
+                value: val,
+            },
+        })
+    }
+
+    const handleCategoryDelActionSheet = () => {
+        actionSheetREl.current.value = categoryId
+        actionSheetREl.current.show()
+    }
+
+    const handleCategoryDelPress = (index) => {
+        if (index === 0) {
+            const categoryIndex = actionSheetREl.current.value
+            const item = category[modKey][categoryIndex]
+
+            if (item.list.length !== 0) {
+                alert('分类下面存在节点, 需要移除后删除!')
+                return
+            }
+
+            dispatch({
+                mod: 'system',
+                type: 'removeCategory',
+                payload: {
+                    target: modKey,
+                    id: categoryIndex,
+                },
+            })
+
+            navigation.goBack()
+        }
+    }
+
+    if(!data) {
+        return <View></View>
+    }
+
     return (
         <View style={{
             flex: 1,
@@ -106,21 +147,50 @@ export default ({ route, navigation }) => {
             backgroundColor: 'white',
             paddingBottom: 20,
         }}>
-            <ScreenHeader navigation={navigation} title={`编辑 - ${data.name}`} safeArea={true} />
+            <ScreenHeader
+                right={
+                    <TouchView onPress={handleCategoryDelActionSheet}>
+                        <View style={{
+                            marginRight: 20,
+                            // backgroundColor: 'red',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={{
+                                color: theme.grey[0],
+                                fontSize: 16,
+                            }}>删除</Text>
+                        </View>
+                    </TouchView>
+                }
+                navigation={navigation}
+                title={`编辑 - ${data.name}`}
+                safeArea={true} />
 
             <ActionSheet
                 ref={actionSheetREl}
-                title={'确认删除?'}
-                options={['删除节点', '取消']}
+                title={'确认删除分类?'}
+                options={['删除分类', '取消']}
                 cancelButtonIndex={1}
                 destructiveButtonIndex={0}
-                onPress={handleDelPress}
+                onPress={handleCategoryDelPress}
             />
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <WhiteSpace>
                     <WingBlank>
-                        <MidTitle>{data.name}</MidTitle>
+                        <View style={{
+                            height: 36,
+                        }}>
+                            <Paragraph
+                                iconSize={18}
+                                handleSave={(val) => handleEditCategoryName(data.id, val)}
+                                theme={theme}
+                                defaultValue={data.name}>
+                                <MidTitle>{data.name}</MidTitle>
+                            </Paragraph>
+                        </View>
+
 
                         <TouchView onPress={() => handleJumpDetail(null)}>
                             <View style={{
