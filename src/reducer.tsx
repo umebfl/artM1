@@ -682,6 +682,7 @@ export const reducer = (state, action) => {
 
                         // return newState
 
+
                         const newState = state
 
                         return newState
