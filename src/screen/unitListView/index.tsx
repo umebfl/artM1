@@ -21,6 +21,9 @@ export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
     const {
         theme,
+        data: {
+            node,
+        },
     } = state
 
     const { data, title, } = route.params
@@ -60,7 +63,7 @@ export default ({ route, navigation }) => {
             }}>
                 {
                     R.addIndex(R.map)(
-                        (v ,k) => <SwipeListItem key={k} k={k} item={v} list={data} theme={theme} navigation={navigation} />
+                        (v ,k) => <SwipeListItem key={k} k={k} item={node[v]} list={data} theme={theme} navigation={navigation} />
                     )(data)
                 }
             </ScrollView>

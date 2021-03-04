@@ -31,9 +31,7 @@ export default ({ navigation, }) => {
         navigation: {
             home: {
                 tab: {
-                    server: {
-                        data,
-                    },
+                    server,
                 },
             },
         },
@@ -61,6 +59,11 @@ export default ({ navigation, }) => {
     }, [])
 
     info('server render')
+    const data = {
+        name: server.text,
+        category: state.data.category.server,
+        chain: state.data.chain.server,
+    }
 
     const Node = () => <SkillListView navigation={navigation} data={data} modKey={'server'} />
 

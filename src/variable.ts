@@ -96,6 +96,11 @@ export interface SkillUnit {
   // 官网
   url: String
 
+  // 模块
+  mod: String
+  // 分类
+  categoryId: string
+
   // demo
   demo?: [
     {

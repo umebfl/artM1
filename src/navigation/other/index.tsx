@@ -67,7 +67,7 @@ export default ({ navigation, }) => {
     }
 
     const handleCopyData = () => {
-        Clipboard.setString(JSON.stringify(state.navigation, null, 2))
+        Clipboard.setString(JSON.stringify(state.data, null, 2))
         setCopyed(true)
     }
 

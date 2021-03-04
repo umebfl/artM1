@@ -54,6 +54,10 @@ export default ({ route, navigation }) => {
                 tab,
             },
         },
+        data: {
+            category,
+            node,
+        },
     } = state
 
     const {
@@ -63,23 +67,7 @@ export default ({ route, navigation }) => {
         },
     } = route
 
-    const data = R.find(
-        v => v.id === categoryId
-    )(tab[modKey].data.list)
-
-    const handleAdd = () => {
-        if (inputEl.current.value) {
-            dispatch({
-                mod: 'system',
-                type: 'addCategoryLv1',
-                payload: {
-                    target: modKey,
-                    categoryId,
-                    value: inputEl.current.value,
-                },
-            })
-        }
-    }
+    const data = category[modKey][categoryId]
 
     const handleDelActionSheet = async () => {
         actionSheetREl.current.show()
@@ -87,31 +75,16 @@ export default ({ route, navigation }) => {
 
     const handleDelPress = (index) => {
         if (index === 0) {
-            const nodeIndex = actionSheetREl.current.value
-            const node = data.list[nodeIndex]
-
             dispatch({
                 mod: 'system',
                 type: 'removeCategoryLv1',
                 payload: {
-                    target: modKey,
+                    modKey,
                     categoryId,
-                    nodeId: node.id,
+                    nodeId: actionSheetREl.current.value,
                 },
             })
         }
-    }
-
-    const handleEditCategoryName = (id, val) => {
-        dispatch({
-            mod: 'system',
-            type: 'editCategoryName',
-            payload: {
-                target: modKey,
-                id: id,
-                value: val,
-            },
-        })
     }
 
     const handleJumpDetail = (nodeId) => {
@@ -169,21 +142,24 @@ export default ({ route, navigation }) => {
 
                     {
                         R.addIndex(R.map)(
-                            (v, k) => (
-                                <EditItem
-                                    id={v.id}
-                                    seq={k}
-                                    name={v.name}
-                                    theme={theme}
-                                    handleJump={() => { }}
-                                    handleEdit={() => handleJumpDetail(v.id)}
-                                    handleDelPress={
-                                        () => {
-                                            actionSheetREl.current.value = k
-                                            handleDelActionSheet()
-                                        }
-                                    } />
-                            )
+                            (v, k) => {
+                                const item = node[v]
+                                return (
+                                    <EditItem
+                                        seq={k}
+                                        id={item.id}
+                                        name={item.name}
+                                        theme={theme}
+                                        handleJump={() => { }}
+                                        handleEdit={() => handleJumpDetail(item.id)}
+                                        handleDelPress={
+                                            () => {
+                                                actionSheetREl.current.value = item.id
+                                                handleDelActionSheet()
+                                            }
+                                        } />
+                                )
+                            }
                         )(data.list)
                     }
                 </WhiteSpace>

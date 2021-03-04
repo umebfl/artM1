@@ -90,6 +90,10 @@ export default ({ route, navigation }) => {
                 tab,
             },
         },
+        data: {
+            category,
+            node,
+        },
     } = state
 
     const {
@@ -100,23 +104,17 @@ export default ({ route, navigation }) => {
         },
     } = route
 
-    const category = R.find(
-        v => v.id === categoryId
-    )(tab[modKey].data.list)
-
     let data = initState
 
     if (nodeId !== null) {
-        data = R.find(
-            v => v.id === nodeId
-        )(category.list)
+        data = node[nodeId]
     }
 
     const inputName = useRef()
-    const inputDef = useRef(null)
-    const inputVersion = useRef(null)
-    const inputLogoUrl = useRef(null)
-    const inputUrl = useRef(null)
+    const inputDef = useRef()
+    const inputVersion = useRef()
+    const inputLogoUrl = useRef()
+    const inputUrl = useRef()
 
     const [switchMajor, setSwitchMajor] = useState(data.major || false)
     const [switchLogoFull, setSwitchLogoFull] = useState(data.logo.full || false)
@@ -142,14 +140,14 @@ export default ({ route, navigation }) => {
             },
             ftStep: pickFtStep,
             step: pickStep,
+            mod: modKey,
+            categoryId,
         }
 
         dispatch({
             mod: 'system',
             type: 'editNode',
             payload: {
-                modKey,
-                categoryId,
                 node,
             },
         })

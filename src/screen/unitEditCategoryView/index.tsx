@@ -44,6 +44,7 @@ export default ({ route, navigation }) => {
 
     const actionSheetREl = useRef(null)
     const inputEl = useRef(null)
+    const [newCategoryName, setNewCategoryName] = useState('')
 
     const {
         theme,
@@ -52,6 +53,10 @@ export default ({ route, navigation }) => {
                 tab,
             },
         },
+        data: {
+            category,
+            node,
+        }
     } = state
 
     const {
@@ -60,18 +65,22 @@ export default ({ route, navigation }) => {
         },
     } = route
 
-    const data = tab[modKey].data
+    const data = {
+        name: tab[modKey].text,
+        list: R.values(category[modKey]),
+    }
 
     const handleAdd = () => {
-        if (inputEl.current.value) {
+        if (newCategoryName) {
             dispatch({
                 mod: 'system',
                 type: 'addCategory',
                 payload: {
                     target: modKey,
-                    value: inputEl.current.value,
+                    value: newCategoryName,
                 },
             })
+
         }
     }
 
@@ -83,9 +92,9 @@ export default ({ route, navigation }) => {
 
         if (index === 0) {
             const categoryIndex = actionSheetREl.current.value
-            const category = data.list[categoryIndex]
+            const item = category[modKey][categoryIndex]
 
-            if (category.list.length !== 0) {
+            if (item.list.length !== 0) {
                 alert('分类下面存在节点, 需要移除后删除!')
                 return
             }
@@ -95,7 +104,7 @@ export default ({ route, navigation }) => {
                 type: 'removeCategory',
                 payload: {
                     target: modKey,
-                    id: category.id,
+                    id: categoryIndex,
                 },
             })
         }
@@ -111,6 +120,10 @@ export default ({ route, navigation }) => {
                 value: val,
             },
         })
+    }
+
+    const handleJump = (id) => {
+        navigation.push('unitEditLv1View', { modKey, categoryId: id, })
     }
 
     return (
@@ -160,9 +173,10 @@ export default ({ route, navigation }) => {
                             }}
                             clearTextOnFocus={true}
                             ref={inputEl}
-                            onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
+                            onChange={({ nativeEvent, }) => setNewCategoryName(nativeEvent.text)}
                             onSubmitEditing={handleAdd}
-                            // onBlur={() => setAddingCategory(false)}
+                            value={newCategoryName}
+                            onBlur={() => setNewCategoryName('')}
                             maxLength={20}
                             enablesReturnKeyAutomatically={true}
                             autoCorrect={true}
@@ -195,11 +209,11 @@ export default ({ route, navigation }) => {
                                     theme={theme}
                                     list={v.list}
                                     useInnerEditer={true}
-                                    handleJump={() => navigation.push('unitEditLv1View', { modKey, categoryId: v.id, })}
+                                    handleJump={() => handleJump(v.id)}
                                     handleEdit={handleEditCategoryName}
                                     handleDelPress={
                                         () => {
-                                            actionSheetREl.current.value = k
+                                            actionSheetREl.current.value = v.id
                                             handleDelActionSheet()
                                         }
                                     } />

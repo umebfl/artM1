@@ -40,7 +40,7 @@ interface payload {
     // 模块名称
     modKey: string
     title: String
-    unit: any
+    unit: String[]
     navigation: any
 }
 
@@ -52,6 +52,9 @@ export default (payload: payload) => {
 
     const {
         theme,
+        data: {
+            node,
+        },
     } = state
 
     const winWidth = Dimensions.get('window').width
@@ -198,7 +201,7 @@ export default (payload: payload) => {
                             }}>
                                 {
                                     R.addIndex(R.map)(
-                                        (item, k) => <SwipeListItem key={k} k={k} item={item} list={list} theme={theme} navigation={navigation} />,
+                                        (item, k) => <SwipeListItem key={k} k={k} item={node[item]} list={list} theme={theme} navigation={navigation} />,
                                         list
                                     )
                                 }

@@ -61,10 +61,10 @@ const App = () => {
   useEffect(() => {
     init()
 
-    // dispatch({
-    //   mod: 'system',
-    //   type: 'fix',
-    // })
+    dispatch({
+      mod: 'system',
+      type: 'fixdata',
+    })
   
   }, [])
 

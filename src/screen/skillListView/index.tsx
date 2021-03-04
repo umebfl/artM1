@@ -29,17 +29,38 @@ import SwipeIconList from '../../component/SwipeIconList'
 import WingBlank from '../../component/WingBlank'
 import TouchView from '../../component/TouchView'
 
-export default ({ navigation, data, modKey, }) => {
+interface payload {
+    navigation: any
+    data: {
+        name: string,
+        category: {},
+        chain?: {},
+    }
+    modKey: string
+}
+
+export default (payload: payload) => {
 
     const { state, dispatch, } = useContext(Context)
 
     const [addingCategory, setAddingCategory] = useState(false)
 
     const {
-        theme,
-    } = state
+        navigation,
+        data: {
+            name,
+            category,
+            chain,
+        },
+        modKey,
+    } = payload
 
-    const item = data
+    const {
+        theme,
+        data: {
+            node,
+        },
+    } = state
 
     // const list = useMemo(
     //     () => (
@@ -47,12 +68,12 @@ export default ({ navigation, data, modKey, }) => {
     //             style={{
     //                 paddingTop: statusBarHeight,
     //             }}
-    //             tabLabel={item.name}
+    //             tabLabel={name}
     //             showsVerticalScrollIndicator={false}
     //             data={item.list}
     //             initialNumToRender={3}
     //             renderItem={({ item, index, separators }) => (
-    //                 <SwipeList keyExtractor={item.name + index} navigation={navigation} title={item.name} unit={item.list} />
+    //                 <SwipeList keyExtractor={name + index} navigation={navigation} title={name} unit={item.list} />
     //             )} />
     //     ),
     //     [data]
@@ -70,7 +91,7 @@ export default ({ navigation, data, modKey, }) => {
     //         payload: {
     //             // 模块
     //             mod: 'screen - skillListView',
-    //             name: `${item.name} - 技能列表`,
+    //             name: `${name} - 技能列表`,
     //             // startTime,
     //             // endTime,
     //             // ms
@@ -80,7 +101,7 @@ export default ({ navigation, data, modKey, }) => {
 
     // }, [])
 
-    info(`${item.name} -> skillListView render`)
+    info(`${name} -> skillListView render`)
 
 
     // const handleToggleCategoryEditing = () => {
@@ -92,6 +113,9 @@ export default ({ navigation, data, modKey, }) => {
     //         },
     //     })
     // }
+
+    const list = R.values(category)
+    const chainList = R.values(chain || {})
 
     return (
         <View style={{
@@ -113,7 +137,7 @@ export default ({ navigation, data, modKey, }) => {
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
                             }}>
-                                <LargeTitle>{item.name}</LargeTitle>
+                                <LargeTitle>{name}</LargeTitle>
 
                                 <TouchView onPress={() => navigation.push('unitEditCategoryView', { modKey, })}>
                                     <Icon name={'circle-edit-outline'} size={32} color={theme.main} style={{ opacity: 0.68, }} />
@@ -122,102 +146,33 @@ export default ({ navigation, data, modKey, }) => {
 
                             {/* 技术链条 */}
                             {
-                                item.chain
-                                    ? (
-                                        R.addIndex(R.map)(
-                                            (v, k) => {
-                                                return (
-                                                    <WhiteSpace size={'normal'} style={{
-                                                        borderTopWidth: theme.borderWidth,
-                                                        borderColor: theme.borderColor,
-                                                        paddingTop: 10,
-                                                    }}>
-                                                        <SwipeIconList
-                                                            onPress={payload => navigation.push('unitDetailView', payload)}
-                                                            title={v.title} radius={8} navigation={navigation} data={v.list} />
-                                                    </WhiteSpace>
-                                                )
-                                            }
-                                        )(item.chain)
-                                    )
-                                    : null
-                            }
+                                R.map(
+                                    payload => {
+                                        const nodeList = R.map( key => node[key] )(R.keys(payload.node || {}))
+                                        const handlePress = payload => navigation.push('unitDetailView', payload)
 
-                            {/* 添加分类 */}
-                            {/* <WingBlank style={{
-                                marginTop: 10,
-                                height: 40,
-                            }}>
-                                {
-                                    addingCategory
-                                        ? (
-                                            <View style={{
-                                                flexDirection: 'row',
-                                                alignItems: 'center',
+                                        return (
+                                            <WhiteSpace key={payload.id} size={'normal'} style={{
+                                                borderTopWidth: theme.borderWidth,
+                                                borderColor: theme.borderColor,
+                                                paddingTop: 10,
                                             }}>
-                                                <TextInput
-                                                    style={{
-                                                        flex: 1,
-                                                        pdding: 2,
-                                                        paddingLeft: 10,
-                                                        height: 40,
-                                                        borderRadius: 8,
-                                                        borderWidth: theme.borderWidth,
-                                                        borderColor: theme.borderColor,
-                                                        fontSize: 16,
-                                                    }}
-                                                    ref={inputEl}
-                                                    onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
-                                                    onSubmitEditing={handleAdd}
-                                                    onBlur={() => setAddingCategory(false)}
-                                                    maxLength={20}
-                                                    enablesReturnKeyAutomatically={true}
-                                                    autoCorrect={true}
-                                                    clearButtonMode={'while-editing'}
-                                                    blurOnSubmit={true}
-                                                    autoFocus={true}
-                                                    placeholder={'请输入分类名称'} />
-
-                                                <TouchView onPress={() => setAddingCategory(false)}>
-                                                    <Text style={{
-                                                        // backgroundColor: 'red',
-                                                        alignItems: 'center',
-                                                        paddingTop: 10,
-                                                        paddingBottom: 10,
-                                                        paddingLeft: 10,
-                                                        paddingRight: 10,
-                                                        color: theme.grey[0],
-                                                        fontSize: 14,
-                                                    }}>取消</Text>
-                                                </TouchView>
-                                            </View>
+                                                <SwipeIconList
+                                                    onPress={handlePress}
+                                                    title={payload.title}
+                                                    radius={8}
+                                                    navigation={navigation}
+                                                    data={nodeList} />
+                                            </WhiteSpace>
                                         )
-                                        : (
-                                            <TouchView onPress={() => setAddingCategory(true)}>
-                                                <View style={{
-                                                    // backgroundColor: 'red',
-                                                    flexDirection: 'row',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    height: 40,
-                                                    borderRadius: 8,
-                                                    borderStyle: 'dashed',
-                                                    borderWidth: theme.borderWidth,
-                                                    borderColor: theme.borderColor,
-                                                    // opacity: 0.8,
-                                                }}>
-                                                    <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
-                                                    <DefText>添加分类</DefText>
-                                                </View>
-                                            </TouchView>
-                                        )
-                                }
-                            </WingBlank> */}
+                                    }
+                                )(chainList)
+                            }
                         </View>
                     )
                 }}
                 ListFooterComponent={() => {
-                    if (item.list) {
+                    if (list) {
                         return (
                             <View style={{
                                 flexDirection: 'row',
@@ -234,15 +189,15 @@ export default ({ navigation, data, modKey, }) => {
                     }
                     return null
                 }}
-                tabLabel={item.name}
+                tabLabel={name}
                 showsVerticalScrollIndicator={false}
-                data={item.list}
+                data={list}
                 initialNumToRender={3}
                 renderItem={({ item, index, separators }) => (
                     <SwipeList
                         modKey={modKey}
                         id={item.id}
-                        key={item.name + index}
+                        key={name + index}
                         navigation={navigation}
                         title={item.name}
                         unit={item.list} />

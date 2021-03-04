@@ -1,3 +1,4 @@
+import R from 'ramda'
 import React, { useContext, useEffect, useMemo, } from 'react'
 
 import {
@@ -18,7 +19,7 @@ import SkillListView from '../../screen/skillListView'
 
 import Context from '../../reducer'
 
-import { info, } from '../../util/log'
+import { info, debug, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
@@ -31,9 +32,7 @@ export default ({ navigation, }) => {
         navigation: {
             home: {
                 tab: {
-                    interactive: {
-                        data,
-                    },
+                    interactive,
                 },
             },
         },
@@ -59,11 +58,17 @@ export default ({ navigation, }) => {
 
     info('interactive render')
 
+    const data = {
+        name: interactive.text,
+        category: state.data.category.interactive,
+        chain: state.data.chain.interactive,
+    }
+
     const Node = () => <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
 
     const node = useMemo(
         () => <Node />,
-        [data]
+        [state.data]
     )
 
     return <View style={{ flex: 1, }}>{node}</View>

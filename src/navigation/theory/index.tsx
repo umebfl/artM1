@@ -31,9 +31,7 @@ export default ({ navigation, }) => {
         navigation: {
             home: {
                 tab: {
-                    theory: {
-                        data,
-                    },
+                    theory,
                 },
             },
         },
@@ -61,6 +59,11 @@ export default ({ navigation, }) => {
     }, [])
 
     info('theory render')
+    const data = {
+        name: theory.text,
+        category: state.data.category.theory,
+        chain: state.data.chain.theory,
+    }
 
     const Node = () => <SkillListView navigation={navigation} data={data} modKey={'theory'} />
 

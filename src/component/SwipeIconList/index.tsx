@@ -30,6 +30,9 @@ export default (payload: payload) => {
 
     const {
         theme,
+        data: {
+            node,
+        },
     } = state
 
     const {
@@ -66,11 +69,16 @@ export default (payload: payload) => {
                 {
                     R.addIndex(R.map)(
                         (v, k) => {
+                            const item = v
+
+                            if(!item) {
+                                return null
+                            }
                             return (
                                 <TouchView key={k} onPress={() => {
                                     onPress
-                                        ? onPress({ payload: v })
-                                        : navigation.push('readWebview', { url: v.url })
+                                        ? onPress({ payload: item })
+                                        : navigation.push('readWebview', { url: item.url })
                                 }}>
                                     <View style={{
                                         // backgroundColor: 'red',
@@ -79,12 +87,12 @@ export default (payload: payload) => {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                     }}>
-                                        <CircleLogo size={50} radius={radius ? radius : 0} data={v.logo} />
+                                        <CircleLogo size={50} radius={radius ? radius : 0} data={item.logo} />
                                         <Text numberOfLines={1} ellipsizeMode={'middle'} style={{
                                             marginTop: 8,
                                             fontSize: 12,
                                             color: theme.textLight2,
-                                        }}>{v.name}</Text>
+                                        }}>{item.name}</Text>
                                     </View>
                                 </TouchView>
                             )
