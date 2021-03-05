@@ -74,7 +74,7 @@ export default ({ route, navigation }) => {
     //     if (index === 0) {
     //         dispatch({
     //             mod: 'system',
-    //             type: 'removeCategoryLv1',
+    //             type: 'removeNode',
     //             payload: {
     //                 modKey,
     //                 categoryId,
@@ -183,14 +183,12 @@ export default ({ route, navigation }) => {
                             height: 36,
                         }}>
                             <Paragraph
+                                text={<MidTitle>{data.name}</MidTitle>}
                                 iconSize={18}
                                 handleSave={(val) => handleEditCategoryName(data.id, val)}
                                 theme={theme}
-                                defaultValue={data.name}>
-                                <MidTitle>{data.name}</MidTitle>
-                            </Paragraph>
+                                defaultValue={data.name} />
                         </View>
-
 
                         <TouchView onPress={() => handleJumpDetail(null)}>
                             <View style={{
@@ -223,8 +221,12 @@ export default ({ route, navigation }) => {
                                         seq={k}
                                         id={item.id}
                                         name={item.name}
+                                        def={item.def}
+                                        logo={item.logo}
                                         theme={theme}
-                                        handleJump={() => handleJumpLv2(item.id)}
+                                        handleJump={() => {
+                                            handleJumpDetail(item.id)
+                                        }}
                                         handleEdit={() => handleJumpDetail(item.id)}
                                         handleDelPress={
                                             () => {

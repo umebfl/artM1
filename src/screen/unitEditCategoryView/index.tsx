@@ -38,6 +38,7 @@ import {
     DefText,
 } from '../../component/Text'
 import WingBlank from '../../component/WingBlank'
+import { IfElse, RMap, When } from '../../util/jsx'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
@@ -171,7 +172,6 @@ export default ({ route, navigation }) => {
                                     name={v.name}
                                     theme={theme}
                                     list={v.list}
-                                    useInnerEditer={true}
                                     handleJump={() => handleJump(v.id)}
                                     handleEdit={handleEditCategoryName}
                                     handleDelPress={
@@ -192,13 +192,18 @@ export default ({ route, navigation }) => {
 interface EditItemPayload {
     id: string
     seq: number,
+    logo?: {
+        type: string,
+        url: string,
+        full: boolean,
+    },
     name: string
+    def?: string
     theme: any
     list?: []
     handleJump: () => void
     handleDelPress: () => void
     handleEdit: (id: string, val: string) => void
-    useInnerEditer: boolean
 }
 
 export const EditItem = (payload: EditItemPayload) => {
@@ -209,10 +214,11 @@ export const EditItem = (payload: EditItemPayload) => {
     const {
         id,
         seq,
+        logo,
         name,
+        def,
         theme,
         list,
-        useInnerEditer,
         handleDelPress,
         handleEdit,
         handleJump,
@@ -228,7 +234,7 @@ export const EditItem = (payload: EditItemPayload) => {
                 alignItems: 'center',
                 marginBottom: 10,
                 borderRadius: 8,
-                height: 45,
+                height: 54,
                 // paddingLeft: 15,
                 paddingRight: 10,
                 // backgroundColor: 'red',
@@ -238,64 +244,86 @@ export const EditItem = (payload: EditItemPayload) => {
                     flexDirection: 'row',
                     alignItems: 'center',
                 }}>
-                    <Text style={{
-                        width: 20,
-                        fontSize: 18,
-                        color: theme.grey[0],
-                    }}>{seq + 1}</Text>
-                    {
-                        editing
-                            ? (
-                                <View>
-                                    <TextInput
-                                        style={{
-                                            width: 200,
-                                            paddingLeft: 10,
-                                            height: 40,
-                                            borderRadius: 8,
-                                            borderWidth: theme.borderWidth,
-                                            borderColor: theme.borderColor,
-                                            fontSize: 16,
-                                        }}
-                                        ref={inputEl}
-                                        onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
-                                        onSubmitEditing={() => handleEdit(id, inputEl.current.value)}
-                                        onBlur={() => { setEditing(false) }}
-                                        maxLength={20}
-                                        defaultValue={name}
-                                        enablesReturnKeyAutomatically={true}
-                                        autoCorrect={true}
-                                        clearButtonMode={'while-editing'}
-                                        blurOnSubmit={true}
-                                        autoFocus={true}
-                                        placeholder={'请输入分类名称'} />
-                                </View>
-                            )
-                            : (
-                                <View style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
+                    <IfElse
+                        test={logo}
+                        tnode={() => <UnitLogo data={logo} style={{ marginRight: 6, }} size={40} ></UnitLogo>}
+                        fnode={() => (
+                            <Text style={{
+                                width: 20,
+                                fontSize: 18,
+                                color: theme.grey[0],
+                            }}>{seq + 1}</Text>
+                        )}
+                    />
+
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                        <View style={{
+                            flexDirection: 'column',
+                        }}>
+                            <Title style={{
+                                paddingLeft: 0,
+                                paddingRight: 3,
+                                marginBottom: 4,
+                            }}>
+                                {name}
+                            </Title>
+
+                            <When test={def} node={() => (
+                                <DefText style={{
+                                    paddingLeft: 0,
+                                    paddingRight: 3,
+                                    fontSize: 11,
+                                    width: 200,
                                 }}>
-                                    <Text style={{
-                                        paddingLeft: 0,
-                                        paddingRight: 3,
-                                        fontSize: 18,
-                                    }}>
-                                        {name}
-                                    </Text>
-                                    {
-                                        list
-                                            ? (
-                                                <Text style={{
-                                                    color: theme.grey[2],
-                                                }}>({list.length})</Text>
-                                            )
-                                            : null
-                                    }
-                                </View>
-                            )
-                    }
+                                    {def}
+                                </DefText>
+                            )} />
+
+                        </View>
+
+                        <When test={list} node={() => (
+                            <Text style={{
+                                color: theme.grey[2],
+                            }}>({list.length})</Text>
+                        )} />
+                    </View>
+
+                    {/* <IfElse
+                        test={editing}
+                        tnode={() => (
+                            <View>
+                                <TextInput
+                                    style={{
+                                        width: 200,
+                                        paddingLeft: 10,
+                                        height: 40,
+                                        borderRadius: 8,
+                                        borderWidth: theme.borderWidth,
+                                        borderColor: theme.borderColor,
+                                        fontSize: 16,
+                                    }}
+                                    ref={inputEl}
+                                    onChange={({ nativeEvent, }) => inputEl.current.value = nativeEvent.text}
+                                    onSubmitEditing={() => handleEdit(id, inputEl.current.value)}
+                                    onBlur={() => { setEditing(false) }}
+                                    maxLength={20}
+                                    defaultValue={name}
+                                    enablesReturnKeyAutomatically={true}
+                                    autoCorrect={true}
+                                    clearButtonMode={'while-editing'}
+                                    blurOnSubmit={true}
+                                    autoFocus={true}
+                                    placeholder={'请输入分类名称'} />
+                            </View>
+                        )}
+                        fnode={() => (
+                            
+                        )} /> */}
+
                 </View>
 
 
@@ -303,47 +331,64 @@ export const EditItem = (payload: EditItemPayload) => {
                     flexDirection: 'row',
                     alignItems: 'center',
                 }}>
-                    {
-                        R.addIndex(R.map)(
-                            (v, k) => (
-                                <TouchView onPress={v.handlePress} key={k}>
-                                    <Icon
-                                        name={v.name}
-                                        size={24}
-                                        color={v.color}
-                                        style={{ padding: 5, opacity: 0.8, }} />
-                                </TouchView>
-                            )
-                        )([
-                            // {
-                            //     name: 'circle-edit-outline',
-                            //     color: theme.grey[0],
-                            //     handlePress: () => {
-                            //         useInnerEditer
-                            //             ? setEditing(true)
-                            //             : handleEdit(id)
-                            //     },
-                            // },
-                            
-                            {
-                                name: 'dots-vertical',
-                                color: theme.grey[0],
-                                handlePress: () => {},
-                            },
-                            // {
-                            //     name: 'close',
-                            //     color: theme.red[2],
-                            //     handlePress: handleDelPress,
-                            // },
-                            // {
-                            //     name: 'menu',
-                            //     color: theme.grey[0],
-                            //     handlePress: () => {
+                    <RMap data={[
+                        {
+                            name: 'dots-vertical',
+                            color: theme.grey[0],
+                            handlePress: () => { },
+                        }
+                    ]} node={(v, k) => (
+                        <TouchView onPress={v.handlePress}>
+                            <Icon
+                                key={k}
+                                name={v.name}
+                                size={24}
+                                color={v.color}
+                                style={{ padding: 5, opacity: 0.8, }} />
+                        </TouchView>
+                    )} />
+                    {/* {
+                            R.addIndex(R.map)(
+                                (v, k) => (
+                                    <TouchView onPress={v.handlePress}>
+                                        <Icon
+                                            key={k}
+                                            name={v.name}
+                                            size={24}
+                                            color={v.color}
+                                            style={{ padding: 5, opacity: 0.8, }} />
+                                    </TouchView>
+                                )
+                            )([
+                                // {
+                                //     name: 'circle-edit-outline',
+                                //     color: theme.grey[0],
+                                //     handlePress: () => {
+                                //         useInnerEditer
+                                //             ? setEditing(true)
+                                //             : handleEdit(id)
+                                //     },
+                                // },
 
-                            //     },
-                            // },
-                        ])
-                    }
+                                {
+                                    name: 'dots-vertical',
+                                    color: theme.grey[0],
+                                    handlePress: () => { },
+                                },
+                                // {
+                                //     name: 'close',
+                                //     color: theme.red[2],
+                                //     handlePress: handleDelPress,
+                                // },
+                                // {
+                                //     name: 'menu',
+                                //     color: theme.grey[0],
+                                //     handlePress: () => {
+
+                                //     },
+                                // },
+                            ])
+                        } */}
 
                 </View>
             </View>

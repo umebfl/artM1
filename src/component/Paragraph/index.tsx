@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import TouchView from '../TouchView'
 
 interface payload {
-    children: any
+    text: any
     theme: any
     icon?: string
     iconSize?: number
@@ -31,7 +31,7 @@ export default (payload: payload) => {
     const [editing, setEditing] = useState(false)
 
     const {
-        children,
+        text,
         theme,
         icon,
         iconSize,
@@ -70,7 +70,7 @@ export default (payload: payload) => {
                             autoFocus={true}
                             defaultValue={defaultValue} />
                     )
-                    : children
+                    : text
             }
 
             <TouchView onPress={() => setEditing(!editing)}>

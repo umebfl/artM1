@@ -889,6 +889,45 @@ export const reducer = (state, action) => {
                         //             "list": [
                         
                         // return newState
+
+                        // 修正分类id
+                        // const newState = {
+                        //     ...state,
+                        //     data: {
+                        //         ...state.data,
+                        //         node: R.compose(
+                        //             R.map(
+                        //                 v => {
+                        //                     const category = state.data.category.interactive
+                        //                     // const category = state.data.category.server
+                        //                     // const category = state.data.category.theory
+                        //                     let categoryId 
+
+                        //                     R.map(
+                        //                         v2 => {
+                        //                             if(v.categoryName === v2.name) {
+                        //                                 categoryId = v2.id
+                        //                             }
+                        //                         }
+                        //                     )(category)
+
+                        //                     if(categoryId) {
+                        //                         return ({
+                        //                             ...v,
+                        //                             categoryId,
+                        //                         })
+                        //                     } else {
+                        //                         return v
+                        //                     }
+
+                        //                 }
+                        //             )
+                        //         )(state.data.node),
+                        //     },
+                        // }
+
+                        // return newState
+
                         return state
                     },
                 ],
@@ -1040,11 +1079,9 @@ export const reducer = (state, action) => {
                 ],
 
                 [
-                    R.equals('removeCategoryLv1'),
+                    R.equals('removeNode'),
                     () => {
                         const {
-                            modKey,
-                            categoryId,
                             nodeId,
                         } = action.payload
 
@@ -1073,6 +1110,10 @@ export const reducer = (state, action) => {
                         //     {...category, name: value},
                         // )(state)
 
+                        const node = state.data.node[nodeId]
+                        const modKey = node.mod
+                        const categoryId = node.categoryId
+
                         const newState = {
                             ...state,
                             // 从node中移除
@@ -1089,7 +1130,7 @@ export const reducer = (state, action) => {
                                             list: R.filter(v => v !== nodeId)(state.data.category[modKey][categoryId].list),
                                         },
                                     },
-                                }
+                                },
                             },
                         }
 
@@ -1240,15 +1281,13 @@ export const reducer = (state, action) => {
                                     ...state.data.node,
                                     [node.id]: node,
                                 },
-                                category: {
+                                category: type === 'edit' ? state.data.category : {
                                     ...state.data.category,
                                     [node.mod]: {
                                         ...state.data.category[node.mod],
                                         [node.categoryId]: {
                                             ...state.data.category[node.mod][node.categoryId],
-                                            ...(type === 'edit'
-                                                ? {}
-                                                : { list: [id, ...state.data.category[node.mod][node.categoryId].list,], }),
+                                            list: [id, ...state.data.category[node.mod][node.categoryId].list,],
                                         },
                                     },
                                 },

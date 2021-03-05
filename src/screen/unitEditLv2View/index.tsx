@@ -39,7 +39,6 @@ import {
     DefText,
 } from '../../component/Text'
 import WingBlank from '../../component/WingBlank'
-import { T } from 'ts-toolbelt'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)

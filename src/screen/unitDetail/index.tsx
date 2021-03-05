@@ -36,7 +36,7 @@ import {
 
 const moban = require('../../../resource/image/template/m2.jpeg')
 
-export const DetailHead = ({payload, imageSize, navigation, theme}) => {
+export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 
     const handlePress = text => {
         // Clipboard.setString(text)
@@ -111,9 +111,19 @@ export default ({ route, navigation }) => {
 
     const {
         theme,
+        data: {
+            node,
+        },
     } = state
 
     const { payload, } = route.params
+
+    const data = node[payload.id]
+
+    if (!data) {
+        navigation.goBack()
+        return <View></View>
+    }
 
     const imageSize = 124
     const imageInnerSize = 124 * 0.68
@@ -121,7 +131,6 @@ export default ({ route, navigation }) => {
     const startTime = new Date()
 
     useEffect(() => {
-
         // 渲染计时 结束时间
         const endTime = new Date()
 
@@ -141,6 +150,14 @@ export default ({ route, navigation }) => {
 
     }, [])
 
+    const handleJumpDetail = () => {
+        navigation.push('unitEditLv1DetailView', {
+            modKey: data.mod,
+            categoryId: data.categoryId,
+            nodeId: data.id,
+        })
+    }
+
     return (
         <ImageBackground
             source={moban}
@@ -157,7 +174,24 @@ export default ({ route, navigation }) => {
             }
 
             <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
-                <ScreenHeader navigation={navigation} safeArea={true} />
+                <ScreenHeader
+                    right={
+                        <TouchView onPress={handleJumpDetail}>
+                            <View style={{
+                                marginRight: 20,
+                                // backgroundColor: 'red',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
+                                <Text style={{
+                                    color: theme.grey[0],
+                                    fontSize: 16,
+                                }}>编辑</Text>
+                            </View>
+                        </TouchView>
+                    }
+                    navigation={navigation}
+                    safeArea={true} />
 
                 <ScrollView
                     showsVerticalScrollIndicator={false}
@@ -166,7 +200,7 @@ export default ({ route, navigation }) => {
                     }}
                     style={{ flex: 1, }}>
 
-                    <DetailHead payload={payload} imageSize={imageSize} navigation={navigation} theme={theme} />
+                    <DetailHead payload={data} imageSize={imageSize} navigation={navigation} theme={theme} />
 
                     <ScrollableTabView
                         prerenderingSiblingsNumber={Infinity}
@@ -175,9 +209,9 @@ export default ({ route, navigation }) => {
                             marginRight: 10,
                         }}
                         renderTabBar={payload => <TabBar width={Dimensions.get('window').width - 20} {...payload} />} >
-                        <ScrollItem tabLabel='特性' navigation={navigation} data={payload.features} />
-                        <ScrollItem tabLabel='文章' navigation={navigation} data={payload.article} />
-                        <ScrollItem tabLabel='API' navigation={navigation} data={payload.api} />
+                        <ScrollItem tabLabel='特性' navigation={navigation} data={data.features} />
+                        <ScrollItem tabLabel='文章' navigation={navigation} data={data.article} />
+                        <ScrollItem tabLabel='API' navigation={navigation} data={data.api} />
                     </ScrollableTabView>
                 </ScrollView>
             </View>

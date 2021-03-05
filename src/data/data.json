@@ -261,7 +261,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "6-1614845789307",
       "categoryName": "代码管理"
     },
     "12-1614846949643": {
@@ -283,7 +283,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "7-1614845789307",
       "categoryName": "项目管理"
     },
     "13-1614846949643": {
@@ -305,7 +305,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "7-1614845789307",
       "categoryName": "项目管理"
     },
     "14-1614846949643": {
@@ -327,7 +327,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "8-1614845789307",
       "categoryName": "调试"
     },
     "15-1614846949643": {
@@ -349,7 +349,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "8-1614845789307",
       "categoryName": "调试"
     },
     "16-1614846949643": {
@@ -371,7 +371,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "9-1614845789307",
       "categoryName": "跟踪"
     },
     "17-1614846949643": {
@@ -393,7 +393,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "9-1614845789307",
       "categoryName": "跟踪"
     },
     "18-1614846949643": {
@@ -415,7 +415,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "11-1614845789307",
       "categoryName": "交互设计"
     },
     "19-1614846949643": {
@@ -456,7 +456,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "18-1614845789307",
       "categoryName": "编辑器"
     },
     "20-1614846949643": {
@@ -477,7 +477,7 @@
       "step": "标记",
       "api": [],
       "mod": "theory",
-      "categoryId": "2-1614845806017",
+      "categoryId": "18-1614845789307",
       "categoryName": "编辑器"
     },
     "21-1614846973984": {
@@ -829,7 +829,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "37-1614846977043": {
@@ -1085,7 +1085,7 @@
       "platform": "全部",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "38-1614846977043": {
@@ -1107,7 +1107,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "39-1614846977043": {
@@ -1129,7 +1129,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "40-1614846977043": {
@@ -1151,7 +1151,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "41-1614846977043": {
@@ -1173,7 +1173,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "42-1614846977043": {
@@ -1195,7 +1195,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "0-1614845806017",
       "categoryName": "语言"
     },
     "43-1614846977043": {
@@ -1490,7 +1490,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "1-1614845806017",
       "categoryName": "视图"
     },
     "44-1614846977043": {
@@ -1877,7 +1877,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "1-1614845806017",
       "categoryName": "视图"
     },
     "45-1614846977043": {
@@ -1913,7 +1913,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "2-1614845806017",
       "categoryName": "数据"
     },
     "46-1614846977043": {
@@ -1948,7 +1948,7 @@
       "ftStep": "标记",
       "step": "标记",
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "2-1614845806017",
       "categoryName": "数据"
     },
     "47-1614846977043": {
@@ -1970,7 +1970,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "2-1614845806017",
       "categoryName": "数据"
     },
     "48-1614846977043": {
@@ -1992,7 +1992,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "3-1614845806017",
       "categoryName": "数据可视化"
     },
     "49-1614846977043": {
@@ -2013,7 +2013,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "3-1614845806017",
       "categoryName": "数据可视化"
     },
     "50-1614846977043": {
@@ -2034,7 +2034,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "3-1614845806017",
       "categoryName": "数据可视化"
     },
     "51-1614846977043": {
@@ -2055,7 +2055,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "3-1614845806017",
       "categoryName": "数据可视化"
     },
     "52-1614846977043": {
@@ -2083,7 +2083,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "3-1614845806017",
       "categoryName": "数据可视化"
     },
     "53-1614846977043": {
@@ -2111,7 +2111,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "4-1614845806017",
       "categoryName": "路由导航"
     },
     "54-1614846977043": {
@@ -2133,7 +2133,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "4-1614845806017",
       "categoryName": "路由导航"
     },
     "55-1614846977043": {
@@ -2154,7 +2154,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "4-1614845806017",
       "categoryName": "路由导航"
     },
     "56-1614846977043": {
@@ -2175,7 +2175,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "4-1614845806017",
       "categoryName": "路由导航"
     },
     "57-1614846977043": {
@@ -2361,7 +2361,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "5-1614845806017",
       "categoryName": "测试"
     },
     "58-1614846977043": {
@@ -2383,7 +2383,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "6-1614845806017",
       "categoryName": "工程化"
     },
     "59-1614846977043": {
@@ -2454,7 +2454,7 @@
       "platform": "全部",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "6-1614845806017",
       "categoryName": "工程化"
     },
     "60-1614846977043": {
@@ -2476,7 +2476,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "6-1614845806017",
       "categoryName": "工程化"
     },
     "61-1614846977043": {
@@ -2497,7 +2497,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "6-1614845806017",
       "categoryName": "工程化"
     },
     "62-1614846977043": {
@@ -2519,7 +2519,7 @@
       "platform": "全部",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "6-1614845806017",
       "categoryName": "工程化"
     },
     "63-1614846977043": {
@@ -2538,7 +2538,7 @@
       "ftStep": "标记",
       "step": "标记",
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件",
       "features": {},
       "api": [],
@@ -2685,7 +2685,7 @@
       "article": {},
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "65-1614846977043": {
@@ -2706,7 +2706,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "66-1614846977043": {
@@ -2727,7 +2727,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "67-1614846977043": {
@@ -2749,7 +2749,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "68-1614846977043": {
@@ -2770,7 +2770,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "69-1614846977043": {
@@ -2792,7 +2792,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "70-1614846977043": {
@@ -2814,7 +2814,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "71-1614846977043": {
@@ -2835,7 +2835,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "72-1614846977043": {
@@ -2856,7 +2856,7 @@
       "version": "-",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "73-1614846977043": {
@@ -2877,7 +2877,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "7-1614845806017",
       "categoryName": "UI组件"
     },
     "74-1614846977044": {
@@ -2899,7 +2899,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "8-1614845806017",
       "categoryName": "集成框架"
     },
     "75-1614846977044": {
@@ -2921,7 +2921,7 @@
       "step": "标记",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "9-1614845806017",
       "categoryName": "动画"
     },
     "76-1614846977044": {
@@ -2943,7 +2943,7 @@
       "version": "-",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "10-1614845806017",
       "categoryName": "辅助开发"
     },
     "77-1614846977044": {
@@ -2965,7 +2965,7 @@
       "version": "-",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "10-1614845806017",
       "categoryName": "辅助开发"
     },
     "78-1614846977044": {
@@ -2987,7 +2987,7 @@
       "version": "-",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "10-1614845806017",
       "categoryName": "辅助开发"
     },
     "79-1614846977044": {
@@ -3009,7 +3009,7 @@
       "version": "-",
       "api": [],
       "mod": "interactive",
-      "categoryId": "6-1614845799343",
+      "categoryId": "10-1614845806017",
       "categoryName": "辅助开发"
     }
   },

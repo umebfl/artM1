@@ -45,6 +45,7 @@ import {
     DefText,
 } from '../../component/Text'
 import idBuilder from '../../util/idBuilder'
+import { When } from '../../util/jsx'
 
 // interface DetailPayload {
 //     id: string | null
@@ -82,7 +83,8 @@ const initState: SkillUnit = {
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
-    
+    const actionSheetREl = useRef(null)
+
     const {
         theme,
         navigation: {
@@ -106,7 +108,7 @@ export default ({ route, navigation }) => {
 
     let data = initState
 
-    if (nodeId !== null) {
+    if (nodeId !== null && node[nodeId]) {
         data = node[nodeId]
     }
 
@@ -155,12 +157,39 @@ export default ({ route, navigation }) => {
         navigation.goBack()
     }
 
+    const handleCategoryDelActionSheet = () => {
+        actionSheetREl.current.show()
+    }
+
+    const handleNodeDelPress = (index) => {
+        if (index === 0) {
+            dispatch({
+                mod: 'system',
+                type: 'removeNode',
+                payload: {
+                    nodeId: data.id,
+                },
+            })
+
+            navigation.goBack()
+        }
+    }
+
     return (
         <View style={{
             flex: 1,
             backgroundColor: 'rgb(247, 248, 249)',
             paddingBottom: 50,
         }}>
+            <ActionSheet
+                ref={actionSheetREl}
+                title={'确认删除节点?'}
+                options={['删除节点', '取消']}
+                cancelButtonIndex={1}
+                destructiveButtonIndex={0}
+                onPress={handleNodeDelPress}
+            />
+
             <ScreenHeader
                 right={
                     <TouchView onPress={handleSave}>
@@ -243,6 +272,29 @@ export default ({ route, navigation }) => {
                             { label: '精通', value: SkillStep.best, },
                         ]}
                         setSelectedValue={setPickStep} />
+
+                    <When test={nodeId} node={() => (
+                        <TouchView onPress={handleCategoryDelActionSheet}>
+                            <View style={{
+                                marginTop: 50,
+                                marginBottom: 30,
+                                backgroundColor: theme.red[4],
+                                borderRadius: 30,
+                                padding: 12,
+                                flex: 1,
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                aliginItem: 'center',
+                            }}>
+                                <Text style={{
+                                    color: 'white',
+                                    fontSize: 14,
+                                    // fontWeight: 'bold',
+                                }}>删除节点</Text>
+                            </View>
+                        </TouchView>
+                    )} />
+
                 </Padding>
             </ScrollView>
         </View >
@@ -347,7 +399,7 @@ const PickerItem = (payload: PickerItemPayload) => {
             <DefText style={{
                 marginRight: 10,
             }}>{payload.title}:</DefText>
-    
+
             <Picker
                 selectedValue={payload.value}
                 style={{
