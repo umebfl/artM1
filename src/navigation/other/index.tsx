@@ -73,25 +73,25 @@ export default ({ navigation, }) => {
 
     const startTime = new Date()
 
-    useEffect(() => {
-        const endTime = new Date()
+    // useEffect(() => {
+    //     const endTime = new Date()
     
-        dispatch({
-          mod: 'debug',
-          type: 'renderTime_add',
-          payload: {
-            // 模块
-            mod: 'other',
-            name: '设置',
-            // startTime,
-            // endTime,
-            // ms
-            time: endTime - startTime,
-          },
-        })
-      }, [])
+    //     dispatch({
+    //       mod: 'debug',
+    //       type: 'renderTime_add',
+    //       payload: {
+    //         // 模块
+    //         mod: 'other',
+    //         name: '设置',
+    //         // startTime,
+    //         // endTime,
+    //         // ms
+    //         time: endTime - startTime,
+    //       },
+    //     })
+    //   }, [])
 
-    info('other render')
+    info(`模块[其他]]执行渲染`)
 
     return (
         <ScreenWrapper

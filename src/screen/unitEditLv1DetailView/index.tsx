@@ -46,6 +46,7 @@ import {
 } from '../../component/Text'
 import idBuilder from '../../util/idBuilder'
 import { When } from '../../util/jsx'
+import { info } from '../../util/log'
 
 // interface DetailPayload {
 //     id: string | null
@@ -82,6 +83,7 @@ const initState: SkillUnit = {
 }
 
 export default ({ route, navigation }) => {
+    info('[编辑][节点详情页]执行渲染')
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
 
@@ -125,6 +127,13 @@ export default ({ route, navigation }) => {
     const [pickFtStep, setPickFtStep] = useState(data.ftStep || SkillStep.flag)
     const [pickStep, setPickStep] = useState(data.step || SkillStep.flag)
 
+    useEffect(() => {
+        info('[编辑][节点详情页]初始化完成')
+
+        return () => {
+            info('[编辑][节点详情页]执行卸载')
+        }
+      }, [])
 
     const handleSave = () => {
         const node: SkillUnit = {
@@ -163,6 +172,8 @@ export default ({ route, navigation }) => {
 
     const handleNodeDelPress = (index) => {
         if (index === 0) {
+            navigation.goBack()
+
             dispatch({
                 mod: 'system',
                 type: 'removeNode',
@@ -171,7 +182,6 @@ export default ({ route, navigation }) => {
                 },
             })
 
-            navigation.goBack()
         }
     }
 
@@ -213,9 +223,9 @@ export default ({ route, navigation }) => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Padding>
                     <InputItem ref={inputName} title={'名称'} theme={theme} defaultValue={data.name} />
-                    <InputItem ref={inputVersion} title={'版本'} theme={theme} defaultValue={data.version} />
                     <InputItem ref={inputDef} title={'简述'} theme={theme} defaultValue={data.def} />
                     <InputItem ref={inputUrl} title={'网址'} theme={theme} defaultValue={data.url} />
+                    <InputItem ref={inputVersion} title={'版本'} theme={theme} defaultValue={data.version} />
                     <SwitchItem title={'主要节点'} theme={theme} value={switchMajor} handlePress={setSwitchMajor} />
                     <InputItem ref={inputLogoUrl} title={'logoUrl'} theme={theme} defaultValue={data.logo ? data.logo.url : 'github'} />
                     <SwitchItem title={'logoFull'} theme={theme} value={switchLogoFull} handlePress={setSwitchLogoFull} />

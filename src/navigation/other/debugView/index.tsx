@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useState, useEffect,} from 'react'
+import React, { useContext, useState, useEffect, } from 'react'
 
 import {
     SafeAreaView,
@@ -27,6 +27,7 @@ import TouchView from '../../../component/TouchView'
 import { debug, logState, level, clear, } from '../../../util/log'
 
 import Context from '../../../reducer'
+import { fixZeroEnd } from '../../../util/string'
 
 const ITEM_HEIGHT = 25
 
@@ -48,26 +49,26 @@ export default ({ navigation, }) => {
         setLog([])
     }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    //     // 渲染计时 结束时间
+    //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'other - debugView',
-                name: '调试面板',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     dispatch({
+    //         mod: 'debug',
+    //         type: 'renderTime_add',
+    //         payload: {
+    //             // 模块
+    //             mod: 'other - debugView',
+    //             name: '调试面板',
+    //             // startTime,
+    //             // endTime,
+    //             // ms
+    //             time: endTime - startTime,
+    //         },
+    //     })
 
-    }, [])
+    // }, [])
 
     return (
         <ScreenWrapper ContentViewType={'View'} navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
@@ -122,8 +123,14 @@ export default ({ navigation, }) => {
                             // height: ITEM_HEIGHT,
                             paddingBottom: 10,
                         }}>
-                            <Text style={{ marginRight: 5, fontSize: 12, }}>
-                                {item.time.getMinutes()}:{item.time.getSeconds()}.{item.time.getMilliseconds()}s
+                            <Text style={{ marginRight: 5, fontSize: 12, width: 60, }}>
+                                {
+                                    fixZeroEnd(item.time.getMinutes(), 2)
+                                }:{
+                                    fixZeroEnd(item.time.getSeconds(), 2)
+                                }.{
+                                    fixZeroEnd(item.time.getMilliseconds(), 3)
+                                }
                             </Text>
                             <Text style={{ marginRight: 5, color: theme.main, fontSize: 12, }}>
                                 {

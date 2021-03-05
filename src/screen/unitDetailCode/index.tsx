@@ -47,26 +47,26 @@ export default ({ route, navigation }) => {
 
     const startTime = new Date()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    //     // 渲染计时 结束时间
+    //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - unitDetailCode',
-                name: '技能代码详情页',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     dispatch({
+    //         mod: 'debug',
+    //         type: 'renderTime_add',
+    //         payload: {
+    //             // 模块
+    //             mod: 'screen - unitDetailCode',
+    //             name: '技能代码详情页',
+    //             // startTime,
+    //             // endTime,
+    //             // ms
+    //             time: endTime - startTime,
+    //         },
+    //     })
 
-    }, [])
+    // }, [])
 
     return (
 

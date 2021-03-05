@@ -24,6 +24,7 @@ import TouchView from '../../component/TouchView'
 import ScreenHeader from '../../component/ScreenHeader'
 
 import Context from '../../reducer'
+import { info } from '../../util/log'
 
 // const { StatusBarManager } = NativeModules
 
@@ -39,6 +40,8 @@ import Context from '../../reducer'
 // }
 
 export default ({ route, navigation }) => {
+
+    info('webview render')
 
     // 渲染计时 起始时间
     const startTime = new Date()
@@ -71,7 +74,9 @@ export default ({ route, navigation }) => {
     const iconColorDisable = theme.grey[0]
 
     // 存在阅读清单内
-    let onToRead = !!toRead.node[currentUrl]
+    // let onToRead = !!toRead.node[currentUrl]
+
+    const [onToRead, setOnToRead] = useState(!!toRead.node[currentUrl])
 
     // R.map(
     //     v => {
@@ -94,6 +99,7 @@ export default ({ route, navigation }) => {
     }
 
     const handleToRead = () => {
+        setOnToRead(!onToRead)
         if (onToRead) {
             dispatch({
                 mod: 'info_toRead',
@@ -134,26 +140,27 @@ export default ({ route, navigation }) => {
         Clipboard.setString(text)
     }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    //     //     // 渲染计时 结束时间
+    //     //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - readWebView',
-                name: 'webView',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     //     dispatch({
+    //     //         mod: 'debug',
+    //     //         type: 'renderTime_add',
+    //     //         payload: {
+    //     //             // 模块
+    //     //             mod: 'screen - readWebView',
+    //     //             name: 'webView',
+    //     //             // startTime,
+    //     //             // endTime,
+    //     //             // ms
+    //     //             time: endTime - startTime,
+    //     //         },
+    //     //     })
+    //     info('webview rendered')
 
-    }, [])
+    // }, [toRead])
 
     return (
         <View style={{
@@ -233,26 +240,36 @@ export default ({ route, navigation }) => {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
-                    <TouchView onPress={handleHeart}>
-                        <Icon style={{ width: iconSize, height: iconSize }} name={'heart-multiple-outline'} size={iconSize} color={iconColor} />
-                    </TouchView>
-                    <TouchView onPress={handleToRead}>
-                        <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={onToRead ? theme.green[6] : iconColor} />
-                    </TouchView>
-                </View>
-                <View style={{
-                    width: 150,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                }}>
                     <TouchView onPress={() => canGoBack && handleLeft()}>
                         <Icon style={{ width: iconSize, height: iconSize, }}
-                            name={'arrow-left-circle-outline'} size={iconSize} color={canGoBack ? iconColor : iconColorDisable} />
+                            name={'arrow-left'} size={iconSize} color={canGoBack ? iconColor : iconColorDisable} />
                     </TouchView>
                     <TouchView onPress={() => canGoForward && handleRight()}>
                         <Icon style={{ width: iconSize, height: iconSize, }}
-                            name={'arrow-right-circle-outline'} size={iconSize} color={canGoForward ? iconColor : iconColorDisable} />
+                            name={'arrow-right'} size={iconSize} color={canGoForward ? iconColor : iconColorDisable} />
                     </TouchView>
+                    {/* <TouchView onPress={handleHeart}>
+                        <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={iconColor} />
+                    </TouchView> */}
+                </View>
+
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                }}>
+                    <TouchView onPress={handleToRead}>
+                        <Icon style={{ width: iconSize, height: iconSize }}
+                            name={'heart-multiple-outline'} size={iconSize}
+                            color={onToRead ? theme.green[5] : iconColor} />
+                    </TouchView>
+                </View>
+
+                <View style={{
+                    width: 100,
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end',
+                }}>
                     <TouchView onPress={handleReload}>
                         <Icon style={{ width: iconSize, height: iconSize, }} name={'reload'} size={iconSize} color={iconColor} />
                     </TouchView>

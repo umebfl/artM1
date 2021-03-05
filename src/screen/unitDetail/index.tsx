@@ -130,25 +130,25 @@ export default ({ route, navigation }) => {
 
     const startTime = new Date()
 
-    useEffect(() => {
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    // useEffect(() => {
+    //     // 渲染计时 结束时间
+    //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - unitDetail',
-                name: '技能详情页',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     dispatch({
+    //         mod: 'debug',
+    //         type: 'renderTime_add',
+    //         payload: {
+    //             // 模块
+    //             mod: 'screen - unitDetail',
+    //             name: '技能详情页',
+    //             // startTime,
+    //             // endTime,
+    //             // ms
+    //             time: endTime - startTime,
+    //         },
+    //     })
 
-    }, [])
+    // }, [])
 
     const handleJumpDetail = () => {
         navigation.push('unitEditLv1DetailView', {
@@ -157,6 +157,8 @@ export default ({ route, navigation }) => {
             nodeId: data.id,
         })
     }
+
+    const scrollViewWidth = Dimensions.get('window').width - 30
 
     return (
         <ImageBackground
@@ -205,13 +207,30 @@ export default ({ route, navigation }) => {
                     <ScrollableTabView
                         prerenderingSiblingsNumber={Infinity}
                         style={{
-                            marginLeft: 10,
-                            marginRight: 10,
+                            marginLeft: 15,
+                            marginRight: 15,
                         }}
-                        renderTabBar={payload => <TabBar width={Dimensions.get('window').width - 20} {...payload} />} >
-                        <ScrollItem tabLabel='特性' navigation={navigation} data={data.features} />
-                        <ScrollItem tabLabel='文章' navigation={navigation} data={data.article} />
-                        <ScrollItem tabLabel='API' navigation={navigation} data={data.api} />
+                        renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
+                        <ScrollItem
+                            tabLabel='特性'
+                            width={scrollViewWidth}
+                            navigation={navigation}
+                            data={data.features}
+                            theme={theme} />
+
+                        <ScrollItem
+                            tabLabel='文章'
+                            width={scrollViewWidth}
+                            navigation={navigation}
+                            data={data.article}
+                            theme={theme} />
+
+                        <ScrollItem
+                            tabLabel='API'
+                            width={scrollViewWidth}
+                            navigation={navigation}
+                            data={data.api}
+                            theme={theme} />
                     </ScrollableTabView>
                 </ScrollView>
             </View>
@@ -219,12 +238,40 @@ export default ({ route, navigation }) => {
     )
 }
 
-export const ScrollItem = ({ navigation, data }) => {
+export const ScrollItem = ({ tabLabel, navigation, data, theme, width }) => {
 
     const fixData = R.values(data)
 
     return (
-        <View>
+        <View style={{
+            paddingBottom: 30,
+            width: width,
+        }}>
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+            }}>
+                <TouchView onPress={() => { }}>
+                    <View style={{
+                        width: 40,
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: 40,
+                        borderRadius: 20,
+                        marginBottom: 10,
+                        borderStyle: 'dashed',
+                        borderWidth: theme.borderWidth,
+                        borderColor: theme.borderColor,
+                        backgroundColor: 'white',
+                        // opacity: 0.8,
+                    }}>
+                        <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
+                        {/* <DefText>添加</DefText> */}
+                    </View>
+                </TouchView>
+            </View>
+
             {
                 fixData && fixData.length > 0
                     ? null
@@ -232,8 +279,9 @@ export const ScrollItem = ({ navigation, data }) => {
                         <View style={{
                             flex: 1,
                             height: 500,
-                            paddingTop: 200,
+                            paddingTop: 100,
                             alignItems: 'center',
+                            // backgroundColor: 'red',
                         }}>
                             <DefText>暂无数据</DefText>
                         </View>

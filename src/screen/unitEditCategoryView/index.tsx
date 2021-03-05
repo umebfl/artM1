@@ -39,8 +39,10 @@ import {
 } from '../../component/Text'
 import WingBlank from '../../component/WingBlank'
 import { IfElse, RMap, When } from '../../util/jsx'
+import { info } from '../../util/log'
 
 export default ({ route, navigation }) => {
+    info('[编辑][分类列表页]模块执行渲染')
     const { state, dispatch, } = useContext(Context)
 
     const inputEl = useRef(null)
@@ -69,6 +71,14 @@ export default ({ route, navigation }) => {
         name: tab[modKey].text,
         list: R.values(category[modKey]),
     }
+
+    useEffect(() => {
+        info('[编辑][分类列表页]初始化完成')
+
+        return () => {
+          info('[编辑][分类列表页]执行卸载')
+        }
+      }, [])
 
     const handleAdd = () => {
         if (newCategoryName) {

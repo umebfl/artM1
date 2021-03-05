@@ -92,26 +92,26 @@ export default ({ navigation, }) => {
     // })
     // alert(JSON.stringify(state.debug.renderTime))
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    //     // 渲染计时 结束时间
+    //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'other - dataView',
-                name: '数据浏览',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     dispatch({
+    //         mod: 'debug',
+    //         type: 'renderTime_add',
+    //         payload: {
+    //             // 模块
+    //             mod: 'other - dataView',
+    //             name: '数据浏览',
+    //             // startTime,
+    //             // endTime,
+    //             // ms
+    //             time: endTime - startTime,
+    //         },
+    //     })
 
-    }, [])
+    // }, [])
 
     return (
         <ScreenWrapper ContentViewType='View' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >

@@ -38,11 +38,14 @@ import { info, debug, } from './util/log'
 const RootStack = createStackNavigator()
 
 const App = () => {
+
+  info('===    渲染App   ===')
+
   const [state, dispatch] = useReducer(reducer, initState)
   const [inited, setInited] = useState(false)
 
   const init = async () => {
-    info('App init')
+    info('[App]执行初始化')
     const data = await getData()
 
     if (data) {
@@ -56,7 +59,7 @@ const App = () => {
     }
 
     setInited(true)
-    info('App inited')
+    info('[App]初始化完成')
   }
 
   useEffect(() => {
@@ -66,16 +69,21 @@ const App = () => {
       mod: 'system',
       type: 'fixdata',
     })
-  
+
+    return () => {
+      info('[App]执行卸载')
+    }
   }, [])
 
-  info('渲染App')
 
   if (inited === false) {
+    info('inited === false')
     return (
       <View>
       </View>
     )
+  } else {
+    info('inited === true')
   }
 
   return (
@@ -97,7 +105,7 @@ const App = () => {
           <RootStack.Screen name='about' component={About} />
           <RootStack.Screen name='dataView' component={DataView} />
           <RootStack.Screen name='debugView' component={DebugView} />
-          
+
         </RootStack.Navigator>
       </NavigationContainer>
     </RootContext.Provider>

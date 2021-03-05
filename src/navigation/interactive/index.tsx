@@ -38,25 +38,25 @@ export default ({ navigation, }) => {
         },
     } = state
 
-    useEffect(() => {
-        const endTime = new Date()
+    // useEffect(() => {
+    //     const endTime = new Date()
     
-        dispatch({
-          mod: 'debug',
-          type: 'renderTime_add',
-          payload: {
-            // 模块
-            mod: 'interactive',
-            name: '前端',
-            // startTime,
-            // endTime,
-            // ms
-            time: endTime - startTime,
-          },
-        })
-      }, [])
+    //     dispatch({
+    //       mod: 'debug',
+    //       type: 'renderTime_add',
+    //       payload: {
+    //         // 模块
+    //         mod: 'interactive',
+    //         name: '前端',
+    //         // startTime,
+    //         // endTime,
+    //         // ms
+    //         time: endTime - startTime,
+    //       },
+    //     })
+    //   }, [])
 
-    info('interactive render')
+    info(`模块[${interactive.text}]执行渲染`)
 
     const data = {
         name: interactive.text,
@@ -64,12 +64,13 @@ export default ({ navigation, }) => {
         chain: state.data.chain.interactive,
     }
 
-    const Node = () => <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
+    return <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
+    // const Node = () => <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
 
-    const node = useMemo(
-        () => <Node />,
-        [state.data]
-    )
+    // const node = useMemo(
+    //     () => <Node />,
+    //     [state.data]
+    // )
 
-    return <View style={{ flex: 1, }}>{node}</View>
+    // return <View style={{ flex: 1, }}>{node}</View>
 }

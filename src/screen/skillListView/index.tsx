@@ -172,6 +172,7 @@ export default (payload: payload) => {
                     )
                 }}
                 ListFooterComponent={() => {
+                    info('render ListFooterComponent')
                     if (list) {
                         return (
                             <View style={{

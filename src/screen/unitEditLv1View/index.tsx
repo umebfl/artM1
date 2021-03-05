@@ -41,8 +41,10 @@ import {
 } from '../../component/Text'
 import WingBlank from '../../component/WingBlank'
 import Paragraph from '../../component/Paragraph'
+import { info } from '../../util/log'
 
 export default ({ route, navigation }) => {
+    info('[编辑][分类详情页]模块执行渲染')
     const { state, dispatch, } = useContext(Context)
 
     const actionSheetREl = useRef(null)
@@ -69,6 +71,14 @@ export default ({ route, navigation }) => {
     } = route
 
     const data = category[modKey][categoryId]
+
+    useEffect(() => {
+        info('[编辑][分类详情页]初始化完成')
+
+        return () => {
+          info('[编辑][分类详情页]执行卸载')
+        }
+      }, [])
 
     // const handleDelPress = (index) => {
     //     if (index === 0) {
@@ -123,6 +133,8 @@ export default ({ route, navigation }) => {
                 return
             }
 
+            navigation.goBack()
+
             dispatch({
                 mod: 'system',
                 type: 'removeCategory',
@@ -131,8 +143,6 @@ export default ({ route, navigation }) => {
                     id: categoryIndex,
                 },
             })
-
-            navigation.goBack()
         }
     }
 

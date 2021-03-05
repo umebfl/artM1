@@ -37,40 +37,42 @@ export default ({ navigation, }) => {
         },
     } = state
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    //     // 渲染计时 结束时间
+    //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'server',
-                name: '后台',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     dispatch({
+    //         mod: 'debug',
+    //         type: 'renderTime_add',
+    //         payload: {
+    //             // 模块
+    //             mod: 'server',
+    //             name: '后台',
+    //             // startTime,
+    //             // endTime,
+    //             // ms
+    //             time: endTime - startTime,
+    //         },
+    //     })
 
-    }, [])
+    // }, [])
 
-    info('server render')
+    info(`模块[后台]]执行渲染`)
+
     const data = {
         name: server.text,
         category: state.data.category.server,
         chain: state.data.chain.server,
     }
 
-    const Node = () => <SkillListView navigation={navigation} data={data} modKey={'server'} />
+    return <SkillListView navigation={navigation} data={data} modKey={'server'} />
+    // const Node = () => <SkillListView navigation={navigation} data={data} modKey={'server'} />
 
-    const node = useMemo(
-        () => <Node />,
-        [data]
-    )
+    // const node = useMemo(
+    //     () => <Node />,
+    //     [data]
+    // )
 
-    return <View style={{ flex: 1, }}>{node}</View>
+    // return <View style={{ flex: 1, }}>{node}</View>
 }

@@ -13,6 +13,7 @@ import {
 } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import ScreenWrapper from '../../../component/ScreenWrapper'
 import ScreenHeader from '../../../component/ScreenHeader'
@@ -100,10 +101,20 @@ export default ({ navigation, }) => {
                     </View>
 
                     <View style={{
-                        marginTop: 6,
+                        marginTop: 8,
                     }}>
                         <Item title={'当前版本'} msg={'2.0.3'}></Item>
                         <Item title={'新版更新'} msg={'无新版'} last={true}></Item>
+                    </View>
+
+                    <View style={{
+                        marginTop: 300,
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        aliginItems: 'center',
+                    }}>
+                        <DefText style={{ fontStyle: 'italic', fontSize: 12, }}>By HuangAnqi with </DefText>
+                        <Icon name={'heart-multiple-outline'} size={12} color={theme.grey[0]} />
                     </View>
                 </ScrollView>
             </View>

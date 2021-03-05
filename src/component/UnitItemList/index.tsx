@@ -111,11 +111,12 @@ export default (payload: payload) => {
                                         </View>
                                         <View style={{
                                             width: 34,
+                                            // marginRight: -5,
                                             justifyContent: 'center',
                                             alignItems: 'center',
                                             // backgroundColor: 'rgba(0,0,0,0.2)',
                                         }}>
-                                            <Icon style={{ width: 20, height: 20, }} name={'dots-vertical'} size={20} color={theme.grey[0]} />
+                                            <Icon name={'dots-vertical'} size={20} color={theme.grey[0]} />
                                         </View>
                                     </View>
                                 </TouchView>

@@ -30,32 +30,32 @@ export default ({ route, navigation }) => {
 
     const startTime = new Date()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
+    //     // 渲染计时 结束时间
+    //     const endTime = new Date()
 
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - unitListView',
-                name: '全部技能列表',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
+    //     dispatch({
+    //         mod: 'debug',
+    //         type: 'renderTime_add',
+    //         payload: {
+    //             // 模块
+    //             mod: 'screen - unitListView',
+    //             name: '全部技能列表',
+    //             // startTime,
+    //             // endTime,
+    //             // ms
+    //             time: endTime - startTime,
+    //         },
+    //     })
 
-    }, [])
+    // }, [])
 
     return (
         <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
             <ScreenHeader navigation={navigation} backTitle={title} safeArea={true} />
 
-            <ScrollView style={{
+            <ScrollView showsVerticalScrollIndicator={false} style={{
                 paddingLeft: 20,
                 paddingRight: 20,
                 paddingTop: 15,
@@ -66,6 +66,7 @@ export default ({ route, navigation }) => {
                         (v ,k) => <SwipeListItem key={k} k={k} item={node[v]} list={data} theme={theme} navigation={navigation} />
                     )(data)
                 }
+                <View style={{ height: 50, }}></View>
             </ScrollView>
         </View>
     )
