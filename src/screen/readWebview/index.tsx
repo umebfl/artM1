@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useState, useContext, useRef, useEffect, } from 'react'
+import React, { useState, useContext, useRef, useEffect, useMemo, } from 'react'
 
 import {
     SafeAreaView,
@@ -41,7 +41,7 @@ import { info } from '../../util/log'
 
 export default ({ route, navigation }) => {
 
-    info('webview render')
+    info('[Webview]: 入口')
 
     // 渲染计时 起始时间
     const startTime = new Date()
@@ -162,119 +162,126 @@ export default ({ route, navigation }) => {
 
     // }, [toRead])
 
-    return (
-        <View style={{
-            flex: 1,
-            // paddingTop: statusBarHeight,
-            backgroundColor: theme.navigationTabBarBackgound,
-        }}>
-            {
-                fullScreen
-                    ? (
-                        <View style={{
-                            // height: 100,
-                            // width: 100,
-                            top: statusBarHeight + 4,
-                            // bottom: 100,
-                            right: 8,
-                            // left: 100,
-                            position: 'absolute',
-                            // backgroundColor: 'red',
-                            zIndex: 10,
-                        }}>
-                            <TouchView onPress={handleToggleFullScreen}>
-                                <Icon name={'crop-free'} size={30} color={theme.grey[0]} />
-                            </TouchView>
-                        </View>
-                    )
-                    : (
-                        <ScreenHeader
-                            right={
-                                <View style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center',
-                                }}>
-                                    <TouchView onPress={() => handleCopyUrl(url)}>
-                                        <Icon style={{ marginRight: 4, }}
-                                            name={'content-copy'} size={26} color={theme.grey[0]} />
-                                    </TouchView>
+    const node = useMemo(
+        () => {
 
+            return (
+                <View style={{
+                    flex: 1,
+                    // paddingTop: statusBarHeight,
+                    backgroundColor: theme.navigationTabBarBackgound,
+                }}>
+                    {
+                        fullScreen
+                            ? (
+                                <View style={{
+                                    // height: 100,
+                                    // width: 100,
+                                    top: statusBarHeight + 4,
+                                    // bottom: 100,
+                                    right: 8,
+                                    // left: 100,
+                                    position: 'absolute',
+                                    // backgroundColor: 'red',
+                                    zIndex: 10,
+                                }}>
                                     <TouchView onPress={handleToggleFullScreen}>
-                                        <Icon style={{ marginRight: 8, }}
-                                            name={'crop-free'} size={30} color={theme.grey[0]} />
+                                        <Icon name={'crop-free'} size={30} color={theme.grey[0]} />
                                     </TouchView>
                                 </View>
-                            }
-                            safeArea={true}
-                            navigation={navigation}
-                            title={pageTitle} />
-                    )
-            }
+                            )
+                            : (
+                                <ScreenHeader
+                                    right={
+                                        <View style={{
+                                            flexDirection: 'row',
+                                            alignItems: 'center',
+                                        }}>
+                                            <TouchView onPress={() => handleCopyUrl(url)}>
+                                                <Icon style={{ marginRight: 4, }}
+                                                    name={'content-copy'} size={26} color={theme.grey[0]} />
+                                            </TouchView>
 
-            <WebView
-                useWebKit={true}
-                startInLoadingState={true}
-                onNavigationStateChange={handleJump}
-                ref={webRef}
-                style={{
-                    flex: 1,
-                    backgroundColor: theme.navigationTabBarBackgound,
-                }} source={{ uri: url }} />
+                                            <TouchView onPress={handleToggleFullScreen}>
+                                                <Icon style={{ marginRight: 8, }}
+                                                    name={'crop-free'} size={30} color={theme.grey[0]} />
+                                            </TouchView>
+                                        </View>
+                                    }
+                                    safeArea={true}
+                                    navigation={navigation}
+                                    title={pageTitle} />
+                            )
+                    }
 
-            <View style={{
-                // backgroundColor: 'red',
-                // paddintBottom: statusBarHeight,
-                borderTopWidth: theme.borderWidth,
-                borderTopColor: theme.borderColor,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                height: fullScreen ? 0 : statusBarHeight + 20,
-                overflow: 'hidden',
-                paddingLeft: 20,
-                paddingRight: 20,
-                paddingTop: 4,
-                paddingright: 4,
-            }}>
-                <View style={{
-                    width: 100,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                }}>
-                    <TouchView onPress={() => canGoBack && handleLeft()}>
-                        <Icon style={{ width: iconSize, height: iconSize, }}
-                            name={'arrow-left'} size={iconSize} color={canGoBack ? iconColor : iconColorDisable} />
-                    </TouchView>
-                    <TouchView onPress={() => canGoForward && handleRight()}>
-                        <Icon style={{ width: iconSize, height: iconSize, }}
-                            name={'arrow-right'} size={iconSize} color={canGoForward ? iconColor : iconColorDisable} />
-                    </TouchView>
-                    {/* <TouchView onPress={handleHeart}>
-                        <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={iconColor} />
-                    </TouchView> */}
+                    <WebView
+                        useWebKit={true}
+                        startInLoadingState={true}
+                        onNavigationStateChange={handleJump}
+                        ref={webRef}
+                        style={{
+                            flex: 1,
+                            backgroundColor: theme.navigationTabBarBackgound,
+                        }} source={{ uri: url }} />
+
+                    <View style={{
+                        // backgroundColor: 'red',
+                        // paddintBottom: statusBarHeight,
+                        borderTopWidth: theme.borderWidth,
+                        borderTopColor: theme.borderColor,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        height: fullScreen ? 0 : statusBarHeight + 20,
+                        overflow: 'hidden',
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        paddingTop: 4,
+                        paddingright: 4,
+                    }}>
+                        <View style={{
+                            width: 100,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                        }}>
+                            <TouchView onPress={() => canGoBack && handleLeft()}>
+                                <Icon style={{ width: iconSize, height: iconSize, }}
+                                    name={'arrow-left'} size={iconSize} color={canGoBack ? iconColor : iconColorDisable} />
+                            </TouchView>
+                            <TouchView onPress={() => canGoForward && handleRight()}>
+                                <Icon style={{ width: iconSize, height: iconSize, }}
+                                    name={'arrow-right'} size={iconSize} color={canGoForward ? iconColor : iconColorDisable} />
+                            </TouchView>
+                            {/* <TouchView onPress={handleHeart}>
+                                <Icon style={{ width: iconSize, height: iconSize }} name={'tooltip-plus-outline'} size={iconSize} color={iconColor} />
+                            </TouchView> */}
+                        </View>
+
+                        <View style={{
+                            flex: 1,
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                        }}>
+                            <TouchView onPress={handleToRead}>
+                                <Icon style={{ width: iconSize, height: iconSize }}
+                                    name={'heart-multiple-outline'} size={iconSize}
+                                    color={onToRead ? theme.green[5] : iconColor} />
+                            </TouchView>
+                        </View>
+
+                        <View style={{
+                            width: 100,
+                            flexDirection: 'row',
+                            justifyContent: 'flex-end',
+                        }}>
+                            <TouchView onPress={handleReload}>
+                                <Icon style={{ width: iconSize, height: iconSize, }} name={'reload'} size={iconSize} color={iconColor} />
+                            </TouchView>
+                        </View>
+                    </View>
                 </View>
-
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                }}>
-                    <TouchView onPress={handleToRead}>
-                        <Icon style={{ width: iconSize, height: iconSize }}
-                            name={'heart-multiple-outline'} size={iconSize}
-                            color={onToRead ? theme.green[5] : iconColor} />
-                    </TouchView>
-                </View>
-
-                <View style={{
-                    width: 100,
-                    flexDirection: 'row',
-                    justifyContent: 'flex-end',
-                }}>
-                    <TouchView onPress={handleReload}>
-                        <Icon style={{ width: iconSize, height: iconSize, }} name={'reload'} size={iconSize} color={iconColor} />
-                    </TouchView>
-                </View>
-            </View>
-        </View>
+            )
+        }, [onToRead]
     )
+
+    return <View style={{ flex: 1, }}>{node}</View>
 }

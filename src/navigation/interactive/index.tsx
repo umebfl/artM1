@@ -23,6 +23,8 @@ import { info, debug, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
+    info('[前端]: 入口')
+
     const startTime = new Date()
 
     const { state, dispatch, } = useContext(Context)
@@ -56,21 +58,19 @@ export default ({ navigation, }) => {
     //     })
     //   }, [])
 
-    info(`模块[${interactive.text}]执行渲染`)
-
     const data = {
         name: interactive.text,
         category: state.data.category.interactive,
         chain: state.data.chain.interactive,
     }
 
-    return <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
-    // const Node = () => <SkillListView navigation={navigation} data={data} modKey={'interactive'} />
+    const node = useMemo(
+        () => {
+            info(`模块[前端]]useMemo执行渲染`)
+            return <SkillListView navigation={navigation} data={data} modKey={'theory'} />
+        },
+        [state.data.category.interactive, state.data.node]
+    )
 
-    // const node = useMemo(
-    //     () => <Node />,
-    //     [state.data]
-    // )
-
-    // return <View style={{ flex: 1, }}>{node}</View>
+    return <View style={{ flex: 1, }}>{node}</View>
 }

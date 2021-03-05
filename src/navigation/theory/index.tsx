@@ -22,6 +22,8 @@ import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
+    info('[理论]: 入口')
+
     const startTime = new Date()
 
     const { state, dispatch, } = useContext(Context)
@@ -58,21 +60,19 @@ export default ({ navigation, }) => {
 
     // }, [])
 
-    info(`模块[理论]]执行渲染`)
-
     const data = {
         name: theory.text,
         category: state.data.category.theory,
         chain: state.data.chain.theory,
     }
 
-    return <SkillListView navigation={navigation} data={data} modKey={'theory'} />
-    // const Node = () => <SkillListView navigation={navigation} data={data} modKey={'theory'} />
+    const node = useMemo(
+        () => {
+            info(`模块[理论]]useMemo执行渲染`)
+            return <SkillListView navigation={navigation} data={data} modKey={'theory'} />
+        },
+        [state.data.category.theory, state.data.node]
+    )
 
-    // const node = useMemo(
-    //     () => <Node />,
-    //     [data]
-    // )
-
-    // return <View style={{ flex: 1, }}>{node}</View>
+    return <View style={{ flex: 1, }}>{node}</View>
 }

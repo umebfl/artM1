@@ -101,7 +101,7 @@ export default (payload: payload) => {
 
     // }, [])
 
-    info(`${name} -> skillListView render`)
+    // info(`${name} -> skillListView render`)
 
 
     // const handleToggleCategoryEditing = () => {
@@ -172,7 +172,6 @@ export default (payload: payload) => {
                     )
                 }}
                 ListFooterComponent={() => {
-                    info('render ListFooterComponent')
                     if (list) {
                         return (
                             <View style={{

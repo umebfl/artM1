@@ -65,10 +65,10 @@ const App = () => {
   useEffect(() => {
     init()
 
-    dispatch({
-      mod: 'system',
-      type: 'fixdata',
-    })
+    // dispatch({
+    //   mod: 'system',
+    //   type: 'fixdata',
+    // })
 
     return () => {
       info('[App]执行卸载')
@@ -82,8 +82,6 @@ const App = () => {
       <View>
       </View>
     )
-  } else {
-    info('inited === true')
   }
 
   return (

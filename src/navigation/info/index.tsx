@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, } from 'react'
+import React, { useContext, useEffect, useRef, useMemo, } from 'react'
 
 import {
     SafeAreaView,
@@ -27,6 +27,8 @@ import Context from '../../reducer'
 import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
+
+    info('[资讯]: 入口')
 
     const startTime = new Date()
 
@@ -71,6 +73,8 @@ export default ({ navigation, }) => {
             handleClearCache()
         } else if (index === 2) {
             navigation.push('dataView')
+        } else if (index === 3) {
+            navigation.push('debugView')
         }
     }
 
@@ -95,49 +99,59 @@ export default ({ navigation, }) => {
 
     // }, [])
 
-    info(`模块[资讯]执行渲染`)
+    const node = useMemo(
+        () => {
+            info(`模块[资讯]]useMemo执行渲染`)
+            return (
+                <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
+                    <SearchWrapper handleSubmit={handleSubmit} />
 
-    return (
-        <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
-            <SearchWrapper handleSubmit={handleSubmit} />
+                    <WhiteSpace>
+                        <SwipeIconList navigation={navigation} data={favWebsite.list} />
+                    </WhiteSpace>
 
-            {
-                open
-                    ? (
-                        <>
-                            <ActionSheet
-                                ref={actionSheetREl}
-                                title={'更多调试功能'}
-                                options={['清空缓存', '取消', '查看数据',]}
-                                cancelButtonIndex={1}
-                                destructiveButtonIndex={0}
-                                onPress={handleMore}
-                            />
+                    <WingBlank>
+                        <UnitItemList data={[toRead]} showUrl={true} handlePress={handleToReadPress} />
+                    </WingBlank>
 
-                            <Toast
-                                containerStyle={{
-                                    backgroundColor: theme.main,
-                                    width: 52,
-                                    height: 52,
-                                    borderRadius: 25,
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    bottom: 60,
-                                    left: 150,
-                                    opacity: 0.1,
-                                }}
-                                onPress={handleReload}
-                                visible={true}
-                                // position={Toast.positions.TOP}
-                                // opacity={0.3}
-                                hideOnPress={false}>
-                                <Icon style={{
-                                    marginLeft: 6,
-                                    marginRight: 8,
-                                }} name={'reload'} size={22} color={'white'} />
-                            </Toast>
 
-                            <Toast
+                    {
+                        open
+                            ? (
+                                <>
+                                    <ActionSheet
+                                        ref={actionSheetREl}
+                                        title={'更多调试功能'}
+                                        options={['清空缓存', '取消', '查看数据', '调试面板']}
+                                        cancelButtonIndex={1}
+                                        destructiveButtonIndex={0}
+                                        onPress={handleMore}
+                                    />
+
+                                    <Toast
+                                        containerStyle={{
+                                            backgroundColor: theme.main,
+                                            width: 52,
+                                            height: 52,
+                                            borderRadius: 25,
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            bottom: 70,
+                                            left: 150,
+                                            opacity: 0.1,
+                                        }}
+                                        onPress={handleReload}
+                                        visible={true}
+                                        // position={Toast.positions.TOP}
+                                        // opacity={0.3}
+                                        hideOnPress={false}>
+                                        <Icon style={{
+                                            marginLeft: 6,
+                                            marginRight: 8,
+                                        }} name={'reload'} size={22} color={'white'} />
+                                    </Toast>
+
+                                    {/* <Toast
                                 containerStyle={{
                                     backgroundColor: theme.main,
                                     width: 40,
@@ -159,43 +173,40 @@ export default ({ navigation, }) => {
                                     marginRight: 8,
                                 }} name={'android-debug-bridge'} size={22} color={'white'} />
 
-                            </Toast>
+                            </Toast> */}
 
-                            <Toast
-                                containerStyle={{
-                                    backgroundColor: theme.main,
-                                    width: 32,
-                                    height: 32,
-                                    borderRadius: 25,
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    bottom: 60,
-                                    left: 40,
-                                    opacity: 0.1,
-                                    padding: 0,
-                                }}
-                                onPress={handleClearCacheActionSheet}
-                                visible={true}
-                                // position={Toast.positions.TOP}
-                                // opacity={0.3}
-                                hideOnPress={false}>
-                                <Icon style={{
-                                }} name={'plus-circle-multiple-outline'} size={15} color={'white'} />
-                            </Toast>
-                        </>
-                    )
-                    : null
-            }
-
-            <WhiteSpace>
-                <SwipeIconList navigation={navigation} data={favWebsite.list} />
-            </WhiteSpace>
-
-            <WingBlank>
-                <UnitItemList data={[toRead]} showUrl={true} handlePress={handleToReadPress} />
-            </WingBlank>
-        </ScreenWrapper>
+                                    <Toast
+                                        containerStyle={{
+                                            backgroundColor: theme.main,
+                                            width: 32,
+                                            height: 32,
+                                            borderRadius: 25,
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            bottom: 65,
+                                            left: 100,
+                                            opacity: 0.1,
+                                            padding: 0,
+                                        }}
+                                        onPress={handleClearCacheActionSheet}
+                                        visible={true}
+                                        // position={Toast.positions.TOP}
+                                        // opacity={0.3}
+                                        hideOnPress={false}>
+                                        <Icon style={{
+                                        }} name={'plus-circle-multiple-outline'} size={15} color={'white'} />
+                                    </Toast>
+                                </>
+                            )
+                            : null
+                    }
+                </ScreenWrapper>
+            )
+        },
+        [toRead, open, favWebsite]
     )
+
+    return <View style={{ flex: 1, }}>{node}</View>
 }
 
 

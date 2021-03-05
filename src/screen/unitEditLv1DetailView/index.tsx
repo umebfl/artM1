@@ -137,7 +137,8 @@ export default ({ route, navigation }) => {
 
     const handleSave = () => {
         const node: SkillUnit = {
-            id: nodeId || null,
+            ...data,
+            // id: nodeId || null,
             name: inputName.current.getValue(),
             def: inputDef.current.getValue(),
             url: inputUrl.current.getValue(),

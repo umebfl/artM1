@@ -19,7 +19,7 @@ import { DefText, } from '../../component/Text'
 import Context from '../../reducer'
 
 interface payload {
-    title: String
+    title?: String
     children?: any
 }
 

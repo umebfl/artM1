@@ -52,7 +52,7 @@ const buildScreen = R.cond([
 
 export default ({ navigation, }) => {
 
-    info('Home执行渲染')
+    info('[Home]: 入口')
 
     const { state, dispatch, } = useContext(Context)
 

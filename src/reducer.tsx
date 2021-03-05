@@ -346,610 +346,8 @@ export const reducer = (state, action) => {
             () => R.cond([
                 [
                     R.equals('init'),
-                    // () => R.compose(
-                    //     // v => {
-                    //     //     alert(`system init: ${JSON.stringify(v)}`)
-                    //     //     return v
-                    //     // },
-                    //     R.mergeDeepRight(state, action.payload)
-                    // ),
                     () => R.mergeDeepRight(state, action.payload),
                 ],
-
-                [
-                    R.equals('fix'),
-                    // () => R.compose(
-                    //     // v => {
-                    //     //     alert(`system init: ${JSON.stringify(v)}`)
-                    //     //     return v
-                    //     // },
-                    //     R.mergeDeepRight(state, action.payload)
-                    // ),
-                    () => {
-                        // 将列表都添加id
-                        const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
-                        // const path = ['navigation', 'home', 'tab', 'server', 'data', 'list']
-                        // const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
-
-                        const list = R.path(path)(state)
-
-                        const newList = R.addIndex(R.map)(
-                            R.compose(
-                                (v, k) => ({
-                                    id: idBuilder(k),
-                                    ...v,
-                                    list: R.addIndex(R.map)(
-                                        (v2, k2) => ({
-                                            id: idBuilder(k2),
-                                            ...v2,
-
-                                            logo: {
-                                                type: v2.logo ? v2.logo.type : 'icon',
-                                                url: v2.logo ? v2.logo.url : 'github',
-                                                full: v2.logo && typeof v2.logo.full !== 'undefined' ? v2.logo.full : false,
-                                                ...(v2.logo && v2.logo.bg ? { bg: v2.logo.bg } : {}),
-                                            },
-
-                                            version: v2.version ? v2.version : '-',
-
-                                            platform: SkillPlatform.all,
-
-                                            ftStep: v2.ftStep ? v2.ftStep : SkillStep.flag,
-                                            step: v2.step ? v2.step : SkillStep.flag,
-                                            api: v2.api ? v2.api : [],
-
-                                            article: R.addIndex(R.map)(
-                                                (v3, k3) => ({
-                                                    id: idBuilder(k3),
-                                                    ...v3,
-                                                    list: R.addIndex(R.map)(
-                                                        (v4, k4) => ({
-                                                            id: idBuilder(k4),
-                                                            ...v4,
-                                                        }),
-                                                    )(v3.list || []),
-                                                })
-                                            )(v2.article || []),
-
-                                            features: R.addIndex(R.map)(
-                                                (v3, k3) => ({
-                                                    id: idBuilder(k3),
-                                                    ...v3,
-                                                    list: R.addIndex(R.map)(
-                                                        (v4, k4) => ({
-                                                            id: idBuilder(k4),
-                                                            ...v4,
-                                                        }),
-                                                    )(v3.list || []),
-                                                })
-                                            )(v2.features || [])
-                                        })
-                                    )(v.list),
-                                })
-                            )
-                        )(list)
-
-                        const newState = R.assocPath(path, newList)(state)
-
-                        return newState
-                    },
-                ],
-
-                [
-                    R.equals('fixdata'),
-                    () => {
-                        // const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
-                        // // const path = ['navigation', 'home', 'tab', 'server', 'data', 'list']
-                        // // const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
-                        // const catList = R.path(path)(state)
-
-                        // // 提取全部node
-                        // let nodeList = []
-
-                        // let start = state.nodeList.length
-
-                        // R.map(
-                        //     v => {
-                        //         nodeList = [
-                        //             ...nodeList,
-                        //             ...R.addIndex(R.map)(
-                        //                 (v2, k) => ({
-                        //                     ...v2,
-                        //                     id: idBuilder(start++),
-                        //                     mod: 'theory',
-                        //                     categoryId: v.id,
-                        //                     categoryName: v.name,
-                        //                 })
-                        //             )(v.list)
-                        //         ]
-                        //     }
-                        // )(catList)
-
-                        // const newState = {
-                        //     ...state,
-                        //     nodeList: [
-                        //         ...state.nodeList,
-                        //         ...nodeList,
-                        //     ],
-                        // }
-
-                        // return newState
-
-                        // let node = {}
-
-                        // R.addIndex(R.map)(
-                        //     (v, k) => {
-                        //         node[v.id] = v
-                        //     }
-                        // )(state.nodeList)
-
-                        // const newState = {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         node,
-                        //     },
-                        // }
-
-                        // return newState
-
-                        // fix
-
-
-
-                        // const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'list']
-                        // // const path = ['navigation', 'home', 'tab', 'server', 'data', 'list']
-                        // // const path = ['navigation', 'home', 'tab', 'theory', 'data', 'list']
-                        // const catList = R.path(path)(state)
-
-                        // let categoryObj = {}
-
-                        // R.addIndex(R.map)(
-                        //     (v, k) => {
-                        //         const id = idBuilder(k)
-
-                        //         categoryObj[id] = {
-                        //             id,
-                        //             name: v.name,
-                        //         }
-                        //     }
-                        // )(catList)
-
-                        // return {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         category: state.category,
-                        //     },
-                        // }
-
-                        // 获取分类列表
-                        // const category = state.data.category.interactive
-
-                        // const newCategory = R.map(
-                        //     v => {
-                        //         const list = R.filter(
-                        //             v2 => v.name === v2.categoryName
-                        //         )(state.data.node)
-
-                        //         return ({
-                        //             ...v,
-                        //             list: R.compose(
-                        //                 R.values,
-                        //                 R.map(
-                        //                     v => v.id
-                        //                 )
-                        //             )(list)
-                        //         })
-                        //     }
-                        // )(category)
-
-
-                        // return {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         category: {
-                        //             ...state.data.category,
-                        //             interactive: newCategory,
-                        //         },
-                        //     }
-                        // }
-
-                        // 修正分类id
-                        // const node = state.data.node
-                        // let category = null
-
-                        // const newNode = R.map(
-                        //     v => {
-                        //         R.map(
-                        //             v2 => {
-                        //                 if(v2.name === v.categoryName) {
-                        //                     category = v2
-                        //                 }
-                        //             }
-                        //         )(state.data.category.server)
-
-
-                        //         return ({
-                        //             ...v,
-                        //             categoryId: category ? category.id : v.categoryId,
-                        //         })
-                        //     }
-                        // )(node)
-
-                        // return {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         node: newNode,
-                        //     },
-                        // }
-
-                        // const path = ['navigation', 'home', 'tab', 'interactive', 'data', 'chain']
-                        // const list = R.path(path)(state)
-
-                        // let chain = R.compose(
-                        //     v => {
-                        //         let obj = {}
-
-                        //         R.map(
-                        //             v2 => {
-                        //                 obj[v2.id] = v2
-                        //             }
-                        //         )(v)
-
-                        //         return obj
-                        //     },
-                        //     R.addIndex(R.map)(
-                        //         (v, k) => {
-                        //             return ({
-                        //                 id: idBuilder(k),
-                        //                 title: v.title,
-                        //                 node: R.compose(
-                        //                     v2 => {
-                        //                         let obj = {}
-
-                        //                         R.map(
-                        //                             v3 => {
-                        //                                 obj[v3] = null
-                        //                             }
-                        //                         )(v2)
-
-                        //                         return obj
-                        //                     },
-                        //                     R.map(
-                        //                         v2 => {
-                        //                             let node = null
-
-                        //                             R.map(
-                        //                                 v3 => {
-                        //                                     if(v2.name === v3.name) {
-                        //                                         node = v3
-                        //                                     }
-                        //                                 }
-                        //                             )(state.data.node)
-
-                        //                             return node.id
-                        //                         }
-                        //                     )   
-                        //                 )(v.list)
-                        //             })
-                        //         }
-                        //     )
-                        // )(list)
-
-                        // const newState = {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         chain: {
-                        //             interactive: chain,
-                        //             server: {},
-                        //             theory: {},
-                        //         },
-                        //     },
-                        // }
-
-                        // return newState
-
-                        // 移除分类信息
-                        // const newState = {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         node: R.map(
-                        //             v => {
-                        //                 let mod = v.mod
-
-                        //                 R.map(
-                        //                     v2 => {
-                        //                         if (v.categoryName === v2.name) {
-                        //                             mod = 'server'
-                        //                             // alert(`${v.categoryName} ${v2.name}`)
-                        //                         }
-                        //                     }
-                        //                 )(state.data.category.server)
-
-                        //                 return {
-                        //                     ...v,
-                        //                     mod,
-                        //                 }
-                        //             }
-                        //         )(state.data.node),
-                        //     },
-                        // }
-
-                        // return newState
-
-                        // const newState = {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         node: R.map(
-                        //             v => ({
-                        //                 ...v,
-                        //                 features: R.compose(
-                        //                     v2 => {
-                        //                         // 1
-                        //                         const obj = {}
-
-                        //                         R.map(
-                        //                             v3 => {
-                        //                                 obj[v3.id] = ({
-                        //                                     ...v3,
-                        //                                     list: R.compose(
-                        //                                         v4 => {
-                        //                                             // 2
-                        //                                             const obj = {}
-
-                        //                                             R.map(
-                        //                                                 v5 => {
-                        //                                                     obj[v5.id] = v5
-
-                        //                                                     // if(v5.features !== null) {
-                        //                                                     //     obj[v5.id] = ({
-                        //                                                     //         ...v5,
-                        //                                                     //         features: R.compose(
-                        //                                                     //             v6 => {
-                        //                                                     //                 const obj = {}
-
-                        //                                                     //                 R.map(
-                        //                                                     //                     v7 => {
-                        //                                                     //                         obj[v7.id] = v6
-                        //                                                     //                     }
-                        //                                                     //                 )(v6)
-
-                        //                                                     //                 return obj
-                        //                                                     //             }
-                        //                                                     //         )(v5.features || []),
-                        //                                                     //     })
-                        //                                                     // }
-                        //                                                 }
-                        //                                             )(v4)
-
-                        //                                             return obj
-                        //                                         }
-                        //                                     )(v3.list || {}),
-                        //                                 })
-                        //                             }
-                        //                         )(v2)
-
-                        //                         return obj
-                        //                     }
-                        //                 )(v.features || []),
-                        //                 api: R.map(
-                        //                     v2 => {
-                        //                         // 1
-                        //                         const obj = {}
-
-                        //                         R.map(
-                        //                             v3 => {
-                        //                                 obj[v3.id] = ({
-                        //                                     ...v3,
-                        //                                     list: R.compose(
-                        //                                         v4 => {
-                        //                                             // 2
-                        //                                             const obj = {}
-
-                        //                                             R.map(
-                        //                                                 v5 => {
-                        //                                                     obj[v5.id] = v5
-                        //                                                 }
-                        //                                             )(v4)
-
-                        //                                             return obj
-                        //                                         }
-                        //                                     )(v3.list || {}),
-                        //                                 })
-                        //                             }
-                        //                         )(v2)
-
-                        //                         return obj
-                        //                     }
-                        //                 )(v.api || []),
-                        //                 article: R.compose(
-                        //                     v2 => {
-                        //                         // 1
-                        //                         const obj = {}
-
-                        //                         R.map(
-                        //                             v3 => {
-                        //                                 obj[v3.id] = ({
-                        //                                     ...v3,
-                        //                                     list: R.compose(
-                        //                                         v4 => {
-                        //                                             // 2
-                        //                                             const obj = {}
-
-                        //                                             R.map(
-                        //                                                 v5 => {
-                        //                                                     obj[v5.id] = v5
-                        //                                                 }
-                        //                                             )(v4)
-
-                        //                                             return obj
-                        //                                         }
-                        //                                     )(v3.list || {}),
-                        //                                 })
-                        //                             }
-                        //                         )(v2)
-
-                        //                         return obj
-                        //                     }
-                        //                 )(v.article || []),
-                        //             })
-                        //         )(state.data.node),
-                        //     },
-                        // }
-
-                        // const newState = {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         node: R.map(
-                        //             v => ({
-                        //                 ...v,
-                        //                 features: R.map(
-                        //                     v2 => R.dissoc('list')({
-                        //                         ...v2,
-                        //                         node: R.map(
-                        //                             v3 => {
-                        //                                 if(v3.features) {
-                        //                                     let i = 0
-        
-                        //                                     // info(`xx${JSON.stringify(v3.features)}`)
-
-                        //                                     return ({
-                        //                                         ...v3,
-                        //                                         features: R.compose(
-                        //                                             v4 => {
-                        //                                                 let obj = {}
-        
-                        //                                                 R.map(
-                        //                                                     v5 => {
-                        //                                                         obj[v5.id] = v5
-                        //                                                     }
-                        //                                                 )(v4)
-        
-                        //                                                 return obj
-                        //                                             },
-                        //                                             R.map(
-                        //                                                 v4 => R.dissoc('list')({
-                        //                                                     ...v4,
-                        //                                                     id: idBuilder(i++),
-                        //                                                     node: R.compose(
-                        //                                                         v6 => {
-                        //                                                             let obj = {}
-                    
-                        //                                                             R.map(
-                        //                                                                 v7 => {
-                        //                                                                     obj[v7.id] = v7
-                        //                                                                 }
-                        //                                                             )(v6)
-                    
-                        //                                                             return obj
-                        //                                                         },
-                        //                                                         R.map(
-                        //                                                             v5 => ({
-                        //                                                                 ...v5,
-                        //                                                                 id: idBuilder(i++),
-                        //                                                             })
-                        //                                                         )
-                        //                                                     )(v4.list)
-                        //                                                 })
-                        //                                             )
-                        //                                         )(v3.features),
-                        //                                     })
-        
-                        //                                 } else {
-                        //                                     return v3
-                        //                                 }
-                        //                             }
-                        //                         )(v2.list)
-                        //                     })
-                        //                 )(v.features)
-                        //             }),
-                        //         )(state.data.node),
-                        //     },
-                        // }
-
-                        // return newState
-
-                        // "home": {
-                        //     "initialRouteName": "skill",
-                        //     "tab": {
-                        //       "info": {
-                        //         "name": "info",
-                        //         "text": "资讯",
-                        //         "icon": "waze",
-                        //         "tab": {
-                        //           "toRead": {
-                        //             "title": "阅读清单",
-                        //             "list": [
-                        
-                        // return newState
-
-                        // 修正分类id
-                        // const newState = {
-                        //     ...state,
-                        //     data: {
-                        //         ...state.data,
-                        //         node: R.compose(
-                        //             R.map(
-                        //                 v => {
-                        //                     const category = state.data.category.interactive
-                        //                     // const category = state.data.category.server
-                        //                     // const category = state.data.category.theory
-                        //                     let categoryId 
-
-                        //                     R.map(
-                        //                         v2 => {
-                        //                             if(v.categoryName === v2.name) {
-                        //                                 categoryId = v2.id
-                        //                             }
-                        //                         }
-                        //                     )(category)
-
-                        //                     if(categoryId) {
-                        //                         return ({
-                        //                             ...v,
-                        //                             categoryId,
-                        //                         })
-                        //                     } else {
-                        //                         return v
-                        //                     }
-
-                        //                 }
-                        //             )
-                        //         )(state.data.node),
-                        //     },
-                        // }
-
-                        // return newState
-
-                        return state
-                    },
-                ],
-
-                // [
-                //     R.equals('toggleCategoryEditing'),
-                //     () => {
-                //         const {
-                //             target,
-                //         } = action.payload
-
-                //         const path = ['navigation', 'home', 'tab', target, 'data']
-                //         const data = R.path(path)(state)
-                //         const newState = R.assocPath(path, {
-                //             ...data,
-                //             editing: !data.editing,
-                //         })(state)
-
-                //         setData(newState)
-                //         return newState
-                //     },
-                // ],
 
                 [
                     R.equals('addCategory'),
@@ -993,7 +391,7 @@ export const reducer = (state, action) => {
                         //     list: [],
                         // }, ...list])(state)
 
-                        // setData(newState)
+                        setData(newState)
                         return newState
                     },
                 ],
@@ -1021,118 +419,6 @@ export const reducer = (state, action) => {
                                 id
                             )(categorySet)
                         )(state)
-
-                        setData(newState)
-                        return newState
-                    },
-                ],
-
-                [
-                    R.equals('addCategoryLv1'),
-                    () => {
-                        const {
-                            target,
-                            categoryId,
-                            value,
-                        } = action.payload
-
-                        const path = ['navigation', 'home', 'tab', target, 'data', 'list']
-                        const list = R.path(path)(state)
-
-                        const categoryIndex = R.findIndex(
-                            v => v.id === categoryId
-                        )(list)
-
-                        const category = list[categoryIndex]
-
-                        const newList = R.adjust(
-                            categoryIndex,
-                            v => ({
-                                ...category,
-                                list: [
-                                    {
-                                        id: idBuilder(category.list.length),
-                                        name: value,
-                                        def: 'def',
-                                        major: true,
-                                        logo: {
-                                            type: "jpg",
-                                            full: true,
-                                            url: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jinqiaojob.com%2Fuploads%2Fallimg%2F200113%2F1-200113194504a8.jpg&refer=http%3A%2F%2Fwww.jinqiaojob.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253889&t=c33f92d7fd8556ce833a0f923537b3fb"
-                                        },
-                                        url: "https://www.w3school.com.cn/js/index.asp",
-                                        features: [],
-                                        article: [],
-                                        api: [],
-                                    },
-                                    ...category.list,
-                                ],
-                            }),
-                            list
-                        )
-
-                        const newState = R.assocPath(path, newList)(state)
-
-                        setData(newState)
-                        return newState
-                    },
-                ],
-
-                [
-                    R.equals('removeNode'),
-                    () => {
-                        const {
-                            nodeId,
-                        } = action.payload
-
-                        // const path = ['navigation', 'home', 'tab', target, 'data', 'list']
-                        // const list = R.path(path)(state)
-
-                        // const categoryIndex = R.findIndex(
-                        //     v => v.id === categoryId
-                        // )(list)
-
-                        // const category = list[categoryIndex]
-
-                        // const newList = R.adjust(
-                        //     categoryIndex,
-                        //     v => ({
-                        //         ...category,
-                        //         list: R.filter(v => v.id !== nodeId)(category.list),
-                        //     }),
-                        //     list
-                        // )
-
-                        // const newState = R.assocPath(path, newList)(state)
-
-                        // const newState = R.assocPath(
-                        //     ['data', 'node'],
-                        //     {...category, name: value},
-                        // )(state)
-
-                        const node = state.data.node[nodeId]
-                        const modKey = node.mod
-                        const categoryId = node.categoryId
-
-                        const newState = {
-                            ...state,
-                            // 从node中移除
-                            data: {
-                                ...state.data,
-                                node: R.dissoc(nodeId)(state.data.node),
-                                // 从分类中移除
-                                category: {
-                                    ...state.data.category,
-                                    [modKey]: {
-                                        ...state.data.category[modKey],
-                                        [categoryId]: {
-                                            ...state.data.category[modKey][categoryId],
-                                            list: R.filter(v => v !== nodeId)(state.data.category[modKey][categoryId].list),
-                                        },
-                                    },
-                                },
-                            },
-                        }
 
                         setData(newState)
                         return newState
@@ -1288,6 +574,68 @@ export const reducer = (state, action) => {
                                         [node.categoryId]: {
                                             ...state.data.category[node.mod][node.categoryId],
                                             list: [id, ...state.data.category[node.mod][node.categoryId].list,],
+                                        },
+                                    },
+                                },
+                            },
+                        }
+
+                        setData(newState)
+                        return newState
+                    },
+                ],
+
+
+                [
+                    R.equals('removeNode'),
+                    () => {
+                        const {
+                            nodeId,
+                        } = action.payload
+
+                        // const path = ['navigation', 'home', 'tab', target, 'data', 'list']
+                        // const list = R.path(path)(state)
+
+                        // const categoryIndex = R.findIndex(
+                        //     v => v.id === categoryId
+                        // )(list)
+
+                        // const category = list[categoryIndex]
+
+                        // const newList = R.adjust(
+                        //     categoryIndex,
+                        //     v => ({
+                        //         ...category,
+                        //         list: R.filter(v => v.id !== nodeId)(category.list),
+                        //     }),
+                        //     list
+                        // )
+
+                        // const newState = R.assocPath(path, newList)(state)
+
+                        // const newState = R.assocPath(
+                        //     ['data', 'node'],
+                        //     {...category, name: value},
+                        // )(state)
+
+                        const node = state.data.node[nodeId]
+                        const modKey = node.mod
+                        const categoryId = node.categoryId
+
+                        const newState = {
+                            ...state,
+                            // 从node中移除
+                            data: {
+                                ...state.data,
+                                node: R.dissoc(nodeId)(state.data.node),
+                                // 从分类中移除
+                                category: {
+                                    ...state.data.category,
+                                    [modKey]: {
+                                        ...state.data.category[modKey],
+                                        [categoryId]: {
+                                            ...state.data.category[modKey][categoryId],
+                                            list: R.filter(v => v !== nodeId)(state.data.category[modKey][categoryId].list),
                                         },
                                     },
                                 },

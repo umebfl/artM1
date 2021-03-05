@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState, } from 'react'
+import React, { useContext, useEffect, useRef, useState, useMemo, } from 'react'
 
 import {
     SafeAreaView,
@@ -32,6 +32,8 @@ const moban = require('../../../resource/image/template/m11.jpeg')
 
 export default ({ navigation, }) => {
 
+    info('[其他]: 入口')
+
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
     const [copyed, setCopyed] = useState(false)
@@ -42,6 +44,7 @@ export default ({ navigation, }) => {
         debug: {
             open,
         },
+        data,
     } = state
 
     const handleClearCachePress = async (index) => {
@@ -91,44 +94,49 @@ export default ({ navigation, }) => {
     //     })
     //   }, [])
 
-    info(`模块[其他]]执行渲染`)
+    const node = useMemo(
+        () => {
+            info(`模块[其他]]useMemo执行渲染`)
 
-    return (
-        <ScreenWrapper
-            navigation={navigation}
-            theme={theme}
-            imageBackground={null} >
+            return (
+                <ScreenWrapper
+                    navigation={navigation}
+                    theme={theme}
+                    imageBackground={null} >
+        
+                    <ActionSheet
+                        ref={actionSheetREl}
+                        title={'确认缓存?'}
+                        options={['清空缓存', '取消']}
+                        cancelButtonIndex={1}
+                        destructiveButtonIndex={0}
+                        onPress={handleClearCachePress}
+                    />
+        
+                    <List title={'开发'}>
+                        <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
+                        <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
+                        <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
+                        <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
+                        <Item title={'渲染耗时'} icon={'chart-bar'} jumpTo={'renderTime'} navigation={navigation} />
+                        <Item title={'项目代码'} icon={'github'} handlePress={handleProSource} />
+                        <Item title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''}/>
+                    </List>
+        
+                    <List>
+                        <Item title={'显示'} icon={'format-text'} jumpTo={'about'} navigation={navigation} />
+                        <Item title={'主题'} icon={'theme-light-dark'} jumpTo={'about'} navigation={navigation} />
+                        <Item title={'语言'} icon={'translate'} jumpTo={'about'} navigation={navigation} />
+                    </List>
+        
+                    <List>
+                        <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} />
+                        <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'about'} navigation={navigation} />
+                    </List>
+                    
+                </ScreenWrapper>
+            )
+        }, [open])
 
-            <ActionSheet
-                ref={actionSheetREl}
-                title={'确认缓存?'}
-                options={['清空缓存', '取消']}
-                cancelButtonIndex={1}
-                destructiveButtonIndex={0}
-                onPress={handleClearCachePress}
-            />
-
-            <List title={'开发'}>
-                <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
-                <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
-                <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
-                <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
-                <Item title={'渲染耗时'} icon={'chart-bar'} jumpTo={'renderTime'} navigation={navigation} />
-                <Item title={'项目代码'} icon={'github'} handlePress={handleProSource} />
-                <Item title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''}/>
-            </List>
-
-            <List>
-                <Item title={'显示'} icon={'format-text'} jumpTo={'about'} navigation={navigation} />
-                <Item title={'主题'} icon={'theme-light-dark'} jumpTo={'about'} navigation={navigation} />
-                <Item title={'语言'} icon={'translate'} jumpTo={'about'} navigation={navigation} />
-            </List>
-
-            <List>
-                <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} />
-                <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'about'} navigation={navigation} />
-            </List>
-            
-        </ScreenWrapper>
-    )
+    return <View style={{ flex: 1, }}>{node}</View>
 }

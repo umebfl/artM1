@@ -22,6 +22,8 @@ import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
 
+    info('[后台]: 入口')
+
     const startTime = new Date()
 
     const { state, dispatch, } = useContext(Context)
@@ -58,21 +60,19 @@ export default ({ navigation, }) => {
 
     // }, [])
 
-    info(`模块[后台]]执行渲染`)
-
     const data = {
         name: server.text,
         category: state.data.category.server,
         chain: state.data.chain.server,
     }
 
-    return <SkillListView navigation={navigation} data={data} modKey={'server'} />
-    // const Node = () => <SkillListView navigation={navigation} data={data} modKey={'server'} />
+    const node = useMemo(
+        () => {
+            info(`模块[后台]]useMemo执行渲染`)
+            return <SkillListView navigation={navigation} data={data} modKey={'theory'} />
+        },
+        [state.data.category.server, state.data.node]
+    )
 
-    // const node = useMemo(
-    //     () => <Node />,
-    //     [data]
-    // )
-
-    // return <View style={{ flex: 1, }}>{node}</View>
+    return <View style={{ flex: 1, }}>{node}</View>
 }
