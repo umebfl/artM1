@@ -26,30 +26,34 @@ export default ({ route, navigation }) => {
         },
     } = state
 
-    const { data, title, } = route.params
+    const { data, title, modKey, } = route.params
 
     const startTime = new Date()
 
-    // useEffect(() => {
+    useEffect(() => {
+        info('[查看全部列表页]初始化完成')
 
-    //     // 渲染计时 结束时间
-    //     const endTime = new Date()
+        // 渲染计时 结束时间
+        const endTime = new Date()
 
-    //     dispatch({
-    //         mod: 'debug',
-    //         type: 'renderTime_add',
-    //         payload: {
-    //             // 模块
-    //             mod: 'screen - unitListView',
-    //             name: '全部技能列表',
-    //             // startTime,
-    //             // endTime,
-    //             // ms
-    //             time: endTime - startTime,
-    //         },
-    //     })
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - unitListView',
+                name: '查看全部列表页',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
 
-    // }, [])
+        return () => {
+            info('[查看全部列表页]执行卸载')
+        }
+    }, [])
 
     return (
         <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
@@ -63,7 +67,7 @@ export default ({ route, navigation }) => {
             }}>
                 {
                     R.addIndex(R.map)(
-                        (v ,k) => <SwipeListItem key={k} k={k} item={node[v]} list={data} theme={theme} navigation={navigation} />
+                        (v ,k) => <SwipeListItem key={k} k={k} item={node[modKey][v]} list={data} theme={theme} navigation={navigation} />
                     )(data)
                 }
                 <View style={{ height: 50, }}></View>

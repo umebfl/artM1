@@ -140,27 +140,30 @@ export default ({ route, navigation }) => {
         Clipboard.setString(text)
     }
 
-    // useEffect(() => {
+    useEffect(() => {
+        info('[webview页]初始化完成')
 
-    //     //     // 渲染计时 结束时间
-    //     //     const endTime = new Date()
+        // 渲染计时 结束时间
+        const endTime = new Date()
 
-    //     //     dispatch({
-    //     //         mod: 'debug',
-    //     //         type: 'renderTime_add',
-    //     //         payload: {
-    //     //             // 模块
-    //     //             mod: 'screen - readWebView',
-    //     //             name: 'webView',
-    //     //             // startTime,
-    //     //             // endTime,
-    //     //             // ms
-    //     //             time: endTime - startTime,
-    //     //         },
-    //     //     })
-    //     info('webview rendered')
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - readWebview',
+                name: 'webview页',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
 
-    // }, [toRead])
+        return () => {
+            info('[webview页]执行卸载')
+        }
+    }, [])
 
     const node = useMemo(
         () => {

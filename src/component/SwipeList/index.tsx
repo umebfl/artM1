@@ -164,7 +164,7 @@ export default (payload: payload) => {
                 {
                     unit.length > LIST_MAX_LEN
                         ? (
-                            <TouchView onPress={() => { navigation.navigate('unitListView', { data: unit, title, }) }}>
+                            <TouchView onPress={() => { navigation.navigate('unitListView', { data: unit, title, modKey, }) }}>
                                 <Text style={{ fontSize: 18, fontWeight: 'normal', color: theme.main }}>查看全部</Text>
                             </TouchView>
                         )
@@ -201,7 +201,9 @@ export default (payload: payload) => {
                             }}>
                                 {
                                     R.addIndex(R.map)(
-                                        (item, k) => <SwipeListItem key={k} k={k} item={node[item]} list={list} theme={theme} navigation={navigation} />,
+                                        (item, k) => {
+                                            return <SwipeListItem key={k} k={k} modKey={modKey} item={node[modKey][item]} list={list} theme={theme} navigation={navigation} />
+                                        },
                                         list
                                     )
                                 }
@@ -220,13 +222,14 @@ export const SwipeListItem = ({
     item,
     list,
     theme,
+    modKey,
     navigation,
 }) => {
 
     const iconSize = 50
 
     return (
-        <TouchView onPress={() => { navigation.push('unitDetailView', { payload: item }) }}>
+        <TouchView onPress={() => { navigation.push('unitDetailView', item) }}>
             <View style={{ flexDirection: 'row', }}>
                 <UnitLogo data={item.logo} size={iconSize} ></UnitLogo>
 

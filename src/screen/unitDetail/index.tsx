@@ -33,6 +33,7 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
+import { info } from '../../util/log'
 
 const moban = require('../../../resource/image/template/m2.jpeg')
 
@@ -116,9 +117,9 @@ export default ({ route, navigation }) => {
         },
     } = state
 
-    const { payload, } = route.params
+    const { id, mod, } = route.params
 
-    const data = node[payload.id]
+    const data = node[mod][id]
 
     if (!data) {
         navigation.goBack()
@@ -130,25 +131,30 @@ export default ({ route, navigation }) => {
 
     const startTime = new Date()
 
-    // useEffect(() => {
-    //     // 渲染计时 结束时间
-    //     const endTime = new Date()
+    useEffect(() => {
+        info('[节点详情页]初始化完成')
 
-    //     dispatch({
-    //         mod: 'debug',
-    //         type: 'renderTime_add',
-    //         payload: {
-    //             // 模块
-    //             mod: 'screen - unitDetail',
-    //             name: '技能详情页',
-    //             // startTime,
-    //             // endTime,
-    //             // ms
-    //             time: endTime - startTime,
-    //         },
-    //     })
+        // 渲染计时 结束时间
+        const endTime = new Date()
 
-    // }, [])
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - unitDetail',
+                name: '节点详情页',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+        return () => {
+            info('[节点详情页]执行卸载')
+        }
+    }, [])
 
     const handleJumpDetail = () => {
         navigation.push('unitEditLv1DetailView', {

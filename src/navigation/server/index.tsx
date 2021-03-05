@@ -39,26 +39,26 @@ export default ({ navigation, }) => {
         },
     } = state
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     // 渲染计时 结束时间
-    //     const endTime = new Date()
+        // 渲染计时 结束时间
+        const endTime = new Date()
 
-    //     dispatch({
-    //         mod: 'debug',
-    //         type: 'renderTime_add',
-    //         payload: {
-    //             // 模块
-    //             mod: 'server',
-    //             name: '后台',
-    //             // startTime,
-    //             // endTime,
-    //             // ms
-    //             time: endTime - startTime,
-    //         },
-    //     })
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'server',
+                name: '后台',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
 
-    // }, [])
+    }, [])
 
     const data = {
         name: server.text,
@@ -69,9 +69,9 @@ export default ({ navigation, }) => {
     const node = useMemo(
         () => {
             info(`模块[后台]]useMemo执行渲染`)
-            return <SkillListView navigation={navigation} data={data} modKey={'theory'} />
+            return <SkillListView navigation={navigation} data={data} modKey={server.name} />
         },
-        [state.data.category.server, state.data.node]
+        [state.data.category.server, state.data.node.server]
     )
 
     return <View style={{ flex: 1, }}>{node}</View>

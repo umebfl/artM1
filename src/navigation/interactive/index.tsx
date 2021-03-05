@@ -40,23 +40,23 @@ export default ({ navigation, }) => {
         },
     } = state
 
-    // useEffect(() => {
-    //     const endTime = new Date()
+    useEffect(() => {
+        const endTime = new Date()
     
-    //     dispatch({
-    //       mod: 'debug',
-    //       type: 'renderTime_add',
-    //       payload: {
-    //         // 模块
-    //         mod: 'interactive',
-    //         name: '前端',
-    //         // startTime,
-    //         // endTime,
-    //         // ms
-    //         time: endTime - startTime,
-    //       },
-    //     })
-    //   }, [])
+        dispatch({
+          mod: 'debug',
+          type: 'renderTime_add',
+          payload: {
+            // 模块
+            mod: 'interactive',
+            name: '前端',
+            // startTime,
+            // endTime,
+            // ms
+            time: endTime - startTime,
+          },
+        })
+      }, [])
 
     const data = {
         name: interactive.text,
@@ -67,9 +67,9 @@ export default ({ navigation, }) => {
     const node = useMemo(
         () => {
             info(`模块[前端]]useMemo执行渲染`)
-            return <SkillListView navigation={navigation} data={data} modKey={'theory'} />
+            return <SkillListView navigation={navigation} data={data} modKey={interactive.name} />
         },
-        [state.data.category.interactive, state.data.node]
+        [state.data.category.interactive, state.data.node.interactive]
     )
 
     return <View style={{ flex: 1, }}>{node}</View>

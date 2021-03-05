@@ -1,6 +1,15 @@
 import R from 'ramda'
 import React, { useContext, useEffect, useMemo, } from 'react'
 
+import {
+    SafeAreaView,
+    ScrollView,
+    View,
+    Text,
+    TouchableWithoutFeedback,
+    Button,
+} from 'react-native'
+
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -64,6 +73,7 @@ export default ({ navigation, }) => {
                 tab,
             },
         },
+        data,
     } = state
 
     useEffect(() => {

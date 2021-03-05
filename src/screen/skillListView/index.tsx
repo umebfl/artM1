@@ -117,6 +117,33 @@ export default (payload: payload) => {
     const list = R.values(category)
     const chainList = R.values(chain || {})
 
+    const startTime = new Date()
+
+    useEffect(() => {
+        info('[节点列表页]初始化完成')
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - skillListView',
+                name: '节点列表页',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
+
+        return () => {
+            info('[节点列表页]执行卸载')
+        }
+    }, [])
+
     return (
         <View style={{
             backgroundColor: 'white',
@@ -148,7 +175,7 @@ export default (payload: payload) => {
                             {
                                 R.map(
                                     payload => {
-                                        const nodeList = R.map( key => node[key] )(R.keys(payload.node || {}))
+                                        const nodeList = R.map( key => node[modKey][key] )(R.keys(payload.node || {}))
                                         const handlePress = payload => navigation.push('unitDetailView', payload)
 
                                         return (

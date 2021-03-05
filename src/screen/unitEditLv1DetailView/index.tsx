@@ -110,8 +110,8 @@ export default ({ route, navigation }) => {
 
     let data = initState
 
-    if (nodeId !== null && node[nodeId]) {
-        data = node[nodeId]
+    if (nodeId !== null && node[modKey][nodeId]) {
+        data = node[modKey][nodeId]
     }
 
     const inputName = useRef()
@@ -127,13 +127,31 @@ export default ({ route, navigation }) => {
     const [pickFtStep, setPickFtStep] = useState(data.ftStep || SkillStep.flag)
     const [pickStep, setPickStep] = useState(data.step || SkillStep.flag)
 
+    const startTime = new Date()
     useEffect(() => {
         info('[编辑][节点详情页]初始化完成')
+
+        // 渲染计时 结束时间
+        const endTime = new Date()
+
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'screen - unitEditLv1DetailView',
+                name: '编辑][节点详情页]',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
 
         return () => {
             info('[编辑][节点详情页]执行卸载')
         }
-      }, [])
+    }, [])
 
     const handleSave = () => {
         const node: SkillUnit = {
@@ -173,16 +191,17 @@ export default ({ route, navigation }) => {
 
     const handleNodeDelPress = (index) => {
         if (index === 0) {
-            navigation.goBack()
 
             dispatch({
                 mod: 'system',
                 type: 'removeNode',
                 payload: {
+                    modKey,
                     nodeId: data.id,
                 },
             })
 
+            navigation.goBack()
         }
     }
 

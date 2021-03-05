@@ -1,4 +1,6 @@
 import React, { useReducer, useEffect, useState, } from 'react'
+
+import Clipboard from '@react-native-community/clipboard'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -29,7 +31,6 @@ import unitDetailCode from './screen/unitDetailCode'
 import unitEditCategoryView from './screen/unitEditCategoryView'
 import unitEditLv1View from './screen/unitEditLv1View'
 import unitEditLv1DetailView from './screen/unitEditLv1DetailView'
-import unitEditLv2View from './screen/unitEditLv2View'
 
 import { getData, clearData, } from './reducer'
 
@@ -38,7 +39,7 @@ import { info, debug, } from './util/log'
 const RootStack = createStackNavigator()
 
 const App = () => {
-
+  // clearData()
   info('===    渲染App   ===')
 
   const [state, dispatch] = useReducer(reducer, initState)
@@ -47,6 +48,7 @@ const App = () => {
   const init = async () => {
     info('[App]执行初始化')
     const data = await getData()
+    // Clipboard.setString(JSON.stringify(state.data, null, 2))
 
     if (data) {
       info('更新本地缓存')
@@ -67,14 +69,13 @@ const App = () => {
 
     // dispatch({
     //   mod: 'system',
-    //   type: 'fixdata',
+    //   type: 'fix',
     // })
 
     return () => {
       info('[App]执行卸载')
     }
   }, [])
-
 
   if (inited === false) {
     info('inited === false')
@@ -97,7 +98,6 @@ const App = () => {
           <RootStack.Screen name='unitEditCategoryView' component={unitEditCategoryView} />
           <RootStack.Screen name='unitEditLv1View' component={unitEditLv1View} />
           <RootStack.Screen name='unitEditLv1DetailView' component={unitEditLv1DetailView} />
-          <RootStack.Screen name='unitEditLv2View' component={unitEditLv2View} />
 
           <RootStack.Screen name='renderTime' component={RenderTime} />
           <RootStack.Screen name='about' component={About} />

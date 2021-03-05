@@ -78,26 +78,26 @@ export default ({ navigation, }) => {
         }
     }
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     // 渲染计时 结束时间
-    //     const endTime = new Date()
+        // 渲染计时 结束时间
+        const endTime = new Date()
 
-    //     dispatch({
-    //         mod: 'debug',
-    //         type: 'renderTime_add',
-    //         payload: {
-    //             // 模块
-    //             mod: 'info',
-    //             name: '资讯',
-    //             // startTime,
-    //             // endTime,
-    //             // ms
-    //             time: endTime - startTime,
-    //         },
-    //     })
+        dispatch({
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'info',
+                name: '资讯',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
+        })
 
-    // }, [])
+    }, [])
 
     const node = useMemo(
         () => {
