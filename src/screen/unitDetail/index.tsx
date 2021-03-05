@@ -219,22 +219,28 @@ export default ({ route, navigation }) => {
                         renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
                         <ScrollItem
                             tabLabel='特性'
+                            type='features'
                             width={scrollViewWidth}
                             navigation={navigation}
+                            node={data}
                             data={data.features}
                             theme={theme} />
 
                         <ScrollItem
                             tabLabel='文章'
+                            type='article'
                             width={scrollViewWidth}
                             navigation={navigation}
+                            node={data}
                             data={data.article}
                             theme={theme} />
 
                         <ScrollItem
                             tabLabel='API'
+                            type='api'
                             width={scrollViewWidth}
                             navigation={navigation}
+                            node={data}
                             data={data.api}
                             theme={theme} />
                     </ScrollableTabView>
@@ -244,7 +250,7 @@ export default ({ route, navigation }) => {
     )
 }
 
-export const ScrollItem = ({ tabLabel, navigation, data, theme, width }) => {
+export const ScrollItem = ({ tabLabel, navigation, type, node, data, theme, width }) => {
 
     const fixData = R.values(data)
 
@@ -257,7 +263,7 @@ export const ScrollItem = ({ tabLabel, navigation, data, theme, width }) => {
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
             }}>
-                <TouchView onPress={() => { }}>
+                <TouchView onPress={() => navigation.push('unitEditFeaturesCategoryView', {node: node, type, id: null, })}>
                     <View style={{
                         width: 40,
                         flexDirection: 'row',

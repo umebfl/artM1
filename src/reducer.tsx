@@ -90,6 +90,12 @@ export const initState = {
         textLight2: 'rgb(167, 167, 167)',
         textLight: 'rgb(204, 204, 204)',
         textDanger: color.red[5],
+
+        // 支持暗黑模式和自定义主题
+        model: 0, // light | dark | custom
+
+        screenBackgroundColor: ['white', 'black', 'rgba(49, 123, 246, 1)'],
+        screenBackgroundGreyColor: ['rgb(247, 248, 249)', 'rgb(247, 248, 249)'],
     },
 
     // 系统导航数据
@@ -306,7 +312,6 @@ export const reducer = (state, action) => {
                             value,
                         } = action.payload
 
-
                         // const path = ['navigation', 'home', 'tab', target, 'data', 'list']
                         // const list = R.path(path)(state)
 
@@ -345,7 +350,6 @@ export const reducer = (state, action) => {
                             path,
                             { ...category, name: value },
                         )(state)
-
 
                         setData(newState)
                         return newState

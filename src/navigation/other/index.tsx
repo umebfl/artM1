@@ -48,7 +48,7 @@ export default ({ navigation, }) => {
     } = state
 
     const handleClearCachePress = async (index) => {
-        if(index === 0) {
+        if (index === 0) {
             await clearData()
             Restart.Restart()
         }
@@ -78,32 +78,28 @@ export default ({ navigation, }) => {
 
     useEffect(() => {
         const endTime = new Date()
-    
+
         dispatch({
-          mod: 'debug',
-          type: 'renderTime_add',
-          payload: {
-            // 模块
-            mod: 'other',
-            name: '设置',
-            // startTime,
-            // endTime,
-            // ms
-            time: endTime - startTime,
-          },
+            mod: 'debug',
+            type: 'renderTime_add',
+            payload: {
+                // 模块
+                mod: 'other',
+                name: '设置',
+                // startTime,
+                // endTime,
+                // ms
+                time: endTime - startTime,
+            },
         })
-      }, [])
+    }, [])
 
     const node = useMemo(
         () => {
             info(`模块[其他]]useMemo执行渲染`)
 
             return (
-                <ScreenWrapper
-                    navigation={navigation}
-                    theme={theme}
-                    imageBackground={null} >
-        
+                <>
                     <ActionSheet
                         ref={actionSheetREl}
                         title={'确认缓存?'}
@@ -112,31 +108,38 @@ export default ({ navigation, }) => {
                         destructiveButtonIndex={0}
                         onPress={handleClearCachePress}
                     />
-        
-                    <List title={'开发'}>
-                        <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
-                        <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
-                        <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
-                        <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
-                        <Item title={'渲染耗时'} icon={'chart-bar'} jumpTo={'renderTime'} navigation={navigation} />
-                        <Item title={'项目代码'} icon={'github'} handlePress={handleProSource} />
-                        <Item title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''}/>
-                    </List>
-        
+
                     <List>
                         <Item title={'显示'} icon={'format-text'} jumpTo={'about'} navigation={navigation} />
                         <Item title={'主题'} icon={'theme-light-dark'} jumpTo={'about'} navigation={navigation} />
                         <Item title={'语言'} icon={'translate'} jumpTo={'about'} navigation={navigation} />
                     </List>
-        
+
                     <List>
-                        <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} />
+                        {/* <Item title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} /> */}
                         <Item title={'关于'} icon={'alert-circle-outline'} jumpTo={'about'} navigation={navigation} />
                     </List>
-                    
-                </ScreenWrapper>
+                </>
             )
-        }, [open, copyed])
+        }, [])
 
-    return <View style={{ flex: 1, }}>{node}</View>
+    return (
+        <ScreenWrapper
+            navigation={navigation}
+            theme={theme}
+            imageBackground={null} >
+
+            <List title={'开发'}>
+                <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
+                <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
+                <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
+                <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
+                <Item title={'渲染耗时'} icon={'chart-bar'} jumpTo={'renderTime'} navigation={navigation} />
+                <Item title={'项目代码'} icon={'github'} handlePress={handleProSource} />
+                <Item title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''} />
+            </List>
+
+            {node}
+        </ScreenWrapper>
+    )
 }
