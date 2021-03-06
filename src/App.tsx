@@ -32,7 +32,8 @@ import unitEditCategoryView from './screen/unitEditCategoryView'
 import unitEditLv1View from './screen/unitEditLv1View'
 import unitEditLv1DetailView from './screen/unitEditLv1DetailView'
 
-import unitEditFeaturesCategoryView from './screen/unitEditFeaturesCategoryView'
+import unitEditNodeCategoryView from './screen/unitEditNodeCategoryView'
+import unitEditNodeArticleLeafView from './screen/unitEditNodeArticleLeafView'
 
 import { getData, clearData, } from './reducer'
 
@@ -101,8 +102,9 @@ const App = () => {
           <RootStack.Screen name='unitEditLv1View' component={unitEditLv1View} />
           <RootStack.Screen name='unitEditLv1DetailView' component={unitEditLv1DetailView} />
 
-          <RootStack.Screen name='unitEditFeaturesCategoryView' component={unitEditFeaturesCategoryView} />
-          
+          <RootStack.Screen name='unitEditNodeCategoryView' component={unitEditNodeCategoryView} />
+          <RootStack.Screen name='unitEditNodeArticleLeafView' component={unitEditNodeArticleLeafView} />
+
           <RootStack.Screen name='renderTime' component={RenderTime} />
           <RootStack.Screen name='about' component={About} />
           <RootStack.Screen name='dataView' component={DataView} />

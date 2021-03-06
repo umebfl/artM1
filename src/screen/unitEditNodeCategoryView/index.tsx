@@ -1,3 +1,6 @@
+/*
+    [特性/文章] 新建/修改 节点一级分类页面
+*/
 import R from 'ramda'
 import React, { useContext, useEffect, useRef, useState, } from 'react'
 import { useSetState } from 'ahooks'
@@ -12,6 +15,7 @@ import {
     Clipboard,
     TextInput,
 } from 'react-native'
+import ActionSheet from 'react-native-actionsheet'
 import TouchView from '../../component/TouchView'
 import SimpleScreen from '../../component/View/SimpleScreen'
 import { InputItemWithVal, } from '../../component/Form/Input'
@@ -36,6 +40,7 @@ interface Payload {
 
 export default (payload: Payload) => {
     const { state, dispatch, } = useContext(Context)
+    const actionSheetREl = useRef(null)
 
     const {
         theme,
@@ -47,7 +52,7 @@ export default (payload: Payload) => {
             params: {
                 node,
                 type,
-                id,
+                category,
             },
         },
     } = payload
@@ -70,24 +75,25 @@ export default (payload: Payload) => {
     //         node: {},
     //     }
     // }
+
     const TypePath = ['data', 'node', node.mod, node.id, type]
+    const categoryList = R.values(node[type])
 
-    const [featuresState, setFeatures] = useSetState<SkillUnitCategory>()
-
-    useEffect(() => {
-        if (id) {
-            setFeatures(R.path([...TypePath, id], state))
-        }
-    }, [])
+    const [featuresState, setFeatures] = useSetState<SkillUnitCategory>(category ? category : {
+        id: idBuilder(categoryList.length),
+        title: '',
+        def: '',
+        node: {},
+    })
 
     const handleDel = () => {
         const featuresPath = [...TypePath, featuresState.id]
-        const category = R.path([...TypePath, id], state)
         const len = R.compose(
-            R.prop('length'),
-            R.value,
-            R.prop('node')
-        )
+            R.length,
+            R.values,
+            R.prop('node'),
+            R.path([...TypePath, category.id])
+        )(state)
 
         if (len) {
             alert('分类下面存在节点, 需要移除后删除!')
@@ -111,33 +117,37 @@ export default (payload: Payload) => {
             return
         }
 
-        const categoryList = R.values(node[type])
-
-        const val = {
-            ...featuresState,
-            id: idBuilder(categoryList.length),
-        }
-
         dispatch({
             mod: 'path',
             type: 'add',
             payload: {
-                path: [...TypePath, val.id],
-                val,
+                path: [...TypePath, featuresState.id],
+                val: featuresState,
             },
         })
+
         navigation.goBack()
+    }
+
+    const handleActionSheet = () => {
+        actionSheetREl.current.show()
+    }
+
+    const handleActionSheetSelected = (index) => {
+        if (index === 1) {
+            handleDel()
+        }
     }
 
     return (
         <SimpleScreen
             navigation={navigation}
             ScreenHeaderConf={{
-                title: '添加分类',
+                title: `${category ? '编辑' : '新建'}分类`,
                 right: (
                     <WingBlank>
-                        <IfElse test={id} tnode={() => (
-                            <TouchView onPress={handleDel}>
+                        <IfElse test={category} tnode={() => (
+                            <TouchView onPress={handleActionSheet}>
                                 <DefText style={{ fontSize: 16, }}>删除</DefText>
                             </TouchView>
                         )} fnode={() => (
@@ -152,9 +162,18 @@ export default (payload: Payload) => {
                 backgroundColor: theme.screenBackgroundGreyColor,
             }}>
 
+            <ActionSheet
+                ref={actionSheetREl}
+                title={'请选择操作'}
+                options={['取消', '删除',]}
+                cancelButtonIndex={0}
+                destructiveButtonIndex={1}
+                onPress={handleActionSheetSelected}
+            />
+
             <InputItemWithVal
                 title={'名称'}
-                path={id ? [...TypePath, id, 'title'] : null}
+                path={category ? [...TypePath, category.id, 'title'] : null}
                 value={featuresState.title}
                 onChange={val => setFeatures({ title: val })} />
 
@@ -163,13 +182,9 @@ export default (payload: Payload) => {
                     multiline: true,
                 }}
                 title={'简述'}
-                path={id ? [...TypePath, id, 'def'] : null}
+                path={category ? [...TypePath, category.id, 'def'] : null}
                 value={featuresState.def}
                 onChange={val => setFeatures({ def: val })} />
-
-            <When test={id} node={() => (
-                <AddBtn title={`添加节点`} handlePress={() => {alert(1)}}/>
-            )}></When>
 
             {/* <Text>{id}, {node.mod}, {node.id}, {type}, {JSON.stringify(featuresState, null, 2)}</Text>
             <Text>{JSON.stringify(node, null, 2)}</Text> */}

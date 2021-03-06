@@ -16,6 +16,40 @@
 	// 	"description": "Log output to console"
 	// }
 	
+
+	"ActionSheet": {
+		// "scope": "javascript,typescript,tsx",
+		"prefix": "cactsheet",
+		"body": [
+			"import ActionSheet from 'react-native-actionsheet'",
+			"const actionSheetREl = useRef(null)",
+			"const handleActionSheet = (type, categoryId, leaf) => {",
+				"	actionSheetREl.current.show()",
+				"	actionSheetREl.current.value = {",
+					"		type,",
+					"		categoryId,",
+					"		leaf,",
+					"	}",
+					"}",
+					""
+					"const handleActionSheetSelected = (index) => {",
+						"	const value = actionSheetREl.current.value",
+						"	if (index === 1) {",
+							""
+							"		}",
+							"}",
+							""
+							"<ActionSheet",
+							"	ref={actionSheetREl}",
+							"	title={'请选择操作'}",
+							"	options={['取消', '编辑',]}",
+							"	cancelButtonIndex={0}",
+							"	destructiveButtonIndex={2}",
+							"	onPress={handleActionSheetSelected}",
+							"/>",
+		],
+		"description": "新建ActionSheet"
+	},
 	"cicon": {
 		// "scope": "javascript,typescript,tsx",
 		"prefix": "cicon",
@@ -45,9 +79,10 @@
 			"import TouchView from '../../component/TouchView'",
 			"import { info, debug, } from '../../util/log'",
 			"import Context from '../../reducer'",
+			"import SimpleScreen from '../../component/View/SimpleScreen'",
 			""
 			"interface Payload {",
-				"",
+				"	navigation: any",
 				"}",
 				"",
 				"export default (payload: Payload) => {",
@@ -58,13 +93,13 @@
 						"	} = state",
 					"",
 					"	const {",
-						"",
+						"		navigation,",
 						"	} = payload",
 						"",
 						"	return (",
-						"		<View>",
-						"			<Text>New Node</Text>",
-						"		</View>",
+						"		<SimpleScreen navigation={navigation}>",
+						"",
+						"		</SimpleScreen>",
 						"	)",
 						"}",
 		],

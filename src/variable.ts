@@ -69,6 +69,16 @@ export interface SkillUnitCategory {
   node: Object
 }
 
+
+export interface SkillUnitArticle {
+  id: string
+  title: string
+  def: string
+  jump: SKillJumpToURI.webview
+  url: string
+  major: boolean
+}
+
 export interface SkillInitFeaturesNode {
   id: string
   title: string

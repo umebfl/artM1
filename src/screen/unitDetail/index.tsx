@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useEffect, } from 'react'
+import React, { useContext, useEffect, useRef, useState, useMemo, } from 'react'
 
 import {
     SafeAreaView,
@@ -14,6 +14,7 @@ import {
 
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 
+import ActionSheet from 'react-native-actionsheet'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { SvgCssUri, SvgXml, } from 'react-native-svg'
@@ -109,6 +110,8 @@ export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
+    const leafActionSheetREL = useRef(null)
+    const categoryActionSheetREL = useRef(null)
 
     const {
         theme,
@@ -156,6 +159,53 @@ export default ({ route, navigation }) => {
         }
     }, [])
 
+    const handleCategoryActionSheet = (type, category) => {
+        categoryActionSheetREL.current.show()
+        categoryActionSheetREL.current.value = {
+            type,
+            category,
+        }
+    }
+    const handleLeafActionSheet = (type, categoryId, leaf) => {
+        leafActionSheetREL.current.show()
+        leafActionSheetREL.current.value = {
+            type,
+            categoryId,
+            leaf,
+        }
+    }
+
+    const handleCategoryActionSheetSelected = (index) => {
+        const value = categoryActionSheetREL.current.value
+        if (index === 1) {
+            // 添加节点
+            navigation.push('unitEditNodeArticleLeafView', {
+                node: data,
+                type: value.type,
+                categoryId: value.category.id,
+                article: null,
+            })
+        } else if(index === 2) {
+            // 编辑分类
+            navigation.push('unitEditNodeCategoryView', { node, type: value.type, category: value.category, })
+        }
+    }
+    const handleLeafActionSheetSelected = (index) => {
+        const value = leafActionSheetREL.current.value
+        if (index === 1) {
+            // 编辑
+            if (value.type === 'article') {
+                // 文章
+                navigation.push('unitEditNodeArticleLeafView', {
+                    node: data,
+                    type: value.type,
+                    categoryId: value.categoryId,
+                    article: value.leaf,
+                })
+            }
+        }
+    }
+
     const handleJumpDetail = () => {
         navigation.push('unitEditLv1DetailView', {
             modKey: data.mod,
@@ -180,6 +230,23 @@ export default ({ route, navigation }) => {
                 //   ? <Curtain type={payload.logo.type} url={payload.logo.url}/>
                 //   : null
             }
+
+            <ActionSheet
+                ref={categoryActionSheetREL}
+                title={'请选择操作'}
+                options={['取消', '添加节点', '编辑']}
+                cancelButtonIndex={0}
+                onPress={handleCategoryActionSheetSelected}
+            />
+
+            <ActionSheet
+                ref={leafActionSheetREL}
+                title={'请选择操作'}
+                options={['取消', '编辑',]}
+                cancelButtonIndex={0}
+                destructiveButtonIndex={2}
+                onPress={handleLeafActionSheetSelected}
+            />
 
             <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
                 <ScreenHeader
@@ -222,6 +289,8 @@ export default ({ route, navigation }) => {
                             type='features'
                             width={scrollViewWidth}
                             navigation={navigation}
+                            handleCategoryActionSheet={handleCategoryActionSheet}
+                            handleLeafActionSheet={handleLeafActionSheet}
                             node={data}
                             data={data.features}
                             theme={theme} />
@@ -231,18 +300,21 @@ export default ({ route, navigation }) => {
                             type='article'
                             width={scrollViewWidth}
                             navigation={navigation}
+                            handleCategoryActionSheet={handleCategoryActionSheet}
+                            handleLeafActionSheet={handleLeafActionSheet}
                             node={data}
                             data={data.article}
                             theme={theme} />
 
-                        <ScrollItem
+                        {/* <ScrollItem
                             tabLabel='API'
                             type='api'
                             width={scrollViewWidth}
                             navigation={navigation}
+                            handleLeafActionSheet={handleLeafActionSheet}
                             node={data}
                             data={data.api}
-                            theme={theme} />
+                            theme={theme} /> */}
                     </ScrollableTabView>
                 </ScrollView>
             </View>
@@ -250,7 +322,17 @@ export default ({ route, navigation }) => {
     )
 }
 
-export const ScrollItem = ({ tabLabel, navigation, type, node, data, theme, width }) => {
+export const ScrollItem = ({
+    tabLabel,
+    navigation,
+    handleCategoryActionSheet,
+    handleLeafActionSheet,
+    type,
+    node,
+    data,
+    theme,
+    width,
+}) => {
 
     const fixData = R.values(data)
 
@@ -263,7 +345,7 @@ export const ScrollItem = ({ tabLabel, navigation, type, node, data, theme, widt
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
             }}>
-                <TouchView onPress={() => navigation.push('unitEditFeaturesCategoryView', { node, type, id: null, })}>
+                <TouchView onPress={() => navigation.push('unitEditNodeCategoryView', { node, type, id: null, })}>
                     <View style={{
                         width: 40,
                         flexDirection: 'row',
@@ -301,7 +383,9 @@ export const ScrollItem = ({ tabLabel, navigation, type, node, data, theme, widt
             }
             <UnitItemList
                 data={fixData}
-                handleEditCategory={(id) => navigation.push('unitEditFeaturesCategoryView', { node, type, id, })}
+                handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
+                handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
+                handleEditCategory={(id) => navigation.push('unitEditNodeCategoryView', { node, type, id, })}
                 handlePress={item => {
                     R.cond([
                         [

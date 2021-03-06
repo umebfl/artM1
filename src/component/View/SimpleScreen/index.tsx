@@ -24,7 +24,7 @@ interface Payload {
     navigation: Object
     children?: any
     style?: Object
-    ScreenHeaderConf: Object
+    ScreenHeaderConf?: Object
 }
 
 export default (payload: Payload) => {

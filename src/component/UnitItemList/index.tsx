@@ -27,6 +27,8 @@ interface payload {
     showUrl?: boolean
     handlePress: (item: any) => void
     handleEditCategory: (id: string) => void
+    handleCategoryActionSheet: (category: Object) => void
+    handleDotPress?: (categoryId: string, leaf: Object) => void
 }
 
 export default (payload: payload) => {
@@ -42,93 +44,107 @@ export default (payload: payload) => {
         showUrl,
         handlePress,
         handleEditCategory,
+        handleCategoryActionSheet,
+        handleDotPress,
     } = payload
 
     return (
         R.addIndex(R.map)(
-            ({ id, title, def, node, }, k) => (
-                <View
-                    style={{
-                        // backgroundColor: theme.navigationTabBarBackgoundSecond,
-                        // backgroundColor: 'rgba(0,0,0,0.2)',
-                        paddingTop: 16,
-                        paddingBottom: 16,
-                        // margin: 16,
-                        marginBottom: 0,
-                        borderRadius: 12,
-                        borderTopWidth: 0.3,
-                        borderTopColor: theme.borderColor,
-                    }}
-                    key={k}>
+            (item, k) => {
 
-                    <View style={{
-                        marginLeft: 10,
-                        marginRight: 10,
-                        marginBottom: def ? 8 : 4,
-                    }}>
-                        <When test={title} node={() => (
-                            <View style={{ flexDirection: 'row', }}>
-                                <MidTitle style={{ marginRight: 4, marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
-                                <TouchView onPress={() => handleEditCategory(id)}>
-                                    <Icon name={'circle-edit-outline'} size={18} color={theme.grey[0]} />
-                                </TouchView>
-                            </View>
-                        )} />
-                        <When test={def} node={() => <DefText>{def}</DefText>} />
+                const {
+                    id,
+                    title,
+                    def,
+                    node,
+                } = item
+
+                return (
+                    <View
+                        style={{
+                            // backgroundColor: theme.navigationTabBarBackgoundSecond,
+                            // backgroundColor: 'rgba(0,0,0,0.2)',
+                            paddingTop: 16,
+                            paddingBottom: 16,
+                            // margin: 16,
+                            marginBottom: 0,
+                            borderRadius: 12,
+                            borderTopWidth: 0.3,
+                            borderTopColor: theme.borderColor,
+                        }}
+                        key={k}>
+    
+                        <View style={{
+                            marginLeft: 10,
+                            marginRight: 10,
+                            marginBottom: def ? 8 : 4,
+                        }}>
+                            <When test={title} node={() => (
+                                <View style={{ flexDirection: 'row', }}>
+                                    <MidTitle style={{ marginRight: 4, marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
+                                    <TouchView onPress={() => handleCategoryActionSheet(item)}>
+                                        <Icon name={'circle-edit-outline'} size={18} color={theme.grey[0]} />
+                                    </TouchView>
+                                </View>
+                            )} />
+                            <When test={def} node={() => <DefText>{def}</DefText>} />
+                        </View>
+    
+                        {
+                            R.addIndex(R.map)(
+                                (item, index) => (
+                                    <TouchView key={index} onPress={() => handlePress(item)}>
+                                        <View style={{
+                                            paddingTop: 8,
+                                            paddingBottom: 10,
+                                            // marginTop: 180,
+                                            flexDirection: 'row',
+                                            height: 56,
+                                            marginBottom: 4,
+                                            // backgroundColor: 'rgba(0,0,0,0.4)',
+                                            justifyContent: 'space-between',
+                                        }}>
+                                            <View style={{
+                                                width: 34,
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                // backgroundColor: 'rgba(0,0,0,0.2)',
+                                            }}>
+                                                <DefText style={{ fontSize: 18 }}>{index + 1}</DefText>
+                                            </View>
+                                            <View style={{
+                                                flex: 1,
+                                            }}>
+                                                <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title}</Title>
+                                                <DefText style={{ marginTop: 6, marginRight: 6, }}>
+                                                    {
+                                                        showUrl
+                                                            ? item.url
+                                                            : item.def
+                                                    }
+                                                </DefText>
+                                            </View>
+                                            <TouchView onPress={() => handleDotPress(id, item)}>
+                                                <View style={{
+                                                    width: 34,
+                                                    // marginRight: -5,
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    // backgroundColor: 'rgba(0,0,0,0.2)',
+                                                }}>
+                                                    <Icon name={'dots-vertical'} size={20} color={theme.grey[0]} />
+                                                </View>
+                                            </TouchView>
+                                        </View>
+                                    </TouchView>
+                                ),
+                                R.values(node)
+                            )
+                        }
+    
                     </View>
-
-                    {
-                        R.addIndex(R.map)(
-                            (item, index) => (
-                                <TouchView key={index} onPress={() => handlePress(item)}>
-                                    <View style={{
-                                        paddingTop: 8,
-                                        paddingBottom: 10,
-                                        // marginTop: 180,
-                                        flexDirection: 'row',
-                                        height: 56,
-                                        marginBottom: 4,
-                                        // backgroundColor: 'rgba(0,0,0,0.4)',
-                                        justifyContent: 'space-between',
-                                    }}>
-                                        <View style={{
-                                            width: 34,
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            // backgroundColor: 'rgba(0,0,0,0.2)',
-                                        }}>
-                                            <DefText style={{ fontSize: 18 }}>{index + 1}</DefText>
-                                        </View>
-                                        <View style={{
-                                            flex: 1,
-                                        }}>
-                                            <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title}</Title>
-                                            <DefText style={{ marginTop: 6, marginRight: 6, }}>
-                                                {
-                                                    showUrl
-                                                        ? item.url
-                                                        : item.def
-                                                }
-                                            </DefText>
-                                        </View>
-                                        <View style={{
-                                            width: 34,
-                                            // marginRight: -5,
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            // backgroundColor: 'rgba(0,0,0,0.2)',
-                                        }}>
-                                            <Icon name={'dots-vertical'} size={20} color={theme.grey[0]} />
-                                        </View>
-                                    </View>
-                                </TouchView>
-                            ),
-                            R.values(node)
-                        )
-                    }
-
-                </View>
-            ),
+                )
+            },
             data || []
         )
     )

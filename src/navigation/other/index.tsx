@@ -54,7 +54,7 @@ export default ({ navigation, }) => {
         }
     }
 
-    const handleClearCacheActionSheet = async () => {
+    const handleClearCacheActionSheet = () => {
         actionSheetREl.current.show()
     }
 
