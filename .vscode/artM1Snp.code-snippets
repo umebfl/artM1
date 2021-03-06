@@ -15,6 +15,16 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	
+	"cicon": {
+		// "scope": "javascript,typescript,tsx",
+		"prefix": "cicon",
+		"body": [
+			"import Icon from 'react-native-vector-icons/MaterialCommunityIcons'",
+			"<Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />",
+		],
+		"description": "新建Icon"
+	},
 	"newnode": {
 		// "scope": "javascript,typescript,tsx",
 		"prefix": "newnode",

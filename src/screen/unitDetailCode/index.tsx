@@ -35,6 +35,7 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
+import { info } from '../../util/log'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)

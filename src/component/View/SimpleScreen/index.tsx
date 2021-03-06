@@ -24,6 +24,7 @@ interface Payload {
     navigation: Object
     children?: any
     style?: Object
+    ScreenHeaderConf: Object
 }
 
 export default (payload: Payload) => {
@@ -37,6 +38,7 @@ export default (payload: Payload) => {
         navigation,
         children,
         style,
+        ScreenHeaderConf,
     } = payload
 
     return (
@@ -45,7 +47,7 @@ export default (payload: Payload) => {
             backgroundColor: theme.screenBackgroundColor[theme.model],
             ...style,
         }}>
-            <ScreenHeader navigation={navigation} safeArea={true} />
+            <ScreenHeader navigation={navigation} safeArea={true} {...ScreenHeaderConf} />
 
             <FScrollView>
                 {children}

@@ -20,11 +20,13 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
+import { When } from '../../util/jsx'
 
 interface payload {
     data: any
     showUrl?: boolean
-    handlePress: Function
+    handlePress: (item: any) => void
+    handleEditCategory: (id: string) => void
 }
 
 export default (payload: payload) => {
@@ -39,11 +41,12 @@ export default (payload: payload) => {
         data,
         showUrl,
         handlePress,
+        handleEditCategory,
     } = payload
 
     return (
         R.addIndex(R.map)(
-            ({ title, def, node, }, k) => (
+            ({ id, title, def, node, }, k) => (
                 <View
                     style={{
                         // backgroundColor: theme.navigationTabBarBackgoundSecond,
@@ -63,16 +66,15 @@ export default (payload: payload) => {
                         marginRight: 10,
                         marginBottom: def ? 8 : 4,
                     }}>
-                        {
-                            title
-                                ? <MidTitle style={{ marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
-                                : null
-                        }
-                        {
-                            def
-                                ? <DefText>{def}</DefText>
-                                : null
-                        }
+                        <When test={title} node={() => (
+                            <View style={{ flexDirection: 'row', }}>
+                                <MidTitle style={{ marginRight: 4, marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
+                                <TouchView onPress={() => handleEditCategory(id)}>
+                                    <Icon name={'circle-edit-outline'} size={18} color={theme.grey[0]} />
+                                </TouchView>
+                            </View>
+                        )} />
+                        <When test={def} node={() => <DefText>{def}</DefText>} />
                     </View>
 
                     {

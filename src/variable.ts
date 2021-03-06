@@ -61,6 +61,39 @@ export enum ImageType {
   icon = 'icon',
 }
 
+// 节点特征分类
+export interface SkillUnitCategory {
+  id: string
+  title: string
+  def: string
+  node: Object
+}
+
+export interface SkillInitFeaturesNode {
+  id: string
+  title: string
+  def: string
+  jump: SKillJumpToURI
+
+  // 代码页
+  url?: string
+  code?: string | string[]
+  explain?: string[]  // 概念列表
+
+  // 二级列表
+  features?: {
+    title: string
+    node: {
+      title: string
+      def: string
+      jump: SKillJumpToURI.code
+      code: string | string[]
+      url?: string
+      explain?: string[]  // 概念列表
+    }[]
+  }[]
+}
+
 // 技能信息
 export interface SkillUnit {
 
@@ -119,7 +152,7 @@ export interface SkillUnit {
     // 一级标题
     title: string
     // 内容列表
-    list: {
+    node: {
       // 二级标题
       title: string
       // 网页地址
@@ -129,36 +162,12 @@ export interface SkillUnit {
       // 跳转到的路由名称
       jump: SKillJumpToURI
     }[]
-  }[]
+  }
 
   // 特征
-  features?: {
-    title: string
-    def: string
-    list: {
-      title: string
-      def: string
-      jump: SKillJumpToURI
-  
-      // 代码页
-      url?: string
-      code?: string | string[]
-      explain?: string[]  // 概念列表
+  features: Object,
 
-      // 二级列表
-      features?: {
-        title: string
-        list: {
-          title: string
-          def: string
-          jump: SKillJumpToURI.code
-          code: string | string[]
-          url?: string
-          explain?: string[]  // 概念列表
-        }[]
-      }[]
-    }[]
-  }[]
+  api?: {
 
-  api?: [],
+  },
 }

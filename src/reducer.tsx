@@ -142,6 +142,25 @@ export const reducer = (state, action) => {
 
     return R.cond([
         [
+            R.equals('path'),
+            () => R.cond([
+                [
+                    R.equals('del'),
+                    () => R.compose(
+                        R.tap(newState => setData(newState)),
+                        R.dissocPath(action.payload.path),
+                    )(state),
+                ],
+                [
+                    R.anyPass([R.equals('add'), R.equals('edit')]),
+                    () => R.compose(
+                        R.tap(newState => setData(newState)),
+                        R.assocPath(action.payload.path, action.payload.val),
+                    )(state),
+                ],
+            ])(action.type),
+        ],
+        [
             R.equals('debug'),
             () => R.cond([
                 [

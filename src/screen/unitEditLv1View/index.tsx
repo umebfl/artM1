@@ -72,7 +72,7 @@ export default ({ route, navigation }) => {
 
     const data = category[modKey][categoryId]
 
-    
+
     const startTime = new Date()
     useEffect(() => {
         info('[编辑][分类详情页]初始化完成')
@@ -95,9 +95,9 @@ export default ({ route, navigation }) => {
         })
 
         return () => {
-          info('[编辑][分类详情页]执行卸载')
+            info('[编辑][分类详情页]执行卸载')
         }
-      }, [])
+    }, [])
 
     // const handleDelPress = (index) => {
     //     if (index === 0) {
@@ -165,7 +165,7 @@ export default ({ route, navigation }) => {
         }
     }
 
-    if(!data) {
+    if (!data) {
         return <View></View>
     }
 
@@ -219,26 +219,7 @@ export default ({ route, navigation }) => {
                                 defaultValue={data.name} />
                         </View>
 
-                        <TouchView onPress={() => handleJumpDetail(null)}>
-                            <View style={{
-                                flex: 1,
-                                flexDirection: 'row',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                height: 40,
-                                borderRadius: 8,
-                                marginTop: 20,
-                                marginBottom: 10,
-                                borderStyle: 'dashed',
-                                borderWidth: theme.borderWidth,
-                                borderColor: theme.borderColor,
-                                backgroundColor: 'white',
-                                // opacity: 0.8,
-                            }}>
-                                <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
-                                <DefText>添加节点</DefText>
-                            </View>
-                        </TouchView>
+                        <AddBtn title={'添加节点'} handlePress={() => handleJumpDetail(null)}/>
                     </WingBlank>
 
                     {
@@ -270,5 +251,41 @@ export default ({ route, navigation }) => {
                 </WhiteSpace>
             </ScrollView>
         </View >
+    )
+}
+
+interface AddBtnPayload {
+    handlePress: () => void
+    title: string
+}
+
+export const AddBtn = (payload: AddBtnPayload) => {
+    const { state, dispatch, } = useContext(Context)
+
+    const {
+        theme,
+    } = state
+
+    return (
+        <TouchView onPress={payload.handlePress}>
+            <View style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 40,
+                borderRadius: 8,
+                marginTop: 20,
+                marginBottom: 10,
+                borderStyle: 'dashed',
+                borderWidth: theme.borderWidth,
+                borderColor: theme.borderColor,
+                backgroundColor: 'white',
+                // opacity: 0.8,
+            }}>
+                <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
+                <DefText>{payload.title}</DefText>
+            </View>
+        </TouchView>
     )
 }

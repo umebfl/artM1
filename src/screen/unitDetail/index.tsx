@@ -263,7 +263,7 @@ export const ScrollItem = ({ tabLabel, navigation, type, node, data, theme, widt
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
             }}>
-                <TouchView onPress={() => navigation.push('unitEditFeaturesCategoryView', {node: node, type, id: null, })}>
+                <TouchView onPress={() => navigation.push('unitEditFeaturesCategoryView', { node, type, id: null, })}>
                     <View style={{
                         width: 40,
                         flexDirection: 'row',
@@ -299,22 +299,25 @@ export const ScrollItem = ({ tabLabel, navigation, type, node, data, theme, widt
                         </View>
                     )
             }
-            <UnitItemList data={fixData} handlePress={item => {
-                R.cond([
-                    [
-                        R.equals('detailLv2'),
-                        () => navigation.push('unitDetailView', { payload: item }),
-                    ],
-                    [
-                        R.equals('code'),
-                        () => navigation.push('unitDetailCodeView', { payload: item }),
-                    ],
-                    [
-                        R.equals('webview'),
-                        () => navigation.push('readWebview', item),
-                    ],
-                ])(item.jump)
-            }} />
+            <UnitItemList
+                data={fixData}
+                handleEditCategory={(id) => navigation.push('unitEditFeaturesCategoryView', { node, type, id, })}
+                handlePress={item => {
+                    R.cond([
+                        [
+                            R.equals('detailLv2'),
+                            () => navigation.push('unitDetailView', { payload: item }),
+                        ],
+                        [
+                            R.equals('code'),
+                            () => navigation.push('unitDetailCodeView', { payload: item }),
+                        ],
+                        [
+                            R.equals('webview'),
+                            () => navigation.push('readWebview', item),
+                        ],
+                    ])(item.jump)
+                }} />
         </View>
     )
 }

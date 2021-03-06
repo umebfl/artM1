@@ -1,8 +1,21 @@
 
 import R from 'ramda'
+import React, { useContext, useEffect, useRef, useState, } from 'react'
+
+import {
+    SafeAreaView,
+    ScrollView,
+    View,
+    Image,
+    Text,
+    ImageBackground,
+    Dimensions,
+    Clipboard,
+    TextInput,
+} from 'react-native'
 
 interface WhenPayload {
-    node: () => void
+    node: () => any
     test: any
 }
 export const When = (payload: WhenPayload) => {
@@ -18,8 +31,8 @@ export const When = (payload: WhenPayload) => {
 }
 
 interface IfElsePayload {
-    fnode: () => void
-    tnode: () => void
+    fnode: () => any
+    tnode: () => any
     test: any
 }
 export const IfElse = (payload: IfElsePayload) => {
@@ -30,7 +43,7 @@ export const IfElse = (payload: IfElsePayload) => {
         test,
     } = payload
 
-    return test ?  tnode() : fnode()
+    return <View>{test ?  tnode() : fnode()}</View>
 }
 
 interface RMapPayload {

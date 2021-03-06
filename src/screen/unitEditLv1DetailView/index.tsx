@@ -31,10 +31,10 @@ import TouchView from '../../component/TouchView'
 import UnitLogo from '../../component/UnitLogo'
 import UnitItemList from '../../component/UnitItemList'
 import Padding from '../../component/Padding'
+import { InputItem, } from '../../component/Form/Input'
 import WhiteSpace from '../../component/WhiteSpace'
 
 import { EditItem, } from '../unitEditCategoryView'
-
 
 import { SkillStep, SkillPlatform, SkillUnit, ImageType, } from '../../variable'
 
@@ -47,23 +47,6 @@ import {
 import idBuilder from '../../util/idBuilder'
 import { When } from '../../util/jsx'
 import { info } from '../../util/log'
-
-// interface DetailPayload {
-//     id: string | null
-//     name: string
-//     def: string
-//     url: string
-//     major: boolean
-//     platform: SkillPlatform
-//     version: string
-//     logo: {
-//         url: string
-//         type: string
-//         full: boolean
-//     }
-//     ftStep: SkillStep
-//     step: SkillStep
-// }
 
 const initState: SkillUnit = {
     id: null,
