@@ -49,10 +49,6 @@ export enum SKillJumpToURI {
   webview = 'webview',
   // 代码页
   code = 'code',
-  // 二级详情页
-  detailLv2 = 'detailLv2',
-  // 下级节点
-  node = 'node',
 }
 
 // 图片类型

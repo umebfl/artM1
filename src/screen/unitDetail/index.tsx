@@ -406,10 +406,6 @@ export const ScrollItem = ({
                     handlePress={item => {
                         R.cond([
                             [
-                                R.equals('detailLv2'),
-                                () => navigation.push('unitDetailView', { payload: item }),
-                            ],
-                            [
                                 R.equals('code'),
                                 () => navigation.push('unitDetailCodeView', { payload: item }),
                             ],
