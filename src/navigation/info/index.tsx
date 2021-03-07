@@ -75,6 +75,11 @@ export default ({ navigation, }) => {
             navigation.push('dataView')
         } else if (index === 3) {
             navigation.push('debugView')
+        } else if (index === 4) {
+            dispatch({
+                mod: 'debug',
+                type: 'toggle',
+            })
         }
     }
 
@@ -122,7 +127,7 @@ export default ({ navigation, }) => {
                                     <ActionSheet
                                         ref={actionSheetREl}
                                         title={'更多调试功能'}
-                                        options={['清空缓存', '取消', '查看数据', '调试面板']}
+                                        options={['清空缓存', '取消', '查看数据', '调试面板', '关闭调试']}
                                         cancelButtonIndex={1}
                                         destructiveButtonIndex={0}
                                         onPress={handleMore}

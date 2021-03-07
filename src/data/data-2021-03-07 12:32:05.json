@@ -1,13 +1,6 @@
 {
   "category": {
     "theory": {
-      "19-1615092756699-99": {
-        "id": "19-1615092756699-99",
-        "name": "数据",
-        "list": [
-          "3-1615092790998-107"
-        ]
-      },
       "0-1614845789307": {
         "id": "0-1614845789307",
         "name": "网络",
@@ -214,9 +207,6 @@
         "id": "1-1614845806017",
         "name": "视图",
         "list": [
-          "3-1615092944649-219",
-          "3-1615091224766-92",
-          "3-1615091114820-90",
           "43-1614846977043",
           "44-1614846977043"
         ]
@@ -225,7 +215,7 @@
         "id": "2-1614845806017",
         "name": "数据",
         "list": [
-          "3-1615092602077-27",
+          "10-1614846949643",
           "45-1614846977043",
           "46-1614846977043",
           "47-1614846977043"
@@ -801,6 +791,28 @@
       }
     },
     "interactive": {
+      "10-1614846949643": {
+        "id": "10-1614846949643",
+        "name": "正则表达式",
+        "def": "一种字符串匹配的模式",
+        "major": false,
+        "platform": "全部",
+        "logo": {
+          "type": "jpg",
+          "url": "https://tse1-mm.cn.bing.net/th/id/OIP.cJ3K16wNAanyNzkLe9wJvQHaHa?pid=ImgDet&rs=1",
+          "full": true
+        },
+        "url": "https://www.runoob.com/regexp/regexp-syntax.html",
+        "features": {},
+        "article": {},
+        "version": "-",
+        "ftStep": "标记",
+        "step": "标记",
+        "api": [],
+        "mod": "interactive",
+        "categoryId": "2-1614845806017",
+        "categoryName": "数据"
+      },
       "36-1614846977043": {
         "id": "36-1614846977043",
         "name": "JavaScript",
@@ -1084,23 +1096,22 @@
         "name": "Swift",
         "def": "一种功能强大且直观的编程语言",
         "logo": {
-          "url": "https://static.oschina.net/uploads/logo/swift-lang_ABKjp.png",
           "type": "jpg",
+          "url": "https://static.oschina.net/uploads/logo/swift-lang_ABKjp.png",
           "full": true
         },
         "url": "https://developer.apple.com/swift/",
         "doc": [],
         "features": {},
         "article": {},
-        "version": "5.1",
+        "version": "-",
         "platform": "全部",
         "ftStep": "标记",
         "step": "标记",
         "api": [],
         "mod": "interactive",
         "categoryId": "0-1614845806017",
-        "categoryName": "语言",
-        "major": false
+        "categoryName": "语言"
       },
       "39-1614846977043": {
         "id": "39-1614846977043",
@@ -1196,8 +1207,8 @@
         "def": "用于构建用户界面的 JavaScript 库",
         "major": true,
         "logo": {
-          "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
           "type": "svg",
+          "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
           "full": true
         },
         "url": "https://react.html.cn/",
@@ -1478,7 +1489,7 @@
         },
         "version": "-",
         "platform": "全部",
-        "ftStep": "精通",
+        "ftStep": "标记",
         "step": "标记",
         "api": [],
         "mod": "interactive",
@@ -1492,8 +1503,8 @@
         "version": "0.63",
         "major": true,
         "logo": {
-          "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
           "type": "svg",
+          "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
           "full": true
         },
         "url": "https://www.react-native.cn/docs/intro-react-native-components",
@@ -1865,8 +1876,8 @@
           }
         },
         "platform": "全部",
-        "ftStep": "精通",
-        "step": "熟悉",
+        "ftStep": "标记",
+        "step": "标记",
         "api": [],
         "mod": "interactive",
         "categoryId": "1-1614845806017",
@@ -3003,95 +3014,6 @@
         "mod": "interactive",
         "categoryId": "10-1614845806017",
         "categoryName": "辅助开发"
-      },
-      "3-1615091114820-90": {
-        "id": "3-1615091114820-90",
-        "name": "Flutter",
-        "def": "Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面",
-        "url": "https://flutterchina.club/",
-        "platform": "全部",
-        "version": "2.0.1 ",
-        "major": false,
-        "logo": {
-          "url": "https://flutterchina.club/images/flutter-mark-square-100.png",
-          "type": "png",
-          "full": true
-        },
-        "ftStep": "大纲",
-        "step": "标记",
-        "mod": "interactive",
-        "categoryId": "1-1614845806017"
-      },
-      "3-1615091224766-92": {
-        "id": "3-1615091224766-92",
-        "name": "SwiftUI",
-        "def": "SwiftUI是一种新颖的构建UI方式和全新的编码风格",
-        "url": "https://developer.apple.com/tutorials/swiftui/creating-and-combining-views",
-        "platform": "Native",
-        "version": "5.1",
-        "major": false,
-        "logo": {
-          "url": "https://www.ioscreator.com/s/swiftui-logo.png",
-          "type": "png",
-          "full": true
-        },
-        "ftStep": "大纲",
-        "step": "标记",
-        "mod": "interactive",
-        "categoryId": "1-1614845806017",
-        "article": {
-          "0-1615091283711-21": {
-            "id": "0-1615091283711-21",
-            "title": "教程",
-            "def": "",
-            "node": {
-              "0-1615091333604-2009": {
-                "id": "0-1615091333604-2009",
-                "title": "关于SwiftUI，看这一篇就够了",
-                "def": "",
-                "jump": "webview",
-                "url": "https://cloud.tencent.com/developer/news/451820",
-                "major": false
-              }
-            }
-          }
-        }
-      },
-      "3-1615092602077-27": {
-        "id": "3-1615092602077-27",
-        "name": "GraphQL",
-        "def": "一个用于 API 的查询语言，是一个使用基于类型系统来执行查询的服务端运行时（类型系统由你的数据定义）",
-        "url": "https://graphql.cn/",
-        "platform": "React",
-        "version": "",
-        "major": false,
-        "logo": {
-          "url": "https://graphql.cn/img/logo.svg",
-          "type": "svg",
-          "full": true
-        },
-        "ftStep": "标记",
-        "step": "标记",
-        "mod": "interactive",
-        "categoryId": "2-1614845806017"
-      },
-      "3-1615092944649-219": {
-        "id": "3-1615092944649-219",
-        "name": "Vue",
-        "def": "一套用于构建用户界面的渐进式框架。",
-        "url": "https://cn.vuejs.org/",
-        "platform": "Web",
-        "version": "2.6.12",
-        "major": false,
-        "logo": {
-          "url": "https://cn.vuejs.org/images/logo.png",
-          "type": "png",
-          "full": true
-        },
-        "ftStep": "大纲",
-        "step": "标记",
-        "mod": "interactive",
-        "categoryId": "1-1614845806017"
       }
     },
     "theory": {
@@ -3570,24 +3492,6 @@
         "step": "标记",
         "mod": "theory",
         "categoryId": "18-1614959065431-72"
-      },
-      "3-1615092790998-107": {
-        "id": "3-1615092790998-107",
-        "name": "正则表达式",
-        "def": "一种字符串匹配的模式",
-        "url": "https://www.runoob.com/regexp/regexp-syntax.html",
-        "platform": "全部",
-        "version": "",
-        "major": false,
-        "logo": {
-          "url": "https://tse1-mm.cn.bing.net/th/id/OIP.cJ3K16wNAanyNzkLe9wJvQHaHa?pid=ImgDet&rs=1",
-          "type": "jpg",
-          "full": true
-        },
-        "ftStep": "标记",
-        "step": "标记",
-        "mod": "theory",
-        "categoryId": "19-1615092756699-99"
       }
     }
   }

@@ -33,7 +33,7 @@ interface Payload {
         params: {
             node: SkillUnit,
             type: string,
-            id: string | null,
+            category: SkillUnitCategory | null,
         },
     },
 }
@@ -186,8 +186,8 @@ export default (payload: Payload) => {
                 value={featuresState.def}
                 onChange={val => setFeatures({ def: val })} />
 
-            {/* <Text>{id}, {node.mod}, {node.id}, {type}, {JSON.stringify(featuresState, null, 2)}</Text>
-            <Text>{JSON.stringify(node, null, 2)}</Text> */}
+            {/* <Text>{JSON.stringify(category)}, {node.mod}, {node.id}, {type}, {JSON.stringify(featuresState, null, 2)}</Text> */}
+            {/* <Text>{JSON.stringify(node, null, 2)}</Text> */}
         </SimpleScreen>
     )
 }

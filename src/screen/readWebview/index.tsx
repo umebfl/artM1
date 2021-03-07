@@ -68,6 +68,7 @@ export default ({ route, navigation }) => {
     const [canGoBack, setCanGoBack] = useState(false)
     const [canGoForward, setCanGoForward] = useState(false)
     const [fullScreen, setFullScreen] = useState(false)
+    const [onToRead, setOnToRead] = useState(!!toRead.node[currentUrl])
 
     const iconSize = 32
     const iconColor = theme.grey[5]
@@ -76,7 +77,6 @@ export default ({ route, navigation }) => {
     // 存在阅读清单内
     // let onToRead = !!toRead.node[currentUrl]
 
-    const [onToRead, setOnToRead] = useState(!!toRead.node[currentUrl])
 
     // R.map(
     //     v => {
@@ -283,7 +283,7 @@ export default ({ route, navigation }) => {
                     </View>
                 </View>
             )
-        }, [onToRead]
+        }, [fullScreen, canGoForward, canGoBack, pageTitle, currentUrl, onToRead]
     )
 
     return <View style={{ flex: 1, }}>{node}</View>

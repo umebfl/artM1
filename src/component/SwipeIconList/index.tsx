@@ -77,7 +77,7 @@ export default (payload: payload) => {
                             return (
                                 <TouchView key={k} onPress={() => {
                                     onPress
-                                        ? onPress({ payload: item })
+                                        ? onPress(item)
                                         : navigation.push('readWebview', { url: item.url })
                                 }}>
                                     <View style={{

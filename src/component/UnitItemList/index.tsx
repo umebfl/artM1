@@ -26,8 +26,7 @@ interface payload {
     data: any
     showUrl?: boolean
     handlePress: (item: any) => void
-    handleEditCategory: (id: string) => void
-    handleCategoryActionSheet: (category: Object) => void
+    handleCategoryActionSheet?: (category: Object) => void
     handleDotPress?: (categoryId: string, leaf: Object) => void
 }
 
@@ -43,7 +42,6 @@ export default (payload: payload) => {
         data,
         showUrl,
         handlePress,
-        handleEditCategory,
         handleCategoryActionSheet,
         handleDotPress,
     } = payload
@@ -73,7 +71,7 @@ export default (payload: payload) => {
                             borderTopColor: theme.borderColor,
                         }}
                         key={k}>
-    
+
                         <View style={{
                             marginLeft: 10,
                             marginRight: 10,
@@ -82,14 +80,22 @@ export default (payload: payload) => {
                             <When test={title} node={() => (
                                 <View style={{ flexDirection: 'row', }}>
                                     <MidTitle style={{ marginRight: 4, marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
-                                    <TouchView onPress={() => handleCategoryActionSheet(item)}>
-                                        <Icon name={'circle-edit-outline'} size={18} color={theme.grey[0]} />
-                                    </TouchView>
+                                    <When test={handleCategoryActionSheet} node={() => (
+                                        <TouchView onPress={() => handleCategoryActionSheet(item)}>
+                                            <View style={{
+                                                width: 26,
+                                                height: 26,
+                                                opacity: 0.8,
+                                            }}>
+                                                <Icon name={'circle-edit-outline'} size={20} color={theme.grey[0]} />
+                                            </View>
+                                        </TouchView>
+                                    )}></When>
                                 </View>
                             )} />
                             <When test={def} node={() => <DefText>{def}</DefText>} />
                         </View>
-    
+
                         {
                             R.addIndex(R.map)(
                                 (item, index) => (
@@ -124,7 +130,7 @@ export default (payload: payload) => {
                                                     }
                                                 </DefText>
                                             </View>
-                                            <TouchView onPress={() => handleDotPress(id, item)}>
+                                            <TouchView onPress={() => handleDotPress ? handleDotPress(id, item) : handlePress(item)}>
                                                 <View style={{
                                                     width: 34,
                                                     // marginRight: -5,
@@ -141,7 +147,7 @@ export default (payload: payload) => {
                                 R.values(node)
                             )
                         }
-    
+
                     </View>
                 )
             },

@@ -177,19 +177,21 @@ export default ({ route, navigation }) => {
                             // autoFocus={true}
                             placeholder={'添加分类'} />
 
-                        <Text style={{
-                            position: 'absolute',
-                            right: 16,
-                            top: 13,
-                            // backgroundColor: 'red',
-                            // alignItems: 'center',
-                            // paddingTop: 10,
-                            // paddingBottom: 10,
-                            // paddingLeft: 10,
-                            // paddingRight: 10,
-                            color: theme.grey[0],
-                            fontSize: 14,
-                        }}>添加</Text>
+                        <When test={!newCategoryName.length} node={() => (
+                            <Text style={{
+                                position: 'absolute',
+                                right: 22,
+                                top: 12,
+                                // backgroundColor: 'red',
+                                // alignItems: 'center',
+                                // paddingTop: 10,
+                                // paddingBottom: 10,
+                                // paddingLeft: 10,
+                                // paddingRight: 10,
+                                color: theme.grey[0],
+                                fontSize: 14,
+                            }}>添加</Text>
+                        )}></When>
                     </WingBlank>
                     {
                         R.addIndex(R.map)(
@@ -366,14 +368,12 @@ export const EditItem = (payload: EditItemPayload) => {
                             handlePress: () => { },
                         }
                     ]} node={(v, k) => (
-                        <TouchView onPress={v.handlePress}>
-                            <Icon
-                                key={k}
-                                name={v.name}
-                                size={24}
-                                color={v.color}
-                                style={{ padding: 5, opacity: 0.8, }} />
-                        </TouchView>
+                        <Icon
+                            key={k}
+                            name={v.name}
+                            size={24}
+                            color={v.color}
+                            style={{ padding: 5, opacity: 0.8, }} />
                     )} />
                     {/* {
                             R.addIndex(R.map)(

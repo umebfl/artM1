@@ -35,6 +35,7 @@ import {
     DefText,
 } from '../../component/Text'
 import { info } from '../../util/log'
+import { IfElse } from '../../util/jsx'
 
 const moban = require('../../../resource/image/template/m2.jpeg')
 
@@ -185,9 +186,9 @@ export default ({ route, navigation }) => {
                 categoryId: value.category.id,
                 article: null,
             })
-        } else if(index === 2) {
+        } else if (index === 2) {
             // 编辑分类
-            navigation.push('unitEditNodeCategoryView', { node, type: value.type, category: value.category, })
+            navigation.push('unitEditNodeCategoryView', { node: data, type: value.type, category: value.category, })
         }
     }
     const handleLeafActionSheetSelected = (index) => {
@@ -339,7 +340,7 @@ export const ScrollItem = ({
     return (
         <View style={{
             paddingBottom: 30,
-            width: width,
+            width,
         }}>
             <View style={{
                 flexDirection: 'row',
@@ -358,50 +359,45 @@ export const ScrollItem = ({
                         borderWidth: theme.borderWidth,
                         borderColor: theme.borderColor,
                         backgroundColor: 'white',
-                        // opacity: 0.8,
                     }}>
                         <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
-                        {/* <DefText>添加</DefText> */}
                     </View>
                 </TouchView>
             </View>
 
-            {
-                fixData && fixData.length > 0
-                    ? null
-                    : (
-                        <View style={{
-                            flex: 1,
-                            height: 500,
-                            paddingTop: 100,
-                            alignItems: 'center',
-                            // backgroundColor: 'red',
-                        }}>
-                            <DefText>暂无数据</DefText>
-                        </View>
-                    )
-            }
-            <UnitItemList
-                data={fixData}
-                handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
-                handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
-                handleEditCategory={(id) => navigation.push('unitEditNodeCategoryView', { node, type, id, })}
-                handlePress={item => {
-                    R.cond([
-                        [
-                            R.equals('detailLv2'),
-                            () => navigation.push('unitDetailView', { payload: item }),
-                        ],
-                        [
-                            R.equals('code'),
-                            () => navigation.push('unitDetailCodeView', { payload: item }),
-                        ],
-                        [
-                            R.equals('webview'),
-                            () => navigation.push('readWebview', item),
-                        ],
-                    ])(item.jump)
-                }} />
+            <IfElse test={fixData && fixData.length > 0} fnode={() => (
+                <View style={{
+                    flex: 1,
+                    height: 500,
+                    paddingTop: 100,
+                    alignItems: 'center',
+                }}>
+                    <DefText>暂无数据</DefText>
+                </View>
+            )} tnode={() => (
+                <UnitItemList
+                    data={fixData}
+                    handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
+                    handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
+                    handleEditCategory={(id) => navigation.push('unitEditNodeCategoryView', { node, type, id, })}
+                    handlePress={item => {
+                        R.cond([
+                            [
+                                R.equals('detailLv2'),
+                                () => navigation.push('unitDetailView', { payload: item }),
+                            ],
+                            [
+                                R.equals('code'),
+                                () => navigation.push('unitDetailCodeView', { payload: item }),
+                            ],
+                            [
+                                R.equals('webview'),
+                                () => navigation.push('readWebview', item),
+                            ],
+                        ])(item.jump)
+                    }} />
+            )} />
+
         </View>
     )
 }

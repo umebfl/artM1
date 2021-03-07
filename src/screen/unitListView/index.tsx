@@ -15,6 +15,7 @@ import {
 import ScreenHeader from '../../component/ScreenHeader'
 import Context from '../../reducer'
 import { SwipeListItem, } from '../../component/SwipeList'
+import { info } from '../../util/log'
 
 export default ({ route, navigation }) => {
 

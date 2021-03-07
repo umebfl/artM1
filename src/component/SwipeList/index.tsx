@@ -29,7 +29,7 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
-import { SkillStep } from '../../variable'
+import { SkillStep, SkillStepVal, } from '../../variable'
 
 // 列表最长长度
 const LIST_MAX_LEN = 4
@@ -262,7 +262,7 @@ export const SwipeListItem = ({
 
 
                     </View>
-                    <DefText style={{ marginTop: 5, }}>{item.def}</DefText>
+                    <DefText style={{ marginTop: 5, width: 220, }}>{item.def}</DefText>
 
                     <View style={{
                         flexDirection: 'row',
@@ -302,10 +302,11 @@ export const SwipeListItem = ({
                                             fontSize: 8,
                                             color: theme.grey[0],
                                         }}>{item.ftStep}</Text>
+
                                         <Text style={{
                                             fontSize: 8,
                                             color: theme.grey[0],
-                                        }}>({item.step}%)</Text>
+                                        }}>({calStepVal(item.ftStep, item.step)}%)</Text>
                                     </View>
                                 )
                                 : null
@@ -315,4 +316,12 @@ export const SwipeListItem = ({
             </View>
         </TouchView>
     )
+}
+
+const calStepVal = (ftStep: string, step: string) => {
+
+    const ftval = SkillStepVal[ftStep]
+    const curval = SkillStepVal[step]
+
+    return (curval / ftval) * 100
 }
