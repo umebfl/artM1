@@ -47,7 +47,7 @@ export const IfElse = (payload: IfElsePayload) => {
 }
 
 interface RMapPayload {
-    node: (val: any, key: number) => void
+    node: (val: any, key: number) => Object
     data: any[]
 }
 export const RMap = (payload: RMapPayload) => {

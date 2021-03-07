@@ -37,6 +37,11 @@ import {
 import { info } from '../../util/log'
 import { IfElse } from '../../util/jsx'
 
+enum ScrollType {
+    features = 'features',
+    article = 'article'
+}
+
 const moban = require('../../../resource/image/template/m2.jpeg')
 
 export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
@@ -180,12 +185,23 @@ export default ({ route, navigation }) => {
         const value = categoryActionSheetREL.current.value
         if (index === 1) {
             // 添加节点
-            navigation.push('unitEditNodeArticleLeafView', {
-                node: data,
-                type: value.type,
-                categoryId: value.category.id,
-                article: null,
-            })
+            if (value.type === 'article') {
+                // 文章
+                navigation.push('unitEditNodeArticleLeafView', {
+                    node: data,
+                    type: value.type,
+                    categoryId: value.category.id,
+                    article: null,
+                })
+            } else if (value.type === 'features') {
+                // 特性
+                navigation.push('unitEditNodeFeaturesLeafView', {
+                    node: data,
+                    type: value.type,
+                    categoryId: value.categoryId,
+                    features: null,
+                })
+            }
         } else if (index === 2) {
             // 编辑分类
             navigation.push('unitEditNodeCategoryView', { node: data, type: value.type, category: value.category, })
@@ -202,6 +218,14 @@ export default ({ route, navigation }) => {
                     type: value.type,
                     categoryId: value.categoryId,
                     article: value.leaf,
+                })
+            } else if (value.type === 'features') {
+                // 特性
+                navigation.push('unitEditNodeFeaturesLeafView', {
+                    node: data,
+                    type: value.type,
+                    categoryId: value.categoryId,
+                    features: value.leaf,
                 })
             }
         }
@@ -287,7 +311,7 @@ export default ({ route, navigation }) => {
                         renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
                         <ScrollItem
                             tabLabel='特性'
-                            type='features'
+                            type={ScrollType.features}
                             width={scrollViewWidth}
                             navigation={navigation}
                             handleCategoryActionSheet={handleCategoryActionSheet}
@@ -298,7 +322,7 @@ export default ({ route, navigation }) => {
 
                         <ScrollItem
                             tabLabel='文章'
-                            type='article'
+                            type={ScrollType.article}
                             width={scrollViewWidth}
                             navigation={navigation}
                             handleCategoryActionSheet={handleCategoryActionSheet}
@@ -379,7 +403,6 @@ export const ScrollItem = ({
                     data={fixData}
                     handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
                     handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
-                    handleEditCategory={(id) => navigation.push('unitEditNodeCategoryView', { node, type, id, })}
                     handlePress={item => {
                         R.cond([
                             [

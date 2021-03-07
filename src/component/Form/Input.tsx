@@ -71,6 +71,8 @@ interface InputItemWithValPayload {
 
     // 自动提交
     path?: String[]
+
+    style?: Object,
 }
 
 export const InputItemWithVal = (payload: InputItemWithValPayload) => {
@@ -88,6 +90,7 @@ export const InputItemWithVal = (payload: InputItemWithValPayload) => {
         onChange,
         path,
         inputConf,
+        style,
     } = payload
 
     const [val, setVal] = useState(value)
@@ -108,14 +111,16 @@ export const InputItemWithVal = (payload: InputItemWithValPayload) => {
     }
 
     return (
-        <View>
+        <View style={{
+            marginBottom: 14,
+            ...style,
+        }}>
             <DefText>{title}:</DefText>
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'center',
                 aliginItems: 'center',
                 marginTop: 8,
-                marginBottom: 14,
             }}>
                 <TextInput
                     autoCorrect={true}

@@ -36,6 +36,7 @@ import {
     DefText,
 } from '../../component/Text'
 import { info } from '../../util/log'
+import { RMap, When } from '../../util/jsx'
 
 export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
@@ -73,8 +74,10 @@ export default ({ route, navigation }) => {
         }
     }, [])
 
-    return (
+    const explain = R.values(payload.explain)
+    const code = R.values(payload.code)
 
+    return (
         <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
             <ScreenHeader navigation={navigation} safeArea={true} />
 
@@ -90,69 +93,43 @@ export default ({ route, navigation }) => {
                 <View style={{
                     padding: 15,
                 }}>
-                    {
-                        payload.explain
-                            ? (
-                                <>
-                                    <Title style={{
-                                        paddingTop: 10,
-                                        paddingBottom: 10,
-                                    }}>概念</Title>
-                                    {
-                                        R.addIndex(R.map)(
-                                            (v, k) => <DefText key={k} numberOfLines={100} style={{ fontSize: 14, marginBottom: 10 }}>{k + 1}: {v}</DefText>
-                                        )(payload.explain)
-                                    }
-                                </>
-                            )
-                            : null
-                    }
+                    <When test={explain.length} node={() => (
+                        <>
+                            <Title style={{
+                                paddingTop: 10,
+                                paddingBottom: 10,
+                            }}>概念</Title>
+                            <RMap data={explain} node={(v, k) => (
+                                <DefText key={k} numberOfLines={100} style={{ fontSize: 14, marginBottom: 10 }}>
+                                    {k + 1}: {v}
+                                </DefText>
+                            )} />
+                        </>
+                    )} />
 
-                    {
-                        payload.code
-                            ? (
-                                <>
-                                    <Title style={{
-                                        paddingTop: 20,
+                    <When test={code.length} node={() => (
+                        <>
+                            <Title style={{
+                                paddingTop: 10,
+                                paddingBottom: 10,
+                            }}>例子</Title>
+                            <RMap data={code} node={(v, k) => (
+                                <View key={k} style={{
+                                    marginBottom: 30,
+                                }}>
+                                    <Text style={{
                                         marginBottom: 10,
-                                    }}>例子</Title>
-                                    {
-                                        payload.code
-                                            ? (
-                                                R.is(String, payload.code)
-                                                    ? (
-                                                        <SyntaxHighlighter
-                                                            language='javascript'
-                                                            style={docco}>
-                                                            {payload.code}
-                                                        </SyntaxHighlighter>
-                                                    )
-                                                    : (
-                                                        R.addIndex(R.map)(
-                                                            (v, k) => (
-                                                                <View key={k} style={{
-                                                                    marginBottom: 30,
-                                                                }}>
-                                                                    <Text style={{
-                                                                        marginBottom: 10,
-                                                                        color: theme.grey[3],
-                                                                    }}>实例{k + 1}:</Text>
-                                                                    <SyntaxHighlighter
-                                                                        language='javascript'
-                                                                        style={docco}>
-                                                                        {v}
-                                                                    </SyntaxHighlighter>
-                                                                </View>
-                                                            )
-                                                        )(payload.code)
-                                                    )
-                                            )
-                                            : null
-                                    }
-                                </>
-                            )
-                            : null
-                    }
+                                        color: theme.grey[3],
+                                    }}>实例{k + 1}:</Text>
+                                    <SyntaxHighlighter
+                                        language='javascript'
+                                        style={docco}>
+                                        {v}
+                                    </SyntaxHighlighter>
+                                </View>
+                            )} />
+                        </>
+                    )}></When>
 
                 </View>
             </ScrollView>

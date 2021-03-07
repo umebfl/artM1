@@ -51,6 +51,8 @@ export enum SKillJumpToURI {
   code = 'code',
   // 二级详情页
   detailLv2 = 'detailLv2',
+  // 下级节点
+  node = 'node',
 }
 
 // 图片类型
@@ -70,7 +72,16 @@ export interface SkillUnitCategory {
   node: Object
 }
 
-
+export interface SkillUnitFeatures {
+  id: string
+  title: string
+  def: string
+  jump: SKillJumpToURI.code | SKillJumpToURI.node
+  url: string
+  major: boolean
+  code?: Object
+  explain?: Object
+}
 export interface SkillUnitArticle {
   id: string
   title: string

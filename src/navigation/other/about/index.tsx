@@ -33,7 +33,7 @@ const moban = require('../../../../resource/image/template/m12.jpeg')
 interface ItemPlayload {
     title: String
     msg: String
-    last: boolean
+    last?: boolean
 }
 
 const Item = (payload: ItemPlayload) => {
@@ -87,7 +87,7 @@ export default ({ navigation, }) => {
                 // opacity: 0.2,
                 flex: 1,
             }}>
-                <ScreenHeader navigation={navigation} title={'关于Skill'} safeArea={true} />
+                <ScreenHeader navigation={navigation} title={'关于Doil 5'} safeArea={true} />
 
                 <ScrollView style={{
                     backgroundColor: 'rgb(247, 248, 249)',

@@ -219,7 +219,7 @@ export default ({ route, navigation }) => {
                                 defaultValue={data.name} />
                         </View>
 
-                        <AddBtn title={'添加节点'} handlePress={() => handleJumpDetail(null)}/>
+                        <AddBtn title={'添加节点'} handlePress={() => handleJumpDetail(null)} />
                     </WingBlank>
 
                     {
@@ -257,6 +257,7 @@ export default ({ route, navigation }) => {
 interface AddBtnPayload {
     handlePress: () => void
     title: string
+    style?: Object
 }
 
 export const AddBtn = (payload: AddBtnPayload) => {
@@ -266,8 +267,14 @@ export const AddBtn = (payload: AddBtnPayload) => {
         theme,
     } = state
 
+    const {
+        title,
+        style,
+        handlePress,
+    } = payload
+
     return (
-        <TouchView onPress={payload.handlePress}>
+        <TouchView onPress={handlePress}>
             <View style={{
                 flex: 1,
                 flexDirection: 'row',
@@ -282,9 +289,10 @@ export const AddBtn = (payload: AddBtnPayload) => {
                 borderColor: theme.borderColor,
                 backgroundColor: 'white',
                 // opacity: 0.8,
+                ...style,
             }}>
                 <Icon name={'plus-circle-outline'} size={18} color={theme.grey[0]} />
-                <DefText>{payload.title}</DefText>
+                <DefText>{title}</DefText>
             </View>
         </TouchView>
     )

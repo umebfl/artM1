@@ -228,6 +228,10 @@ export const SwipeListItem = ({
 
     const iconSize = 50
 
+    if(!item) {
+        return <Text>2</Text>
+    }
+
     return (
         <TouchView onPress={() => { navigation.push('unitDetailView', item) }}>
             <View style={{ flexDirection: 'row', }}>
