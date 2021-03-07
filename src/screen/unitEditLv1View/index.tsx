@@ -31,7 +31,7 @@ import UnitItemList from '../../component/UnitItemList'
 import Padding from '../../component/Padding'
 import WhiteSpace from '../../component/WhiteSpace'
 
-import { EditItem, } from '../unitEditCategoryView'
+import { EditItem, moveToTop, } from '../unitEditCategoryView'
 
 import {
     LargeTitle,
@@ -48,6 +48,7 @@ export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
 
     const actionSheetREl = useRef(null)
+    const dotActionSheetREl = useRef(null)
     const inputEl = useRef(null)
 
     const {
@@ -121,10 +122,6 @@ export default ({ route, navigation }) => {
         })
     }
 
-    const handleJumpLv2 = (id) => {
-        navigation.push('unitEditLv2View', { modKey, nodeId: id, })
-    }
-
     const handleEditCategoryName = (id: string, val: string) => {
         dispatch({
             mod: 'system',
@@ -137,9 +134,34 @@ export default ({ route, navigation }) => {
         })
     }
 
+    const handleDotActionSheet = () => {
+        dotActionSheetREl.current.show()
+    }
+
     const handleCategoryDelActionSheet = () => {
         actionSheetREl.current.value = categoryId
         actionSheetREl.current.show()
+    }
+
+    const handleCategoryDotPress = (index) => {
+        if (index === 0) {
+            const pathToList = ['data', 'category', modKey, categoryId, 'list']
+            const id = dotActionSheetREl.current.value
+            const list = R.path(pathToList)(state)
+            const newList = R.filter(v => v !== id)(list)
+        
+            dispatch({
+                mod: 'path',
+                type: 'edit',
+                payload: {
+                    path: pathToList,
+                    val: [
+                        id,
+                        ...newList,
+                    ],
+                },
+            })
+        }
     }
 
     const handleCategoryDelPress = (index) => {
@@ -205,6 +227,15 @@ export default ({ route, navigation }) => {
                 onPress={handleCategoryDelPress}
             />
 
+            <ActionSheet
+                ref={dotActionSheetREl}
+                title={'选择操作'}
+                options={['移至顶部', '取消']}
+                cancelButtonIndex={1}
+                destructiveButtonIndex={0}
+                onPress={handleCategoryDotPress}
+            />
+
             <ScrollView showsVerticalScrollIndicator={false}>
                 <WhiteSpace>
                     <WingBlank>
@@ -237,13 +268,20 @@ export default ({ route, navigation }) => {
                                         handleJump={() => {
                                             handleJumpDetail(item.id)
                                         }}
-                                        handleEdit={() => handleJumpDetail(item.id)}
-                                        handleDelPress={
+                                        handleDotPress={
                                             () => {
-                                                actionSheetREl.current.value = item.id
-                                                handleDelActionSheet()
+                                                dotActionSheetREl.current.value = item.id
+                                                handleDotActionSheet()
                                             }
-                                        } />
+                                        }
+                                        handleEdit={() => handleJumpDetail(item.id)}
+                                        // handleDelPress={
+                                        //     () => {
+                                        //         actionSheetREl.current.value = item.id
+                                        //         handleDelActionSheet()
+                                        //     }
+                                        // }
+                                        />
                                 )
                             }
                         )(data.list)

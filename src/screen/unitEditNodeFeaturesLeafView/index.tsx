@@ -86,35 +86,35 @@ export default (payload: Payload) => {
 
 
     const handleDel = () => {
-        // const featuresPath = [...TypePath, articleState.id]
+        const featuresPath = [...TypePath, featuresState.id]
 
-        // dispatch({
-        //     mod: 'path',
-        //     type: 'del',
-        //     payload: {
-        //         path: featuresPath,
-        //     },
-        // })
-        // navigation.goBack()
+        dispatch({
+            mod: 'path',
+            type: 'del',
+            payload: {
+                path: featuresPath,
+            },
+        })
+        navigation.goBack()
     }
 
     const handleNew = () => {
-        // // 无标题不允许提交
-        // if (articleState.title.length === 0) {
-        //     alert('请填写标题')
-        //     return
-        // }
+        // 无标题不允许提交
+        if (featuresState.title.length === 0) {
+            alert('请填写标题')
+            return
+        }
 
-        // dispatch({
-        //     mod: 'path',
-        //     type: 'add',
-        //     payload: {
-        //         path: [...TypePath, articleState.id],
-        //         val: articleState,
-        //     },
-        // })
+        dispatch({
+            mod: 'path',
+            type: 'add',
+            payload: {
+                path: [...TypePath, featuresState.id],
+                val: featuresState,
+            },
+        })
 
-        // navigation.goBack()
+        navigation.goBack()
     }
 
     const handleActionSheet = () => {
@@ -190,7 +190,7 @@ export default (payload: Payload) => {
             />
 
             <InputItemWithVal
-                title={'名称'}
+                title={'标题'}
                 path={features ? [...TypePath, features.id, 'title'] : null}
                 value={featuresState.title}
                 onChange={val => setFeatures({ title: val })} />
@@ -235,8 +235,6 @@ export default (payload: Payload) => {
                         })} />
                 )}></RMap>
                 <View style={{
-                    flex: 'row',
-                    justifyContent: 'flex-end',
                     width: 100,
                 }}>
                     <AddBtn title='添加概念' handlePress={handleAddExplainPress}></AddBtn>
@@ -267,8 +265,6 @@ export default (payload: Payload) => {
                         })} />
                 )}></RMap>
                 <View style={{
-                    flex: 'row',
-                    justifyContent: 'flex-end',
                     width: 100,
                 }}>
                     <AddBtn style={{

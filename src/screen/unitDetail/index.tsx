@@ -36,6 +36,7 @@ import {
 } from '../../component/Text'
 import { info } from '../../util/log'
 import { IfElse } from '../../util/jsx'
+import { moveToTop } from '../unitEditCategoryView'
 
 enum ScrollType {
     features = 'features',
@@ -140,6 +141,8 @@ export default ({ route, navigation }) => {
 
     const startTime = new Date()
 
+    const pathToNode = ['data', 'node', mod, id]
+
     useEffect(() => {
         info('[节点详情页]初始化完成')
 
@@ -198,13 +201,22 @@ export default ({ route, navigation }) => {
                 navigation.push('unitEditNodeFeaturesLeafView', {
                     node: data,
                     type: value.type,
-                    categoryId: value.categoryId,
+                    categoryId: value.category.id,
                     features: null,
                 })
             }
         } else if (index === 2) {
             // 编辑分类
             navigation.push('unitEditNodeCategoryView', { node: data, type: value.type, category: value.category, })
+        } else if (index === 3) {
+            // 移动到顶部
+            moveToTop({
+                dispatch,
+                state,
+                id: value.category.id,
+                pathToList: [...pathToNode, value.type],
+            })
+
         }
     }
     const handleLeafActionSheetSelected = (index) => {
@@ -228,6 +240,14 @@ export default ({ route, navigation }) => {
                     features: value.leaf,
                 })
             }
+        } else if (index === 2) {
+            // 特性
+            moveToTop({
+                dispatch,
+                state,
+                id: value.leaf.id,
+                pathToList: [...pathToNode, value.type, value.categoryId, 'node'],
+            })
         }
     }
 
@@ -259,7 +279,7 @@ export default ({ route, navigation }) => {
             <ActionSheet
                 ref={categoryActionSheetREL}
                 title={'请选择操作'}
-                options={['取消', '添加节点', '编辑']}
+                options={['取消', '添加节点', '编辑', '移至顶部']}
                 cancelButtonIndex={0}
                 onPress={handleCategoryActionSheetSelected}
             />
@@ -267,9 +287,9 @@ export default ({ route, navigation }) => {
             <ActionSheet
                 ref={leafActionSheetREL}
                 title={'请选择操作'}
-                options={['取消', '编辑',]}
+                options={['取消', '编辑', '移至顶部']}
                 cancelButtonIndex={0}
-                destructiveButtonIndex={2}
+                // destructiveButtonIndex={2}
                 onPress={handleLeafActionSheetSelected}
             />
 

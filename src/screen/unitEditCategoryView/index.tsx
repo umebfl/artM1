@@ -46,6 +46,7 @@ export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
 
     const inputEl = useRef(null)
+    const dotActionSheetREl = useRef(null)
     const [newCategoryName, setNewCategoryName] = useState('')
 
     const {
@@ -112,6 +113,10 @@ export default ({ route, navigation }) => {
         }
     }
 
+    const handleDotActionSheet = () => {
+        dotActionSheetREl.current.show()
+    }
+
     const handleEditCategoryName = (id: string, val: string) => {
         dispatch({
             mod: 'system',
@@ -122,6 +127,17 @@ export default ({ route, navigation }) => {
                 value: val,
             },
         })
+    }
+
+    const handleCategoryDotPress = (index) => {
+        if (index === 0) {
+            moveToTop({
+                dispatch,
+                state,
+                id: dotActionSheetREl.current.value,
+                pathToList: ['data', 'category', modKey],
+            })
+        }
     }
 
     const handleJump = (id) => {
@@ -136,6 +152,15 @@ export default ({ route, navigation }) => {
             paddingBottom: 20,
         }}>
             <ScreenHeader navigation={navigation} title={'编辑分类'} safeArea={true} />
+
+            <ActionSheet
+                ref={dotActionSheetREl}
+                title={'选择操作'}
+                options={['移至顶部', '取消']}
+                cancelButtonIndex={1}
+                destructiveButtonIndex={0}
+                onPress={handleCategoryDotPress}
+            />
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <WhiteSpace>
@@ -202,14 +227,21 @@ export default ({ route, navigation }) => {
                                     name={v.name}
                                     theme={theme}
                                     list={v.list}
+                                    handleDotPress={
+                                        () => {
+                                            dotActionSheetREl.current.value = v.id
+                                            handleDotActionSheet()
+                                        }
+                                    }
                                     handleJump={() => handleJump(v.id)}
                                     handleEdit={handleEditCategoryName}
-                                    handleDelPress={
-                                        () => {
-                                            actionSheetREl.current.value = v.id
-                                            handleDelActionSheet()
-                                        }
-                                    } />
+                                // handleDelPress={
+                                //     () => {
+                                //         actionSheetREl.current.value = v.id
+                                //         handleDelActionSheet()
+                                //     }
+                                // } 
+                                />
                             )
                         )(data.list)
                     }
@@ -231,9 +263,41 @@ interface EditItemPayload {
     def?: string
     theme: any
     list?: []
+    handleDotPress?: (id: string) => void
     handleJump: () => void
-    handleDelPress: () => void
-    handleEdit: (id: string, val: string) => void
+    handleDelPress?: () => void
+    handleEdit?: (id: string, val: string) => void
+}
+
+interface moveToTopPayload {
+    dispatch: any
+    state: Object,
+    id: string
+    pathToList: string[]
+}
+export const moveToTop = (payload: moveToTopPayload) => {
+    const {
+        dispatch,
+        state,
+        id,
+        pathToList,
+    } = payload
+
+    const list = R.path(pathToList)(state)
+    const node = list[id]
+    const newList = R.dissoc(id)(list)
+
+    dispatch({
+        mod: 'path',
+        type: 'edit',
+        payload: {
+            path: pathToList,
+            val: {
+                [node.id]: node,
+                ...newList,
+            },
+        },
+    })
 }
 
 export const EditItem = (payload: EditItemPayload) => {
@@ -252,6 +316,7 @@ export const EditItem = (payload: EditItemPayload) => {
         handleDelPress,
         handleEdit,
         handleJump,
+        handleDotPress,
     } = payload
 
     return (
@@ -365,15 +430,18 @@ export const EditItem = (payload: EditItemPayload) => {
                         {
                             name: 'dots-vertical',
                             color: theme.grey[0],
-                            handlePress: () => { },
+                            // handlePress: handleDotPress ? () => handleDotPress(id) : () => { },
+                            handlePress: () => handleDotPress ? handleDotPress(id) : handleJump()
                         }
                     ]} node={(v, k) => (
-                        <Icon
-                            key={k}
-                            name={v.name}
-                            size={24}
-                            color={v.color}
-                            style={{ padding: 5, opacity: 0.8, }} />
+                        <TouchView onPress={v.handlePress}>
+                            <Icon
+                                key={k}
+                                name={v.name}
+                                size={24}
+                                color={v.color}
+                                style={{ padding: 5, opacity: 0.8, }} />
+                        </TouchView>
                     )} />
                     {/* {
                             R.addIndex(R.map)(
