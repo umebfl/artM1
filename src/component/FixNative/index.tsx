@@ -20,6 +20,7 @@ interface FScrollViewPayload {
     children?: any
     style?: Object
     scrollConf?: Object
+    handleOnScroll: (ev: Object) => void
 }
 
 export const FScrollView = (payload: FScrollViewPayload) => {
@@ -33,10 +34,14 @@ export const FScrollView = (payload: FScrollViewPayload) => {
         children,
         style,
         scrollConf,
+        handleOnScroll,
     } = payload
 
     return (
         <ScrollView
+            // 数值越大 调用次数越少
+            scrollEventThrottle={58}
+            onScroll={ev => handleOnScroll(ev)}
             showsVerticalScrollIndicator={false}
             keyboardDismissMode={'on-drag'}
             // keyboardShouldPersistTaps={'never'}

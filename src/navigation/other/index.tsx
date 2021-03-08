@@ -15,7 +15,6 @@ import ActionSheet from 'react-native-actionsheet'
 
 import Clipboard from '@react-native-community/clipboard'
 
-import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
 import WingBlank from '../../component/WingBlank'
 import WhiteSpace from '../../component/WhiteSpace'
@@ -27,6 +26,8 @@ import Context from '../../reducer'
 import { getData, clearData, } from '../../reducer'
 
 import { info, } from '../../util/log'
+import SimpleScreen from '../../component/View/SimpleScreen'
+import { LargeTitle } from '../../component/Text'
 
 const moban = require('../../../resource/image/template/m11.jpeg')
 
@@ -43,6 +44,15 @@ export default ({ navigation, }) => {
         search,
         debug: {
             open,
+        },
+        navigation: {
+            home: {
+                tab: {
+                    other: {
+                        text,
+                    },
+                },
+            },
         },
         data,
     } = state
@@ -124,10 +134,18 @@ export default ({ navigation, }) => {
         }, [])
 
     return (
-        <ScreenWrapper
+        <SimpleScreen
+            formScreen={true}
             navigation={navigation}
-            theme={theme}
-            imageBackground={null} >
+            style={{
+                backgroundColor: theme.screenBackgroundGreyColor[theme.model],
+            }}
+            ScreenHeaderConf={{
+                title: text,
+                left: <></>,
+            }}>
+            
+            <LargeTitle>{text}</LargeTitle>
 
             <List title={'开发'}>
                 <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
@@ -140,6 +158,7 @@ export default ({ navigation, }) => {
             </List>
 
             {node}
-        </ScreenWrapper>
+            <View style={{ height: 70, }}></View>
+        </SimpleScreen>
     )
 }

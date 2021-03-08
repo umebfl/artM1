@@ -194,8 +194,6 @@ export default ({ route, navigation }) => {
     }
 
     return (
-
-
         <SimpleScreen
             formScreen={true}
             ScreenHeaderConf={{
@@ -236,7 +234,7 @@ export default ({ route, navigation }) => {
                 onPress={handleCategoryDotPress}
             />
 
-            <View style={{
+            <WhiteSpace style={{
                 height: 36,
             }}>
                 <Paragraph
@@ -245,7 +243,7 @@ export default ({ route, navigation }) => {
                     handleSave={(val) => handleEditCategoryName(data.id, val)}
                     theme={theme}
                     defaultValue={data.name} />
-            </View>
+            </WhiteSpace>
 
             <AddBtn title={'添加节点'} handlePress={() => handleJumpDetail(null)} />
 
@@ -307,7 +305,7 @@ export const AddBtn = (payload: AddBtnPayload) => {
                 alignItems: 'center',
                 height: 40,
                 borderRadius: 8,
-                marginTop: 20,
+                // marginTop: 20,
                 marginBottom: 10,
                 borderStyle: 'dashed',
                 borderWidth: theme.borderWidth,

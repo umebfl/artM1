@@ -97,7 +97,7 @@ export const initState = {
         model: 0, // light | dark | custom
 
         screenBackgroundColor: ['white', 'black', 'rgba(49, 123, 246, 1)'],
-        screenBackgroundGreyColor: ['rgb(247, 248, 249)', 'rgb(247, 248, 249)'],
+        screenBackgroundGreyColor: ['rgb(241, 242, 243)', 'rgb(247, 248, 249)'],
     },
 
     // 系统导航数据

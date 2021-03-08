@@ -83,6 +83,9 @@ export default ({ route, navigation }) => {
     return (
         <SimpleScreen
             navigation={navigation}
+            ScreenHeaderConf={{
+                title: payload.name || payload.title,
+            }}
             style={{
                 backgroundColor: theme.screenBackgroundColor[theme.model],
             }}>

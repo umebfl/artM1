@@ -36,7 +36,7 @@ export default (payload: payload) => {
     } = payload
 
     return (
-        <WingBlank style={{
+        <View style={{
             backgroundColor: 'white',
             borderRadius: 12,
             opacity: 0.8,
@@ -59,7 +59,7 @@ export default (payload: payload) => {
                     : null
             }
             { children && children}
-        </WingBlank>
+        </View>
     )
 }
 

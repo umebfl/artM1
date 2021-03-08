@@ -275,7 +275,7 @@ export default ({ route, navigation }) => {
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
-                title: '',
+                title: data.name,
                 right: (
                     <TouchView onPress={handleJumpDetail}>
                         <View style={{

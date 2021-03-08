@@ -44,7 +44,7 @@ export const Title = payload => {
 
     return (
         <BaseTitle {...payload} style={{
-            color: theme.grey[6], fontSize: 17, ...payload.style, 
+            color: theme.grey[7], fontSize: 17, ...payload.style, 
         }}/>
     )
 }

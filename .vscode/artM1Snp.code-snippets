@@ -16,7 +16,15 @@
 	// 	"description": "Log output to console"
 	// }
 	
-
+	
+	"cif": {
+		// "scope": "javascript,typescript,tsx",
+		"prefix": "cif",
+		"body": [
+			"<IfElse test={} tnode={() => ()} fnode={() => ()}></IfElse>",
+		],
+		"description": "新建IfElse"
+	},
 	"cwhen": {
 		// "scope": "javascript,typescript,tsx",
 		"prefix": "cwhen",

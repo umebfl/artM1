@@ -19,13 +19,14 @@ import {
 import TouchView from '../../TouchView'
 import ScreenHeader from '../../ScreenHeader'
 import { info, debug, } from '../../../util/log'
-import { statusBarHeight, } from '../../../util/StatusBarManager'
 import {
     FScrollView,
 } from '../../FixNative'
 import Context from '../../../reducer'
 import { IfElse, When } from '../../../util/jsx'
 import Padding from '../../Padding'
+
+import { SCREEN_HEADER_HEGIHT, } from '../../ScreenHeader'
 
 interface Payload {
     navigation: Object
@@ -39,6 +40,7 @@ interface Payload {
 
 export default (payload: Payload) => {
     const { state, dispatch, } = useContext(Context)
+    const scrollViewRef = useRef(null)
 
     const {
         theme,
@@ -53,16 +55,32 @@ export default (payload: Payload) => {
         noPadding,
     } = payload
 
+    const [headerOpacity, setHeaderOpacity] = useState(0)
+
+    const handleOnScroll = (ev) => {
+        const y = ev.nativeEvent.contentOffset.y
+
+        if(y > -80 && y < 600) {
+            setHeaderOpacity(y  / 50)
+        }
+
+    }
+
     const rv = (
         <View style={{
             flex: 1,
             backgroundColor: theme.screenBackgroundColor[theme.model],
             ...style,
         }}>
-            <ScreenHeader navigation={navigation} safeArea={true} {...ScreenHeaderConf} />
+            <ScreenHeader
+                headerOpacity={headerOpacity}
+                navigation={navigation}
+                safeArea={true} {...ScreenHeaderConf} />
 
-            <FScrollView style={{
+            <FScrollView handleOnScroll={handleOnScroll} style={{
                 padding: noPadding ? 0 : 20,
+                marginTop: -SCREEN_HEADER_HEGIHT,
+                paddingTop: SCREEN_HEADER_HEGIHT,
             }}>
                 {children}
             </FScrollView>

@@ -28,6 +28,7 @@ import WhiteSpace from '../../component/WhiteSpace'
 import SwipeIconList from '../../component/SwipeIconList'
 import WingBlank from '../../component/WingBlank'
 import TouchView from '../../component/TouchView'
+import SimpleScreen from '../../component/View/SimpleScreen'
 
 interface payload {
     navigation: any
@@ -145,14 +146,24 @@ export default (payload: payload) => {
     }, [])
 
     return (
-        <View style={{
-            backgroundColor: 'white',
-            flex: 1,
-        }}>
+        <SimpleScreen
+            noPadding={true}
+            formScreen={true}
+            navigation={navigation}
+            ScreenHeaderConf={{
+                title: name,
+                left: <></>,
+                right: (
+                    <TouchView onPress={() => navigation.push('unitEditCategoryView', { modKey, })}>
+                        <Icon name={'circle-edit-outline'} size={32} color={theme.main} style={{
+                            opacity: 0.68,
+                            marginRight: 18,
+                        }} />
+                    </TouchView>
+                )
+            }}>
+
             <FlatList
-                style={{
-                    paddingTop: statusBarHeight,
-                }}
                 ListHeaderComponent={() => {
                     return (
                         <View style={{
@@ -166,16 +177,13 @@ export default (payload: payload) => {
                             }}>
                                 <LargeTitle>{name}</LargeTitle>
 
-                                <TouchView onPress={() => navigation.push('unitEditCategoryView', { modKey, })}>
-                                    <Icon name={'circle-edit-outline'} size={32} color={theme.main} style={{ opacity: 0.68, }} />
-                                </TouchView>
                             </WingBlank>
 
                             {/* 技术链条 */}
                             {
                                 R.map(
                                     payload => {
-                                        const nodeList = R.map( key => node[modKey][key] )(R.keys(payload.node || {}))
+                                        const nodeList = R.map(key => node[modKey][key])(R.keys(payload.node || {}))
                                         const handlePress = payload => navigation.push('unitDetailView', payload)
 
                                         return (
@@ -229,6 +237,6 @@ export default (payload: payload) => {
                         title={item.name}
                         unit={item.list} />
                 )} />
-        </View>
+        </SimpleScreen>
     )
 }
