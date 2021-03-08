@@ -37,8 +37,11 @@ import {
 } from '../../component/Text'
 import { info } from '../../util/log'
 import { RMap, When } from '../../util/jsx'
+import SimpleScreen from '../../component/View/SimpleScreen'
 
 export default ({ route, navigation }) => {
+    info('[unitDetailCode]: 入口')
+
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -78,62 +81,52 @@ export default ({ route, navigation }) => {
     const code = R.values(payload.code)
 
     return (
-        <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
-            <ScreenHeader navigation={navigation} safeArea={true} />
+        <SimpleScreen
+            navigation={navigation}
+            style={{
+                backgroundColor: theme.screenBackgroundColor[theme.model],
+            }}>
+            <DetailHead payload={payload} navigation={navigation} theme={theme} />
 
-            <ScrollView
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{
-                    // height: '100%',
-                }}
-                style={{ flex: 1, }}>
-
-                <DetailHead payload={payload} navigation={navigation} theme={theme} />
-
-                <View style={{
-                    padding: 15,
-                }}>
-                    <When test={explain.length} node={() => (
-                        <>
-                            <Title style={{
-                                paddingTop: 10,
-                                paddingBottom: 10,
-                            }}>概念</Title>
-                            <RMap data={explain} node={(v, k) => (
-                                <DefText key={k} numberOfLines={100} style={{ fontSize: 14, marginBottom: 10 }}>
-                                    {k + 1}: {v || '-'}
-                                </DefText>
-                            )} />
-                        </>
+            <When test={explain.length} node={() => (
+                <>
+                    <Title style={{
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                    }}>概念</Title>
+                    <RMap data={explain} node={(v, k) => (
+                        <DefText key={k} numberOfLines={100} style={{ fontSize: 14, marginBottom: 10 }}>
+                            {k + 1}: {v || '-'}
+                        </DefText>
                     )} />
+                </>
+            )} />
 
-                    <When test={code.length} node={() => (
-                        <>
-                            <Title style={{
-                                paddingTop: 10,
-                                paddingBottom: 10,
-                            }}>例子</Title>
-                            <RMap data={code} node={(v, k) => (
-                                <View key={k} style={{
-                                    marginBottom: 30,
-                                }}>
-                                    <Text style={{
-                                        marginBottom: 10,
-                                        color: theme.grey[3],
-                                    }}>实例{k + 1}:</Text>
-                                    <SyntaxHighlighter
-                                        language='javascript'
-                                        style={docco}>
-                                        {v || '-'}
-                                    </SyntaxHighlighter>
-                                </View>
-                            )} />
-                        </>
-                    )}></When>
+            <When test={code.length} node={() => (
+                <>
+                    <Title style={{
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                    }}>例子</Title>
+                    <RMap data={code} node={(v, k) => (
+                        <View key={k} style={{
+                            marginBottom: 30,
+                        }}>
+                            <Text style={{
+                                marginBottom: 10,
+                                color: theme.grey[3],
+                            }}>实例{k + 1}:</Text>
+                            <SyntaxHighlighter
+                                language='javascript'
+                                style={docco}>
+                                {v || '-'}
+                            </SyntaxHighlighter>
+                        </View>
+                    )} />
+                </>
+            )}></When>
 
-                </View>
-            </ScrollView>
-        </View>
+        </SimpleScreen>
     )
 }
 

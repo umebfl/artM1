@@ -35,15 +35,20 @@ import {
     DefText,
 } from '../../component/Text'
 import { info } from '../../util/log'
-import { IfElse, When } from '../../util/jsx'
+import { IfElse, RMap, When } from '../../util/jsx'
 import { moveToTop } from '../unitEditCategoryView'
+import WingBlank from '../../component/WingBlank'
+import { FScrollView } from '../../component/FixNative'
+import { calStepVal } from '../../component/SwipeList'
+import SimpleScreen from '../../component/View/SimpleScreen'
+import Padding from '../../component/Padding'
 
 enum ScrollType {
     features = 'features',
     article = 'article'
 }
 
-const moban = require('../../../resource/image/template/m2.jpeg')
+const moban = require('../../../resource/image/template/m13.jpeg')
 
 export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 
@@ -54,29 +59,28 @@ export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 
     return (
         <View style={{
-            paddingLeft: 26,
-            paddingRight: 26,
-            paddingTop: 10,
-            paddingBottom: 14,
-            // marginBottom: 4,
+            flexDirection: 'row',
+            // paddingLeft: 26,
+            // paddingRight: 26,
+            marginBottom: 20,
             // height: 160,
             // backgroundColor: 'rgba(100, 100, 100, 0.2)',
-            flexDirection: 'row',
         }}>
-            <View>
-                {
-                    payload.logo
-                        ? <UnitLogo style={{ marginRight: 16, }} data={payload.logo} size={imageSize} ></UnitLogo>
-                        : null
-                }
-            </View>
+            {
+                payload.logo
+                    ? <UnitLogo style={{ marginRight: 16, }} data={payload.logo} size={imageSize} ></UnitLogo>
+                    : null
+            }
             <View style={{
                 flex: 1,
                 paddingTop: 4,
                 // backgroundColor: 'rgba(100, 100, 100, 0.2)',
             }}>
                 <MidTitle numberOfLines={3}>{payload.name || payload.title}</MidTitle>
-                <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 12, }}>{payload.def}</DefText>
+
+                <When test={payload.def} node={() => (
+                    <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 6, }}>{payload.def}</DefText>
+                )}></When>
 
                 <When test={payload.url} node={() => (
                     <View style={{
@@ -109,6 +113,8 @@ export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 }
 
 export default ({ route, navigation }) => {
+    info('[unitDetail]: 入口')
+
     const { state, dispatch, } = useContext(Context)
     const leafActionSheetREL = useRef(null)
     const categoryActionSheetREL = useRef(null)
@@ -255,19 +261,40 @@ export default ({ route, navigation }) => {
     const scrollViewWidth = Dimensions.get('window').width - 30
 
     return (
-        <ImageBackground
-            source={moban}
-            style={{
-                flex: 1,
-                resizeMode: 'contain',
-                justifyContent: 'center',
-            }}>
+        // <ImageBackground
+        //     source={moban}
+        //     style={{
+        //         flex: 1,
+        //         resizeMode: 'contain',
+        //         justifyContent: 'center',
+        //     }}>
 
-            {
-                // payload.logo
-                //   ? <Curtain type={payload.logo.type} url={payload.logo.url}/>
-                //   : null
-            }
+
+        <SimpleScreen
+            noPadding={true}
+            formScreen={true}
+            navigation={navigation}
+            ScreenHeaderConf={{
+                title: '',
+                right: (
+                    <TouchView onPress={handleJumpDetail}>
+                        <View style={{
+                            marginRight: 20,
+                            // backgroundColor: 'red',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={{
+                                color: theme.grey[0],
+                                fontSize: 16,
+                            }}>编辑</Text>
+                        </View>
+                    </TouchView>
+                )
+            }}
+            style={{
+                backgroundColor: theme.screenBackgroundColor[theme.model],
+            }}>
 
             <ActionSheet
                 ref={categoryActionSheetREL}
@@ -286,65 +313,100 @@ export default ({ route, navigation }) => {
                 onPress={handleLeafActionSheetSelected}
             />
 
-            <View style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
-                <ScreenHeader
-                    right={
-                        <TouchView onPress={handleJumpDetail}>
-                            <View style={{
-                                marginRight: 20,
-                                // backgroundColor: 'red',
+            <WingBlank>
+                <DetailHead payload={data} imageSize={imageSize} navigation={navigation} theme={theme} />
+
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                    borderTopColor: theme.borderColor,
+                    borderTopWidth: theme.borderWidth,
+                }}>
+                    <FScrollView style={{ padding: 0, }}
+                        scrollConf={{
+                            showsHorizontalScrollIndicator: false,
+                            horizontal: true,
+                        }}>
+                        <RMap data={[
+                            {
+                                title: '主要',
+                                version: data.major ? '是' : '否',
+                            },
+                            {
+                                title: '目标',
+                                version: data.ftStep,
+                            },
+                            {
+                                title: '进度',
+                                version: R.compose(
+                                    v => v === 100 ? '完成' : `${v}%`,
+                                )(calStepVal(data.ftStep, data.step)),
+                            },
+                            {
+                                title: '版本',
+                                version: data.version,
+                            },
+                            {
+                                title: '平台',
+                                version: data.platform,
+                                last: true,
+                            },
+                        ]} node={(v, k) => (
+                            <View key={k} style={{
+                                width: 90,
+                                height: 80,
                                 justifyContent: 'center',
                                 alignItems: 'center',
                             }}>
-                                <Text style={{
-                                    color: theme.grey[0],
-                                    fontSize: 16,
-                                }}>编辑</Text>
+                                <DefText style={{
+                                    fontSize: 11,
+                                }}>{v.title}</DefText>
+                                <View style={{
+                                    borderRightColor: theme.borderColor,
+                                    borderRightWidth: v.last ? 0 : theme.borderWidth,
+                                    width: '100%',
+                                    height: 45,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}>
+                                    <Title style={{ fontSize: 16, color: theme.grey[2], fontWeight: 'bold', }}>{v.version}</Title>
+                                </View>
                             </View>
-                        </TouchView>
-                    }
+                        )}></RMap>
+                    </FScrollView>
+                </View>
+            </WingBlank>
+
+            <ScrollableTabView
+                prerenderingSiblingsNumber={Infinity}
+                style={{
+                    marginLeft: 15,
+                    marginRight: 15,
+                }}
+                renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
+                <ScrollItem
+                    tabLabel='要点'
+                    type={ScrollType.features}
+                    width={scrollViewWidth}
                     navigation={navigation}
-                    safeArea={true} />
+                    handleCategoryActionSheet={handleCategoryActionSheet}
+                    handleLeafActionSheet={handleLeafActionSheet}
+                    node={data}
+                    data={data.features}
+                    theme={theme} />
 
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{
-                        // height: '100%',
-                    }}
-                    style={{ flex: 1, }}>
+                <ScrollItem
+                    tabLabel='文章'
+                    type={ScrollType.article}
+                    width={scrollViewWidth}
+                    navigation={navigation}
+                    handleCategoryActionSheet={handleCategoryActionSheet}
+                    handleLeafActionSheet={handleLeafActionSheet}
+                    node={data}
+                    data={data.article}
+                    theme={theme} />
 
-                    <DetailHead payload={data} imageSize={imageSize} navigation={navigation} theme={theme} />
-
-                    <ScrollableTabView
-                        prerenderingSiblingsNumber={Infinity}
-                        style={{
-                            marginLeft: 15,
-                            marginRight: 15,
-                        }}
-                        renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
-                        <ScrollItem
-                            tabLabel='要点'
-                            type={ScrollType.features}
-                            width={scrollViewWidth}
-                            navigation={navigation}
-                            handleCategoryActionSheet={handleCategoryActionSheet}
-                            handleLeafActionSheet={handleLeafActionSheet}
-                            node={data}
-                            data={data.features}
-                            theme={theme} />
-
-                        <ScrollItem
-                            tabLabel='文章'
-                            type={ScrollType.article}
-                            width={scrollViewWidth}
-                            navigation={navigation}
-                            handleCategoryActionSheet={handleCategoryActionSheet}
-                            handleLeafActionSheet={handleLeafActionSheet}
-                            node={data}
-                            data={data.article}
-                            theme={theme} />
-
-                        {/* <ScrollItem
+                {/* <ScrollItem
                             tabLabel='API'
                             type='api'
                             width={scrollViewWidth}
@@ -353,10 +415,9 @@ export default ({ route, navigation }) => {
                             node={data}
                             data={data.api}
                             theme={theme} /> */}
-                    </ScrollableTabView>
-                </ScrollView>
-            </View>
-        </ImageBackground >
+            </ScrollableTabView>
+
+        </SimpleScreen>
     )
 }
 
@@ -382,6 +443,7 @@ export const ScrollItem = ({
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
+                // backgroundColor: 'red',
             }}>
                 <TouchView onPress={() => navigation.push('unitEditNodeCategoryView', { node, type, id: null, })}>
                     <View style={{

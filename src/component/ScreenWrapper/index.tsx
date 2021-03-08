@@ -70,7 +70,7 @@ const ScreenWrapper = (payload: payload) => {
                 </View>
               )
               : (
-                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, paddingTop: statusBarHeight,  }}>
+                <ScrollView keyboardDismissMode={'on-drag'} showsVerticalScrollIndicator={false} style={{ flex: 1, paddingTop: statusBarHeight,  }}>
                   {
                     children ? children : null
                   }

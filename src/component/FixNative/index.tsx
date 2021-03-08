@@ -14,32 +14,33 @@ import {
 import TouchView from '../../component/TouchView'
 import { info, debug, } from '../../util/log'
 import { statusBarHeight, } from '../../util/StatusBarManager'
-import Context from '../../reducer'
+// import Context from '../../reducer'
 
 interface FScrollViewPayload {
     children?: any
-    style?: Object,
+    style?: Object
+    scrollConf?: Object
 }
 
 export const FScrollView = (payload: FScrollViewPayload) => {
-    const { state, dispatch, } = useContext(Context)
+    // const { state, dispatch, } = useContext(Context)
 
-    const {
-        theme,
-    } = state
+    // const {
+    //     theme,
+    // } = state
 
     const {
         children,
         style,
+        scrollConf,
     } = payload
 
     return (
         <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{
-                padding: 20,
-                ...style,
-            }}>
+            keyboardDismissMode={'on-drag'}
+            // keyboardShouldPersistTaps={'never'}
+            style={style} {...scrollConf}>
             {children}
             <View style={{ height: statusBarHeight, }}></View>
         </ScrollView>

@@ -11,6 +11,7 @@ import {
     Clipboard,
     TextInput,
 } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import ActionSheet from 'react-native-actionsheet'
 import TouchView from '../../component/TouchView'
 import { info, debug, } from '../../util/log'
@@ -23,7 +24,6 @@ import { DefText } from '../../component/Text'
 import idBuilder from '../../util/idBuilder'
 import { useSetState } from 'ahooks'
 import { InputItemWithVal } from '../../component/Form/Input'
-import { multiply } from 'react-native-reanimated'
 import { AddBtn } from '../unitEditLv1View'
 
 interface Payload {
@@ -39,8 +39,11 @@ interface Payload {
 }
 
 export default (payload: Payload) => {
+    info('[编辑要点叶子节点详情页]: 入口')
+
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
+    const infoActionSheetREl = useRef(null)
 
     const {
         theme,
@@ -123,12 +126,23 @@ export default (payload: Payload) => {
     const handleActionSheet = () => {
         actionSheetREl.current.show()
     }
-
     const handleActionSheetSelected = (index) => {
         if (index === 1) {
             handleDel()
         }
     }
+
+
+    const handleInfoActionSheet = (key, id) => {
+        infoActionSheetREl.current.value = { key, id }
+        infoActionSheetREl.current.show()
+    }
+    const handleInfoActionSheetSelected = (index) => {
+        if (index === 1) {
+            handleInfoDel()
+        }
+    }
+
     const handleAddExplainPress = () => {
         let explain = R.toPairs(featuresState.explain)
         const id = idBuilder(explain.length)
@@ -151,6 +165,32 @@ export default (payload: Payload) => {
             },
         })
     }
+    const handleInfoDel = () => {
+        const {
+            key,
+            id,
+        } = infoActionSheetREl.current.value
+
+        if (features) {
+            // 编辑
+            dispatch({
+                mod: 'path',
+                type: 'del',
+                payload: {
+                    path: [...TypePath, features.id, key, id],
+                },
+            })
+            // 本地缓存
+            setFeatures({
+                [key]: R.dissoc(id)(featuresState[key]),
+            })
+        } else {
+            // 新增
+            setFeatures({
+                [key]: R.dissoc(id)(featuresState[key]),
+            })
+        }
+    }
 
     // 修正数据
     if (R.toPairs(featuresState.explain).length === 0) {
@@ -162,6 +202,7 @@ export default (payload: Payload) => {
 
     return (
         <SimpleScreen
+            formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
                 title: `${features ? '编辑' : '新建'}节点`,
@@ -190,6 +231,15 @@ export default (payload: Payload) => {
                 cancelButtonIndex={0}
                 destructiveButtonIndex={1}
                 onPress={handleActionSheetSelected}
+            />
+
+            <ActionSheet
+                ref={infoActionSheetREl}
+                title={'请选择操作'}
+                options={['取消', '删除',]}
+                cancelButtonIndex={0}
+                destructiveButtonIndex={1}
+                onPress={handleInfoActionSheetSelected}
             />
 
             <InputItemWithVal
@@ -222,20 +272,23 @@ export default (payload: Payload) => {
                 <RMap data={
                     R.toPairs(featuresState.explain)
                 } node={(v, k) => (
-                    <InputItemWithVal
-                        key={k}
-                        inputConf={{
-                            multiline: true,
-                        }}
-                        title={`概念${k + 1}`}
-                        path={features ? [...TypePath, features.id, 'explain', v[0]] : null}
-                        value={v[1]}
-                        onChange={val => setFeatures({
-                            explain: {
-                                ...featuresState.explain,
-                                [v[0]]: val,
-                            },
-                        })} />
+                    <View>
+                        <InputItemWithVal
+                            key={k}
+                            inputConf={{
+                                multiline: true,
+                            }}
+                            title={`概念${k + 1}`}
+                            path={features ? [...TypePath, features.id, 'explain', v[0]] : null}
+                            value={v[1]}
+                            onChange={val => setFeatures({
+                                explain: {
+                                    ...featuresState.explain,
+                                    [v[0]]: val,
+                                },
+                            })} />
+                        <DelIcon color={theme.red[4]} handlePress={() => handleInfoActionSheet('explain', v[0])} />
+                    </View>
                 )}></RMap>
                 <View style={{
                     width: 100,
@@ -252,20 +305,23 @@ export default (payload: Payload) => {
                 borderTopColor: theme.borderColor,
             }}>
                 <RMap data={code} node={(v, k) => (
-                    <InputItemWithVal
-                        key={k}
-                        inputConf={{
-                            multiline: true,
-                        }}
-                        title={`示例${k + 1}`}
-                        path={features ? [...TypePath, features.id, 'code', v[0]] : null}
-                        value={v[1]}
-                        onChange={val => setFeatures({
-                            code: {
-                                ...featuresState.code,
-                                [v[0]]: v[1],
-                            },
-                        })} />
+                    <View>
+                        <InputItemWithVal
+                            key={k}
+                            inputConf={{
+                                multiline: true,
+                            }}
+                            title={`示例${k + 1}`}
+                            path={features ? [...TypePath, features.id, 'code', v[0]] : null}
+                            value={v[1]}
+                            onChange={val => setFeatures({
+                                code: {
+                                    ...featuresState.code,
+                                    [v[0]]: v[1],
+                                },
+                            })} />
+                        <DelIcon color={theme.red[4]} handlePress={() => handleInfoActionSheet('code', v[0])} />
+                    </View>
                 )}></RMap>
                 <View style={{
                     width: 100,
@@ -279,3 +335,18 @@ export default (payload: Payload) => {
         </SimpleScreen >
     )
 }
+
+interface DelIconPayload {
+    handlePress: () => void
+    color: string
+}
+const DelIcon = (payload: DelIconPayload) => (
+    <View style={{
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+    }}>
+        <TouchView onPress={payload.handlePress}>
+            <Icon name={'close-circle-outline'} size={24} color={payload.color} />
+        </TouchView>
+    </View>
+)

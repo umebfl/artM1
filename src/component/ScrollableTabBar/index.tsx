@@ -98,7 +98,7 @@ export default (payload: payload) => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingBottom: 10
+        paddingBottom: 6
       }, payload.tabStyle,]}>
         <Animated.Text style={{
           textAlign: 'center',
@@ -113,7 +113,7 @@ export default (payload: payload) => {
   }
 
   return (
-    <View style={{ height: 50, flexDirection: 'row', backgroundColor: theme.navigationTabBarBackgound, }}>
+    <View style={{ height: 46, flexDirection: 'row', backgroundColor: theme.navigationTabBarBackgound, }}>
       <View style={{ width: betweenWidth, }}></View>
       {payload.tabs.map((name, page) => {
         const isTabActive = payload.activeTab === page

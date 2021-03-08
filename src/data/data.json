@@ -8,13 +8,6 @@
           "22-4606-112"
         ]
       },
-      "19-1615092756699-99": {
-        "id": "19-1615092756699-99",
-        "name": "数据",
-        "list": [
-          "3-1615092790998-107"
-        ]
-      },
       "0-1614845789307": {
         "id": "0-1614845789307",
         "name": "网络",
@@ -24,12 +17,34 @@
           "2-1614846949643"
         ]
       },
+      "7-1614845789307": {
+        "id": "7-1614845789307",
+        "name": "项目管理",
+        "list": [
+          "12-1614846949643",
+          "13-1614846949643"
+        ]
+      },
+      "4-1614845789307": {
+        "id": "4-1614845789307",
+        "name": "编程范式",
+        "list": [
+          "9-1614846949643"
+        ]
+      },
       "1-1614845789307": {
         "id": "1-1614845789307",
         "name": "安全",
         "list": [
           "3-1614846949643",
           "4-1614846949643"
+        ]
+      },
+      "19-1615092756699-99": {
+        "id": "19-1615092756699-99",
+        "name": "数据",
+        "list": [
+          "3-1615092790998-107"
         ]
       },
       "2-1614845789307": {
@@ -48,26 +63,11 @@
           "8-1614846949643"
         ]
       },
-      "4-1614845789307": {
-        "id": "4-1614845789307",
-        "name": "编程范式",
-        "list": [
-          "9-1614846949643"
-        ]
-      },
       "6-1614845789307": {
         "id": "6-1614845789307",
         "name": "代码管理",
         "list": [
           "11-1614846949643"
-        ]
-      },
-      "7-1614845789307": {
-        "id": "7-1614845789307",
-        "name": "项目管理",
-        "list": [
-          "12-1614846949643",
-          "13-1614846949643"
         ]
       },
       "8-1614845789307": {
@@ -208,12 +208,12 @@
         "id": "0-1614845806017",
         "name": "语言",
         "list": [
-          "36-1614846977043",
           "37-1614846977043",
+          "36-1614846977043",
+          "41-1614846977043",
           "38-1614846977043",
           "39-1614846977043",
           "40-1614846977043",
-          "41-1614846977043",
           "42-1614846977043"
         ]
       },
@@ -221,19 +221,19 @@
         "id": "1-1614845806017",
         "name": "视图",
         "list": [
+          "44-1614846977043",
+          "43-1614846977043",
           "3-1615092944649-219",
           "3-1615091224766-92",
-          "3-1615091114820-90",
-          "43-1614846977043",
-          "44-1614846977043"
+          "3-1615091114820-90"
         ]
       },
       "2-1614845806017": {
         "id": "2-1614845806017",
         "name": "数据",
         "list": [
-          "3-1615092602077-27",
           "45-1614846977043",
+          "3-1615092602077-27",
           "46-1614846977043",
           "47-1614846977043"
         ]
@@ -271,9 +271,10 @@
         "name": "工程化",
         "list": [
           "58-1614846977043",
-          "59-1614846977043",
-          "60-1614846977043",
           "61-1614846977043",
+          "60-1614846977043",
+          "59-1614846977043",
+          "48-5362-5889",
           "62-1614846977043"
         ]
       },
@@ -367,6 +368,11 @@
         "title": "React_入门 精通 教程_w3cplus",
         "def": "--",
         "url": "https://www.w3cplus.com/blog/react"
+      },
+      "https://m.xxbiqudu.com/132_132665_1/": {
+        "title": "神秀之主最新章节列表-无弹窗-笔趣阁手机版",
+        "def": "--",
+        "url": "https://m.xxbiqudu.com/132_132665_1/"
       }
     }
   },
@@ -482,8 +488,8 @@
         "def": "一种解释型或即时编译型的编程语言",
         "major": true,
         "logo": {
-          "type": "jpg",
           "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jinqiaojob.com%2Fuploads%2Fallimg%2F200113%2F1-200113194504a8.jpg&refer=http%3A%2F%2Fwww.jinqiaojob.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253889&t=c33f92d7fd8556ce833a0f923537b3fb",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.w3school.com.cn/js/index.asp",
@@ -491,7 +497,7 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "精通",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "0-1614845806017",
@@ -861,8 +867,8 @@
         "name": "Html5",
         "def": "超文本标记语言",
         "logo": {
-          "type": "jpg",
           "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F89%2F73%2F3456ee42a409867.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253923&t=7f465f9ddf774853926f72537bb1c0c8",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.w3school.com.cn/html5/index.asp",
@@ -870,19 +876,20 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "精通",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "0-1614845806017",
-        "categoryName": "语言"
+        "categoryName": "语言",
+        "major": false
       },
       "41-1614846977043": {
         "id": "41-1614846977043",
         "name": "Less",
         "def": "一门向后兼容的 CSS 扩展语言",
         "logo": {
-          "type": "jpg",
           "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2500836854,3966017427&fm=15&gp=0.jpg",
+          "type": "jpg",
           "full": true
         },
         "url": "https://less.bootcss.com/#%E6%A6%82%E8%A7%88",
@@ -890,11 +897,12 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "0-1614845806017",
-        "categoryName": "语言"
+        "categoryName": "语言",
+        "major": false
       },
       "42-1614846977043": {
         "id": "42-1614846977043",
@@ -902,8 +910,8 @@
         "def": "控制网页的样式和布局",
         "major": true,
         "logo": {
-          "type": "jpg",
           "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F86%2F51%2F2456eb8bc0270d9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617253990&t=239b9cd2dcbb9423540085c11ed93e1d",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.runoob.com/css/css-intro.html",
@@ -911,7 +919,7 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "精通",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "0-1614845806017",
@@ -1721,8 +1729,8 @@
         "def": "实用的 JavaScript 函数式编程库",
         "major": true,
         "logo": {
-          "type": "png",
           "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4174873472,1476613346&fm=26&gp=0.jpg",
+          "type": "png",
           "full": true
         },
         "url": "https://ramda.cn/",
@@ -1744,7 +1752,7 @@
         "features": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "精通",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "2-1614845806017",
@@ -1756,8 +1764,8 @@
         "def": "致力于面向中台场景的Hooks库",
         "major": true,
         "logo": {
-          "type": "jpg",
           "url": "https://pic1.zhimg.com/80/v2-a42735923d9304eed6e74ecf37df81f8_1440w.jpg",
+          "type": "jpg",
           "full": true
         },
         "url": "https://ahooks.js.org/zh-CN/hooks/async",
@@ -1778,7 +1786,7 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "2-1614845806017",
@@ -1791,15 +1799,15 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "png",
           "url": "https://tse3-mm.cn.bing.net/th/id/OIP.yPRN87C9vjrdtIBY7UTAiAHaGs?pid=ImgDet&rs=1",
+          "type": "png",
           "full": true
         },
         "url": "https://www.redux.org.cn/",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "精通",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "2-1614845806017",
@@ -1812,15 +1820,15 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_png%2FrQO8ekDyWcz7eKQhnCZyQRicibU3ia5PibYiaYXGNyVIiaI5fjAaMePkVniaA7VURty1VNBx4qNIC95KUtpiaUzgB3B9GA%2F640%3Fwx_fmt%3Dpng&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255092&t=f11e2630fcfe8853da16447e37a8cd8f",
+          "type": "jpg",
           "full": true
         },
         "url": "https://charts.ant.design/zh-CN/guide",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "章节",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "3-1614845806017",
@@ -1831,8 +1839,8 @@
         "name": "Antv",
         "def": "蚂蚁集团全新一代数据可视化解决方案",
         "logo": {
-          "type": "png",
           "url": "https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png",
+          "type": "png",
           "full": true
         },
         "url": "https://antv.vision/",
@@ -1840,19 +1848,20 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "3-1614845806017",
-        "categoryName": "数据可视化"
+        "categoryName": "数据可视化",
+        "major": false
       },
       "50-1614846977043": {
         "id": "50-1614846977043",
         "name": "D3",
         "def": "帮助您使用HTML，SVG和CSS使数据栩栩如生",
         "logo": {
-          "type": "png",
           "url": "https://tse2-mm.cn.bing.net/th/id/OIP.oPv8HjQNqIhP_MoIgDR4jQHaHa?pid=ImgDet&w=1000&h=1000&rs=1",
+          "type": "png",
           "full": true
         },
         "url": "https://observablehq.com/@d3/gallery",
@@ -1860,19 +1869,20 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "3-1614845806017",
-        "categoryName": "数据可视化"
+        "categoryName": "数据可视化",
+        "major": false
       },
       "51-1614846977043": {
         "id": "51-1614846977043",
         "name": "echarts",
         "def": "一个基于 JavaScript 的开源可视化图表库",
         "logo": {
-          "type": "png",
           "url": "https://tse2-mm.cn.bing.net/th/id/OIP.1lgJbCNUvlpbXUJBzo5pDAHaIl?pid=ImgDet&rs=1",
+          "type": "png",
           "full": true
         },
         "url": "https://echarts.apache.org/zh/index.html",
@@ -1880,11 +1890,12 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "3-1614845806017",
-        "categoryName": "数据可视化"
+        "categoryName": "数据可视化",
+        "major": false
       },
       "52-1614846977043": {
         "id": "52-1614846977043",
@@ -1919,8 +1930,8 @@
         "def": "React Native中应用的路由和导航",
         "major": true,
         "logo": {
-          "type": "svg",
           "url": "https://reactnavigation.org/img/spiro.svg",
+          "type": "svg",
           "full": true
         },
         "url": "https://reactnavigation.org",
@@ -1928,7 +1939,7 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "章节",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "4-1614845806017",
@@ -2000,8 +2011,8 @@
         "def": "一个令人愉快的 JavaScript 测试框架，专注于 简洁明快",
         "major": true,
         "logo": {
-          "type": "jpg",
           "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fjestesmyaktywni.pcpr.pl%2Fdownload%2Fzalacznik_1601.jpg&refer=http%3A%2F%2Fjestesmyaktywni.pcpr.pl&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617255622&t=95be6f08253a25e06cc6d534c31f4b24",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.jestjs.cn/docs/getting-started",
@@ -2219,7 +2230,7 @@
         },
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "5-1614845806017",
@@ -2231,8 +2242,8 @@
         "def": "用于现代 JavaScript 应用程序的_静态模块打包工具",
         "major": true,
         "logo": {
-          "type": "png",
           "url": "https://www.webpackjs.com/32dc115fbfd1340f919f0234725c6fb4.png",
+          "type": "png",
           "full": true
         },
         "url": "https://webpack.docschina.org/",
@@ -2240,7 +2251,7 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "6-1614845806017",
@@ -2252,11 +2263,11 @@
         "def": "快速、可靠、安全的依赖管理工具",
         "version": "2",
         "major": true,
-        "ftStep": "大纲",
-        "step": "大纲",
+        "ftStep": "章节",
+        "step": "章节",
         "logo": {
-          "type": "png",
           "url": "https://static.oschina.net/uploads/logo/yarn-js_rSKLj.png",
+          "type": "png",
           "full": true
         },
         "url": "https://www.yarnpkg.cn/",
@@ -2315,6 +2326,31 @@
                 "code": {}
               }
             }
+          },
+          "1-1964-703": {
+            "id": "1-1964-703",
+            "title": "Yarn Workspace",
+            "def": "更好的统一管理有多个项目的仓库",
+            "node": {
+              "0-5415-10": {
+                "id": "0-5415-10",
+                "title": "使用",
+                "def": "简化对多个项目的统一管理",
+                "jump": "code",
+                "url": "https://www.jianshu.com/p/990afa30b6fe",
+                "major": false,
+                "code": {
+                  "0-5415-107": "$ yarn workspace project1 add vue --dev 《 往 project1 添加 vue 开发依赖\n$ yarn workspace project1 remove vue    《 从 project1 移除 vue 依赖",
+                  "2-3572-3615": "yarn workspaces run test \n\n将会执行各个 workspace 的 test script。",
+                  "2-1886-3036": "{\n  \"private\": true,\n  \"workspaces\": \"workspaces\": [\"packages/*\"]. // 也可以使用通配符设置为 [\"project*\"]\n}",
+                  "3-8956-3589": "引用本地文件作为依赖:\n{\n  \"name\": \"Doil5\",\n  \"version\": \"1.0.0\",\n  \"main\": \"src/index.js\",\n  \"author\": \"huangAnQi\",\n  \"license\": \"MIT\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"jest\": \"^26.6.3\"\n  },\n  \"dependencies\": {\n    \"DoilUI\": \"../DoilUI\"\n  }\n}\n"
+                },
+                "explain": {
+                  "0-5415-158": "一条 yarn 命令安装或者升级所有依赖",
+                  "1-2377-1432": "多个项目共享同一个 node_modules 目录，提升开发效率和降低磁盘空间占用"
+                }
+              }
+            }
           }
         },
         "platform": "全部",
@@ -2348,8 +2384,8 @@
         "name": "eslint",
         "def": "查找并修复JavaScript代码中的问题",
         "logo": {
-          "type": "svg",
           "url": "https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg",
+          "type": "svg",
           "full": true
         },
         "url": "https://eslint.org/",
@@ -2357,11 +2393,12 @@
         "article": {},
         "version": "-",
         "platform": "全部",
-        "ftStep": "标记",
+        "ftStep": "章节",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "6-1614845806017",
-        "categoryName": "工程化"
+        "categoryName": "工程化",
+        "major": false
       },
       "62-1614846977043": {
         "id": "62-1614846977043",
@@ -2391,7 +2428,7 @@
         "url": "https://github.com/atlassian/react-beautiful-dnd",
         "major": true,
         "platform": "React",
-        "version": "",
+        "version": "13.0.0",
         "logo": {
           "url": "https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png",
           "type": "png",
@@ -2681,21 +2718,22 @@
         "id": "72-1614846977043",
         "name": "statsjs",
         "def": "帮助您监视代码性能",
-        "ftStep": "精通",
+        "ftStep": "大纲",
         "step": "标记",
         "platform": "全部",
         "url": "https://www.npmjs.com/package/stats-js",
         "features": {},
         "article": {},
         "logo": {
-          "type": "icon",
           "url": "github",
+          "type": "icon",
           "full": false
         },
         "version": "-",
         "mod": "interactive",
         "categoryId": "7-1614845806017",
-        "categoryName": "UI组件"
+        "categoryName": "UI组件",
+        "major": false
       },
       "73-1614846977043": {
         "id": "73-1614846977043",
@@ -2724,15 +2762,15 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "svg",
           "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+          "type": "svg",
           "full": true
         },
         "url": "https://beta-pro.ant.design/docs/introduction-cn",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "8-1614845806017",
@@ -2745,15 +2783,15 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "svg",
           "url": "https://zos.alipayobjects.com/rmsportal/TOXWfHIUGHvZIyb.svg",
+          "type": "svg",
           "full": true
         },
         "url": "https://motion.ant.design/index-cn",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "章节",
         "step": "标记",
         "mod": "interactive",
         "categoryId": "9-1614845806017",
@@ -2935,6 +2973,24 @@
         "mod": "interactive",
         "categoryId": "1-1614845806017",
         "features": {}
+      },
+      "48-5362-5889": {
+        "id": "48-5362-5889",
+        "name": "npm",
+        "def": "随同NodeJS一起安装的包管理工具",
+        "url": "https://www.runoob.com/nodejs/nodejs-npm.html",
+        "platform": "全部",
+        "version": "6.14.9",
+        "major": false,
+        "logo": {
+          "url": "https://tse3-mm.cn.bing.net/th/id/OIP.cRVxWlPshUBAMRrZxh9BlAHaHa?pid=ImgDet&rs=1",
+          "type": "jpg",
+          "full": true
+        },
+        "ftStep": "标记",
+        "step": "标记",
+        "mod": "interactive",
+        "categoryId": "6-1614845806017"
       }
     },
     "theory": {
@@ -2945,15 +3001,15 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://tse1-mm.cn.bing.net/th/id/OIP.lc-6FOUQnY6V-79dt3FdpgHaD_?pid=ImgDet&rs=1",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.runoob.com/http/http-tutorial.html",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "theory",
         "categoryId": "0-1614845789307",
@@ -2966,15 +3022,15 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fftp.chinafix.com%2Fportal%2F201711%2F20%2F092900iii5p55lrfngiliy.jpg&refer=http%3A%2F%2Fftp.chinafix.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617274553&t=ab472e17b2950f7218edc83dea14e018",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.runoob.com/tcpip/tcpip-tutorial.html",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "theory",
         "categoryId": "0-1614845789307",
@@ -2987,15 +3043,15 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3861921816,2794589959&fm=26&gp=0.jpg",
+          "type": "jpg",
           "full": true
         },
         "url": "",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "theory",
         "categoryId": "0-1614845789307",
@@ -3008,15 +3064,15 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "icon",
           "url": "repeat-off",
+          "type": "icon",
           "full": false
         },
         "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "章节",
         "step": "标记",
         "mod": "theory",
         "categoryId": "1-1614845789307",
@@ -3029,15 +3085,15 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://tse1-mm.cn.bing.net/th/id/OIP.b_YutsV4U7BKA-s4A40T4AAAAA?pid=ImgDet&rs=1",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.cnblogs.com/liubingyjui/p/10804785.html",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "章节",
         "step": "标记",
         "mod": "theory",
         "categoryId": "1-1614845789307",
@@ -3050,15 +3106,15 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://th.bing.com/th/id/Rf57bbb6295ffade226d015f4850937e8?rik=xTV1rU3CW4k2xg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f03%2fColor-of-the-Linux-Logo.jpg&ehk=Hii7pvgOcDq2g41%2b9D%2bfbEoQqCN%2bTmPuB%2b9mujPkcnk%3d&risl=&pid=ImgRaw",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.runoob.com/linux/linux-tutorial.html",
         "features": {},
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "theory",
         "categoryId": "2-1614845789307",
@@ -3115,13 +3171,13 @@
         "url": "https://www.runoob.com/linux/linux-command-manual.html",
         "features": {},
         "logo": {
-          "type": "icon",
           "url": "github",
+          "type": "icon",
           "full": false
         },
         "article": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "mod": "theory",
         "categoryId": "3-1614845789307",
@@ -3433,11 +3489,26 @@
         "mod": "theory",
         "categoryId": "20-1422-75",
         "features": {
-          "0-6728-30": {
-            "id": "0-6728-30",
-            "title": "待办",
-            "def": "待办事项清单",
-            "node": {}
+          "2-3023-125": {
+            "id": "2-3023-125",
+            "title": "创作灵感",
+            "def": "新的需求清单",
+            "node": {
+              "0-5459-75": {
+                "id": "0-5459-75",
+                "title": "使用yarn workspace实现项目拆分",
+                "def": "",
+                "jump": "code",
+                "url": "",
+                "major": false,
+                "code": {
+                  "0-5459-30": ""
+                },
+                "explain": {
+                  "0-5459-166": ""
+                }
+              }
+            }
           },
           "1-0969-782": {
             "id": "1-0969-782",
@@ -3474,12 +3545,6 @@
               }
             }
           },
-          "2-3023-125": {
-            "id": "2-3023-125",
-            "title": "创作灵感",
-            "def": "新的需求清单",
-            "node": {}
-          },
           "3-5038-2547": {
             "id": "3-5038-2547",
             "title": "BUG 记录",
@@ -3488,7 +3553,7 @@
               "4-5412-2787": {
                 "id": "4-5412-2787",
                 "title": "键盘遮挡输入框",
-                "def": "",
+                "def": "80%",
                 "jump": "code",
                 "url": "",
                 "major": false,
@@ -3496,7 +3561,34 @@
                   "0-5412-3126": ""
                 },
                 "explain": {
-                  "0-5412-252": ""
+                  "0-5412-252": "表单提供遮挡处理, 动态生成的文本框无法出来"
+                }
+              }
+            }
+          },
+          "0-6728-30": {
+            "id": "0-6728-30",
+            "title": "待办",
+            "def": "待办事项清单",
+            "node": {}
+          },
+          "4-9827-72": {
+            "id": "4-9827-72",
+            "title": "经验",
+            "def": "",
+            "node": {
+              "0-7668-157": {
+                "id": "0-7668-157",
+                "title": "数据缓存设计",
+                "def": "可以使用临时对象存储到state, 解决本地state的多版本同步问题",
+                "jump": "code",
+                "url": "",
+                "major": false,
+                "code": {
+                  "0-7669-354": ""
+                },
+                "explain": {
+                  "0-7668-742": ""
                 }
               }
             }
@@ -3512,14 +3604,14 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "jpg",
           "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=238001970,1745368623&fm=26&gp=0.jpg",
+          "type": "jpg",
           "full": true
         },
         "url": "https://nodejs.org/zh-cn/",
         "features": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "article": {},
         "mod": "server",
@@ -3533,14 +3625,14 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "png",
           "url": "https://nestjs.bootcss.com/img/logo.png",
+          "type": "png",
           "full": true
         },
         "url": "https://nestjs.bootcss.com/",
         "features": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "article": {},
         "mod": "server",
@@ -3596,14 +3688,14 @@
         "major": true,
         "platform": "全部",
         "logo": {
-          "type": "png",
           "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3435757484,2524118334&fm=26&gp=0.jpg",
+          "type": "png",
           "full": true
         },
         "url": "https://www.runoob.com/mongodb/mongodb-tutorial.html",
         "features": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "熟悉",
         "step": "标记",
         "article": {},
         "mod": "server",
@@ -3701,14 +3793,14 @@
         "major": false,
         "platform": "全部",
         "logo": {
-          "type": "png",
           "url": "https://tse1-mm.cn.bing.net/th/id/OIP.3uK6AdhfnwXu5FTXU1KIBwHaDR?pid=ImgDet&w=536&h=237&rs=1",
+          "type": "png",
           "full": true
         },
         "url": "http://momentjs.cn/",
         "features": {},
         "version": "-",
-        "ftStep": "标记",
+        "ftStep": "大纲",
         "step": "标记",
         "article": {},
         "mod": "server",

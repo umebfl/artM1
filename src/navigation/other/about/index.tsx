@@ -78,10 +78,10 @@ export default ({ navigation, }) => {
 
     return (
 
-        <ImageBackground source={null} style={{
-            flex: 1,
-            resizeMode: 'contain',
-        }}>
+        // <ImageBackground source={null} style={{
+        //     flex: 1,
+        //     resizeMode: 'contain',
+        // }}>
             <View style={{
                 // backgroundColor: 'red',
                 // opacity: 0.2,
@@ -118,6 +118,6 @@ export default ({ navigation, }) => {
                     </View>
                 </ScrollView>
             </View>
-        </ImageBackground>
+        // </ImageBackground>
     )
 }

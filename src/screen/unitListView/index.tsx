@@ -18,6 +18,7 @@ import { SwipeListItem, } from '../../component/SwipeList'
 import { info } from '../../util/log'
 
 export default ({ route, navigation }) => {
+    info('[全部节点列表页]]: 入口')
 
     const { state, dispatch, } = useContext(Context)
     const {

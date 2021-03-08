@@ -322,10 +322,10 @@ export const SwipeListItem = ({
     )
 }
 
-const calStepVal = (ftStep: string, step: string) => {
+export const calStepVal = (ftStep: string, step: string) => {
 
     const ftval = SkillStepVal[ftStep]
     const curval = SkillStepVal[step]
 
-    return (curval / ftval) * 100
+    return parseInt((curval / ftval) * 100)
 }

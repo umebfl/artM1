@@ -42,6 +42,8 @@ import {
 import WingBlank from '../../component/WingBlank'
 import Paragraph from '../../component/Paragraph'
 import { info } from '../../util/log'
+import { FScrollView } from '../../component/FixNative'
+import SimpleScreen from '../../component/View/SimpleScreen'
 
 export default ({ route, navigation }) => {
     info('[编辑][分类详情页]模块执行渲染')
@@ -192,14 +194,13 @@ export default ({ route, navigation }) => {
     }
 
     return (
-        <View style={{
-            flex: 1,
-            // backgroundColor: 'rgb(247, 248, 249)',
-            backgroundColor: 'white',
-            paddingBottom: 20,
-        }}>
-            <ScreenHeader
-                right={
+
+
+        <SimpleScreen
+            formScreen={true}
+            ScreenHeaderConf={{
+                title: `编辑 - ${data.name}`,
+                right: (
                     <TouchView onPress={handleCategoryDelActionSheet}>
                         <View style={{
                             marginRight: 20,
@@ -213,10 +214,9 @@ export default ({ route, navigation }) => {
                             }}>删除</Text>
                         </View>
                     </TouchView>
-                }
-                navigation={navigation}
-                title={`编辑 - ${data.name}`}
-                safeArea={true} />
+                ),
+            }}
+            navigation={navigation}>
 
             <ActionSheet
                 ref={actionSheetREl}
@@ -236,59 +236,46 @@ export default ({ route, navigation }) => {
                 onPress={handleCategoryDotPress}
             />
 
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <WhiteSpace>
-                    <WingBlank>
-                        <View style={{
-                            height: 36,
-                        }}>
-                            <Paragraph
-                                text={<MidTitle>{data.name}</MidTitle>}
-                                iconSize={18}
-                                handleSave={(val) => handleEditCategoryName(data.id, val)}
+            <View style={{
+                height: 36,
+            }}>
+                <Paragraph
+                    text={<MidTitle>{data.name}</MidTitle>}
+                    iconSize={18}
+                    handleSave={(val) => handleEditCategoryName(data.id, val)}
+                    theme={theme}
+                    defaultValue={data.name} />
+            </View>
+
+            <AddBtn title={'添加节点'} handlePress={() => handleJumpDetail(null)} />
+
+            {
+                R.addIndex(R.map)(
+                    (v, k) => {
+                        const item = node[modKey][v]
+                        return (
+                            <EditItem
+                                seq={k}
+                                id={item.id}
+                                name={item.name}
+                                def={item.def}
+                                logo={item.logo}
                                 theme={theme}
-                                defaultValue={data.name} />
-                        </View>
-
-                        <AddBtn title={'添加节点'} handlePress={() => handleJumpDetail(null)} />
-                    </WingBlank>
-
-                    {
-                        R.addIndex(R.map)(
-                            (v, k) => {
-                                const item = node[modKey][v]
-                                return (
-                                    <EditItem
-                                        seq={k}
-                                        id={item.id}
-                                        name={item.name}
-                                        def={item.def}
-                                        logo={item.logo}
-                                        theme={theme}
-                                        handleJump={() => {
-                                            handleJumpDetail(item.id)
-                                        }}
-                                        handleDotPress={
-                                            () => {
-                                                dotActionSheetREl.current.value = item.id
-                                                handleDotActionSheet()
-                                            }
-                                        }
-                                        handleEdit={() => handleJumpDetail(item.id)}
-                                        // handleDelPress={
-                                        //     () => {
-                                        //         actionSheetREl.current.value = item.id
-                                        //         handleDelActionSheet()
-                                        //     }
-                                        // }
-                                        />
-                                )
-                            }
-                        )(data.list)
+                                handleJump={() => {
+                                    handleJumpDetail(item.id)
+                                }}
+                                handleDotPress={
+                                    () => {
+                                        dotActionSheetREl.current.value = item.id
+                                        handleDotActionSheet()
+                                    }
+                                }
+                                handleEdit={() => handleJumpDetail(item.id)} />
+                        )
                     }
-                </WhiteSpace>
-            </ScrollView>
-        </View >
+                )(data.list)
+            }
+        </SimpleScreen>
     )
 }
 

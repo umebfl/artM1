@@ -27,7 +27,7 @@ import TouchView from '../../../component/TouchView'
 import { debug, logState, level, clear, } from '../../../util/log'
 
 import Context from '../../../reducer'
-import { fixZeroEnd } from '../../../util/string'
+import { fixZeroStart, } from '../../../util/string'
 
 const ITEM_HEIGHT = 25
 
@@ -125,11 +125,11 @@ export default ({ navigation, }) => {
                         }}>
                             <Text style={{ marginRight: 5, fontSize: 12, width: 60, }}>
                                 {
-                                    fixZeroEnd(item.time.getMinutes(), 2)
+                                    fixZeroStart(item.time.getMinutes(), 2)
                                 }:{
-                                    fixZeroEnd(item.time.getSeconds(), 2)
+                                    fixZeroStart(item.time.getSeconds(), 2)
                                 }.{
-                                    fixZeroEnd(item.time.getMilliseconds(), 3)
+                                    fixZeroStart(item.time.getMilliseconds(), 3)
                                 }
                             </Text>
                             <Text style={{ marginRight: 5, color: theme.main, fontSize: 12, }}>

@@ -40,6 +40,8 @@ import {
 import WingBlank from '../../component/WingBlank'
 import { IfElse, RMap, When } from '../../util/jsx'
 import { info } from '../../util/log'
+import { FScrollView } from '../../component/FixNative'
+import SimpleScreen from '../../component/View/SimpleScreen'
 
 export default ({ route, navigation }) => {
     info('[编辑][分类列表页]模块执行渲染')
@@ -145,13 +147,12 @@ export default ({ route, navigation }) => {
     }
 
     return (
-        <View style={{
-            flex: 1,
-            // backgroundColor: 'rgb(247, 248, 249)',
-            backgroundColor: 'white',
-            paddingBottom: 20,
-        }}>
-            <ScreenHeader navigation={navigation} title={'编辑分类'} safeArea={true} />
+        <SimpleScreen
+            formScreen={true}
+            ScreenHeaderConf={{
+                title: '编辑分类',
+            }}
+            navigation={navigation}>
 
             <ActionSheet
                 ref={dotActionSheetREl}
@@ -162,92 +163,72 @@ export default ({ route, navigation }) => {
                 onPress={handleCategoryDotPress}
             />
 
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <WhiteSpace>
-                    <WingBlank>
-                        <MidTitle>{data.name}</MidTitle>
-                    </WingBlank>
+            <MidTitle>{data.name}</MidTitle>
 
-                    <WingBlank style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        marginTop: 20,
-                        marginBottom: 10,
-                        // paddingBottom: 20,
-                        // borderBottomColor: theme.borderColor,
-                        // borderBottomWidth: theme.borderWidth,
-                    }}>
-                        <TextInput
-                            style={{
-                                flex: 1,
-                                paddingLeft: 20,
-                                height: 40,
-                                borderRadius: 20,
-                                borderWidth: theme.borderWidth,
-                                borderColor: theme.borderColor,
-                                fontSize: 14,
-                                backgroundColor: 'white',
-                            }}
-                            clearTextOnFocus={true}
-                            ref={inputEl}
-                            onChange={({ nativeEvent, }) => setNewCategoryName(nativeEvent.text)}
-                            onSubmitEditing={handleAdd}
-                            value={newCategoryName}
-                            onBlur={() => setNewCategoryName('')}
-                            maxLength={20}
-                            enablesReturnKeyAutomatically={true}
-                            autoCorrect={true}
-                            clearButtonMode={'while-editing'}
-                            blurOnSubmit={true}
-                            // autoFocus={true}
-                            placeholder={'添加分类'} />
+            <View style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: 20,
+                marginBottom: 10,
+            }}>
+                <TextInput
+                    style={{
+                        flex: 1,
+                        paddingLeft: 20,
+                        height: 40,
+                        borderRadius: 20,
+                        borderWidth: theme.borderWidth,
+                        borderColor: theme.borderColor,
+                        fontSize: 14,
+                        backgroundColor: 'white',
+                    }}
+                    clearTextOnFocus={true}
+                    ref={inputEl}
+                    onChange={({ nativeEvent, }) => setNewCategoryName(nativeEvent.text)}
+                    onSubmitEditing={handleAdd}
+                    value={newCategoryName}
+                    onBlur={() => setNewCategoryName('')}
+                    maxLength={20}
+                    enablesReturnKeyAutomatically={true}
+                    autoCorrect={true}
+                    clearButtonMode={'while-editing'}
+                    blurOnSubmit={true}
+                    // autoFocus={true}
+                    placeholder={'添加分类'} />
 
-                        <When test={!newCategoryName.length} node={() => (
-                            <Text style={{
-                                position: 'absolute',
-                                right: 22,
-                                top: 12,
-                                // backgroundColor: 'red',
-                                // alignItems: 'center',
-                                // paddingTop: 10,
-                                // paddingBottom: 10,
-                                // paddingLeft: 10,
-                                // paddingRight: 10,
-                                color: theme.grey[0],
-                                fontSize: 14,
-                            }}>添加</Text>
-                        )}></When>
-                    </WingBlank>
-                    {
-                        R.addIndex(R.map)(
-                            (v, k) => (
-                                <EditItem
-                                    id={v.id}
-                                    seq={k}
-                                    name={v.name}
-                                    theme={theme}
-                                    list={v.list}
-                                    handleDotPress={
-                                        () => {
-                                            dotActionSheetREl.current.value = v.id
-                                            handleDotActionSheet()
-                                        }
-                                    }
-                                    handleJump={() => handleJump(v.id)}
-                                    handleEdit={handleEditCategoryName}
-                                // handleDelPress={
-                                //     () => {
-                                //         actionSheetREl.current.value = v.id
-                                //         handleDelActionSheet()
-                                //     }
-                                // } 
-                                />
-                            )
-                        )(data.list)
-                    }
-                </WhiteSpace>
-            </ScrollView>
-        </View >
+                <When test={!newCategoryName.length} node={() => (
+                    <Text style={{
+                        position: 'absolute',
+                        right: 22,
+                        top: 12,
+                        color: theme.grey[0],
+                        fontSize: 14,
+                    }}>添加</Text>
+                )}></When>
+            </View>
+
+            {
+                R.addIndex(R.map)(
+                    (v, k) => (
+                        <EditItem
+                            id={v.id}
+                            seq={k}
+                            name={v.name}
+                            theme={theme}
+                            list={v.list}
+                            handleDotPress={
+                                () => {
+                                    dotActionSheetREl.current.value = v.id
+                                    handleDotActionSheet()
+                                }
+                            }
+                            handleJump={() => handleJump(v.id)}
+                            handleEdit={handleEditCategoryName}
+                        />
+                    )
+                )(data.list)
+            }
+        </SimpleScreen>
     )
 }
 
@@ -331,9 +312,9 @@ export const EditItem = (payload: EditItemPayload) => {
                 borderRadius: 8,
                 height: 54,
                 // paddingLeft: 15,
-                paddingRight: 10,
+                // paddingRight: 10,
                 // backgroundColor: 'red',
-                paddingLeft: 20,
+                // paddingLeft: 20,
             }}>
                 <View style={{
                     flexDirection: 'row',
@@ -344,9 +325,11 @@ export const EditItem = (payload: EditItemPayload) => {
                         tnode={() => <UnitLogo data={logo} style={{ marginRight: 6, }} size={40} ></UnitLogo>}
                         fnode={() => (
                             <Text style={{
-                                width: 20,
+                                width: 24,
                                 fontSize: 18,
+                                marginRight: 10,
                                 color: theme.grey[0],
+                                textAlign: 'center',
                             }}>{seq + 1}</Text>
                         )}
                     />

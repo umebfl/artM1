@@ -37,6 +37,7 @@ interface Payload {
 }
 
 export default (payload: Payload) => {
+    info('[编辑文章叶子节点]: 入口')
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
 
@@ -107,7 +108,7 @@ export default (payload: Payload) => {
     const handleActionSheet = () => {
         actionSheetREl.current.show()
     }
-    
+
     const handleActionSheetSelected = (index) => {
         if (index === 1) {
             handleDel()
@@ -116,6 +117,7 @@ export default (payload: Payload) => {
 
     return (
         <SimpleScreen
+            formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
                 title: `添加${node.name} - 文章`,

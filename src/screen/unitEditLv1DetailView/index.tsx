@@ -12,6 +12,7 @@ import {
     Clipboard,
     TextInput,
     Switch,
+    KeyboardAvoidingView,
 } from 'react-native'
 
 import { Picker, } from '@react-native-picker/picker'
@@ -189,128 +190,134 @@ export default ({ route, navigation }) => {
     }
 
     return (
-        <View style={{
-            flex: 1,
-            backgroundColor: 'rgb(247, 248, 249)',
-            paddingBottom: 50,
-        }}>
-            <ActionSheet
-                ref={actionSheetREl}
-                title={'确认删除节点?'}
-                options={['删除节点', '取消']}
-                cancelButtonIndex={1}
-                destructiveButtonIndex={0}
-                onPress={handleNodeDelPress}
-            />
+        <KeyboardAvoidingView behavior={'padding'} style={{ flex: 1, }} >
+            <View style={{
+                flex: 1,
+                backgroundColor: 'rgb(247, 248, 249)',
+            }}>
+                <ActionSheet
+                    ref={actionSheetREl}
+                    title={'确认删除节点?'}
+                    options={['删除节点', '取消']}
+                    cancelButtonIndex={1}
+                    destructiveButtonIndex={0}
+                    onPress={handleNodeDelPress}
+                />
 
-            <ScreenHeader
-                right={
-                    <TouchView onPress={handleSave}>
-                        <View style={{
-                            marginRight: 20,
-                            // backgroundColor: 'red',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
-                            <Text style={{
-                                color: theme.main,
-                                fontSize: 16,
-                            }}>保存</Text>
-                        </View>
-                    </TouchView>
-                }
-                navigation={navigation}
-                title={nodeId ? `编辑 - ${data.name}` : '添加节点'}
-                safeArea={true} />
-
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Padding>
-                    <InputItem ref={inputName} title={'名称'} theme={theme} defaultValue={data.name} />
-                    <InputItem ref={inputDef} title={'简述'} theme={theme} defaultValue={data.def} />
-                    <InputItem ref={inputUrl} title={'网址'} theme={theme} defaultValue={data.url} />
-                    <InputItem ref={inputVersion} title={'版本'} theme={theme} defaultValue={data.version} />
-                    <SwitchItem title={'主要节点'} theme={theme} value={switchMajor} handlePress={setSwitchMajor} />
-                    <InputItem ref={inputLogoUrl} title={'logoUrl'} theme={theme} defaultValue={data.logo ? data.logo.url : 'github'} />
-                    <SwitchItem title={'logoFull'} theme={theme} value={switchLogoFull} handlePress={setSwitchLogoFull} />
-
-                    <PickerItem
-                        title={'logo类型'}
-                        theme={theme}
-                        type={[
-                            { label: ImageType.icon, value: ImageType.icon, },
-                            { label: ImageType.jpeg, value: ImageType.jpeg, },
-                            { label: ImageType.jpg, value: ImageType.jpg, },
-                            { label: ImageType.png, value: ImageType.png, },
-                            { label: ImageType.svg, value: ImageType.svg, },
-                        ]}
-                        value={pickLogoType}
-                        setSelectedValue={setPickLogoType} />
-
-                    <PickerItem
-                        title={'运行平台'}
-                        theme={theme}
-                        type={[
-                            { label: SkillPlatform.all, value: SkillPlatform.all, },
-                            { label: SkillPlatform.native, value: SkillPlatform.native, },
-                            { label: SkillPlatform.node, value: SkillPlatform.node, },
-                            { label: SkillPlatform.react, value: SkillPlatform.react, },
-                            { label: SkillPlatform.reactNative, value: SkillPlatform.reactNative, },
-                            { label: SkillPlatform.web, value: SkillPlatform.web, },
-                        ]}
-                        value={pickPlatform}
-                        setSelectedValue={setPickPlatform} />
-
-                    <PickerItem
-                        title={'预期目标'}
-                        theme={theme}
-                        value={pickFtStep}
-                        type={[
-                            { label: '标记', value: SkillStep.flag, },
-                            { label: '大纲', value: SkillStep.overview, },
-                            { label: '章节', value: SkillStep.section, },
-                            { label: '熟练', value: SkillStep.well, },
-                            { label: '精通', value: SkillStep.best, },
-                        ]}
-                        setSelectedValue={setPickFtStep} />
-
-                    <PickerItem
-                        title={'当前阶段'}
-                        theme={theme}
-                        value={pickStep}
-                        type={[
-                            { label: '标记', value: SkillStep.flag, },
-                            { label: '大纲', value: SkillStep.overview, },
-                            { label: '章节', value: SkillStep.section, },
-                            { label: '熟练', value: SkillStep.well, },
-                            { label: '精通', value: SkillStep.best, },
-                        ]}
-                        setSelectedValue={setPickStep} />
-
-                    <When test={nodeId} node={() => (
-                        <TouchView onPress={handleCategoryDelActionSheet}>
+                <ScreenHeader
+                    right={
+                        <TouchView onPress={handleSave}>
                             <View style={{
-                                marginTop: 50,
-                                marginBottom: 30,
-                                backgroundColor: theme.red[4],
-                                borderRadius: 30,
-                                padding: 12,
-                                flex: 1,
-                                flexDirection: 'row',
+                                marginRight: 20,
+                                // backgroundColor: 'red',
                                 justifyContent: 'center',
-                                aliginItem: 'center',
+                                alignItems: 'center',
                             }}>
                                 <Text style={{
-                                    color: 'white',
-                                    fontSize: 14,
-                                    // fontWeight: 'bold',
-                                }}>删除节点</Text>
+                                    color: theme.main,
+                                    fontSize: 16,
+                                }}>保存</Text>
                             </View>
                         </TouchView>
-                    )} />
+                    }
+                    navigation={navigation}
+                    title={nodeId ? `编辑 - ${data.name}` : '添加节点'}
+                    safeArea={true} />
 
-                </Padding>
-            </ScrollView>
-        </View >
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <Padding>
+                        <InputItem ref={inputName} title={'名称'} theme={theme} defaultValue={data.name} />
+                        <InputItem
+                            inputConf={{
+                                multiline: true,
+                            }}
+                            ref={inputDef} title={'简述'} theme={theme} defaultValue={data.def} />
+                        <InputItem ref={inputUrl} title={'网址'} theme={theme} defaultValue={data.url} />
+                        <InputItem ref={inputVersion} title={'版本'} theme={theme} defaultValue={data.version} />
+                        <SwitchItem title={'主要节点'} theme={theme} value={switchMajor} handlePress={setSwitchMajor} />
+                        <InputItem ref={inputLogoUrl} title={'logoUrl'} theme={theme} defaultValue={data.logo ? data.logo.url : 'github'} />
+                        <SwitchItem title={'logoFull'} theme={theme} value={switchLogoFull} handlePress={setSwitchLogoFull} />
+
+                        <PickerItem
+                            title={'logo类型'}
+                            theme={theme}
+                            type={[
+                                { label: ImageType.icon, value: ImageType.icon, },
+                                { label: ImageType.jpeg, value: ImageType.jpeg, },
+                                { label: ImageType.jpg, value: ImageType.jpg, },
+                                { label: ImageType.png, value: ImageType.png, },
+                                { label: ImageType.svg, value: ImageType.svg, },
+                            ]}
+                            value={pickLogoType}
+                            setSelectedValue={setPickLogoType} />
+
+
+                        <PickerItem
+                            title={'预期目标'}
+                            theme={theme}
+                            value={pickFtStep}
+                            type={[
+                                { label: '标记', value: SkillStep.flag, },
+                                { label: '大纲', value: SkillStep.overview, },
+                                { label: '章节', value: SkillStep.section, },
+                                { label: '熟练', value: SkillStep.well, },
+                                { label: '精通', value: SkillStep.best, },
+                            ]}
+                            setSelectedValue={setPickFtStep} />
+
+                        <PickerItem
+                            title={'当前阶段'}
+                            theme={theme}
+                            value={pickStep}
+                            type={[
+                                { label: '标记', value: SkillStep.flag, },
+                                { label: '大纲', value: SkillStep.overview, },
+                                { label: '章节', value: SkillStep.section, },
+                                { label: '熟练', value: SkillStep.well, },
+                                { label: '精通', value: SkillStep.best, },
+                            ]}
+                            setSelectedValue={setPickStep} />
+
+                        <PickerItem
+                            title={'运行平台'}
+                            theme={theme}
+                            type={[
+                                { label: SkillPlatform.all, value: SkillPlatform.all, },
+                                { label: SkillPlatform.native, value: SkillPlatform.native, },
+                                { label: SkillPlatform.node, value: SkillPlatform.node, },
+                                { label: SkillPlatform.react, value: SkillPlatform.react, },
+                                { label: SkillPlatform.reactNative, value: SkillPlatform.reactNative, },
+                                { label: SkillPlatform.web, value: SkillPlatform.web, },
+                            ]}
+                            value={pickPlatform}
+                            setSelectedValue={setPickPlatform} />
+
+                        <When test={nodeId} node={() => (
+                            <TouchView onPress={handleCategoryDelActionSheet}>
+                                <View style={{
+                                    marginTop: 50,
+                                    marginBottom: 30,
+                                    backgroundColor: theme.red[4],
+                                    borderRadius: 30,
+                                    padding: 12,
+                                    flex: 1,
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    aliginItem: 'center',
+                                }}>
+                                    <Text style={{
+                                        color: 'white',
+                                        fontSize: 14,
+                                        // fontWeight: 'bold',
+                                    }}>删除节点</Text>
+                                </View>
+                            </TouchView>
+                        )} />
+
+                    </Padding>
+                </ScrollView>
+            </View >
+        </KeyboardAvoidingView>
     )
 }
 

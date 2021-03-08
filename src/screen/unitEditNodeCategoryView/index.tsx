@@ -26,6 +26,7 @@ import idBuilder from '../../util/idBuilder'
 import WingBlank from '../../component/WingBlank'
 import { DefText } from '../../component/Text'
 import { AddBtn } from '../unitEditLv1View'
+import { info } from '../../util/log'
 
 interface Payload {
     navigation: any
@@ -39,6 +40,7 @@ interface Payload {
 }
 
 export default (payload: Payload) => {
+    info('[编辑分类详情页]: 入口')
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
 
@@ -141,6 +143,7 @@ export default (payload: Payload) => {
 
     return (
         <SimpleScreen
+            formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
                 title: `${category ? '编辑' : '新建'}分类`,

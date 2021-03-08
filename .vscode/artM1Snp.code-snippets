@@ -17,6 +17,16 @@
 	// }
 	
 
+	"cwhen": {
+		// "scope": "javascript,typescript,tsx",
+		"prefix": "cwhen",
+		"body": [
+			"<When test={} node={() => (",
+                        "",
+			")}></When>",
+		],
+		"description": "新建When"
+	},
 	"ActionSheet": {
 		// "scope": "javascript,typescript,tsx",
 		"prefix": "cactsheet",

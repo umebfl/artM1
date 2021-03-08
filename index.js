@@ -5,6 +5,7 @@ import {AppRegistry} from 'react-native'
 import { LogBox } from 'react-native'
 
 import App from './src/App'
+// import App from './src/TestApp'
 // import App from './src/FixApp'
 import {name as appName} from './app.json'
 

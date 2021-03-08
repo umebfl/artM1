@@ -12,6 +12,7 @@ import {
     Clipboard,
     TextInput,
     Switch,
+    KeyboardAvoidingView,
 } from 'react-native'
 import { DefText } from '../Text'
 import Context from '../../reducer'
@@ -23,6 +24,8 @@ interface InputItemPayload {
     title: string
     theme: any
     defaultValue: string
+    // 文本框配置信息
+    inputConf?: Object
 }
 
 export const InputItem = forwardRef((payload: InputItemPayload, ref) => {
@@ -55,7 +58,8 @@ export const InputItem = forwardRef((payload: InputItemPayload, ref) => {
                     fontSize: 14,
                     color: payload.theme.grey[7],
                 }}
-                defaultValue={payload.defaultValue}></TextInput>
+                defaultValue={payload.defaultValue}
+                {...payload.inputConf}></TextInput>
         </View>
     )
 })
