@@ -34,13 +34,15 @@ const setData = async (value) => {
         info(`设置本地缓存`)
 
         // 需要存储到本地的节点
-        const data = {
-            debug: {
-                open: value.debug.open,
-            },
-            navigation: value.navigation,
-            data: value.data,
-        }
+        // const data = {
+        //     debug: {
+        //         open: value.debug.open,
+        //     },
+        //     navigation: value.navigation,
+        //     data: value.data,
+        // }
+
+        const data = R.pick(['debug', 'navigation', 'data'], value)
 
         const jsonValue = JSON.stringify(data)
 
@@ -126,9 +128,9 @@ export const initState = {
         // 各模块渲染次数统计
         renderCount: {
             // 模块
-            App: {
-                count: 20,
-            },
+            // App: {
+            //     count: 20,
+            // },
         },
     },
 
@@ -184,65 +186,9 @@ export const reducer = (state, action) => {
             () => R.cond([
 
                 [
-                    R.equals('fix'),
-                    () => {
-
-                        const path = ['data', 'node']
-
-                        const node = state.data.node
-
-                        const newState = R.assocPath(
-                            ['data', 'node'],
-                            {
-                                server: R.compose(
-                                    v => {
-                                        let obj = {}
-
-                                        R.map(
-                                            v2 => {
-                                                obj[v2.id] = v2
-                                            }
-                                        )(v)
-
-                                        return obj
-                                    }
-                                )(node.server),
-                                interactive: R.compose(
-                                    v => {
-                                        let obj = {}
-
-                                        R.map(
-                                            v2 => {
-                                                obj[v2.id] = v2
-                                            }
-                                        )(v)
-
-                                        return obj
-                                    }
-                                )(node.interactive),
-                                theory: R.compose(
-                                    v => {
-                                        let obj = {}
-
-                                        R.map(
-                                            v2 => {
-                                                obj[v2.id] = v2
-                                            }
-                                        )(v)
-
-                                        return obj
-                                    }
-                                )(node.theory),
-                            }
-                        )(state)
-
-                        return state
-                    },
-                ],
-
-                [
                     R.equals('init'),
-                    () => R.mergeDeepRight(state, action.payload),
+                    () => R.mergeRight(state, action.payload),
+                    // () => R.mergeDeepRight(state, action.payload),
                 ],
 
                 [
@@ -311,9 +257,7 @@ export const reducer = (state, action) => {
 
                         const newState = R.assocPath(
                             path,
-                            R.dissoc(
-                                id
-                            )(categorySet)
+                            R.dissoc(id)(categorySet)
                         )(state)
 
                         setData(newState)
@@ -444,7 +388,7 @@ export const reducer = (state, action) => {
                             const len = R.compose(
                                 R.length,
                                 R.values
-                            )(state.data.node)
+                            )(state.data.node[node.mod])
 
                             id = idBuilder(len)
 

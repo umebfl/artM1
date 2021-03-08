@@ -101,7 +101,7 @@ export default ({ route, navigation }) => {
                             }}>概念</Title>
                             <RMap data={explain} node={(v, k) => (
                                 <DefText key={k} numberOfLines={100} style={{ fontSize: 14, marginBottom: 10 }}>
-                                    {k + 1}: {v}
+                                    {k + 1}: {v || '-'}
                                 </DefText>
                             )} />
                         </>
@@ -124,7 +124,7 @@ export default ({ route, navigation }) => {
                                     <SyntaxHighlighter
                                         language='javascript'
                                         style={docco}>
-                                        {v}
+                                        {v || '-'}
                                     </SyntaxHighlighter>
                                 </View>
                             )} />

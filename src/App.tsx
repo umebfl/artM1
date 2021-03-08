@@ -16,8 +16,6 @@ import {
 } from 'react-native'
 
 import Home from './navigation/home'
-// import Test from './tmp/test'
-// import Test2 from './tmp/test2'
 
 import DataView from './navigation/other/dataView'
 import DebugView from './navigation/other/debugView'
@@ -52,7 +50,6 @@ const App = () => {
   const init = async () => {
     info('[App]执行初始化')
     const data = await getData()
-    // Clipboard.setString(JSON.stringify(state.data, null, 2))
 
     if (data) {
       info('更新本地缓存')
@@ -70,15 +67,6 @@ const App = () => {
 
   useEffect(() => {
     init()
-
-    // dispatch({
-    //   mod: 'system',
-    //   type: 'fix',
-    // })
-
-    return () => {
-      info('[App]执行卸载')
-    }
   }, [])
 
   if (inited === false) {

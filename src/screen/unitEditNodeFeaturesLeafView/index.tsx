@@ -59,10 +59,13 @@ export default (payload: Payload) => {
     } = payload
 
     const TypePath = ['data', 'node', node.mod, node.id, type, categoryId, 'node']
-    const categoryList = R.values(node[type])
+    const len = R.compose(
+        R.length,
+        R.values
+    )(node[type][categoryId].node)
 
     const [featuresState, setFeatures] = useSetState<SkillUnitFeatures>(features ? features : {
-        id: idBuilder(categoryList.length),
+        id: idBuilder(len),
         title: '',
         def: '',
         jump: SKillJumpToURI.code,

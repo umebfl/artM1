@@ -61,7 +61,7 @@ export default (payload: Payload) => {
     const len = R.compose(
         R.length,
         R.values
-    )(R.values(node[type][categoryId].node))
+    )(node[type][categoryId].node)
 
     const [articleState, setArticle] = useSetState<SkillUnitArticle>(article ? article : {
         id: idBuilder(len),

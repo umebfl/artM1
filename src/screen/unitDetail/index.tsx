@@ -35,7 +35,7 @@ import {
     DefText,
 } from '../../component/Text'
 import { info } from '../../util/log'
-import { IfElse } from '../../util/jsx'
+import { IfElse, When } from '../../util/jsx'
 import { moveToTop } from '../unitEditCategoryView'
 
 enum ScrollType {
@@ -75,41 +75,34 @@ export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
                 paddingTop: 4,
                 // backgroundColor: 'rgba(100, 100, 100, 0.2)',
             }}>
-                <MidTitle>{payload.name || payload.title}</MidTitle>
+                <MidTitle numberOfLines={3}>{payload.name || payload.title}</MidTitle>
                 <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 12, }}>{payload.def}</DefText>
 
-                <View style={{
-                    marginTop: 30,
-                }}>
-                    {
-                        payload.url
-                            ? (
-                                <View style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'flex-end',
-                                }}>
-                                    <TouchView onPress={() => handlePress(payload.url)}>
-                                        <View style={{
-                                            width: 76,
-                                            height: 28,
-                                            backgroundColor: theme.main,
-                                            // opacity: 0.6,
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            borderRadius: 14,
-                                        }}>
-                                            <Text style={{
-                                                color: 'white',
-                                                fontSize: 14,
-                                                fontWeight: 'bold',
-                                            }}>参考</Text>
-                                        </View>
-                                    </TouchView>
-                                </View>
-                            )
-                            : null
-                    }
-                </View>
+                <When test={payload.url} node={() => (
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'flex-end',
+                        marginTop: 30,
+                    }}>
+                        <TouchView onPress={() => handlePress(payload.url)}>
+                            <View style={{
+                                width: 76,
+                                height: 28,
+                                backgroundColor: theme.main,
+                                // opacity: 0.6,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: 14,
+                            }}>
+                                <Text style={{
+                                    color: 'white',
+                                    fontSize: 14,
+                                    fontWeight: 'bold',
+                                }}>参考</Text>
+                            </View>
+                        </TouchView>
+                    </View>
+                )}></When>
             </View>
         </View>
     )
@@ -330,7 +323,7 @@ export default ({ route, navigation }) => {
                         }}
                         renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
                         <ScrollItem
-                            tabLabel='特性'
+                            tabLabel='要点'
                             type={ScrollType.features}
                             width={scrollViewWidth}
                             navigation={navigation}

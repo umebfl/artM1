@@ -149,7 +149,7 @@ export default ({ route, navigation }) => {
             const id = dotActionSheetREl.current.value
             const list = R.path(pathToList)(state)
             const newList = R.filter(v => v !== id)(list)
-        
+
             dispatch({
                 mod: 'path',
                 type: 'edit',
