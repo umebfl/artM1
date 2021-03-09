@@ -72,7 +72,7 @@ export interface SkillUnitFeatures {
   id: string
   title: string
   def: string
-  jump: SKillJumpToURI.code | SKillJumpToURI.node
+  jump: SKillJumpToURI.code
   url: string
   major: boolean
   code?: Object

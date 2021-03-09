@@ -29,6 +29,7 @@ import SwipeIconList from '../../component/SwipeIconList'
 import WingBlank from '../../component/WingBlank'
 import TouchView from '../../component/TouchView'
 import SimpleScreen from '../../component/View/SimpleScreen'
+import ScrollEndLine from '../../component/ScrollEndLine'
 
 interface payload {
     navigation: any
@@ -137,16 +138,7 @@ export default (payload: payload) => {
                 ListFooterComponent={() => {
                     if (list) {
                         return (
-                            <View style={{
-                                flexDirection: 'row',
-                                justifyContent: 'center',
-                                aliginItem: 'center',
-                            }}>
-                                <Text style={{
-                                    color: theme.textLight2,
-                                    fontSize: 11,
-                                }}>- 已经到底了 -</Text>
-                            </View>
+                            <ScrollEndLine></ScrollEndLine>
                         )
                     }
                     return null

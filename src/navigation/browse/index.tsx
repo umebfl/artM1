@@ -26,7 +26,9 @@ interface Payload {
 export default (payload: Payload) => {
     info('[浏览]: 入口')
     const { state, dispatch, } = useContext(Context)
-
+    const [reload, setReload] = useState(0)
+    const swipeScreenRef = useRef()
+    
     const {
         theme,
     } = state
@@ -38,8 +40,17 @@ export default (payload: Payload) => {
     const {
         data: {
             node,
+            // browse: {
+            //     // 上次浏览标记
+            //     lastIndex,
+            // },
         },
     } = state
+
+    const handleFlush = () => {
+        setReload(reload + 1)
+        swipeScreenRef.current.scrollToTop()
+    }
 
     return useMemo(() => {
         info('[浏览]执行useMemo')
@@ -56,7 +67,7 @@ export default (payload: Payload) => {
                 ScreenHeaderConf={{
                     left: <></>,
                     right: (
-                        <TouchView onPress={() => {}}>
+                        <TouchView onPress={handleFlush}>
                             <Icon name={'reload'} size={32} color={theme.grey[0]} style={{
                                 opacity: 0.68,
                                 marginRight: 18,
@@ -67,9 +78,9 @@ export default (payload: Payload) => {
                 
                 {/* <TemplateImg></TemplateImg> */}
 
-                <SwipeScreen navigation={navigation}></SwipeScreen>
+                <SwipeScreen ref={swipeScreenRef} reload={reload} navigation={navigation}></SwipeScreen>
 
             </SimpleScreen>
         )
-    }, [node])
+    }, [node, reload])
 }

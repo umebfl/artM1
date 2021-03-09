@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useEffect, useRef, useState, useCallback, } from 'react'
+import React, { useContext, useEffect, useRef, useState, useCallback, forwardRef, useImperativeHandle, } from 'react'
 import {
     SafeAreaView,
     ScrollView,
@@ -22,16 +22,21 @@ import { DefText, MidTitle, Title } from '../Text'
 import WingBlank from '../WingBlank'
 import { When } from '../../util/jsx'
 import { SCREEN_HEADER_HEGIHT } from '../ScreenHeader'
+import { fixZeroStart } from '../../util/string'
+import { shuffle } from '../../util/array'
 
 interface Payload {
-    navigation: any,
+    navigation: any
+    reload: number
+    ref: any
 }
 
 const contentHeight = Dimensions.get('window').height - SCREEN_HEADER_HEGIHT - 80
 
-export default (payload: Payload) => {
+export default forwardRef((payload: Payload, ref) => {
     info('[SwipeScreen]: 入口')
     const { state, dispatch, } = useContext(Context)
+    const flatListRef = useRef()
 
     const {
         theme,
@@ -42,76 +47,96 @@ export default (payload: Payload) => {
 
     const {
         navigation,
+        reload,
     } = payload
 
+    useImperativeHandle(ref, () => ({
+        scrollToTop: () => {
+            flatListRef.current.scrollToIndex({
+                animated: true,
+                index: 0,
+            })
+        },
+    }))
+
+
     const handleJump = (leaf) => {
-        navigation.push('unitDetailCodeView', { payload: leaf })
+        navigation.navigate('unitDetailCodeModal', { leaf })
     }
 
     const buildData = useCallback(() => {
         info('[buildData]执行useCallback')
+
         return R.compose(
             v => {
                 let list = []
                 R.map( // 循环tab
-                    v2 => R.map(// 循环node
-                        v3 => {
-                            let i = 0
-                            R.map(// 循环features
-                                v4 => R.map(// 循环node
-                                    v5 => {
-                                        list.push({
-                                            mod: v3.mod,
-                                            nodeId: v3.id,
-                                            nodeName: v3.name,
-                                            showCategory: i === 0,
-                                            CategoryId: v4.id,
-                                            CategoryName: v4.title,
-                                            CategoryDef: v4.def,
-
-                                            id: v5.id,
-                                            title: v5.title,
-                                            def: v5.def,
-                                            leaf: v5,
-                                        })
-
-                                        i++
-                                    }
-                                )(R.values(v4.node))
-                            )(R.values(v3.features))
-                        }
-                    )(R.values(v2))
+                    v2 => R.compose(
+                        // 洗牌
+                        R.map(// 循环node
+                            v3 => {
+                                let i = 0
+                                R.map(// 循环features
+                                    v4 => R.map(// 循环node
+                                        v5 => {
+                                            list.push({
+                                                mod: v3.mod,
+                                                nodeId: v3.id,
+                                                nodeName: v3.name,
+                                                showCategory: i === 0,
+                                                CategoryId: v4.id,
+                                                CategoryName: v4.title,
+                                                CategoryDef: v4.def,
+    
+                                                id: v5.id,
+                                                title: v5.title,
+                                                def: v5.def,
+                                                leaf: v5,
+                                            })
+    
+                                            i++
+                                        }
+                                    )(R.values(v4.node))
+                                )(R.values(v3.features))
+                            }
+                        ),
+                        v => shuffle(v),
+                        R.values,
+                    )(v2)
                 )(v)
 
                 return list
             },
             R.values
         )(node)
-    }, [node])
+    }, [node, reload])
+
+    const data = buildData()
 
     return (
         <View style={{
             height: contentHeight,
         }}>
             <FlatList
+                ref={flatListRef}
                 pagingEnabled={true}
                 initialNumToRender={2}
                 keyExtractor={(item, index) => index}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
-                data={buildData()}
+                data={data}
                 renderItem={({ item, index, separators }) => (
                     <View style={{
                         height: contentHeight,
                         paddingTop: 100,
                         paddingBottom: 100,
                     }}>
-                        <NodeView {...item} handleJump={handleJump}/>
+                        <NodeView {...item} len={data.length} index={index} handleJump={handleJump} />
                     </View>
                 )} />
         </View>
     )
-}
+})
 
 const NodeView = (payload) => {
     const { state, dispatch, } = useContext(Context)
@@ -134,6 +159,9 @@ const NodeView = (payload) => {
         handleJump,
 
         leaf,
+
+        index,
+        len,
     } = payload
 
     return (
@@ -158,13 +186,28 @@ const NodeView = (payload) => {
                 flex: 1,
                 flexDirection: 'column',
             }}>
+                {/* <View style={{
+                    // backgroundColor: 'red',
+                    // paddingTop: 15,
+                    width: 40,
+                    height: 20,
+                    position: 'absolute',
+                    right: -20,
+                    top: 20,
+                    transform: [
+                        { rotateZ: "90deg" },
+                        // { rotateY: "60deg" },
+                    ],
+                }}>
+                    <DefText style={{ opacity: 0.2 }}>- {fixZeroStart(index + 1, 2)} -</DefText>
+                </View> */}
                 <View style={{
                     jusifyContent: 'center',
                     alignItems: 'center',
                     // backgroundColor: 'red',
                     flex: 1,
                     paddingTop: 15,
-                    marginTop: 100,
+                    marginTop: 80,
                     // marginTop: 190,
                 }}>
                     <Text style={{
@@ -220,7 +263,15 @@ const NodeView = (payload) => {
                     }}>{nodeName}</Title>
 
                     <TouchView onPress={() => handleJump(leaf)}>
-                        <Icon name={'arrow-right-drop-circle-outline'} size={32} color={theme.grey[0]} />
+                        <View style={{
+                            width: 50,
+                            height: 50,
+                            paddingLeft: 20,
+                            paddingTop: 10,
+                            marginTop: -10,
+                        }}>
+                            <Icon name={'arrow-right-drop-circle-outline'} size={32} color={theme.grey[0]} />
+                        </View>
                     </TouchView>
                 </View>
             </WingBlank>

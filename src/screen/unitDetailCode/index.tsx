@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useEffect, } from 'react'
+import React, { useContext, useEffect, useState, } from 'react'
 
 import {
     SafeAreaView,
@@ -16,7 +16,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
-import { docco } from 'react-syntax-highlighter/styles/hljs'
+import { agate } from 'react-syntax-highlighter/styles/hljs'
 
 import { SvgCssUri, SvgXml, } from 'react-native-svg'
 
@@ -38,6 +38,9 @@ import {
 import { info } from '../../util/log'
 import { RMap, When } from '../../util/jsx'
 import SimpleScreen from '../../component/View/SimpleScreen'
+import { useSetState } from 'ahooks'
+import { SkillUnitFeatures } from '../../variable'
+import ScrollEndLine from '../../component/ScrollEndLine'
 
 export default ({ route, navigation }) => {
     info('[unitDetailCode]: 入口')
@@ -50,16 +53,6 @@ export default ({ route, navigation }) => {
 
     const { payload, } = route.params
 
-    useEffect(() => {
-        info('[代码详情页]初始化完成')
-        return () => {
-            info('[代码详情页]执行卸载')
-        }
-    }, [])
-
-    const explain = R.values(payload.explain)
-    const code = R.values(payload.code)
-
     return (
         <SimpleScreen
             navigation={navigation}
@@ -71,6 +64,46 @@ export default ({ route, navigation }) => {
             }}>
             <DetailHead payload={payload} navigation={navigation} theme={theme} />
 
+            <DetailCodeContent leaf={payload}></DetailCodeContent>
+
+        </SimpleScreen>
+    )
+}
+
+interface DetailCodeContentPayload {
+    leaf: SkillUnitFeatures
+}
+
+export const DetailCodeContent = (payload: DetailCodeContentPayload) => {
+
+    const { state, dispatch, } = useContext(Context)
+    const [opend, setOpend] = useState(false)
+
+    const {
+        theme,
+    } = state
+
+    const {
+        leaf,
+    } = payload
+
+    const explain = R.values(leaf.explain)
+    const code = R.values(leaf.code)
+
+    useEffect(() => {
+        info('[代码详情页]初始化完成')
+
+        setOpend(true)
+
+        return () => {
+            info('[代码详情页]执行卸载')
+        }
+    }, [])
+
+    return (
+        <View style={{
+            paddingBottom: 50,
+        }}>
             <When test={explain.length} node={() => (
                 <>
                     <Title style={{
@@ -85,7 +118,7 @@ export default ({ route, navigation }) => {
                 </>
             )} />
 
-            <When test={code.length} node={() => (
+            <When test={opend && code.length} node={() => (
                 <>
                     <Title style={{
                         paddingTop: 10,
@@ -94,6 +127,7 @@ export default ({ route, navigation }) => {
                     <RMap data={code} node={(v, k) => (
                         <View key={k} style={{
                             marginBottom: 30,
+                            marginRight: 30,
                         }}>
                             <Text style={{
                                 marginBottom: 10,
@@ -101,7 +135,9 @@ export default ({ route, navigation }) => {
                             }}>实例{k + 1}:</Text>
                             <SyntaxHighlighter
                                 language='javascript'
-                                style={docco}>
+                                style={
+                                    agate
+                                }>
                                 {v || '-'}
                             </SyntaxHighlighter>
                         </View>
@@ -109,7 +145,7 @@ export default ({ route, navigation }) => {
                 </>
             )}></When>
 
-        </SimpleScreen>
+            <ScrollEndLine></ScrollEndLine>
+        </View>
     )
 }
-
