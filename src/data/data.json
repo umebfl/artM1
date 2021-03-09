@@ -931,8 +931,8 @@
         "def": "用于构建用户界面的 JavaScript 库",
         "major": true,
         "logo": {
-          "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-          "type": "svg",
+          "url": "https://tse3-mm.cn.bing.net/th/id/OIP.lxkE-jEKiLHjwzHfIBgMZQAAAA?pid=ImgDet&rs=1",
+          "type": "jpg",
           "full": true
         },
         "url": "https://react.html.cn/",
@@ -1062,7 +1062,8 @@
                 "url": "https://zhuanlan.zhihu.com/p/56975681",
                 "jump": "code",
                 "code": {
-                  "0-4960-1152": "\nfunction Form() {\n  const [text, updateText] = useState('');\n  const textRef = useRef();\n\n  useLayoutEffect(() => {\n    textRef.current = text; // 将 text 写入到 ref\n  });\n\n  const handleSubmit = useCallback(() => {\n    const currentText = textRef.current; // 从 ref 中读取 text\n    alert(currentText);\n  }, [textRef]); // handleSubmit 只会依赖 textRef 的变化。不会在 text 改变时更新\n\n  return (\n    <>\n      <input value={text} onChange={e => updateText(e.target.value)} />\n      <ExpensiveTree onSubmit={handleSubmit} />\n    </>\n  );\n}\n"
+                  "0-4960-1152": "\nfunction Form() {\n  const [text, updateText] = useState('');\n  const textRef = useRef();\n\n  useLayoutEffect(() => {\n    textRef.current = text; // 将 text 写入到 ref\n  });\n\n  const handleSubmit = useCallback(() => {\n    const currentText = textRef.current; // 从 ref 中读取 text\n    alert(currentText);\n  }, [textRef]); // handleSubmit 只会依赖 textRef 的变化。不会在 text 改变时更新\n\n  return (\n    <>\n      <input value={text} onChange={e => updateText(e.target.value)} />\n      <ExpensiveTree onSubmit={handleSubmit} />\n    </>\n  );\n}\n",
+                  "1-1440-248": "https://www.cnblogs.com/Nyan-Workflow-FC/p/11287276.html\n\n// 有一个父组件，其中包含子组件，子组件接收一个函数作为props；通常而言，如果父组件更新了，子组件也会执行更新；但是大多数场景下，更新是没有必要的，我们可以借助useCallback来返回函数，然后把这个函数作为props传递给子组件；这样，子组件就能避免不必要的更新。\n\nimport React, { useState, useCallback, useEffect } from 'react';\nfunction Parent() {\n    const [count, setCount] = useState(1);\n    const [val, setVal] = useState('');\n \n    const callback = useCallback(() => {\n        return count;\n    }, [count]);\n    return <div>\n        <h4>{count}</h4>\n        <Child callback={callback}/>\n        <div>\n            <button onClick={() => setCount(count + 1)}>+</button>\n            <input value={val} onChange={event => setVal(event.target.value)}/>\n        </div>\n    </div>;\n}\n \nfunction Child({ callback }) {\n    const [count, setCount] = useState(() => callback());\n    useEffect(() => {\n        setCount(callback());\n    }, [callback]);\n    return <div>\n        {count}\n    </div>\n}"
                 },
                 "explain": {}
               },
@@ -1273,8 +1274,8 @@
         "version": "0.63",
         "major": true,
         "logo": {
-          "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-          "type": "svg",
+          "url": "https://tse3-mm.cn.bing.net/th/id/OIP.lxkE-jEKiLHjwzHfIBgMZQAAAA?pid=ImgDet&rs=1",
+          "type": "jpg",
           "full": true
         },
         "url": "https://www.react-native.cn/docs/intro-react-native-components",

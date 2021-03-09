@@ -20,11 +20,12 @@ import SimpleScreen from '../../component/View/SimpleScreen'
 import { SKillJumpToURI, SkillUnitFeatures, } from '../../variable'
 import WingBlank from '../../component/WingBlank'
 import { IfElse, RMap } from '../../util/jsx'
-import { DefText } from '../../component/Text'
+import { DefText, LargeTitle, MidTitle } from '../../component/Text'
 import idBuilder from '../../util/idBuilder'
 import { useSetState } from 'ahooks'
 import { InputItemWithVal } from '../../component/Form/Input'
 import { AddBtn } from '../unitEditLv1View'
+import WhiteSpace from '../../component/WhiteSpace'
 
 interface Payload {
     navigation: any
@@ -200,12 +201,14 @@ export default (payload: Payload) => {
         handleAddCodePress()
     }
 
+    const title = `${features ? '编辑' : '新建'}节点`
+
     return (
         <SimpleScreen
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
-                title: `${features ? '编辑' : '新建'}节点`,
+                title,
                 right: (
                     <WingBlank>
                         <IfElse test={features} tnode={() => (
@@ -241,6 +244,10 @@ export default (payload: Payload) => {
                 destructiveButtonIndex={1}
                 onPress={handleInfoActionSheetSelected}
             />
+
+            <WhiteSpace>
+                <MidTitle>{title}</MidTitle>
+            </WhiteSpace>
 
             <InputItemWithVal
                 title={'标题'}

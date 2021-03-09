@@ -24,9 +24,6 @@ import { info, debug, } from '../../util/log'
 export default ({ navigation, }) => {
 
     info('[前端]: 入口')
-
-    const startTime = new Date()
-
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -39,24 +36,6 @@ export default ({ navigation, }) => {
             },
         },
     } = state
-
-    useEffect(() => {
-        const endTime = new Date()
-    
-        dispatch({
-          mod: 'debug',
-          type: 'renderTime_add',
-          payload: {
-            // 模块
-            mod: 'interactive',
-            name: '前端',
-            // startTime,
-            // endTime,
-            // ms
-            time: endTime - startTime,
-          },
-        })
-      }, [])
 
     const data = {
         name: interactive.text,

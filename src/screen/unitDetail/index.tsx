@@ -9,6 +9,7 @@ import {
     Text,
     ImageBackground,
     Dimensions,
+    Animated,
     Clipboard,
 } from 'react-native'
 
@@ -118,6 +119,7 @@ export default ({ route, navigation }) => {
     const { state, dispatch, } = useContext(Context)
     const leafActionSheetREL = useRef(null)
     const categoryActionSheetREL = useRef(null)
+    const [opened, setOpened] = useState(false)
 
     const {
         theme,
@@ -136,32 +138,14 @@ export default ({ route, navigation }) => {
     }
 
     const imageSize = 124
-    const imageInnerSize = 124 * 0.68
-
-    const startTime = new Date()
+    const scrollViewWidth = Dimensions.get('window').width - 30
 
     const pathToNode = ['data', 'node', mod, id]
 
     useEffect(() => {
         info('[节点详情页]初始化完成')
 
-        // 渲染计时 结束时间
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - unitDetail',
-                name: '节点详情页',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-
+        setOpened(true)
         return () => {
             info('[节点详情页]执行卸载')
         }
@@ -258,62 +242,26 @@ export default ({ route, navigation }) => {
         })
     }
 
-    const scrollViewWidth = Dimensions.get('window').width - 30
-
-    return (
-        // <ImageBackground
-        //     source={moban}
-        //     style={{
-        //         flex: 1,
-        //         resizeMode: 'contain',
-        //         justifyContent: 'center',
-        //     }}>
-
-
-        <SimpleScreen
-            noPadding={true}
-            formScreen={true}
-            navigation={navigation}
-            ScreenHeaderConf={{
-                title: data.name,
-                right: (
-                    <TouchView onPress={handleJumpDetail}>
-                        <View style={{
-                            marginRight: 20,
-                            // backgroundColor: 'red',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
-                            <Text style={{
-                                color: theme.grey[0],
-                                fontSize: 16,
-                            }}>编辑</Text>
-                        </View>
-                    </TouchView>
-                )
-            }}
-            style={{
-                backgroundColor: theme.screenBackgroundColor[theme.model],
-            }}>
-
-            <ActionSheet
-                ref={categoryActionSheetREL}
-                title={'请选择操作'}
-                options={['取消', '添加节点', '编辑', '移至顶部']}
-                cancelButtonIndex={0}
-                onPress={handleCategoryActionSheetSelected}
-            />
-
-            <ActionSheet
-                ref={leafActionSheetREL}
-                title={'请选择操作'}
-                options={['取消', '编辑', '移至顶部']}
-                cancelButtonIndex={0}
-                // destructiveButtonIndex={2}
-                onPress={handleLeafActionSheetSelected}
-            />
-
+    const viewNode = useMemo(
+        () => (
             <WingBlank>
+                <ActionSheet
+                    ref={categoryActionSheetREL}
+                    title={'请选择操作'}
+                    options={['取消', '添加节点', '编辑', '移至顶部']}
+                    cancelButtonIndex={0}
+                    onPress={handleCategoryActionSheetSelected}
+                />
+
+                <ActionSheet
+                    ref={leafActionSheetREL}
+                    title={'请选择操作'}
+                    options={['取消', '编辑', '移至顶部']}
+                    cancelButtonIndex={0}
+                    // destructiveButtonIndex={2}
+                    onPress={handleLeafActionSheetSelected}
+                />
+
                 <DetailHead payload={data} imageSize={imageSize} navigation={navigation} theme={theme} />
 
                 <View style={{
@@ -376,16 +324,15 @@ export default ({ route, navigation }) => {
                     </FScrollView>
                 </View>
             </WingBlank>
+        ), [data])
 
-            <ScrollableTabView
-                prerenderingSiblingsNumber={Infinity}
-                style={{
-                    marginLeft: 15,
-                    marginRight: 15,
-                }}
-                renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
+    const featuresNode = useMemo(
+        () => {
+            info('[featuresNode]执行useMemo')
+            return (
                 <ScrollItem
                     tabLabel='要点'
+                    opened={opened}
                     type={ScrollType.features}
                     width={scrollViewWidth}
                     navigation={navigation}
@@ -394,9 +341,17 @@ export default ({ route, navigation }) => {
                     node={data}
                     data={data.features}
                     theme={theme} />
+            )
+        }, [data.features, opened]
+    )
 
+    const articleNode = useMemo(
+        () => {
+            info('[articleNode]执行useMemo')
+            return (
                 <ScrollItem
                     tabLabel='文章'
+                    opened={opened}
                     type={ScrollType.article}
                     width={scrollViewWidth}
                     navigation={navigation}
@@ -405,18 +360,51 @@ export default ({ route, navigation }) => {
                     node={data}
                     data={data.article}
                     theme={theme} />
+            )
+        }, [data.article, opened]
+    )
 
-                {/* <ScrollItem
-                            tabLabel='API'
-                            type='api'
-                            width={scrollViewWidth}
-                            navigation={navigation}
-                            handleLeafActionSheet={handleLeafActionSheet}
-                            node={data}
-                            data={data.api}
-                            theme={theme} /> */}
+    return (
+        <SimpleScreen
+            noPadding={true}
+            formScreen={true}
+            navigation={navigation}
+            ScreenHeaderConf={{
+                title: data.name,
+                right: (
+                    <TouchView onPress={handleJumpDetail}>
+                        <View style={{
+                            marginRight: 20,
+                            // backgroundColor: 'red',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={{
+                                color: theme.grey[0],
+                                fontSize: 16,
+                            }}>编辑</Text>
+                        </View>
+                    </TouchView>
+                )
+            }}
+            style={{
+                backgroundColor: theme.screenBackgroundColor[theme.model],
+            }}>
+
+            {viewNode}
+
+            <ScrollableTabView
+                prerenderingSiblingsNumber={Infinity}
+                style={{
+                    marginLeft: 15,
+                    marginRight: 15,
+                }}
+                renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
+
+                {featuresNode}
+                {articleNode}
+
             </ScrollableTabView>
-
         </SimpleScreen>
     )
 }
@@ -431,9 +419,25 @@ export const ScrollItem = ({
     data,
     theme,
     width,
+    opened,
 }) => {
 
-    const fixData = R.values(data)
+    let fixData = []
+    const fadeAnim = useRef(new Animated.Value(0)).current
+
+    useEffect(() => {
+        Animated.timing(                  // 随时间变化而执行动画
+            fadeAnim,                       // 动画中的变量值
+            {
+                toValue: 1,                   // 透明度最终变为1，即完全不透明
+                duration: 800,              // 让动画持续一段时间
+            }
+        ).start()
+    }, [])
+
+    if (opened) {
+        fixData = R.values(data)
+    }
 
     return (
         <View style={{
@@ -464,34 +468,39 @@ export const ScrollItem = ({
                 </TouchView>
             </View>
 
-            <IfElse test={fixData && fixData.length > 0} fnode={() => (
-                <View style={{
-                    flex: 1,
-                    height: 500,
-                    paddingTop: 100,
-                    alignItems: 'center',
-                }}>
-                    <DefText>暂无数据</DefText>
-                </View>
-            )} tnode={() => (
-                <UnitItemList
-                    data={fixData}
-                    handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
-                    handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
-                    handlePress={item => {
-                        R.cond([
-                            [
-                                R.equals('code'),
-                                () => navigation.push('unitDetailCodeView', { payload: item }),
-                            ],
-                            [
-                                R.equals('webview'),
-                                () => navigation.push('readWebview', item),
-                            ],
-                        ])(item.jump)
-                    }} />
-            )} />
-
+            <When test={opened} node={() => (
+                <IfElse test={fixData && fixData.length > 0} fnode={() => (
+                    <View style={{
+                        flex: 1,
+                        height: 500,
+                        paddingTop: 100,
+                        alignItems: 'center',
+                    }}>
+                        <DefText>暂无数据</DefText>
+                    </View>
+                )} tnode={() => (
+                    <Animated.View style={{
+                        opacity: fadeAnim,
+                    }}>
+                        <UnitItemList
+                            data={fixData}
+                            handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
+                            handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
+                            handlePress={item => {
+                                R.cond([
+                                    [
+                                        R.equals('code'),
+                                        () => navigation.push('unitDetailCodeView', { payload: item }),
+                                    ],
+                                    [
+                                        R.equals('webview'),
+                                        () => navigation.push('readWebview', item),
+                                    ],
+                                ])(item.jump)
+                            }} />
+                    </Animated.View>
+                )} />
+            )}></When>
         </View>
     )
 }

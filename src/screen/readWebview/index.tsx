@@ -25,6 +25,7 @@ import ScreenHeader from '../../component/ScreenHeader'
 
 import Context from '../../reducer'
 import { info } from '../../util/log'
+import { When } from '../../util/jsx'
 
 // const { StatusBarManager } = NativeModules
 
@@ -43,10 +44,7 @@ export default ({ route, navigation }) => {
 
     info('[Webview]: 入口')
 
-    // 渲染计时 起始时间
-    const startTime = new Date()
-
-    const { url, } = route.params
+    const { url, title } = route.params
 
     const webRef = useRef(null)
     const { state, dispatch, } = useContext(Context)
@@ -63,6 +61,7 @@ export default ({ route, navigation }) => {
         theme,
     } = state
 
+    const [opened, setOpened] = useState(false)
     const [currentUrl, setCurrentUrl] = useState(url)
     const [pageTitle, setPageTitle] = useState('')
     const [canGoBack, setCanGoBack] = useState(false)
@@ -74,28 +73,12 @@ export default ({ route, navigation }) => {
     const iconColor = theme.grey[5]
     const iconColorDisable = theme.grey[0]
 
-    // 存在阅读清单内
-    // let onToRead = !!toRead.node[currentUrl]
-
-
-    // R.map(
-    //     v => {
-    //         if(v.url === currentUrl) {
-    //             onToRead = true
-    //         }
-    //     }
-    // )(toRead.node)
-
     const handleLeft = () => {
         webRef.current.goBack()
     }
 
     const handleRight = () => {
         webRef.current.goForward()
-    }
-
-    const handleHeart = () => {
-        // 
     }
 
     const handleToRead = () => {
@@ -142,24 +125,7 @@ export default ({ route, navigation }) => {
 
     useEffect(() => {
         info('[webview页]初始化完成')
-
-        // 渲染计时 结束时间
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - readWebview',
-                name: 'webview页',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-
+        setOpened(true)
         return () => {
             info('[webview页]执行卸载')
         }
@@ -217,15 +183,19 @@ export default ({ route, navigation }) => {
                             )
                     }
 
-                    <WebView
-                        useWebKit={true}
-                        startInLoadingState={true}
-                        onNavigationStateChange={handleJump}
-                        ref={webRef}
-                        style={{
-                            flex: 1,
-                            backgroundColor: theme.navigationTabBarBackgound,
-                        }} source={{ uri: url }} />
+                    <View style={{ flex: 1, }}>
+                        <When test={opened} node={() => (
+                            <WebView
+                                useWebKit={true}
+                                startInLoadingState={true}
+                                onNavigationStateChange={handleJump}
+                                ref={webRef}
+                                style={{
+                                    flex: 1,
+                                    backgroundColor: theme.navigationTabBarBackgound,
+                                }} source={{ uri: url }} />
+                        )}></When>
+                    </View>
 
                     <View style={{
                         // backgroundColor: 'red',
@@ -283,7 +253,7 @@ export default ({ route, navigation }) => {
                     </View>
                 </View>
             )
-        }, [fullScreen, canGoForward, canGoBack, pageTitle, currentUrl, onToRead]
+        }, [fullScreen, canGoForward, canGoBack, pageTitle, currentUrl, onToRead, opened]
     )
 
     return <View style={{ flex: 1, }}>{node}</View>

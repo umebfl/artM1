@@ -76,27 +76,8 @@ export default ({ route, navigation }) => {
     const data = category[modKey][categoryId]
 
 
-    const startTime = new Date()
     useEffect(() => {
         info('[编辑][分类详情页]初始化完成')
-
-        // 渲染计时 结束时间
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - unitEditLv1View',
-                name: '[编辑][分类详情页]',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-
         return () => {
             info('[编辑][分类详情页]执行卸载')
         }

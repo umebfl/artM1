@@ -63,83 +63,11 @@ export default (payload: payload) => {
         },
     } = state
 
-    // const list = useMemo(
-    //     () => (
-    //         <FlatList
-    //             style={{
-    //                 paddingTop: statusBarHeight,
-    //             }}
-    //             tabLabel={name}
-    //             showsVerticalScrollIndicator={false}
-    //             data={item.list}
-    //             initialNumToRender={3}
-    //             renderItem={({ item, index, separators }) => (
-    //                 <SwipeList keyExtractor={name + index} navigation={navigation} title={name} unit={item.list} />
-    //             )} />
-    //     ),
-    //     [data]
-    // )
-    // const startTime = new Date()
-
-    // useEffect(() => {
-
-    //     // 渲染计时 结束时间
-    //     const endTime = new Date()
-
-    //     dispatch({
-    //         mod: 'debug',
-    //         type: 'renderTime_add',
-    //         payload: {
-    //             // 模块
-    //             mod: 'screen - skillListView',
-    //             name: `${name} - 技能列表`,
-    //             // startTime,
-    //             // endTime,
-    //             // ms
-    //             time: endTime - startTime,
-    //         },
-    //     })
-
-    // }, [])
-
-    // info(`${name} -> skillListView render`)
-
-
-    // const handleToggleCategoryEditing = () => {
-    //     dispatch({
-    //         mod: 'system',
-    //         type: 'toggleCategoryEditing',
-    //         payload: {
-    //             target: modKey,
-    //         },
-    //     })
-    // }
-
     const list = R.values(category)
     const chainList = R.values(chain || {})
 
-    const startTime = new Date()
-
     useEffect(() => {
         info('[节点列表页]初始化完成')
-
-        // 渲染计时 结束时间
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - skillListView',
-                name: '节点列表页',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-
         return () => {
             info('[节点列表页]执行卸载')
         }
@@ -213,7 +141,6 @@ export default (payload: payload) => {
                                 flexDirection: 'row',
                                 justifyContent: 'center',
                                 aliginItem: 'center',
-                                paddingBottom: 70,
                             }}>
                                 <Text style={{
                                     color: theme.textLight2,

@@ -60,8 +60,8 @@ export default (payload: Payload) => {
     const handleOnScroll = (ev) => {
         const y = ev.nativeEvent.contentOffset.y
 
-        if(y > -80 && y < 600) {
-            setHeaderOpacity(y  / 50)
+        if (y > -80 && y < 600) {
+            setHeaderOpacity(y / 50)
         }
 
     }
@@ -83,6 +83,9 @@ export default (payload: Payload) => {
                 paddingTop: SCREEN_HEADER_HEGIHT,
             }}>
                 {children}
+                <View style={{
+                    height: SCREEN_HEADER_HEGIHT,
+                }}></View>
             </FScrollView>
         </View>
     )

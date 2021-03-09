@@ -84,26 +84,6 @@ export default ({ navigation, }) => {
         setCopyed(true)
     }
 
-    const startTime = new Date()
-
-    useEffect(() => {
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'other',
-                name: '设置',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-    }, [])
-
     const node = useMemo(
         () => {
             info(`模块[其他]]useMemo执行渲染`)
@@ -158,7 +138,6 @@ export default ({ navigation, }) => {
             </List>
 
             {node}
-            <View style={{ height: 70, }}></View>
         </SimpleScreen>
     )
 }

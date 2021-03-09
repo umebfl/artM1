@@ -30,9 +30,6 @@ import { info, } from '../../util/log'
 export default ({ navigation, }) => {
 
     info('[资讯]: 入口')
-
-    const startTime = new Date()
-
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
 
@@ -83,27 +80,6 @@ export default ({ navigation, }) => {
             })
         }
     }
-
-    useEffect(() => {
-
-        // 渲染计时 结束时间
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'info',
-                name: '资讯',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-
-    }, [])
 
     const node = useMemo(
         () => {

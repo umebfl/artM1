@@ -30,28 +30,8 @@ export default ({ route, navigation }) => {
 
     const { data, title, modKey, } = route.params
 
-    const startTime = new Date()
-
     useEffect(() => {
         info('[查看全部列表页]初始化完成')
-
-        // 渲染计时 结束时间
-        const endTime = new Date()
-
-        dispatch({
-            mod: 'debug',
-            type: 'renderTime_add',
-            payload: {
-                // 模块
-                mod: 'screen - unitListView',
-                name: '查看全部列表页',
-                // startTime,
-                // endTime,
-                // ms
-                time: endTime - startTime,
-            },
-        })
-
         return () => {
             info('[查看全部列表页]执行卸载')
         }

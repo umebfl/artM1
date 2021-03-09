@@ -28,14 +28,11 @@ import { debug, logState, level, clear, } from '../../../util/log'
 
 import Context from '../../../reducer'
 import { fixZeroStart, } from '../../../util/string'
+import SimpleScreen from '../../../component/View/SimpleScreen'
 
 const ITEM_HEIGHT = 25
 
 export default ({ navigation, }) => {
-
-    // 渲染计时 起始时间
-    const startTime = new Date()
-
     const { state, dispatch, } = useContext(Context)
 
     const [log, setLog] = useState(logState)
@@ -49,108 +46,93 @@ export default ({ navigation, }) => {
         setLog([])
     }
 
-    // useEffect(() => {
-
-    //     // 渲染计时 结束时间
-    //     const endTime = new Date()
-
-    //     dispatch({
-    //         mod: 'debug',
-    //         type: 'renderTime_add',
-    //         payload: {
-    //             // 模块
-    //             mod: 'other - debugView',
-    //             name: '调试面板',
-    //             // startTime,
-    //             // endTime,
-    //             // ms
-    //             time: endTime - startTime,
-    //         },
-    //     })
-
-    // }, [])
-
     return (
-        <ScreenWrapper ContentViewType={'View'} navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
-            <ScreenHeader navigation={navigation} right={
-                <TouchView onPress={handleClear}>
-                    <Icon style={{ width: 44, }} name={'delete-circle-outline'} size={32} color={theme.main} />
-                </TouchView>
-            } />
 
-            <View style={{ padding: 5, }}>
-                <FlatList data={log}
-                    initialNumToRender={30}
-                    showsVerticalScrollIndicator={false}
-                    removeClippedSubviews={true}
-                    ListFooterComponent={() => {
-                        if (log.length) {
-                            return (
-                                <View style={{
-                                    flexDirection: 'row',
-                                    justifyContent: 'center',
-                                    aliginItem: 'center',
-                                    paddingBottom: 50,
-                                }}>
-                                    <Text style={{
-                                        color: theme.textLight2,
-                                        fontSize: 11,
-                                    }}>- 已经到底了 -</Text>
-                                </View>
-                            )
-                        }
-                        return null
-                    }}
-                    ListEmptyComponent={() => (
-                        <View style={{
-                            flexDirection: 'row',
-                            justifyContent: 'center',
-                            aliginItem: 'center',
-                            marginTop: 100,
-                        }}>
-                            <Text style={{
-                                color: theme.textLight2,
-                            }}>暂无日志</Text>
-                        </View>
-                    )}
-                    // getItemLayout={(data, index) => (
-                    //     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
-                    // )}
-                    renderItem={({ item, index, separators }) => (
-                        <WingBlank key={item.id} style={{
-                            flexDirection: 'row',
-                            // overflow: 'hidden',
-                            // height: ITEM_HEIGHT,
-                            paddingBottom: 10,
-                        }}>
-                            <Text style={{ marginRight: 5, fontSize: 12, width: 60, }}>
-                                {
-                                    fixZeroStart(item.time.getMinutes(), 2)
-                                }:{
-                                    fixZeroStart(item.time.getSeconds(), 2)
-                                }.{
-                                    fixZeroStart(item.time.getMilliseconds(), 3)
-                                }
-                            </Text>
-                            <Text style={{ marginRight: 5, color: theme.main, fontSize: 12, }}>
-                                {
-                                    item.lv === level.debug
-                                        ? 'Debug'
-                                        : item.lv === level.info
-                                            ? 'Info'
-                                            : item.lv === level.warning
-                                                ? 'Earning'
-                                                : 'Error'
-                                }
-                            </Text>
-                            <Text style={{ flex: 1, fontSize: 12, marginTop: 2, }}>
-                                {item.msg}
-                            </Text>
-                        </WingBlank>
-                    )}>
+        <SimpleScreen
+            formScreen={true}
+            navigation={navigation}
+            ScreenHeaderConf={{
+                title: '调试面板',
+                right: (
+                    <TouchView onPress={handleClear}>
+                        <Icon style={{ width: 44, }} name={'delete-circle-outline'} size={32} color={theme.main} />
+                    </TouchView>
+                )
+            }}
+            style={{
+                // backgroundColor: theme.screenBackgroundGreyColor,
+            }}>
 
-                </FlatList>
-            </View>
-        </ScreenWrapper>
+            <FlatList data={log}
+                initialNumToRender={30}
+                showsVerticalScrollIndicator={false}
+                removeClippedSubviews={true}
+                ListFooterComponent={() => {
+                    if (log.length) {
+                        return (
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                aliginItem: 'center',
+                            }}>
+                                <Text style={{
+                                    color: theme.textLight2,
+                                    fontSize: 11,
+                                }}>- 已经到底了 -</Text>
+                            </View>
+                        )
+                    }
+                    return null
+                }}
+                ListEmptyComponent={() => (
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        aliginItem: 'center',
+                        marginTop: 100,
+                    }}>
+                        <Text style={{
+                            color: theme.textLight2,
+                        }}>暂无日志</Text>
+                    </View>
+                )}
+                // getItemLayout={(data, index) => (
+                //     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+                // )}
+                renderItem={({ item, index, separators }) => (
+                    <WingBlank style={{
+                        flexDirection: 'row',
+                        // overflow: 'hidden',
+                        // height: ITEM_HEIGHT,
+                        paddingBottom: 10,
+                    }}>
+                        <Text style={{ marginRight: 5, fontSize: 12, width: 60, }}>
+                            {
+                                fixZeroStart(item.time.getMinutes(), 2)
+                            }:{
+                                fixZeroStart(item.time.getSeconds(), 2)
+                            }.{
+                                fixZeroStart(item.time.getMilliseconds(), 3)
+                            }
+                        </Text>
+                        <Text style={{ marginRight: 5, color: theme.main, fontSize: 12, }}>
+                            {
+                                item.lv === level.debug
+                                    ? 'Debug'
+                                    : item.lv === level.info
+                                        ? 'Info'
+                                        : item.lv === level.warning
+                                            ? 'Earning'
+                                            : 'Error'
+                            }
+                        </Text>
+                        <Text style={{ flex: 1, fontSize: 12, marginTop: 2, }}>
+                            {item.msg}
+                        </Text>
+                    </WingBlank>
+                )}>
+
+            </FlatList>
+        </SimpleScreen>
     )
 }

@@ -24,9 +24,10 @@ import Context from '../../reducer'
 import { SkillUnit, SkillUnitCategory, } from '../../variable'
 import idBuilder from '../../util/idBuilder'
 import WingBlank from '../../component/WingBlank'
-import { DefText } from '../../component/Text'
+import { DefText, MidTitle } from '../../component/Text'
 import { AddBtn } from '../unitEditLv1View'
 import { info } from '../../util/log'
+import WhiteSpace from '../../component/WhiteSpace'
 
 interface Payload {
     navigation: any
@@ -141,12 +142,14 @@ export default (payload: Payload) => {
         }
     }
 
+    const title = `${category ? '编辑' : '新建'}分类`
+
     return (
         <SimpleScreen
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
-                title: `${category ? '编辑' : '新建'}分类`,
+                title,
                 right: (
                     <WingBlank>
                         <IfElse test={category} tnode={() => (
@@ -164,6 +167,10 @@ export default (payload: Payload) => {
             style={{
                 backgroundColor: theme.screenBackgroundGreyColor,
             }}>
+
+            <WhiteSpace>
+                <MidTitle>{title}</MidTitle>
+            </WhiteSpace>
 
             <ActionSheet
                 ref={actionSheetREl}

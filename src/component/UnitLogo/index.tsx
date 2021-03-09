@@ -71,7 +71,8 @@ export default (payload: unitLogoPlayload) => {
                         // R.anyPass([R.isEmpty, R.equals('icon')]),
                         R.T,
                         // () => <Icon name={data ? data.url : 'github'} size={iconInnerSize} color={theme.main} />,
-                        () => <Image source={{ uri: 'https://th.bing.com/th/id/Rdf6ba7892b3d5a02a46d340966a605f0?rik=H2QtuuCyptfqwQ&riu=http%3a%2f%2fseeklogo.com%2fimages%2fB%2fblue-flower-logo-B85CFDA3AE-seeklogo.com.png&ehk=OpWyAv3Xci4Ad7FtSOISbq0YQJrEyaS7sfbNojhZoQQ%3d&risl=&pid=ImgRaw' }} style={{ resizeMode: 'contain', width: size, height: size }} />,
+                        // () => <Image source={{ uri: 'https://th.bing.com/th/id/Rdf6ba7892b3d5a02a46d340966a60√5f0?rik=H2QtuuCyptfqwQ&riu=http%3a%2f%2fseeklogo.com%2fimages%2fB%2fblue-flower-logo-B85CFDA3AE-seeklogo.com.png&ehk=OpWyAv3Xci4Ad7FtSOISbq0YQJrEyaS7sfbNojhZoQQ%3d&risl=&pid=ImgRaw' }} style={{ resizeMode: 'contain', width: size, height: size }} />,
+                        () => <Image source={{ uri: 'https://graph.baidu.com/thumb/v4/1494536961,4092862304.jpg' }} style={{ resizeMode: 'contain', width: size, height: size }} />,
                     ],
                 ])(data ? data.type : '')
             }
