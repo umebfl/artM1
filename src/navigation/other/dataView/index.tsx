@@ -13,12 +13,7 @@ import Clipboard from '@react-native-community/clipboard'
 
 import JSONTree from 'react-native-json-tree'
 import Toast from 'react-native-root-toast'
-
-import ScreenWrapper from '../../../component/ScreenWrapper'
-import ScreenHeader from '../../../component/ScreenHeader'
-import WingBlank from '../../../component/WingBlank'
-import WhiteSpace from '../../../component/WhiteSpace'
-import UnitItemList from '../../../component/UnitItemList'
+import SimpleScreen from '../../../component/View/SimpleScreen'
 import { debug, } from '../../../util/log'
 
 import Context from '../../../reducer'
@@ -80,9 +75,12 @@ export default ({ navigation, }) => {
     }
 
     return (
-        <ScreenWrapper ContentViewType='View' navigation={navigation} theme={theme} imageBackground={null} LinearGradientBackground={false} >
-            <ScreenHeader navigation={navigation} />
-
+        <SimpleScreen
+            formScreen={true}
+            navigation={navigation}
+            ScreenHeaderConf={{
+                title: '数据面板',
+            }}>
             <Toast
                 visible={toastVisible}
                 position={Toast.positions.CENTER}
@@ -112,6 +110,6 @@ export default ({ navigation, }) => {
                     }
                     theme={JSONTreeTheme} />
             </ScrollView>
-        </ScreenWrapper>
+        </SimpleScreen>
     )
 }

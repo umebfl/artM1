@@ -29,8 +29,6 @@ import { info, } from '../../util/log'
 import SimpleScreen from '../../component/View/SimpleScreen'
 import { LargeTitle } from '../../component/Text'
 
-const moban = require('../../../resource/image/template/m11.jpeg')
-
 export default ({ navigation, }) => {
 
     info('[其他]: 入口')
@@ -128,7 +126,7 @@ export default ({ navigation, }) => {
             <LargeTitle>{text}</LargeTitle>
 
             <List title={'开发'}>
-                <Item title={'数据浏览'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
+                <Item title={'数据面板'} icon={'database-search'} jumpTo={'dataView'} navigation={navigation} />
                 <Item title={'调试面板'} icon={'android-debug-bridge'} jumpTo={'debugView'} navigation={navigation} />
                 <Item title={'清空缓存'} icon={'backup-restore'} handlePress={handleClearCacheActionSheet} />
                 <Item title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />

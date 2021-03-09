@@ -28,7 +28,6 @@ import Context from '../../../reducer'
 import { info, } from '../../../util/log'
 
 const logo = require('../../../../resource/image/logo/todo_180.jpg')
-const moban = require('../../../../resource/image/template/m12.jpeg')
 
 interface ItemPlayload {
     title: String

@@ -24,6 +24,7 @@ import Server from './server'
 import Theory from './theory'
 import Interactive from './interactive'
 import Todo from './todo'
+import Browse from './browse'
 import { info } from '../util/log'
 
 const Tab = createBottomTabNavigator()
@@ -48,6 +49,10 @@ const buildScreen = R.cond([
     [
         R.equals('theory'),
         () => Theory,
+    ],
+    [
+        R.equals('browse'),
+        () => Browse,
     ],
     // [
     //     R.equals('futu'),
@@ -103,27 +108,31 @@ export default ({ navigation, }) => {
         )
     }
 
-    return (
-        <Tab.Navigator initialRouteName={initialRouteName} lazy={false}>
-            {
-                R.compose(
-                    R.values,
-                    R.map(
-                        v => (
-                            <Tab.Screen
-                                key={v.name}
-                                name={v.name}
-                                component={buildScreen(v.name)}
-                                options={({ route }) => ({
-                                    tabBarLabel: v.text,
-                                    tabBarIcon: ({ focused, color, size }) => buildIcon({ focused, color, size, icon: v.icon, }),
-                                })} />
-                        )
-                    ),
-                )(tab)
-            }
-        </Tab.Navigator>
-    )
+    
+
+    return useMemo(() => {
+        info('[Home]执行useMemo')
+        return (
+            <Tab.Navigator initialRouteName={initialRouteName} lazy={false}>
+                {
+                    R.compose(
+                        R.values,
+                        R.map(
+                            v => (
+                                <Tab.Screen
+                                    name={v.name}
+                                    component={buildScreen(v.name)}
+                                    options={({ route }) => ({
+                                        tabBarLabel: v.text,
+                                        tabBarIcon: ({ focused, color, size }) => buildIcon({ focused, color, size, icon: v.icon, }),
+                                    })} />
+                            )
+                        ),
+                    )(tab)
+                }
+            </Tab.Navigator>
+        )
+    }, [data])
 }
 
 

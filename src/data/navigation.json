@@ -7,6 +7,11 @@
         "text": "资讯",
         "icon": "waze"
       },
+      "browse": {
+        "name": "browse",
+        "text": "浏览",
+        "icon": "sprout-outline"
+      },
       "interactive": {
         "name": "interactive",
         "text": "前端",

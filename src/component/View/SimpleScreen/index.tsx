@@ -27,6 +27,9 @@ import { IfElse, When } from '../../../util/jsx'
 import Padding from '../../Padding'
 
 import { SCREEN_HEADER_HEGIHT, } from '../../ScreenHeader'
+import { LargeTitle, MidTitle } from '../../Text'
+import WhiteSpace from '../../WhiteSpace'
+import WingBlank from '../../WingBlank'
 
 interface Payload {
     navigation: Object
@@ -36,6 +39,9 @@ interface Payload {
     // 是否是表单页面
     formScreen?: boolean
     noPadding?: boolean
+    title?: string
+    // 不使用Scroll节点
+    noScroll?: boolean
 }
 
 export default (payload: Payload) => {
@@ -53,9 +59,12 @@ export default (payload: Payload) => {
         ScreenHeaderConf,
         formScreen,
         noPadding,
+        title,
+        noScroll,
     } = payload
 
-    const [headerOpacity, setHeaderOpacity] = useState(0)
+    const [headerOpacity, setHeaderOpacity] = useState(noScroll ? 10 : 0)
+    const contentHeight = Dimensions.get('window').height - SCREEN_HEADER_HEGIHT + 12
 
     const handleOnScroll = (ev) => {
         const y = ev.nativeEvent.contentOffset.y
@@ -63,7 +72,6 @@ export default (payload: Payload) => {
         if (y > -80 && y < 600) {
             setHeaderOpacity(y / 50)
         }
-
     }
 
     const rv = (
@@ -75,18 +83,34 @@ export default (payload: Payload) => {
             <ScreenHeader
                 headerOpacity={headerOpacity}
                 navigation={navigation}
+                title={title}
                 safeArea={true} {...ScreenHeaderConf} />
 
-            <FScrollView handleOnScroll={handleOnScroll} style={{
-                padding: noPadding ? 0 : 20,
-                marginTop: -SCREEN_HEADER_HEGIHT,
-                paddingTop: SCREEN_HEADER_HEGIHT,
-            }}>
-                {children}
+            <IfElse test={noScroll} tnode={() => (
                 <View style={{
-                    height: SCREEN_HEADER_HEGIHT,
-                }}></View>
-            </FScrollView>
+                    height: contentHeight,
+                    marginTop: -SCREEN_HEADER_HEGIHT,
+                    paddingTop: SCREEN_HEADER_HEGIHT,
+                    padding: noPadding ? 0 : 20,
+                }}>
+                    {children}
+                </View>
+            )} fnode={() => (
+                <FScrollView handleOnScroll={handleOnScroll} style={{
+                    padding: noPadding ? 0 : 20,
+                    marginTop: -SCREEN_HEADER_HEGIHT,
+                    paddingTop: SCREEN_HEADER_HEGIHT,
+                }}>
+                    <When test={title} node={() => (
+                        <LargeTitle>{title}</LargeTitle>
+                    )}></When>
+
+                    {children}
+                    <View style={{
+                        height: SCREEN_HEADER_HEGIHT,
+                    }}></View>
+                </FScrollView>
+            )}></IfElse>
         </View>
     )
 

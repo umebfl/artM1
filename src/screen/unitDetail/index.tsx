@@ -49,8 +49,6 @@ enum ScrollType {
     article = 'article'
 }
 
-const moban = require('../../../resource/image/template/m13.jpeg')
-
 export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 
     const handlePress = text => {
