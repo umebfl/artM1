@@ -16,6 +16,7 @@ import ActionSheet from 'react-native-actionsheet'
 import Clipboard from '@react-native-community/clipboard'
 
 import SearchWrapper from '../../component/SearchWrapper'
+import ScrollEndLine from '../../component/ScrollEndLine'
 import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import UnitItemList from '../../component/UnitItemList'
 import List, { Item, } from '../../component/List'
@@ -126,6 +127,10 @@ export default ({ navigation, }) => {
                 {/* <Item theme={theme} title={'分享Skill'} icon={'checkbox-marked-circle-outline'} jumpTo={'setting'} /> */}
                 <Item theme={theme} title={'关于'} icon={'alert-circle-outline'} jumpTo={'about'} navigation={navigation} />
             </List>
+
+            <View style={{
+                height: 100,
+            }}></View>
         </SimpleScreen>
         )
     }, [open])

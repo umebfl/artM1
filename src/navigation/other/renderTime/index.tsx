@@ -100,7 +100,7 @@ export default ({ navigation, }) => {
                 showsVerticalScrollIndicator={false}
                 removeClippedSubviews={true}
                 renderItem={({ item, index, separators }) => (
-                    <WingBlank>
+                    <WingBlank key={index}>
                         <WhiteSpace size='sm' style={{
                             flexDirection: 'row',
                             alignItems: 'center',

@@ -7,6 +7,7 @@ import {
     View,
     Text,
     TouchableWithoutFeedback,
+    FlatList,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -47,9 +48,12 @@ export default (payload: payload) => {
     } = payload
 
     return (
-        R.addIndex(R.map)(
-            (item, k) => {
-
+        <FlatList
+            initialNumToRender={2}
+            scrollEnabled={false}
+            showsVerticalScrollIndicator={false}
+            data={data || []}
+            renderItem={({ item, index, separators }) => {
                 const {
                     id,
                     title,
@@ -70,7 +74,7 @@ export default (payload: payload) => {
                             borderTopWidth: 0.3,
                             borderTopColor: theme.borderColor,
                         }}
-                        key={k}>
+                        key={index}>
 
                         <View style={{
                             marginLeft: 10,
@@ -96,7 +100,59 @@ export default (payload: payload) => {
                             <When test={def} node={() => <DefText>{def}</DefText>} />
                         </View>
 
-                        {
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            data={R.values(node)}
+                            renderItem={({ item, index, separators }) => {
+                                return (
+                                    <TouchView key={index} onPress={() => handlePress(item)}>
+                                        <View style={{
+                                            paddingTop: 8,
+                                            paddingBottom: 10,
+                                            // marginTop: 180,
+                                            flexDirection: 'row',
+                                            height: 56,
+                                            marginBottom: 4,
+                                            // backgroundColor: 'rgba(0,0,0,0.4)',
+                                            justifyContent: 'space-between',
+                                        }}>
+                                            <View style={{
+                                                width: 34,
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                // backgroundColor: 'rgba(0,0,0,0.2)',
+                                            }}>
+                                                <DefText style={{ fontSize: 18 }}>{index + 1}</DefText>
+                                            </View>
+                                            <View style={{
+                                                flex: 1,
+                                            }}>
+                                                <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title}</Title>
+                                                <DefText style={{ marginTop: 6, marginRight: 6, }}>
+                                                    {
+                                                        showUrl
+                                                            ? item.url
+                                                            : item.def
+                                                    }
+                                                </DefText>
+                                            </View>
+                                            <TouchView onPress={() => handleDotPress ? handleDotPress(id, item) : handlePress(item)}>
+                                                <View style={{
+                                                    width: 34,
+                                                    // marginRight: -5,
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    // backgroundColor: 'rgba(0,0,0,0.2)',
+                                                }}>
+                                                    <Icon name={'dots-vertical'} size={20} color={theme.grey[0]} />
+                                                </View>
+                                            </TouchView>
+                                        </View>
+                                    </TouchView>
+                                )
+                            }} />
+
+                        {/* {
                             R.addIndex(R.map)(
                                 (item, index) => (
                                     <TouchView key={index} onPress={() => handlePress(item)}>
@@ -146,12 +202,62 @@ export default (payload: payload) => {
                                 ),
                                 R.values(node)
                             )
-                        }
+                        } */}
 
                     </View>
                 )
-            },
-            data || []
-        )
+            }} />
     )
 }
+
+// {
+//     R.addIndex(R.map)(
+//         (item, index) => (
+//             <TouchView key={index} onPress={() => handlePress(item)}>
+//                 <View style={{
+//                     paddingTop: 8,
+//                     paddingBottom: 10,
+//                     // marginTop: 180,
+//                     flexDirection: 'row',
+//                     height: 56,
+//                     marginBottom: 4,
+//                     // backgroundColor: 'rgba(0,0,0,0.4)',
+//                     justifyContent: 'space-between',
+//                 }}>
+//                     <View style={{
+//                         width: 34,
+//                         justifyContent: 'center',
+//                         alignItems: 'center',
+//                         // backgroundColor: 'rgba(0,0,0,0.2)',
+//                     }}>
+//                         <DefText style={{ fontSize: 18 }}>{index + 1}</DefText>
+//                     </View>
+//                     <View style={{
+//                         flex: 1,
+//                     }}>
+//                         <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title}</Title>
+//                         <DefText style={{ marginTop: 6, marginRight: 6, }}>
+//                             {
+//                                 showUrl
+//                                     ? item.url
+//                                     : item.def
+//                             }
+//                         </DefText>
+//                     </View>
+//                     <TouchView onPress={() => handleDotPress ? handleDotPress(id, item) : handlePress(item)}>
+//                         <View style={{
+//                             width: 34,
+//                             // marginRight: -5,
+//                             justifyContent: 'center',
+//                             alignItems: 'center',
+//                             // backgroundColor: 'rgba(0,0,0,0.2)',
+//                         }}>
+//                             <Icon name={'dots-vertical'} size={20} color={theme.grey[0]} />
+//                         </View>
+//                     </TouchView>
+//                 </View>
+//             </TouchView>
+//         ),
+//         R.values(node)
+//     )
+// }

@@ -94,7 +94,7 @@ export default ({ navigation, }) => {
                     </View>
                 )}
                 renderItem={({ item, index, separators }) => (
-                    <WingBlank style={{
+                    <WingBlank key={index} style={{
                         flexDirection: 'row',
                         paddingBottom: 10,
                     }}>

@@ -422,7 +422,7 @@ export const ScrollItem = ({
             fadeAnim,                       // 动画中的变量值
             {
                 toValue: 1,                   // 透明度最终变为1，即完全不透明
-                duration: 800,              // 让动画持续一段时间
+                duration: 600,              // 让动画持续一段时间
             }
         ).start()
     }, [])

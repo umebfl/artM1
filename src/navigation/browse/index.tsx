@@ -62,6 +62,45 @@ export default (payload: Payload) => {
     const handleJump = (leaf) => {
         navigation.navigate('unitDetailCodeModal', { leaf })
     }
+    const handleScrollEndDrag = (ev) => {
+        // const y = ev.nativeEvent.contentOffset.y
+        // // scrollRef.current.scrollTo({x: 0, y: 0, animated: true})
+        // let index
+        // // 1000 300 100
+        // // 方向
+        // const mov = contentHeight - (y % contentHeight)
+        // // 偏移百分比
+        // const rate = Math.abs(mov) / (contentHeight / 2)
+        // // 方向 大于0 下拉, 小于0上拉
+        // const dir = mov > 0
+
+        // info(JSON.stringify({
+        //     contentHeight,
+        //     y,
+        //     dir,
+        //     mov,
+        //     rate,
+        // }, null, 2))
+
+        // if (rate > 0.2) {
+        //     // 下拉
+        //     if (dir) {
+        //         index = Math.ceil(y / contentHeight)
+        //         swipeScreenRef.current.scrollToIndex({
+        //             animated: true,
+        //             index: index,
+        //         })
+        //     } else {
+        //         // 上拉
+        //         index = Math.floor(y / contentHeight)
+        //         swipeScreenRef.current.scrollToIndex({
+        //             animated: true,
+        //             index: index,
+        //         })
+        //     }
+        // }
+
+    }
 
     const screenNode = useMemo(() => {
         info('[浏览]执行useMemo')
@@ -143,9 +182,10 @@ export default (payload: Payload) => {
                         keyExtractor={(item, index) => index}
                         showsVerticalScrollIndicator={false}
                         showsHorizontalScrollIndicator={false}
+                        onMomentumScrollEnd={handleScrollEndDrag}
                         data={data}
                         renderItem={({ item, index, separators }) => (
-                            <View style={{
+                            <View key={index} style={{
                                 height: contentHeight - 100,
                                 paddingTop: 50,
                                 paddingBottom: 0,

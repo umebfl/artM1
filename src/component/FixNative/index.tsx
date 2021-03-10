@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useEffect, useRef, useState, } from 'react'
+import React, { useContext, useEffect, useRef, useState, forwardRef, useImperativeHandle, } from 'react'
 import {
     SafeAreaView,
     ScrollView,
@@ -21,26 +21,33 @@ interface FScrollViewPayload {
     style?: Object
     scrollConf?: Object
     handleOnScroll?: (ev: Object) => void
+    handleonScrollEndDrag?: (ev: any) => void
 }
 
-export const FScrollView = (payload: FScrollViewPayload) => {
-    // const { state, dispatch, } = useContext(Context)
-
-    // const {
-    //     theme,
-    // } = state
+export const FScrollView = forwardRef((payload: FScrollViewPayload, ref) => {
+    const scrollRef = useRef()
 
     const {
         children,
         style,
         scrollConf,
         handleOnScroll,
+        handleonScrollEndDrag,
     } = payload
+
+    useImperativeHandle(ref, () => ({
+        value: 1,
+        scrollToTop: () => {
+            scrollRef.current.scrollTo({x: 0, y: 0, animated: true})
+        },
+    }))
 
     return (
         <ScrollView
+            ref={scrollRef}
             // 数值越大 调用次数越少
             scrollEventThrottle={58}
+            onScrollEndDrag={handleonScrollEndDrag}
             onScroll={handleOnScroll}
             showsVerticalScrollIndicator={false}
             keyboardDismissMode={'on-drag'}
@@ -50,4 +57,4 @@ export const FScrollView = (payload: FScrollViewPayload) => {
             <View style={{ height: statusBarHeight, }}></View>
         </ScrollView>
     )
-}
+})

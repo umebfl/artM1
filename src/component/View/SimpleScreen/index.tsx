@@ -28,6 +28,7 @@ import { IfElse, When } from '../../../util/jsx'
 import { SCREEN_HEADER_HEGIHT, } from '../../ScreenHeader'
 import { LargeTitle, MidTitle } from '../../Text'
 import { WingBlank, WhiteSpace, Padding, } from '../../../component/View/Padding'
+import { statusBarHeight } from '../../../util/StatusBarManager'
 
 interface Payload {
     navigation: Object
@@ -68,6 +69,12 @@ export default (payload: Payload) => {
             setHeaderOpacity(y / 50)
         }
     }
+    const handleonScrollEndDrag = (ev) => {
+        const y = ev.nativeEvent.contentOffset.y
+        if (y < statusBarHeight + 20) {
+            scrollViewRef.current.scrollToTop()
+        }
+    }
 
     const rv = (
         <View style={{
@@ -91,11 +98,14 @@ export default (payload: Payload) => {
                     {children}
                 </View>
             )} fnode={() => (
-                <FScrollView handleOnScroll={handleOnScroll} style={{
-                    padding: noPadding ? 0 : 20,
-                    marginTop: -SCREEN_HEADER_HEGIHT,
-                    paddingTop: SCREEN_HEADER_HEGIHT,
-                }}>
+                <FScrollView
+                    ref={scrollViewRef}
+                    handleonScrollEndDrag={handleonScrollEndDrag}
+                    handleOnScroll={handleOnScroll} style={{
+                        padding: noPadding ? 0 : 20,
+                        marginTop: -SCREEN_HEADER_HEGIHT,
+                        paddingTop: SCREEN_HEADER_HEGIHT,
+                    }}>
                     <When test={title} node={() => (
                         <LargeTitle>{title}</LargeTitle>
                     )}></When>
