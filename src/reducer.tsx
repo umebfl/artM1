@@ -80,12 +80,6 @@ export const initState = {
 
         borderWidth: 0.7,
         borderColor: 'rgba(100, 100, 100, 0.2)',
-        size: {
-            lg: 34,
-            md: 20,
-            normal: 12,
-            sm: 8,
-        },
 
         textDark: color.grey[9],
         textNormal: 'rgb(51, 51, 52)',
@@ -168,10 +162,16 @@ export const reducer = (state, action) => {
             () => R.cond([
                 [
                     R.equals('toggle'),
-                    () => R.compose(
-                        R.tap(newState => setData(newState)),
-                        R.assocPath(['debug', 'open'], !state.debug.open),
-                    )(state),
+                    // () => R.compose(
+                    //     R.tap(newState => setData(newState)),
+                    //     R.assocPath(['debug', 'open'], !state.debug.open),
+                    // )(state),
+                    () => {
+                        state.debug.open = !state.debug.open
+                        return {
+                            ...state,
+                        }
+                    }
                 ],
                 [
                     R.equals('renderTime_add'),

@@ -11,8 +11,7 @@ import {
 
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
-import WingBlank from '../../component/WingBlank'
-import WhiteSpace from '../../component/WhiteSpace'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 
 import SkillListView from '../../screen/skillListView'
 
@@ -36,18 +35,23 @@ export default ({ navigation, }) => {
         },
     } = state
 
-    const data = {
-        name: theory.text,
-        category: state.data.category.theory,
-        chain: state.data.chain.theory,
-    }
-
     const node = useMemo(
         () => {
             info(`模块[理论]]useMemo执行渲染`)
-            return <SkillListView navigation={navigation} data={data} modKey={theory.name} />
+            const data = {
+                name: theory.text,
+                category: state.data.category.theory,
+                chain: state.data.chain.theory,
+                node: state.data.node,
+            }
+
+            return <SkillListView
+                        theme={theme}
+                        navigation={navigation}
+                        data={data}
+                        modKey={theory.name} />
         },
-        [state.data.category.theory, state.data.node.server]
+        [state.data.category.theory, state.data.node.theory]
     )
 
     return <View style={{ flex: 1, }}>{node}</View>

@@ -17,14 +17,8 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 
 import ActionSheet from 'react-native-actionsheet'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-
-import { SvgCssUri, SvgXml, } from 'react-native-svg'
-
 import Context from '../../reducer'
-
-import ScreenHeader from '../../component/ScreenHeader'
-
-import TabBar from '../../component/ScrollableTabBar'
+import ScrollableTabBar from '../../component/ScrollableTabBar'
 import TouchView from '../../component/TouchView'
 import UnitLogo from '../../component/UnitLogo'
 import UnitItemList from '../../component/UnitItemList'
@@ -38,11 +32,10 @@ import {
 import { info } from '../../util/log'
 import { IfElse, RMap, When } from '../../util/jsx'
 import { moveToTop } from '../unitEditCategoryView'
-import WingBlank from '../../component/WingBlank'
 import { FScrollView } from '../../component/FixNative'
 import { calStepVal } from '../../component/SwipeList'
 import SimpleScreen from '../../component/View/SimpleScreen'
-import Padding from '../../component/Padding'
+import { WingBlank, WhiteSpace, Padding, } from '../../component/View/Padding'
 
 enum ScrollType {
     features = 'features',
@@ -364,6 +357,7 @@ export default ({ route, navigation }) => {
 
     return (
         <SimpleScreen
+            theme={theme}
             noPadding={true}
             formScreen={true}
             navigation={navigation}
@@ -397,7 +391,7 @@ export default ({ route, navigation }) => {
                     marginLeft: 15,
                     marginRight: 15,
                 }}
-                renderTabBar={payload => <TabBar width={scrollViewWidth} {...payload} />} >
+                renderTabBar={payload => <ScrollableTabBar theme={theme} width={scrollViewWidth} {...payload} />} >
 
                 {featuresNode}
                 {articleNode}

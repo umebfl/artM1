@@ -17,9 +17,8 @@ import Context from '../../reducer'
 import SimpleScreen from '../../component/View/SimpleScreen'
 import { SkillUnitFeatures } from '../../variable'
 import { DetailCodeContent } from '../unitDetailCode'
-import Padding from '../../component/Padding'
 import { FScrollView } from '../../component/FixNative'
-import WingBlank from '../../component/WingBlank'
+import { WingBlank, WhiteSpace, Padding, } from '../../component/View/Padding'
 
 interface Payload {
     navigation: any

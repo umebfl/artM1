@@ -11,22 +11,9 @@ import {
     Dimensions,
 } from 'react-native'
 
-import ScrollableTabView from 'react-native-scrollable-tab-view'
-
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
 import { agate } from 'react-syntax-highlighter/styles/hljs'
-
-import { SvgCssUri, SvgXml, } from 'react-native-svg'
-
 import Context from '../../reducer'
-
-import ScreenHeader from '../../component/ScreenHeader'
-
-import TabBar from '../../component/ScrollableTabBar'
-import TouchView from '../../component/TouchView'
-
 import { DetailHead, } from '../unitDetail'
 
 import {
@@ -55,6 +42,7 @@ export default ({ route, navigation }) => {
 
     return (
         <SimpleScreen
+            theme={theme}
             navigation={navigation}
             ScreenHeaderConf={{
                 title: payload.name || payload.title,

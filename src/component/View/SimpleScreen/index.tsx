@@ -24,15 +24,14 @@ import {
 } from '../../FixNative'
 import Context from '../../../reducer'
 import { IfElse, When } from '../../../util/jsx'
-import Padding from '../../Padding'
 
 import { SCREEN_HEADER_HEGIHT, } from '../../ScreenHeader'
 import { LargeTitle, MidTitle } from '../../Text'
-import WhiteSpace from '../../WhiteSpace'
-import WingBlank from '../../WingBlank'
+import { WingBlank, WhiteSpace, Padding, } from '../../../component/View/Padding'
 
 interface Payload {
     navigation: Object
+    theme: any
     children?: any
     style?: Object
     ScreenHeaderConf?: Object
@@ -45,14 +44,10 @@ interface Payload {
 }
 
 export default (payload: Payload) => {
-    const { state, dispatch, } = useContext(Context)
     const scrollViewRef = useRef(null)
 
     const {
         theme,
-    } = state
-
-    const {
         navigation,
         children,
         style,

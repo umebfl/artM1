@@ -19,7 +19,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Context from '../../reducer'
 
-import WingBlank from '../../component/WingBlank'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import TouchView from '../../component/TouchView'
 import UnitLogo from '../../component/UnitLogo'
 

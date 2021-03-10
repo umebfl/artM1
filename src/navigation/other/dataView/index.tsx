@@ -76,6 +76,7 @@ export default ({ navigation, }) => {
 
     return (
         <SimpleScreen
+            theme={theme}
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{

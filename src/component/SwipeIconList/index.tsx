@@ -11,10 +11,12 @@ import {
 
 import CircleLogo from '../../component/CircleLogo'
 import TouchView from '../../component/TouchView'
-import WingBlank from '../../component/WingBlank'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import { MidTitle, } from '../../component/Text'
 
 import Context from '../../reducer'
+import { info } from '../../util/log'
+import { useMemo } from 'react/cjs/react.development'
 
 interface payload {
     data: []
@@ -22,20 +24,13 @@ interface payload {
     radius?: number
     title?: String
     onPress?: Function
+    theme: any
 }
 
 export default (payload: payload) => {
 
-    const { state, dispatch, } = useContext(Context)
-
     const {
         theme,
-        data: {
-            node,
-        },
-    } = state
-
-    const {
         data,
         title,
         navigation,
@@ -43,64 +38,69 @@ export default (payload: payload) => {
         onPress,
     } = payload
 
-    return (
-        <View>
-            {
-                title
-                    ? (
-                        <WingBlank>
-                            <MidTitle>{title}</MidTitle>
-                        </WingBlank>
-                    )
-                    : null
-            }
-
-
-            <ScrollView
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                style={{
-                    // backgroundColor: 'red',
-                    paddingTop: 10,
-                    paddingLeft: 20,
-                    // paddingRight: 20,
-                    flexDirection: 'row',
-                }}>
-                {
-                    R.addIndex(R.map)(
-                        (v, k) => {
-                            const item = v
-
-                            if(!item) {
-                                return null
-                            }
-                            return (
-                                <TouchView key={k} onPress={() => {
-                                    onPress
-                                        ? onPress(item)
-                                        : navigation.push('readWebview', { url: item.url })
-                                }}>
-                                    <View style={{
-                                        // backgroundColor: 'red',
-                                        width: 70,
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                    }}>
-                                        <CircleLogo size={50} radius={radius ? radius : 0} data={item.logo} />
-                                        <Text numberOfLines={1} ellipsizeMode={'middle'} style={{
-                                            marginTop: 8,
-                                            fontSize: 12,
-                                            color: theme.textLight2,
-                                        }}>{item.name}</Text>
-                                    </View>
-                                </TouchView>
+    return useMemo(
+        () => {
+            info(`[SwipeIconList]useMemo ${title}`)
+            return (
+                <View>
+                    {
+                        title
+                            ? (
+                                <WingBlank>
+                                    <MidTitle>{title}</MidTitle>
+                                </WingBlank>
                             )
+                            : null
+                    }
+        
+        
+                    <ScrollView
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={true}
+                        style={{
+                            // backgroundColor: 'red',
+                            paddingTop: 10,
+                            paddingLeft: 20,
+                            // paddingRight: 20,
+                            flexDirection: 'row',
+                        }}>
+                        {
+                            R.addIndex(R.map)(
+                                (v, k) => {
+                                    const item = v
+        
+                                    if(!item) {
+                                        return null
+                                    }
+                                    return (
+                                        <TouchView key={k} onPress={() => {
+                                            onPress
+                                                ? onPress(item)
+                                                : navigation.push('readWebview', { url: item.url })
+                                        }}>
+                                            <View style={{
+                                                // backgroundColor: 'red',
+                                                width: 70,
+                                                flexDirection: 'column',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                            }}>
+                                                <CircleLogo theme={theme} size={50} radius={radius ? radius : 0} data={item.logo} />
+                                                <Text numberOfLines={1} ellipsizeMode={'middle'} style={{
+                                                    marginTop: 8,
+                                                    fontSize: 12,
+                                                    color: theme.textLight2,
+                                                }}>{item.name}</Text>
+                                            </View>
+                                        </TouchView>
+                                    )
+                                }
+                            )(data)
                         }
-                    )(data)
-                }
-                <View style={{ width: 40, }}></View>
-            </ScrollView>
-        </View>
+                        <View style={{ width: 40, }}></View>
+                    </ScrollView>
+                </View>
+            )
+        }, [data, title]
     )
 }

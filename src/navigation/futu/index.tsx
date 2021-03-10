@@ -11,8 +11,7 @@ import {
 
 import ScreenWrapper from '../../component/ScreenWrapper'
 import SearchWrapper from '../../component/SearchWrapper'
-import WingBlank from '../../component/WingBlank'
-import WhiteSpace from '../../component/WhiteSpace'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import UnitItemList from '../../component/UnitItemList'
 
 import Context from '../../reducer'

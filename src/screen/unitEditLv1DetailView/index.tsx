@@ -27,13 +27,11 @@ import Context from '../../reducer'
 
 import ScreenHeader from '../../component/ScreenHeader'
 
-import TabBar from '../../component/ScrollableTabBar'
 import TouchView from '../../component/TouchView'
 import UnitLogo from '../../component/UnitLogo'
 import UnitItemList from '../../component/UnitItemList'
-import Padding from '../../component/Padding'
+import { WingBlank, WhiteSpace, Padding, } from '../../component/View/Padding'
 import { InputItem, } from '../../component/Form/Input'
-import WhiteSpace from '../../component/WhiteSpace'
 
 import { EditItem, } from '../unitEditCategoryView'
 

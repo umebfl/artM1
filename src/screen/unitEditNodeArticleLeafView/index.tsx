@@ -20,7 +20,7 @@ import { SKillJumpToURI, SkillUnitArticle } from '../../variable'
 import { useSetState } from 'ahooks'
 import idBuilder from '../../util/idBuilder'
 import { InputItemWithVal } from '../../component/Form/Input'
-import WingBlank from '../../component/WingBlank'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import { DefText } from '../../component/Text'
 import { IfElse } from '../../util/jsx'
 
@@ -117,6 +117,7 @@ export default (payload: Payload) => {
 
     return (
         <SimpleScreen
+            theme={theme}
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{

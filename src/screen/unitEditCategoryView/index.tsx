@@ -24,12 +24,10 @@ import Context from '../../reducer'
 
 import ScreenHeader from '../../component/ScreenHeader'
 
-import TabBar from '../../component/ScrollableTabBar'
 import TouchView from '../../component/TouchView'
 import UnitLogo from '../../component/UnitLogo'
 import UnitItemList from '../../component/UnitItemList'
-import Padding from '../../component/Padding'
-import WhiteSpace from '../../component/WhiteSpace'
+import { WingBlank, WhiteSpace, Padding, } from '../../component/View/Padding'
 
 import {
     LargeTitle,
@@ -37,7 +35,6 @@ import {
     Title,
     DefText,
 } from '../../component/Text'
-import WingBlank from '../../component/WingBlank'
 import { IfElse, RMap, When } from '../../util/jsx'
 import { info } from '../../util/log'
 import { FScrollView } from '../../component/FixNative'
@@ -129,6 +126,7 @@ export default ({ route, navigation }) => {
 
     return (
         <SimpleScreen
+            theme={theme}
             formScreen={true}
             ScreenHeaderConf={{
                 title: '编辑分类',

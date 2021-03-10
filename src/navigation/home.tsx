@@ -1,15 +1,6 @@
 import R from 'ramda'
 import React, { useContext, useEffect, useMemo, } from 'react'
 
-import {
-    SafeAreaView,
-    ScrollView,
-    View,
-    Text,
-    TouchableWithoutFeedback,
-    Button,
-} from 'react-native'
-
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -65,53 +56,49 @@ const buildScreen = R.cond([
 ])
 
 export default ({ navigation, }) => {
-
     info('[Home]: 入口')
 
-    const { state, dispatch, } = useContext(Context)
-
     const {
-        theme,
-        navigation: {
-            home: {
-                initialRouteName,
-                tab,
+        state: {
+            theme,
+            navigation: {
+                home: {
+                    initialRouteName,
+                    tab,
+                },
             },
         },
-        data,
-    } = state
+    } = useContext(Context)
 
     useEffect(() => {
         SplashScreen.hide()
     }, [])
 
-    const buildIcon = ({ focused, color, size, icon, }) => {
-
-        const iconSize = focused ? 20 : 24
-        const backgroundColor = theme.navigationTabBarBackgound
-
-        return (
-            <LinearGradient
-                start={{ x: 1.0, y: 0.25 }}
-                end={{ x: 0.5, y: 1.0 }}
-                colors={
-                    focused
-                        ? [theme.second, theme.second, theme.main]
-                        : [backgroundColor, backgroundColor]}
-                style={{ width: 26, height: 26, justifyContent: 'center', alignItems: 'center', borderRadius: 15, }}>
-                <Icon
-                    style={{ width: iconSize, height: iconSize }}
-                    name={icon}
-                    size={iconSize}
-                    color={focused ? 'white' : 'gray'} />
-            </LinearGradient>
-        )
-    }
-
-    
-
     return useMemo(() => {
         info('[Home]执行useMemo')
+
+        const buildIcon = ({ focused, color, size, icon, }) => {
+            const iconSize = focused ? 20 : 24
+            const backgroundColor = theme.navigationTabBarBackgound
+
+            return (
+                <LinearGradient
+                    start={{ x: 1.0, y: 0.25 }}
+                    end={{ x: 0.5, y: 1.0 }}
+                    colors={
+                        focused
+                            ? [theme.second, theme.second, theme.main]
+                            : [backgroundColor, backgroundColor]}
+                    style={{ width: 26, height: 26, justifyContent: 'center', alignItems: 'center', borderRadius: 15, }}>
+                    <Icon
+                        style={{ width: iconSize, height: iconSize }}
+                        name={icon}
+                        size={iconSize}
+                        color={focused ? 'white' : 'gray'} />
+                </LinearGradient>
+            )
+        }
+
         return (
             <Tab.Navigator initialRouteName={initialRouteName} lazy={false}>
                 {
@@ -132,7 +119,7 @@ export default ({ navigation, }) => {
                 }
             </Tab.Navigator>
         )
-    }, [data])
+    }, [tab, theme])
 }
 
 

@@ -18,14 +18,13 @@ import { info, debug, } from '../../util/log'
 import Context from '../../reducer'
 import SimpleScreen from '../../component/View/SimpleScreen'
 import { SKillJumpToURI, SkillUnitFeatures, } from '../../variable'
-import WingBlank from '../../component/WingBlank'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import { IfElse, RMap } from '../../util/jsx'
 import { DefText, LargeTitle, MidTitle } from '../../component/Text'
 import idBuilder from '../../util/idBuilder'
 import { useSetState } from 'ahooks'
 import { InputItemWithVal } from '../../component/Form/Input'
 import { AddBtn } from '../unitEditLv1View'
-import WhiteSpace from '../../component/WhiteSpace'
 
 interface Payload {
     navigation: any
@@ -205,6 +204,7 @@ export default (payload: Payload) => {
 
     return (
         <SimpleScreen
+            theme={theme}
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{

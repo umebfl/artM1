@@ -19,8 +19,7 @@ import Toast from 'react-native-root-toast'
 
 import ScreenWrapper from '../../../component/ScreenWrapper'
 import ScreenHeader from '../../../component/ScreenHeader'
-import WingBlank from '../../../component/WingBlank'
-import WhiteSpace from '../../../component/WhiteSpace'
+import { WingBlank, WhiteSpace, } from '../../../component/View/Padding'
 import UnitItemList from '../../../component/UnitItemList'
 import TouchView from '../../../component/TouchView'
 
@@ -29,8 +28,6 @@ import { debug, logState, level, clear, } from '../../../util/log'
 import Context from '../../../reducer'
 import { fixZeroStart, } from '../../../util/string'
 import SimpleScreen from '../../../component/View/SimpleScreen'
-
-const ITEM_HEIGHT = 25
 
 export default ({ navigation, }) => {
     const { state, dispatch, } = useContext(Context)
@@ -47,8 +44,8 @@ export default ({ navigation, }) => {
     }
 
     return (
-
         <SimpleScreen
+            theme={theme}
             formScreen={true}
             navigation={navigation}
             ScreenHeaderConf={{
@@ -96,14 +93,9 @@ export default ({ navigation, }) => {
                         }}>暂无日志</Text>
                     </View>
                 )}
-                // getItemLayout={(data, index) => (
-                //     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
-                // )}
                 renderItem={({ item, index, separators }) => (
                     <WingBlank style={{
                         flexDirection: 'row',
-                        // overflow: 'hidden',
-                        // height: ITEM_HEIGHT,
                         paddingBottom: 10,
                     }}>
                         <Text style={{ marginRight: 5, fontSize: 12, width: 60, }}>

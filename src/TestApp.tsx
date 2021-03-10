@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, useEffect, useRef, useState, } from 'react'
+import React, { createContext, useContext, useCallback, useEffect, useRef, useState, useReducer, useMemo, } from 'react'
 import {
     SafeAreaView,
     ScrollView,
@@ -17,58 +17,52 @@ import {
     StyleSheet,
     TouchableWithoutFeedback,
 } from 'react-native'
+import SplashScreen from 'react-native-splash-screen'
 
+// import UC from './tmp/useContext'
+import { Padding } from './component/View/Padding'
 
-const KeyboardAvoidingComponent = () => {
-    return (
-        <KeyboardAvoidingView behavior={'padding'} style={styles.container} >
-            <ScrollView style={styles.inner}>
-                <View style={{
-                    height: 500,
-                    backgroundColor: 'red',
-                }}></View>
-                <Text style={styles.header}>Header</Text>
-                <View style={{
-                    height: 500,
-                }}>
-                </View>
-                <View style={{
-                    height: 500,
-                }}>
-                    <TextInput placeholder="Username" style={styles.textInput} />
-                </View>
-                <View style={styles.btnContainer}>
-                    <Button title="Submit" onPress={() => null} />
-                </View>
-            </ScrollView>
-        </KeyboardAvoidingView>
-    );
+SplashScreen.hide()
+
+const themes = {
+    light: {
+        foreground: "#000000",
+        background: "#eeeeee"
+    },
+    dark: {
+        foreground: "#ffffff",
+        background: "#222222"
+    }
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    inner: {
-        padding: 24,
-        flex: 1,
-        // justifyContent: "space-around",
-        // backgroundColor: 'red',
-    },
-    header: {
-        fontSize: 36,
-        marginBottom: 48
-    },
-    textInput: {
-        height: 40,
-        borderColor: "#000000",
-        borderBottomWidth: 1,
-        marginBottom: 36
-    },
-    btnContainer: {
-        backgroundColor: "white",
-        marginTop: 12
-    }
-});
+const initData = {
+    counter: 0
+}
 
-export default KeyboardAvoidingComponent;
+
+export default () => {
+    console.log('[App]入口')
+    const [state, setState] = useState(1)
+
+    // 要保证节点不被无效刷新, 需要手动指定变更时机[]
+    const keepNode = useMemo(
+        () => (
+            <Padding>
+                <Text>123</Text>
+            </Padding>
+        ), []
+    )
+
+    return (
+        <SafeAreaView>
+            <TouchableWithoutFeedback onPress={() => {
+                setState(state + 1)
+            }}>
+                <Text>Test</Text>
+            </TouchableWithoutFeedback>
+            <Text>{state}</Text>
+
+            {keepNode}
+        </SafeAreaView>
+    )
+}

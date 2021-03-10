@@ -11,26 +11,21 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import WingBlank from '../../component/WingBlank'
-import WhiteSpace from '../../component/WhiteSpace'
+import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import TouchView from '../../component/TouchView'
 import { DefText, } from '../../component/Text'
 
 import Context from '../../reducer'
 
 interface payload {
+    theme: any,
     title?: String
     children?: any
 }
 
 export default (payload: payload) => {
-    const { state, } = useContext(Context)
-
     const {
         theme,
-    } = state
-
-    const {
         title,
         children,
     } = payload
@@ -64,13 +59,8 @@ export default (payload: payload) => {
 }
 
 export const Item = payload => {
-    const { state, } = useContext(Context)
-
     const {
         theme,
-    } = state
-
-    const {
         title,
         icon,
         jumpTo,

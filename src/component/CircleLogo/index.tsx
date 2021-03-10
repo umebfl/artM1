@@ -13,8 +13,10 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { SvgCssUri, SvgXml, } from 'react-native-svg'
 import Context from '../../reducer'
+import { info } from '../../util/log'
 
 interface unitLogoPlayload {
+    theme: any
     size: number
     radius?: number
     data?: {
@@ -26,14 +28,8 @@ interface unitLogoPlayload {
 }
 
 export default (payload: unitLogoPlayload) => {
-
-    const { state, } = useContext(Context)
-
     const {
         theme,
-    } = state
-
-    const {
         size,
         radius,
         data,

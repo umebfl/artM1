@@ -39,11 +39,7 @@ interface payload {
 
 export default (payload: payload) => {
 
-  const { state, } = useContext(Context)
-
-  const {
-    theme
-} = state
+  const theme = payload.theme
 
   const initialLayout = { width: payload.width || Dimensions.get('window').width }
 

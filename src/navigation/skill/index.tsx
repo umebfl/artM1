@@ -37,7 +37,7 @@ export default ({ navigation, }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: theme.navigationTabBarBackgound, }}>
             <ScrollableTabView prerenderingSiblingsNumber={Infinity}
-                renderTabBar={payload => <ScrollableTabBar {...payload} />}>
+                renderTabBar={payload => <ScrollableTabBar theme={theme} {...payload} />}>
                 {
                     R.compose(
                         R.values,
