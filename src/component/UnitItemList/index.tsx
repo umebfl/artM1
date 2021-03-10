@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Context from '../../reducer'
 import TouchView from '../../component/TouchView'
+import ScrollEndLine from '../../component/ScrollEndLine'
 
 import {
     LargeTitle,
@@ -53,6 +54,24 @@ export default (payload: payload) => {
             scrollEnabled={false}
             showsVerticalScrollIndicator={false}
             data={data || []}
+            ListFooterComponent={() => {
+                if (data.length) {
+                    return (
+                        <ScrollEndLine />
+                    )
+                }
+                return null
+            }}
+            ListEmptyComponent={() => (
+                <View style={{
+                    flex: 1,
+                    height: 500,
+                    paddingTop: 100,
+                    alignItems: 'center',
+                }}>
+                    <DefText>暂无数据</DefText>
+                </View>
+            )}
             renderItem={({ item, index, separators }) => {
                 const {
                     id,

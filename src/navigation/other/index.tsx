@@ -30,9 +30,7 @@ import SimpleScreen from '../../component/View/SimpleScreen'
 import { LargeTitle } from '../../component/Text'
 
 export default ({ navigation, }) => {
-
-    info('[其他]: 入口')
-
+    // info('[其他]: 入口')
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
     const [copyed, setCopyed] = useState(false)
@@ -133,5 +131,5 @@ export default ({ navigation, }) => {
             }}></View>
         </SimpleScreen>
         )
-    }, [open])
+    }, [open, open])
 }

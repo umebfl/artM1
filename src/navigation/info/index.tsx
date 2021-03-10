@@ -28,8 +28,7 @@ import { info, } from '../../util/log'
 import { When } from '../../util/jsx'
 
 export default ({ navigation, }) => {
-
-    info('[资讯]: 入口')
+    // info('[资讯]: 入口')
     const { state, dispatch, } = useContext(Context)
     const actionSheetREl = useRef(null)
 
@@ -83,7 +82,7 @@ export default ({ navigation, }) => {
 
     const node = useMemo(
         () => {
-            info(`模块[资讯]]useMemo执行渲染`)
+            info(`[资讯]]useMemo执行渲染`)
             return (
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >

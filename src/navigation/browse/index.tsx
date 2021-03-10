@@ -32,7 +32,7 @@ interface Payload {
 const contentHeight = Dimensions.get('window').height - SCREEN_HEADER_HEGIHT - 80
 
 export default (payload: Payload) => {
-    info('[浏览]: 入口')
+    // info('[浏览]: 入口')
     const { state, dispatch, } = useContext(Context)
     const [reload, setReload] = useState(0)
     const swipeScreenRef = useRef()
@@ -230,19 +230,18 @@ const NodeView = (payload) => {
 
     return useMemo(
         () => {
-            info('[NodeView]执行useMemo')
-
             return (
                 <View style={{
                     width: '72%',
                     height: '100%',
                     marginLeft: '14%',
                     marginRight: '14%',
+                    borderRadius: 10,
                     backgroundColor: 'rgb(254, 255, 255)',
                     shadowColor: theme.grey[0],
                     shadowOffset: { width: -10, height: 20 },
                     shadowOpacity: 1,
-                    shadowRadius: 25,
+                    shadowRadius: 20,
                     flexDirection: 'column',
                 }}>
 

@@ -461,37 +461,26 @@ export const ScrollItem = ({
             </View>
 
             <When test={opened} node={() => (
-                <IfElse test={fixData && fixData.length > 0} fnode={() => (
-                    <View style={{
-                        flex: 1,
-                        height: 500,
-                        paddingTop: 100,
-                        alignItems: 'center',
-                    }}>
-                        <DefText>暂无数据</DefText>
-                    </View>
-                )} tnode={() => (
-                    <Animated.View style={{
-                        opacity: fadeAnim,
-                    }}>
-                        <UnitItemList
-                            data={fixData}
-                            handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
-                            handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
-                            handlePress={item => {
-                                R.cond([
-                                    [
-                                        R.equals('code'),
-                                        () => navigation.push('unitDetailCodeView', { payload: item }),
-                                    ],
-                                    [
-                                        R.equals('webview'),
-                                        () => navigation.push('readWebview', item),
-                                    ],
-                                ])(item.jump)
-                            }} />
-                    </Animated.View>
-                )} />
+                <Animated.View style={{
+                    opacity: fadeAnim,
+                }}>
+                    <UnitItemList
+                        data={fixData}
+                        handleCategoryActionSheet={(category) => handleCategoryActionSheet(type, category)}
+                        handleDotPress={(categoryId, leaf) => handleLeafActionSheet(type, categoryId, leaf)}
+                        handlePress={item => {
+                            R.cond([
+                                [
+                                    R.equals('code'),
+                                    () => navigation.push('unitDetailCodeView', { payload: item }),
+                                ],
+                                [
+                                    R.equals('webview'),
+                                    () => navigation.push('readWebview', item),
+                                ],
+                            ])(item.jump)
+                        }} />
+                </Animated.View>
             )}></When>
         </View>
     )

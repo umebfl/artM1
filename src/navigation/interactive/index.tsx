@@ -21,8 +21,7 @@ import Context from '../../reducer'
 import { info, debug, } from '../../util/log'
 
 export default ({ navigation, }) => {
-
-    info('[前端]: 入口')
+    // info('[前端]: 入口')
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -38,7 +37,7 @@ export default ({ navigation, }) => {
 
     const node = useMemo(
         () => {
-            info(`模块[前端]]useMemo执行渲染`)
+            info(`[前端]]useMemo执行渲染`)
             const data = {
                 name: interactive.text,
                 category: state.data.category.interactive,

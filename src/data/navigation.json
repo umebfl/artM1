@@ -9,8 +9,8 @@
       },
       "browse": {
         "name": "browse",
-        "text": "浏览",
-        "icon": "sprout-outline"
+        "text": "Today",
+        "icon": "snapchat"
       },
       "interactive": {
         "name": "interactive",

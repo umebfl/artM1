@@ -98,7 +98,7 @@ export default ({ navigation, }) => {
                         flexDirection: 'row',
                         paddingBottom: 10,
                     }}>
-                        <Text style={{ marginRight: 5, fontSize: 12, width: 60, }}>
+                        <Text style={{ marginRight: 5, fontSize: 12, width: 70, }}>
                             {
                                 fixZeroStart(item.time.getMinutes(), 2)
                             }:{

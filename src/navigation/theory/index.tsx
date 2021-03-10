@@ -20,8 +20,7 @@ import Context from '../../reducer'
 import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
-
-    info('[理论]: 入口')
+    // info('[理论]: 入口')
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -37,7 +36,7 @@ export default ({ navigation, }) => {
 
     const node = useMemo(
         () => {
-            info(`模块[理论]]useMemo执行渲染`)
+            info(`[理论]]useMemo执行渲染`)
             const data = {
                 name: theory.text,
                 category: state.data.category.theory,

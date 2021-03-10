@@ -1,12 +1,12 @@
 import R from 'ramda'
-import React, { useContext, useEffect, useMemo, } from 'react'
+import React, { useContext, useEffect, useMemo, useState, } from 'react'
 
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import SplashScreen from 'react-native-splash-screen'
 
-import Context from '../reducer'
+import Context, { getData } from '../reducer'
 
 import Futu from './futu'
 import Info from './info'
@@ -56,7 +56,8 @@ const buildScreen = R.cond([
 ])
 
 export default ({ navigation, }) => {
-    info('[Home]: 入口')
+    // info('[Home]: 入口')
+    const { state, dispatch, } = useContext(Context)
 
     const {
         state: {
@@ -70,8 +71,24 @@ export default ({ navigation, }) => {
         },
     } = useContext(Context)
 
-    useEffect(() => {
+    const initStorage = async () => {
+        info('[Home]执行初始化')
+        const data = getData()
+
+        if (data) {
+            info('更新本地缓存')
+            dispatch({
+                mod: 'system',
+                type: 'init',
+                payload: data,
+            })
+        }
+
         SplashScreen.hide()
+    }
+
+    useEffect(() => {
+        initStorage()
     }, [])
 
     return useMemo(() => {

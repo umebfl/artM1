@@ -43,7 +43,7 @@ interface payload {
 }
 
 export default (payload: payload) => {
-    info('[skillListView]入口')
+    // info('[skillListView]入口')
 
     const {
         navigation,
@@ -59,7 +59,7 @@ export default (payload: payload) => {
 
     return useMemo(
         () => {
-            info('[skillListView]执行useMemo')
+            // info('[skillListView]执行useMemo')
             const list = R.values(category)
             const chainList = R.values(chain || {})
 

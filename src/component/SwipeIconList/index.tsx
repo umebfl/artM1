@@ -17,6 +17,7 @@ import { MidTitle, } from '../../component/Text'
 import Context from '../../reducer'
 import { info } from '../../util/log'
 import { useMemo } from 'react/cjs/react.development'
+import { When } from '../../util/jsx'
 
 interface payload {
     data: []
@@ -40,20 +41,15 @@ export default (payload: payload) => {
 
     return useMemo(
         () => {
-            info(`[SwipeIconList]useMemo ${title}`)
             return (
                 <View>
-                    {
-                        title
-                            ? (
-                                <WingBlank>
-                                    <MidTitle>{title}</MidTitle>
-                                </WingBlank>
-                            )
-                            : null
-                    }
-        
-        
+                    <When test={ title } node={() => (
+                        <WingBlank>
+                            <MidTitle>{title}</MidTitle>
+                        </WingBlank>
+                    )}></When>
+
+
                     <ScrollView
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
@@ -68,8 +64,8 @@ export default (payload: payload) => {
                             R.addIndex(R.map)(
                                 (v, k) => {
                                     const item = v
-        
-                                    if(!item) {
+
+                                    if (!item) {
                                         return null
                                     }
                                     return (

@@ -20,8 +20,7 @@ import Context from '../../reducer'
 import { info, } from '../../util/log'
 
 export default ({ navigation, }) => {
-
-    info('[后台]: 入口')
+    // info('[后台]: 入口')
     const { state, dispatch, } = useContext(Context)
 
     const {
@@ -37,7 +36,7 @@ export default ({ navigation, }) => {
 
     const node = useMemo(
         () => {
-            info(`模块[后台]]useMemo执行渲染`)
+            info(`[后台]]useMemo执行渲染`)
             const data = {
                 name: server.text,
                 category: state.data.category.server,

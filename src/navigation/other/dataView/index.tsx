@@ -92,7 +92,12 @@ export default ({ navigation, }) => {
 
             <ScrollView showsVerticalScrollIndicator={false} style={{ marginLeft: 6, marginRight: 6, }}>
                 <JSONTree
-                    data={state}
+                    data={
+                        R.pick([
+                            'data',
+                            'debug',
+                        ])(state)
+                    }
                     hideRoot={true}
                     // labelRenderer={
                     //     raw => (
