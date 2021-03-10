@@ -27,6 +27,7 @@ import { Title, DefText, } from '../../../component/Text'
 import Context from '../../../reducer'
 
 import { info, } from '../../../util/log'
+import { timeState, } from '../../../util/calTime'
 
 class Line extends Component {
 
@@ -78,12 +79,10 @@ class Line extends Component {
 export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
+    const [data, setData] = useState(timeState)
 
     const {
         theme,
-        debug: {
-            renderTime,
-        },
     } = state
 
     info('renderTime render')
@@ -95,27 +94,50 @@ export default ({ navigation, }) => {
         }}>
             <ScreenHeader navigation={navigation} title={'渲染耗时'} safeArea={true} />
 
-            <FlatList style={{ marginTop: 10, }} data={R.sort((a, b) => b.time - a.time)(renderTime)}
+            <FlatList style={{ marginTop: 10, }} data={R.sort((a, b) => b.take - a.take)(data)}
                 initialNumToRender={30}
                 showsVerticalScrollIndicator={false}
-                removeClippedSubviews={true}
                 renderItem={({ item, index, separators }) => (
-                    <WingBlank key={index}>
+                    <WingBlank key={index} style={{
+                        flexDirection: 'column',
+                        marginTop: 30,
+                    }}>
                         <WhiteSpace size='sm' style={{
+                            marginTop: 0,
+                            marginBottom: 10,
                             flexDirection: 'row',
                             alignItems: 'center',
                         }}>
                             <DefText style={{
                                 width: 60,
+                                height: 50,
+                                // backgroundColor: 'red',
                                 textAlign: 'right',
-                            }}>{item.name}</DefText>
+                            }}>{item.mod}</DefText>
+
                             <View style={{
-                                flexDirection: 'row',
-                                justifyContent: 'flex-start',
-                                alignItems: 'center',
+                                flexDirection: 'column',
+                                marginLeft: 10,
                             }}>
-                                <Line val={item.time} color={theme.main} />
-                                <DefText>{item.time}ms</DefText>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    justifyContent: 'flex-start',
+                                    alignItems: 'flex-start',
+                                }}>
+                                    <Line val={item.take} color={theme.main} />
+                                    <DefText>{item.take}ms</DefText>
+                                </View>
+
+                                <View style={{
+                                    flexDirection: 'column',
+                                    justifyContent: 'flex-start',
+                                    alignItems: 'flex-start',
+                                    marginLeft: 4,
+                                    marginTop: 4,
+                                }}>
+                                    <DefText>start: {item.start.getSeconds()}.{item.start.getMilliseconds()}</DefText>
+                                    <DefText>end: {item.end.getSeconds()}.{item.end.getMilliseconds()}</DefText>
+                                </View>
                             </View>
                         </WhiteSpace>
                     </WingBlank>

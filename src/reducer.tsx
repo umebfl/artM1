@@ -70,6 +70,14 @@ export const getData = async () => {
 export const initState = {
 
     theme: {
+        // main: 'rgba(73, 74, 75, 0.86)',
+        // mainA1: 'rgba(87, 88, 89, 0.1)',
+        // second: 'rgba(87, 88, 89, 1)',
+
+        // main: 'rgba(25, 101, 139, 1)',
+        // second: 'rgba(25, 101, 139, 1)',
+        // mainA1: 'rgba(87, 88, 89, 0.1)',
+
         main: 'rgba(49, 123, 246, 1)',
         mainA1: 'rgba(49, 123, 246, 0.1)',
         second: 'rgba(76, 146, 227, 1)',
@@ -78,8 +86,8 @@ export const initState = {
 
         ...color,
 
-        borderWidth: 0.7,
-        borderColor: 'rgba(100, 100, 100, 0.2)',
+        borderWidth: 0.6,
+        borderColor: 'rgba(100, 100, 100, 0.1)',
 
         textDark: color.grey[9],
         textNormal: 'rgb(51, 51, 52)',

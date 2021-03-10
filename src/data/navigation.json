@@ -27,11 +27,11 @@
         "text": "基础",
         "icon": "midi-port"
       },
-      "other": {
-        "name": "other",
-        "text": "设置",
-        "icon": "vanish"
-      }
+      // "other": {
+      //   "name": "other",
+      //   "text": "设置",
+      //   "icon": "vanish"
+      // }
     }
   }
 }

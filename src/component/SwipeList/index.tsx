@@ -242,8 +242,8 @@ export const SwipeListItem = ({
                     flex: 1,
                     marginTop: 4,
                     marginBottom: 8,
-                    borderBottomWidth: k === list.length - 1 ? 0 : 0.3,
-                    borderBottomColor: theme.borderColor,
+                    // borderBottomWidth: k === list.length - 1 ? 0 : 0.3,
+                    // borderBottomColor: theme.borderColor,
                     height: 63,
                 }}>
                     <View style={{

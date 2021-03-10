@@ -38,6 +38,8 @@ const ScreenWrapper = (payload: payload) => {
     LinearGradientBackground,
     ContentViewType,
   } = payload
+  
+  const grey = theme.screenBackgroundGreyColor[theme.model]
 
   return (
     <ImageBackground source={imageBackground || null} style={{
@@ -58,7 +60,8 @@ const ScreenWrapper = (payload: payload) => {
             ? ['rgba(0,0,0,0)']
             : LinearGradientBackground === false
               ? ['white', 'white', 'white']
-              : ['rgb(220, 216, 215)', 'white', 'white']
+              // : ['rgb(220, 216, 215)', 'white', 'white']
+              : [ grey, grey, 'white']
         }>
           {
             ContentViewType === 'View'

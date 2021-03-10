@@ -63,7 +63,8 @@ export default ({ navigation, }) => {
             <FlatList data={log}
                 initialNumToRender={30}
                 showsVerticalScrollIndicator={false}
-                removeClippedSubviews={true}
+                // 会导致白屏不显示数据
+                // removeClippedSubviews={true}
                 ListFooterComponent={() => {
                     if (log.length) {
                         return (

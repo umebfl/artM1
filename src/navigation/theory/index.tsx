@@ -18,6 +18,7 @@ import SkillListView from '../../screen/skillListView'
 import Context from '../../reducer'
 
 import { info, } from '../../util/log'
+import { calTime } from '../../util/calTime'
 
 export default ({ navigation, }) => {
     // info('[理论]: 入口')
@@ -33,6 +34,12 @@ export default ({ navigation, }) => {
             },
         },
     } = state
+
+    const ctimer = calTime('基础')
+
+    useEffect(() => {
+        ctimer.end()
+    }, [])
 
     const node = useMemo(
         () => {

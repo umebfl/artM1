@@ -39,6 +39,7 @@ import { IfElse, RMap, When } from '../../util/jsx'
 import { info } from '../../util/log'
 import { FScrollView } from '../../component/FixNative'
 import SimpleScreen from '../../component/View/SimpleScreen'
+import ScrollEndLine from '../../component/ScrollEndLine'
 
 export default ({ route, navigation }) => {
     info('[编辑][分类列表页]模块执行渲染')
@@ -208,6 +209,8 @@ export default ({ route, navigation }) => {
                     )
                 )(data.list)
             }
+
+            <ScrollEndLine></ScrollEndLine>
         </SimpleScreen>
     )
 }

@@ -70,9 +70,7 @@ export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
             }}>
                 <MidTitle numberOfLines={3}>{payload.name || payload.title}</MidTitle>
 
-                <When test={payload.def} node={() => (
-                    <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 6, }}>{payload.def}</DefText>
-                )}></When>
+                <DefText numberOfLines={3} style={{ fontSize: 14, marginTop: 6, }}>{payload.def}</DefText>
 
                 <When test={payload.url} node={() => (
                     <View style={{
@@ -105,7 +103,6 @@ export const DetailHead = ({ payload, imageSize, navigation, theme }) => {
 }
 
 export default ({ route, navigation }) => {
-    info('[unitDetail]: 入口')
 
     const { state, dispatch, } = useContext(Context)
     const leafActionSheetREL = useRef(null)
@@ -283,7 +280,7 @@ export default ({ route, navigation }) => {
                             },
                             {
                                 title: '版本',
-                                version: data.version,
+                                version: data.version || '-',
                             },
                             {
                                 title: '平台',

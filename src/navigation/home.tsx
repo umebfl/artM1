@@ -17,6 +17,7 @@ import Interactive from './interactive'
 import Todo from './todo'
 import Browse from './browse'
 import { info } from '../util/log'
+import { calTime } from '../util/calTime'
 
 const Tab = createBottomTabNavigator()
 
@@ -87,7 +88,10 @@ export default ({ navigation, }) => {
         SplashScreen.hide()
     }
 
+    const ctimer = calTime('Home')
+
     useEffect(() => {
+        ctimer.end()
         initStorage()
     }, [])
 
@@ -117,7 +121,11 @@ export default ({ navigation, }) => {
         }
 
         return (
-            <Tab.Navigator initialRouteName={initialRouteName} lazy={false}>
+            <Tab.Navigator
+                tabBarOptions={{
+                    activeTintColor: theme.main,
+                }}
+                initialRouteName={initialRouteName} lazy={false}>
                 {
                     R.compose(
                         R.values,

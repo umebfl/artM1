@@ -24,6 +24,7 @@ import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
 import { fixZeroStart } from '../../util/string'
 import { When } from '../../util/jsx'
 import { SCREEN_HEADER_HEGIHT } from '../../component/ScreenHeader'
+import { calTime } from '../../util/calTime'
 
 interface Payload {
     navigation: any
@@ -50,6 +51,12 @@ export default (payload: Payload) => {
             node,
         },
     } = state
+
+    const ctimer = calTime('Today')
+
+    useEffect(() => {
+        ctimer.end()
+    }, [])
 
     const handleFlush = () => {
         setReload(reload + 1)
@@ -163,7 +170,7 @@ export default (payload: Payload) => {
                     left: <></>,
                     right: (
                         <TouchView onPress={handleFlush}>
-                            <Icon name={'reload'} size={32} color={theme.grey[0]} style={{
+                            <Icon name={'reload'} size={32} color={theme.main} style={{
                                 opacity: 0.68,
                                 marginRight: 18,
                             }} />
@@ -186,8 +193,8 @@ export default (payload: Payload) => {
                         data={data}
                         renderItem={({ item, index, separators }) => (
                             <View key={index} style={{
-                                height: contentHeight - 100,
-                                paddingTop: 50,
+                                height: contentHeight - 120,
+                                paddingTop: 60,
                                 paddingBottom: 0,
                             }}>
                                 <NodeView theme={theme} {...item} index={index} handleJump={handleJump} />
@@ -333,11 +340,13 @@ const NodeView = (payload) => {
 
                             <TouchView onPress={() => handleJump(leaf)}>
                                 <View style={{
-                                    width: 50,
-                                    height: 50,
-                                    paddingLeft: 20,
-                                    paddingTop: 10,
-                                    marginTop: -10,
+                                    // width: 50,
+                                    // height: 50,
+                                    // paddingLeft: 20,
+                                    // paddingTop: 10,
+                                    // marginTop: -10,
+                                    padding: 10,
+                                    // backgroundColor: 'red',
                                 }}>
                                     <Icon name={'arrow-right-drop-circle-outline'} size={32} color={theme.grey[0]} />
                                 </View>

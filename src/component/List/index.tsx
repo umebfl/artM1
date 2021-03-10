@@ -108,6 +108,10 @@ export const Item = payload => {
                 {
                     R.cond([
                         [
+                            R.equals('jump'),
+                            () => <Icon name={'chevron-right'} size={30} color={theme.textLight} />,
+                        ],
+                        [
                             R.equals('switch'),
                             () => (
                                 <Switch

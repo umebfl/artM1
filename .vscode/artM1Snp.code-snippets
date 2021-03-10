@@ -17,6 +17,23 @@
 	// }
 	
 	
+	
+	"cbgc": {
+		"prefix": "cbgc",
+		"body": [
+			"backgroundColor: 'red',",
+		],
+		"description": "新建背景色"
+	},
+	"cflex": {
+		"prefix": "cflex",
+		"body": [
+			"flexDirection: 'row',",
+			"justifyContent: 'space-between',",
+			"alignItems: 'center',",
+		],
+		"description": "新建flexDirection"
+	},
 	"cif": {
 		// "scope": "javascript,typescript,tsx",
 		"prefix": "cif",

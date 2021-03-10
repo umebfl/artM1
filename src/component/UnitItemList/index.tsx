@@ -146,7 +146,7 @@ export default (payload: payload) => {
                                             <View style={{
                                                 flex: 1,
                                             }}>
-                                                <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title}</Title>
+                                                <Title numberOfLines={1} ellipsizeMode={'tail'}>{item.title || '-'}</Title>
                                                 <DefText style={{ marginTop: 6, marginRight: 6, }}>
                                                     {
                                                         showUrl

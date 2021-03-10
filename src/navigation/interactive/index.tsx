@@ -19,6 +19,7 @@ import SkillListView from '../../screen/skillListView'
 import Context from '../../reducer'
 
 import { info, debug, } from '../../util/log'
+import { calTime } from '../../util/calTime'
 
 export default ({ navigation, }) => {
     // info('[前端]: 入口')
@@ -34,6 +35,12 @@ export default ({ navigation, }) => {
             },
         },
     } = state
+
+    const ctimer = calTime('前端')
+
+    useEffect(() => {
+        ctimer.end()
+    }, [])
 
     const node = useMemo(
         () => {

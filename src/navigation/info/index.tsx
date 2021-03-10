@@ -26,6 +26,7 @@ import Context from '../../reducer'
 
 import { info, } from '../../util/log'
 import { When } from '../../util/jsx'
+import { calTime } from '../../util/calTime'
 
 export default ({ navigation, }) => {
     // info('[资讯]: 入口')
@@ -43,6 +44,12 @@ export default ({ navigation, }) => {
             open,
         },
     } = state
+
+    const ctimer = calTime('资讯')
+
+    useEffect(() => {
+        ctimer.end()
+    }, [])
 
     const handleSubmit = val => {
         navigation.push('readWebview', { url: `${search}${val}`, })

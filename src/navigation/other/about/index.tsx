@@ -95,7 +95,8 @@ export default ({ navigation, }) => {
                         alignItems: 'center',
                         height: 210,
                     }}>
-                        <Image source={logo} style={{ borderRadius: 24, resizeMode: 'contain', width: 110, height: 110, }} />
+                        {/* <Image source={logo} style={{ borderRadius: 24, resizeMode: 'contain', width: 110, height: 110, }} /> */}
+                        <Image source={{url: 'https://graph.baidu.com/thumb/v4/1494536961,4092862304.jpg'}} style={{ borderRadius: 24, resizeMode: 'contain', width: 110, height: 110, }} />
                     </View>
 
                     <View style={{

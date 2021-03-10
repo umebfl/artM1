@@ -26,7 +26,7 @@ import { info, } from '../../util/log'
 import { statusBarHeight, } from '../../util/StatusBarManager'
 import SwipeIconList from '../../component/SwipeIconList'
 import TouchView from '../../component/TouchView'
-import { WingBlank, WhiteSpace, } from '../../component/View/Padding'
+import { WingBlank, WhiteSpace, Padding, } from '../../component/View/Padding'
 import SimpleScreen from '../../component/View/SimpleScreen'
 import ScrollEndLine from '../../component/ScrollEndLine'
 
@@ -106,11 +106,12 @@ export default (payload: payload) => {
                                                 const handlePress = payload => navigation.push('unitDetailView', payload)
 
                                                 return (
-                                                    <WhiteSpace key={payload.id} style={{
-                                                        borderTopWidth: theme.borderWidth,
-                                                        borderColor: theme.borderColor,
-                                                        paddingTop: 10,
-                                                    }}>
+                                                    <WhiteSpace key={payload.id} style={{}}>
+                                                        <Padding style={{
+                                                            borderTopWidth: theme.borderWidth,
+                                                            borderColor: theme.borderColor,
+                                                            marginTop: 0,
+                                                        }}></Padding>
                                                         <SwipeIconList
                                                             theme={theme}
                                                             onPress={handlePress}

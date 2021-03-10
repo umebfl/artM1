@@ -18,6 +18,7 @@ import SkillListView from '../../screen/skillListView'
 import Context from '../../reducer'
 
 import { info, } from '../../util/log'
+import { calTime } from '../../util/calTime'
 
 export default ({ navigation, }) => {
     // info('[后台]: 入口')
@@ -34,6 +35,12 @@ export default ({ navigation, }) => {
         },
     } = state
 
+    const ctimer = calTime('后台')
+
+    useEffect(() => {
+        ctimer.end()
+    }, [])
+    
     const node = useMemo(
         () => {
             info(`[后台]]useMemo执行渲染`)

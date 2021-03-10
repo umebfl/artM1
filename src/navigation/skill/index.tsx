@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, } from 'react'
+import React, { useContext, useEffect, } from 'react'
 import {
     SafeAreaView,
     ScrollView,
@@ -17,6 +17,7 @@ import ScrollableTabBar from '../../component/ScrollableTabBar'
 import SwipeList from '../../component/SwipeList'
 
 import { info, } from '../../util/log'
+import { calTime } from '../../util/calTime'
 
 export default ({ navigation, }) => {
     const { state, } = useContext(Context)
