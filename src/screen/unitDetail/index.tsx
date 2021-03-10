@@ -238,6 +238,7 @@ export default ({ route, navigation }) => {
                     title={'请选择操作'}
                     options={['取消', '添加节点', '编辑', '移至顶部']}
                     cancelButtonIndex={0}
+                    destructiveButtonIndex={3}
                     onPress={handleCategoryActionSheetSelected}
                 />
 
@@ -246,7 +247,7 @@ export default ({ route, navigation }) => {
                     title={'请选择操作'}
                     options={['取消', '编辑', '移至顶部']}
                     cancelButtonIndex={0}
-                    // destructiveButtonIndex={2}
+                    destructiveButtonIndex={2}
                     onPress={handleLeafActionSheetSelected}
                 />
 

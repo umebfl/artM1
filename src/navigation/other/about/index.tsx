@@ -72,8 +72,6 @@ export default ({ navigation, }) => {
         search,
     } = state
 
-    info('futu render')
-
     return (
 
         // <ImageBackground source={null} style={{

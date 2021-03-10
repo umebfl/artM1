@@ -28,6 +28,7 @@ import Context from '../../../reducer'
 
 import { info, } from '../../../util/log'
 import { timeState, } from '../../../util/calTime'
+import { When } from '../../../util/jsx'
 
 class Line extends Component {
 
@@ -80,12 +81,15 @@ export default ({ navigation, }) => {
 
     const { state, dispatch, } = useContext(Context)
     const [data, setData] = useState(timeState)
+    const [opend, setOpend] = useState(false)
 
     const {
         theme,
     } = state
 
-    info('renderTime render')
+    useEffect(() => {
+        setOpend(true)
+    }, [])
 
     return (
         <View style={{
@@ -94,56 +98,58 @@ export default ({ navigation, }) => {
         }}>
             <ScreenHeader navigation={navigation} title={'渲染耗时'} safeArea={true} />
 
-            <FlatList style={{ marginTop: 10, }} data={R.sort((a, b) => b.take - a.take)(data)}
-                initialNumToRender={30}
-                showsVerticalScrollIndicator={false}
-                renderItem={({ item, index, separators }) => (
-                    <WingBlank key={index} style={{
-                        flexDirection: 'column',
-                        marginTop: 30,
-                    }}>
-                        <WhiteSpace size='sm' style={{
-                            marginTop: 0,
-                            marginBottom: 10,
-                            flexDirection: 'row',
-                            alignItems: 'center',
+            <When test={ opend } node={() => (
+                <FlatList style={{ marginTop: 10, }} data={R.sort((a, b) => b.take - a.take)(data)}
+                    initialNumToRender={30}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item, index, separators }) => (
+                        <WingBlank key={index} style={{
+                            flexDirection: 'column',
+                            marginTop: 30,
                         }}>
-                            <DefText style={{
-                                width: 60,
-                                height: 50,
-                                // backgroundColor: 'red',
-                                textAlign: 'right',
-                            }}>{item.mod}</DefText>
-
-                            <View style={{
-                                flexDirection: 'column',
-                                marginLeft: 10,
+                            <WhiteSpace size='sm' style={{
+                                marginTop: 0,
+                                marginBottom: 10,
+                                flexDirection: 'row',
+                                alignItems: 'center',
                             }}>
-                                <View style={{
-                                    flexDirection: 'row',
-                                    justifyContent: 'flex-start',
-                                    alignItems: 'flex-start',
-                                }}>
-                                    <Line val={item.take} color={theme.main} />
-                                    <DefText>{item.take}ms</DefText>
-                                </View>
+                                <DefText style={{
+                                    width: 60,
+                                    height: 50,
+                                    // backgroundColor: 'red',
+                                    textAlign: 'right',
+                                }}>{item.mod}</DefText>
 
                                 <View style={{
                                     flexDirection: 'column',
-                                    justifyContent: 'flex-start',
-                                    alignItems: 'flex-start',
-                                    marginLeft: 4,
-                                    marginTop: 4,
+                                    marginLeft: 10,
                                 }}>
-                                    <DefText>start: {item.start.getSeconds()}.{item.start.getMilliseconds()}</DefText>
-                                    <DefText>end: {item.end.getSeconds()}.{item.end.getMilliseconds()}</DefText>
-                                </View>
-                            </View>
-                        </WhiteSpace>
-                    </WingBlank>
-                )}>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'flex-start',
+                                        alignItems: 'flex-start',
+                                    }}>
+                                        <Line val={item.take} color={theme.main} />
+                                        <DefText>{item.take}ms</DefText>
+                                    </View>
 
-            </FlatList>
+                                    <View style={{
+                                        flexDirection: 'column',
+                                        justifyContent: 'flex-start',
+                                        alignItems: 'flex-start',
+                                        marginLeft: 4,
+                                        marginTop: 4,
+                                    }}>
+                                        <DefText>start: {item.start.getSeconds()}.{item.start.getMilliseconds()}</DefText>
+                                        <DefText>end: {item.end.getSeconds()}.{item.end.getMilliseconds()}</DefText>
+                                    </View>
+                                </View>
+                            </WhiteSpace>
+                        </WingBlank>
+                    )}>
+
+                </FlatList>
+            )}></When>
         </View>
     )
 }

@@ -219,11 +219,11 @@ function CustomDrawerContent(drawProps, state, dispatch) {
             <List theme={theme} title={'开发'}>
               <Item theme={theme} title={'数据面板'} icon={'database-search'} type='jump' handlePress={() => handleJump('dataView')} />
               <Item theme={theme} title={'调试面板'} icon={'android-debug-bridge'} type='jump' handlePress={() => handleJump('debugView')} />
-              <Item theme={theme} title={'清空缓存'} icon={'backup-restore'} handlePress={() => handleClearCacheActionSheet} />
+              {/* <Item theme={theme} title={'清空缓存'} icon={'backup-restore'} handlePress={() => handleClearCacheActionSheet} /> */}
               <Item theme={theme} title={'调试模式'} icon={'bug-check-outline'} type='switch' value={open} handlePress={handleDebugModSwitch} />
               <Item theme={theme} title={'渲染耗时'} icon={'chart-bar'} handlePress={handleRenderTime} />
               <Item theme={theme} title={'项目代码'} icon={'github'} type='jump' handlePress={handleProSource} />
-              <Item theme={theme} title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''} />
+              {/* <Item theme={theme} title={'拷贝系统数据'} icon={'github'} handlePress={handleCopyData} type={'msg'} value={copyed ? '拷贝完成' : ''} /> */}
             </List>
 
             <List theme={theme} >

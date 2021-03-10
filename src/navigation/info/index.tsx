@@ -10,6 +10,7 @@ import {
     Keyboard,
 } from 'react-native'
 
+import Clipboard from '@react-native-community/clipboard'
 import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-root-toast'
 import Restart from 'react-native-restart'
@@ -68,22 +69,33 @@ export default ({ navigation, }) => {
         Restart.Restart()
     }
 
+    const handleCopyData = () => {
+        Clipboard.setString(JSON.stringify(state.data, null, 2))
+      }
+
     const handleClearCacheActionSheet = () => {
         actionSheetREl.current.show()
     }
 
     const handleMore = index => {
-        if (index === 0) {
-            handleClearCache()
-        } else if (index === 2) {
+        // '清空缓存', 
+        // if (index === 0) {
+        //     handleClearCache()
+        // } else 
+        if (index === 1) {
             navigation.push('dataView')
-        } else if (index === 3) {
+        } else if (index === 2) {
             navigation.push('debugView')
-        } else if (index === 4) {
-            dispatch({
-                mod: 'debug',
-                type: 'toggle',
-            })
+        }
+        // '关闭调试', 
+        // else if (index === 4) {
+        //     dispatch({
+        //         mod: 'debug',
+        //         type: 'toggle',
+        //     })
+        // } 
+        else if (index === 3) {
+            handleCopyData()
         }
     }
 
@@ -108,9 +120,9 @@ export default ({ navigation, }) => {
                                 <ActionSheet
                                     ref={actionSheetREl}
                                     title={'更多调试功能'}
-                                    options={['清空缓存', '取消', '查看数据', '调试面板', '关闭调试']}
-                                    cancelButtonIndex={1}
-                                    destructiveButtonIndex={0}
+                                    options={['取消', '查看数据', '调试面板', '拷贝数据']}
+                                    cancelButtonIndex={0}
+                                    destructiveButtonIndex={3}
                                     onPress={handleMore}
                                 />
 
@@ -127,6 +139,7 @@ export default ({ navigation, }) => {
                                         opacity: 0.1,
                                     }}
                                     onPress={handleReload}
+                                    onLongPress={handleClearCache}
                                     visible={true}
                                     // position={Toast.positions.TOP}
                                     // opacity={0.3}

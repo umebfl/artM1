@@ -27,8 +27,6 @@ export default ({ navigation, }) => {
         search,
     } = state
 
-    info('futu render')
-
     return (
         <ScreenWrapper navigation={navigation} theme={theme} imageBackground={null} >
 

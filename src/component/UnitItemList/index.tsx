@@ -102,7 +102,7 @@ export default (payload: payload) => {
                         }}>
                             <When test={title} node={() => (
                                 <View style={{ flexDirection: 'row', }}>
-                                    <MidTitle style={{ marginRight: 4, marginBottom: def ? 8 : 0 }}>{title}</MidTitle>
+                                    <MidTitle style={{ marginRight: 4, marginBottom: def ? 8 : 4 }}>{title}</MidTitle>
                                     <When test={handleCategoryActionSheet} node={() => (
                                         <TouchView onPress={() => handleCategoryActionSheet(item)}>
                                             <View style={{
