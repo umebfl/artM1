@@ -1,5 +1,5 @@
 import R from 'ramda'
-import React, { useContext, } from 'react'
+import React, { useContext, useMemo, } from 'react'
 
 import {
     SafeAreaView,
@@ -16,7 +16,6 @@ import { MidTitle, } from '../../component/Text'
 
 import Context from '../../reducer'
 import { info } from '../../util/log'
-import { useMemo } from 'react/cjs/react.development'
 import { When } from '../../util/jsx'
 
 interface payload {

@@ -477,7 +477,10 @@ export const reducer = (state, action) => {
                             // 从node中移除
                             data: {
                                 ...state.data,
-                                node: R.dissoc(nodeId)(state.data.node),
+                                node: {
+                                    ...state.data.node,
+                                    [modKey]: R.dissoc(nodeId)(state.data.node[modKey]),
+                                },
                                 // 从分类中移除
                                 category: {
                                     ...state.data.category,

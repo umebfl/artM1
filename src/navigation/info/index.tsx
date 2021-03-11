@@ -72,7 +72,7 @@ export default ({ navigation, }) => {
     const handleCopyData = () => {
         Clipboard.setString(JSON.stringify(state.data, null, 2))
         alert('拷贝成功')
-      }
+    }
 
     const handleClearCacheActionSheet = () => {
         actionSheetREl.current.show()
@@ -100,7 +100,7 @@ export default ({ navigation, }) => {
         }
         else if (index === 4) {
             handleCopyData()
-        } 
+        }
     }
 
     const node = useMemo(
@@ -119,64 +119,6 @@ export default ({ navigation, }) => {
                             <UnitItemList data={[toRead]} showUrl={true} handlePress={handleToReadPress} />
                         </WingBlank>
 
-                        <When test={open} node={() => (
-                            <>
-                                <ActionSheet
-                                    ref={actionSheetREl}
-                                    title={'更多调试功能'}
-                                    options={['取消', '清空缓存', '查看数据', '调试面板', '拷贝数据',]}
-                                    cancelButtonIndex={0}
-                                    destructiveButtonIndex={1}
-                                    onPress={handleMore}
-                                />
-
-                                <Toast
-                                    containerStyle={{
-                                        backgroundColor: theme.main,
-                                        width: 52,
-                                        height: 52,
-                                        borderRadius: 25,
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        bottom: 80,
-                                        left: 150,
-                                        opacity: 0.1,
-                                    }}
-                                    onPress={handleReload}
-                                    // onLongPress={handleClearCache}
-                                    visible={true}
-                                    // position={Toast.positions.TOP}
-                                    // opacity={0.3}
-                                    hideOnPress={false}>
-                                    <Icon style={{
-                                        marginLeft: 6,
-                                        marginRight: 8,
-                                    }} name={'reload'} size={22} color={'white'} />
-                                </Toast>
-
-                                <Toast
-                                    containerStyle={{
-                                        backgroundColor: theme.main,
-                                        width: 32,
-                                        height: 32,
-                                        borderRadius: 25,
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        bottom: 75,
-                                        left: 100,
-                                        opacity: 0.1,
-                                        padding: 0,
-                                    }}
-                                    onPress={handleClearCacheActionSheet}
-                                    visible={true}
-                                    // position={Toast.positions.TOP}
-                                    // opacity={0.3}
-                                    hideOnPress={false}>
-                                    <Icon style={{
-                                    }} name={'plus-circle-multiple-outline'} size={15} color={'white'} />
-                                </Toast>
-                            </>
-                        )}></When>
                     </ScreenWrapper>
                 </TouchableWithoutFeedback>
             )
@@ -184,5 +126,68 @@ export default ({ navigation, }) => {
         [toRead, open, favWebsite]
     )
 
-    return <View style={{ flex: 1, }}>{node}</View>
+    return (
+        <View style={{ flex: 1, }}>
+            {node}
+
+            <When test={open} node={() => (
+                <>
+                    <ActionSheet
+                        ref={actionSheetREl}
+                        title={'更多调试功能'}
+                        options={['取消', '清空缓存', '查看数据', '调试面板', '拷贝数据',]}
+                        cancelButtonIndex={0}
+                        destructiveButtonIndex={1}
+                        onPress={handleMore}
+                    />
+
+                    <Toast
+                        containerStyle={{
+                            backgroundColor: theme.main,
+                            width: 52,
+                            height: 52,
+                            borderRadius: 25,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            bottom: 80,
+                            left: 150,
+                            opacity: 0.1,
+                        }}
+                        onPress={handleReload}
+                        // onLongPress={handleClearCache}
+                        visible={true}
+                        // position={Toast.positions.TOP}
+                        // opacity={0.3}
+                        hideOnPress={false}>
+                        <Icon style={{
+                            marginLeft: 6,
+                            marginRight: 8,
+                        }} name={'reload'} size={22} color={'white'} />
+                    </Toast>
+
+                    <Toast
+                        containerStyle={{
+                            backgroundColor: theme.main,
+                            width: 32,
+                            height: 32,
+                            borderRadius: 25,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            bottom: 75,
+                            left: 100,
+                            opacity: 0.1,
+                            padding: 0,
+                        }}
+                        onPress={handleClearCacheActionSheet}
+                        visible={true}
+                        // position={Toast.positions.TOP}
+                        // opacity={0.3}
+                        hideOnPress={false}>
+                        <Icon style={{
+                        }} name={'plus-circle-multiple-outline'} size={15} color={'white'} />
+                    </Toast>
+                </>
+            )}></When>
+        </View>
+    )
 }

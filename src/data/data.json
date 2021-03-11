@@ -154,13 +154,6 @@
       }
     },
     "server": {
-      "0-1614845799343": {
-        "id": "0-1614845799343",
-        "name": "平台",
-        "list": [
-          "21-1614846973984"
-        ]
-      },
       "1-1614845799343": {
         "id": "1-1614845799343",
         "name": "框架",
@@ -168,6 +161,13 @@
           "22-1614846973984",
           "23-1614846973984",
           "24-1614846973984"
+        ]
+      },
+      "0-1614845799343": {
+        "id": "0-1614845799343",
+        "name": "平台",
+        "list": [
+          "21-1614846973984"
         ]
       },
       "2-1614845799343": {
@@ -216,6 +216,13 @@
         "name": "机器学习",
         "list": [
           "15-3481-17"
+        ]
+      },
+      "8-3658-59": {
+        "id": "8-3658-59",
+        "name": "认证及鉴权",
+        "list": [
+          "16-3012-361"
         ]
       }
     },
@@ -303,6 +310,7 @@
         "id": "7-1614845806017",
         "name": "UI组件",
         "list": [
+          "72-1614846977043",
           "63-1614846977043",
           "64-1614846977043",
           "65-1614846977043",
@@ -312,7 +320,6 @@
           "69-1614846977043",
           "70-1614846977043",
           "71-1614846977043",
-          "72-1614846977043",
           "73-1614846977043"
         ]
       },
@@ -327,7 +334,9 @@
         "id": "9-1614845806017",
         "name": "动画",
         "list": [
-          "75-1614846977044"
+          "75-1614846977044",
+          "55-7544-33",
+          "56-2668-178"
         ]
       },
       "10-1614845806017": {
@@ -2799,7 +2808,7 @@
         "def": "帮助您监视代码性能",
         "ftStep": "大纲",
         "step": "标记",
-        "platform": "全部",
+        "platform": "Web",
         "url": "https://www.npmjs.com/package/stats-js",
         "features": {},
         "article": {},
@@ -2812,7 +2821,7 @@
         "mod": "interactive",
         "categoryId": "7-1614845806017",
         "categoryName": "UI组件",
-        "major": false
+        "major": true
       },
       "73-1614846977043": {
         "id": "73-1614846977043",
@@ -2823,8 +2832,8 @@
         "features": {},
         "article": {},
         "logo": {
-          "type": "icon",
           "url": "github",
+          "type": "icon",
           "full": false
         },
         "version": "-",
@@ -2832,7 +2841,8 @@
         "step": "标记",
         "mod": "interactive",
         "categoryId": "7-1614845806017",
-        "categoryName": "UI组件"
+        "categoryName": "UI组件",
+        "major": true
       },
       "74-1614846977044": {
         "id": "74-1614846977044",
@@ -2901,7 +2911,7 @@
         "id": "77-1614846977044",
         "name": "uupoop",
         "def": "在线PS,轻松编辑你的图片",
-        "major": true,
+        "major": false,
         "ftStep": "标记",
         "step": "标记",
         "platform": "全部",
@@ -2909,8 +2919,8 @@
         "features": {},
         "article": {},
         "logo": {
-          "type": "icon",
           "url": "github",
+          "type": "icon",
           "full": false
         },
         "version": "-",
@@ -2943,7 +2953,7 @@
         "id": "79-1614846977044",
         "name": "react-native-debugger",
         "def": "ReactNative调试工具",
-        "major": true,
+        "major": false,
         "ftStep": "标记",
         "step": "标记",
         "platform": "全部",
@@ -2951,8 +2961,8 @@
         "features": {},
         "article": {},
         "logo": {
-          "type": "icon",
           "url": "github",
+          "type": "icon",
           "full": false
         },
         "version": "-",
@@ -3178,6 +3188,42 @@
         "step": "标记",
         "mod": "interactive",
         "categoryId": "5-1614845806017"
+      },
+      "55-7544-33": {
+        "id": "55-7544-33",
+        "name": "ThreeJS",
+        "def": "开源的主流3D绘图JS引擎",
+        "url": "https://threejs.org/",
+        "platform": "全部",
+        "version": "",
+        "major": false,
+        "logo": {
+          "url": "",
+          "type": "icon",
+          "full": false
+        },
+        "ftStep": "标记",
+        "step": "标记",
+        "mod": "interactive",
+        "categoryId": "9-1614845806017"
+      },
+      "56-2668-178": {
+        "id": "56-2668-178",
+        "name": "PixiJS",
+        "def": "2D渲染引擎，能自动侦测并使用WebGL或Canvas",
+        "url": "https://www.pixijs.com/",
+        "platform": "全部",
+        "version": "",
+        "major": false,
+        "logo": {
+          "url": "https://tse1-mm.cn.bing.net/th/id/OIP.jpzaIEpwY-U7Yk9z6KKKcgHaHa?pid=ImgDet&rs=1",
+          "type": "jpg",
+          "full": true
+        },
+        "ftStep": "标记",
+        "step": "标记",
+        "mod": "interactive",
+        "categoryId": "9-1614845806017"
       }
     },
     "theory": {
@@ -4170,6 +4216,24 @@
         "step": "标记",
         "mod": "server",
         "categoryId": "7-6611-234"
+      },
+      "16-3012-361": {
+        "id": "16-3012-361",
+        "name": "Passport",
+        "def": "一个简单的、非侵入式的 Node.js 身份验证中间件",
+        "url": "https://www.npmjs.com/package/passport",
+        "platform": "全部",
+        "version": "",
+        "major": false,
+        "logo": {
+          "url": "",
+          "type": "icon",
+          "full": false
+        },
+        "ftStep": "标记",
+        "step": "标记",
+        "mod": "server",
+        "categoryId": "8-3658-59"
       }
     }
   },

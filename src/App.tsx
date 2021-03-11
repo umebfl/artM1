@@ -43,7 +43,6 @@ import unitEditNodeFeaturesLeafView from './screen/unitEditNodeFeaturesLeafView'
 import { getData, clearData, } from './reducer'
 
 import { info, debug, } from './util/log'
-import { useMemo } from 'react/cjs/react.development'
 import TouchView from './component/TouchView'
 import { LargeTitle, MidTitle, Title } from './component/Text'
 import List, { Item } from './component/List'

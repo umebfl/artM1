@@ -46,6 +46,7 @@ import {
 import idBuilder from '../../util/idBuilder'
 import { When } from '../../util/jsx'
 import { info } from '../../util/log'
+import ScrollEndLine from '../../component/ScrollEndLine'
 
 const initState: SkillUnit = {
     id: null,
@@ -67,7 +68,7 @@ const initState: SkillUnit = {
 export default ({ route, navigation }) => {
     info('[编辑][节点详情页]执行渲染')
     const { state, dispatch, } = useContext(Context)
-    const actionSheetREl = useRef(null)
+    // const actionSheetREl = useRef(null)
 
     const {
         theme,
@@ -148,25 +149,9 @@ export default ({ route, navigation }) => {
         navigation.goBack()
     }
 
-    const handleCategoryDelActionSheet = () => {
-        actionSheetREl.current.show()
-    }
-
-    const handleNodeDelPress = (index) => {
-        if (index === 0) {
-
-            dispatch({
-                mod: 'system',
-                type: 'removeNode',
-                payload: {
-                    modKey,
-                    nodeId: data.id,
-                },
-            })
-
-            navigation.goBack()
-        }
-    }
+    // const handleCategoryDelActionSheet = () => {
+    //     actionSheetREl.current.show()
+    // }
 
     return (
         <KeyboardAvoidingView behavior={'padding'} style={{ flex: 1, }} >
@@ -174,14 +159,6 @@ export default ({ route, navigation }) => {
                 flex: 1,
                 backgroundColor: 'rgb(247, 248, 249)',
             }}>
-                <ActionSheet
-                    ref={actionSheetREl}
-                    title={'确认删除节点?'}
-                    options={['删除节点', '取消']}
-                    cancelButtonIndex={1}
-                    destructiveButtonIndex={0}
-                    onPress={handleNodeDelPress}
-                />
 
                 <ScreenHeader
                     right={
@@ -271,7 +248,7 @@ export default ({ route, navigation }) => {
                             value={pickPlatform}
                             setSelectedValue={setPickPlatform} />
 
-                        <When test={nodeId} node={() => (
+                        {/* <When test={nodeId} node={() => (
                             <TouchView onPress={handleCategoryDelActionSheet}>
                                 <View style={{
                                     marginTop: 50,
@@ -291,9 +268,10 @@ export default ({ route, navigation }) => {
                                     }}>删除节点</Text>
                                 </View>
                             </TouchView>
-                        )} />
-
+                        )} /> */}
                     </Padding>
+
+                    <ScrollEndLine />
                 </ScrollView>
             </View >
         </KeyboardAvoidingView>

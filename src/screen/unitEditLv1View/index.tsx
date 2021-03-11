@@ -148,9 +148,18 @@ export default ({ route, navigation }) => {
             })
         }
 
-        if (index === 0) {
-            move('top')
+        if(index === 1) {
+            dispatch({
+                mod: 'system',
+                type: 'removeNode',
+                payload: {
+                    modKey,
+                    nodeId: dotActionSheetREl.current.value,
+                },
+            })
         } else if (index === 2) {
+            move('top')
+        } else if (index === 3) {
             move('bottom')
         }
     }
@@ -218,9 +227,9 @@ export default ({ route, navigation }) => {
             <ActionSheet
                 ref={dotActionSheetREl}
                 title={'选择操作'}
-                options={['移至顶部', '取消', '移至底部']}
-                cancelButtonIndex={1}
-                // destructiveButtonIndex={0}
+                options={['取消', '删除节点', '移至顶部', '移至底部']}
+                cancelButtonIndex={0}
+                destructiveButtonIndex={1}
                 onPress={handleCategoryDotPress}
             />
 
