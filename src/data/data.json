@@ -371,35 +371,40 @@
         "def": "Repositories Ranking",
         "url": "https://gitstar-ranking.com/repositories"
       },
-      "https://www.baidu.com/s?ie=UTF-8&wd=useState": {
-        "title": "一个强大的管理异步数据请求的一个强大的管理异步数据请求的",
-        "def": "一个强大的管理异步数据请求的 Hook",
-        "url": "https://www.baidu.com/s?ie=UTF-8&wd=useState"
-      },
-      "https://www.runoob.com/typescript/ts-tutorial.html": {
-        "title": "TypeScript 教程 | 菜鸟教程",
-        "def": "--",
-        "url": "https://www.runoob.com/typescript/ts-tutorial.html"
-      },
-      "https://es6.ruanyifeng.com/": {
-        "title": "前端导航",
-        "def": "--",
-        "url": "https://es6.ruanyifeng.com/"
-      },
       "https://www.kancloud.cn/surahe/front-end-notebook/482370": {
         "title": "第四部分 进阶 · 前端笔记 · 看云",
         "def": "--",
         "url": "https://www.kancloud.cn/surahe/front-end-notebook/482370"
       },
-      "https://www.w3cplus.com/blog/react": {
-        "title": "React_入门 精通 教程_w3cplus",
+      "https://codepen.io/topics/": {
+        "title": "Attention Required! | Cloudflare",
         "def": "--",
-        "url": "https://www.w3cplus.com/blog/react"
+        "url": "https://codepen.io/topics/"
       },
-      "https://m.xxbiqudu.com/132_132665_1/": {
-        "title": "神秀之主最新章节列表-无弹窗-笔趣阁手机版",
+      "https://docschina.org/weekly/react/docs/227": {
+        "title": "227 期 - Goober：不到 1 KB 的 CSS-in-JS 解决方案 | React Status",
         "def": "--",
-        "url": "https://m.xxbiqudu.com/132_132665_1/"
+        "url": "https://docschina.org/weekly/react/docs/227"
+      },
+      "https://motion.ant.design/components/queue-anim-cn#components-queue-anim-demo-simple": {
+        "title": "进出场动画 - Ant Motion",
+        "def": "--",
+        "url": "https://motion.ant.design/components/queue-anim-cn#components-queue-anim-demo-simple"
+      },
+      "https://www.jestjs.cn/docs/asynchronous": {
+        "title": "Testing Asynchronous Code · Jest 中文网",
+        "def": "--",
+        "url": "https://www.jestjs.cn/docs/asynchronous"
+      },
+      "https://charts.ant.design/zh-CN/demos/global": {
+        "title": "所有图表",
+        "def": "--",
+        "url": "https://charts.ant.design/zh-CN/demos/global"
+      },
+      "https://charts.ant.design/zh-CN/demos/indented-tree": {
+        "title": "缩进树图",
+        "def": "--",
+        "url": "https://charts.ant.design/zh-CN/demos/indented-tree"
       }
     }
   },
