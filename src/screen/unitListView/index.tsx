@@ -49,7 +49,7 @@ export default ({ route, navigation }) => {
             }}>
                 {
                     R.addIndex(R.map)(
-                        (v ,k) => <SwipeListItem key={k} k={k} item={node[modKey][v]} list={data} theme={theme} navigation={navigation} />
+                        (v ,k) => <SwipeListItem key={v.id} k={k} item={node[modKey][v]} list={data} theme={theme} navigation={navigation} />
                     )(data)
                 }
                 <View style={{ height: 50, }}></View>

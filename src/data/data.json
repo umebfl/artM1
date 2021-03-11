@@ -12,8 +12,8 @@
         "id": "21-2964-99",
         "name": "灵感",
         "list": [
-          "24-4231-71",
           "25-3085-90",
+          "24-4231-71",
           "23-0717-28"
         ]
       },
@@ -499,15 +499,6 @@
           "type": "jpg",
           "full": true,
           "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1148848736,974362383&fm=26&gp=0.jpg"
-        }
-      },
-      {
-        "name": "博客园",
-        "url": "https://www.cnblogs.com/",
-        "logo": {
-          "type": "jpg",
-          "full": true,
-          "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3049606950,442899264&fm=26&gp=0.jpg"
         }
       },
       {
@@ -1020,6 +1011,43 @@
                 "url": "https://react.html.cn/docs/hooks-custom.html"
               }
             }
+          },
+          "1-1497-66": {
+            "id": "1-1497-66",
+            "title": "性能优化",
+            "def": "",
+            "node": {
+              "0-7936-175": {
+                "id": "0-7936-175",
+                "title": "React 项目性能分析及优化",
+                "def": "性能优化最好的时候是项目启动时。",
+                "jump": "webview",
+                "url": "https://zhuanlan.zhihu.com/p/120748634",
+                "major": false
+              },
+              "1-0953-452": {
+                "id": "1-0953-452",
+                "title": "React 性能优化",
+                "def": "高效的虚拟 DOM diff 算法和 react 内部的引擎已经做的很完美了",
+                "jump": "webview",
+                "url": "https://blog.csdn.net/weixin_48786946/article/details/109345215",
+                "major": false
+              },
+              "2-9102-48": {
+                "id": "2-9102-48",
+                "title": "21 个 React 性能优化技巧",
+                "def": "React 为高性能应用设计提供了许多优化方案，本文列举了其中的一些最佳实践",
+                "jump": "webview",
+                "url": "https://www.infoq.cn/article/KVE8xtRs-uPphptq5LUz",
+                "major": false
+              }
+            }
+          },
+          "2-8683-21": {
+            "id": "2-8683-21",
+            "title": "组件单元测试",
+            "def": "",
+            "node": {}
           }
         },
         "features": {

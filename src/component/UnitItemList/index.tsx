@@ -82,6 +82,7 @@ export default (payload: payload) => {
 
                 return (
                     <View
+                        key={id}
                         style={{
                             // backgroundColor: theme.navigationTabBarBackgoundSecond,
                             // backgroundColor: 'rgba(0,0,0,0.2)',
@@ -92,8 +93,7 @@ export default (payload: payload) => {
                             borderRadius: 12,
                             borderTopWidth: 0.3,
                             borderTopColor: theme.borderColor,
-                        }}
-                        key={index}>
+                        }}>
 
                         <View style={{
                             marginLeft: 10,
@@ -124,7 +124,7 @@ export default (payload: payload) => {
                             data={R.values(node)}
                             renderItem={({ item, index, separators }) => {
                                 return (
-                                    <TouchView key={index} onPress={() => handlePress(item)}>
+                                    <TouchView key={item.id} onPress={() => handlePress(item)}>
                                         <View style={{
                                             paddingTop: 8,
                                             paddingBottom: 10,

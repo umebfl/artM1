@@ -243,7 +243,7 @@ export default ({ route, navigation }) => {
                         const item = node[modKey][v]
                         return (
                             <EditItem
-                                key={k}
+                                key={item.id}
                                 seq={k}
                                 id={item.id}
                                 name={item.name}

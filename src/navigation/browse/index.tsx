@@ -192,7 +192,7 @@ export default (payload: Payload) => {
                         onMomentumScrollEnd={handleScrollEndDrag}
                         data={data}
                         renderItem={({ item, index, separators }) => (
-                            <View key={index} style={{
+                            <View key={item.id} style={{
                                 height: contentHeight - 120,
                                 paddingTop: 60,
                                 paddingBottom: 0,

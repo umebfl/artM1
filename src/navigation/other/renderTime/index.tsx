@@ -103,7 +103,7 @@ export default ({ navigation, }) => {
                     initialNumToRender={30}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item, index, separators }) => (
-                        <WingBlank key={index} style={{
+                        <WingBlank key={item.id} style={{
                             flexDirection: 'column',
                             marginTop: 30,
                         }}>

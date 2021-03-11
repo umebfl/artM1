@@ -133,6 +133,7 @@ export default ({ navigation, }) => {
                         R.map(
                             v => (
                                 <Tab.Screen
+                                    key={v.name}
                                     name={v.name}
                                     component={buildScreen(v.name)}
                                     options={({ route }) => ({

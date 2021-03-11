@@ -374,7 +374,7 @@ const PickerItem = (payload: PickerItemPayload) => {
                 {
                     R.addIndex(R.map)(
                         (v, k) => (
-                            <Picker.Item label={v.label} value={v.value} />
+                            <Picker.Item key={v.value} label={v.label} value={v.value} />
                         )
                     )(payload.type)
                 }

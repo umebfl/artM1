@@ -200,7 +200,7 @@ export default ({ route, navigation }) => {
                 R.addIndex(R.map)(
                     (v, k) => (
                         <EditItem
-                            key={k}
+                            key={v.id}
                             id={v.id}
                             seq={k}
                             name={v.name}

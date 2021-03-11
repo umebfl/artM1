@@ -202,7 +202,7 @@ export default (payload: payload) => {
                                 {
                                     R.addIndex(R.map)(
                                         (item, k) => {
-                                            return <SwipeListItem key={k} k={k} modKey={modKey} item={node[modKey][item]} list={list} theme={theme} navigation={navigation} />
+                                            return <SwipeListItem key={item.id} k={k} modKey={modKey} item={node[modKey][item]} list={list} theme={theme} navigation={navigation} />
                                         },
                                         list
                                     )

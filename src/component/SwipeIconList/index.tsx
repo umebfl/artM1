@@ -69,7 +69,7 @@ export default (payload: payload) => {
                                         return null
                                     }
                                     return (
-                                        <TouchView key={k} onPress={() => {
+                                        <TouchView key={item.id} onPress={() => {
                                             onPress
                                                 ? onPress(item)
                                                 : navigation.push('readWebview', { url: item.url })
