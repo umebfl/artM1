@@ -3871,7 +3871,7 @@
         "url": "https://codepen.io/spark",
         "platform": "全部",
         "version": "",
-        "major": false,
+        "major": true,
         "logo": {
           "url": "https://th.bing.com/th/id/R3fc5b5134e2be742c3b6cc9fa4ff8d45?rik=xXKpzijxzvkOhw&riu=http%3a%2f%2fblog.codepen.io%2fwp-content%2fuploads%2f2012%2f06%2fButton-Black-Large.png&ehk=aWfesgTfG9fKcM64nrA4xx%2fLiT7dfvzMIt0R4WRY4Bs%3d&risl=&pid=ImgRaw",
           "type": "jpg",

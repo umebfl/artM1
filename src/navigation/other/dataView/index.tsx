@@ -98,7 +98,7 @@ export default ({ navigation, }) => {
                             'debug',
                         ])(state)
                     }
-                    shouldExpandNode={(keyName, data, level) => level < 3}
+                    shouldExpandNode={(keyName, data, level) => level < 2}
                     hideRoot={true}
                     // labelRenderer={
                     //     raw => (

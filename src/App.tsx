@@ -107,7 +107,7 @@ const ModalScreen = () => {
             horizontal: 400,
           },
           safeAreaInsets: {
-            top: 400,
+            top: 250,
           },
           cardOverlayEnabled: true,
           cardStyle: {

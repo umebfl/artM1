@@ -11,6 +11,7 @@ import {
     Clipboard,
     TextInput,
 } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import TouchView from '../../component/TouchView'
 import { info, debug, } from '../../util/log'
 import Context from '../../reducer'
@@ -45,6 +46,10 @@ export default (payload: Payload) => {
         },
     } = payload
 
+    const handleClosePress = () => {
+        navigation.goBack()
+    }
+
     return (
         <View style={{
             height: '100%',
@@ -54,6 +59,27 @@ export default (payload: Payload) => {
             alignItems: 'center',
             flexDirection: 'column',
         }}>
+            <View
+                style={{
+                    position: 'absolute',
+                    right: 15,
+                    top: 10,
+                    opacity: 0.4,
+                }}>
+                <TouchView onPress={handleClosePress}>
+                    <Icon
+                        style={{
+                            width: 40,
+                            height: 40,
+                            // backgroundColor: 'red',
+                            textAlign: 'center',
+                        }}
+                        name={'close-circle-outline'}
+                        size={28}
+                        color={theme.grey[0]} />
+                </TouchView>
+            </View>
+
             <View style={{
                 width: 100,
                 backgroundColor: theme.grey[6],
