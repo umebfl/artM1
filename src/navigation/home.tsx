@@ -1,6 +1,7 @@
 import R from 'ramda'
 import React, { useContext, useEffect, useMemo, useState, } from 'react'
 
+import Clipboard from '@react-native-community/clipboard'
 import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -74,7 +75,7 @@ export default ({ navigation, }) => {
 
     const initStorage = async () => {
         info('[Home]执行初始化')
-        const data = getData()
+        const data = await getData()
 
         if (data) {
             info('更新本地缓存')
