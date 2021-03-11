@@ -31,7 +31,7 @@ import {
 } from '../../component/Text'
 import { info } from '../../util/log'
 import { IfElse, RMap, When } from '../../util/jsx'
-import { moveToTop } from '../unitEditCategoryView'
+import { moveToPostion } from '../unitEditCategoryView'
 import { FScrollView } from '../../component/FixNative'
 import { calStepVal } from '../../component/SwipeList'
 import SimpleScreen from '../../component/View/SimpleScreen'
@@ -181,7 +181,7 @@ export default ({ route, navigation }) => {
             navigation.push('unitEditNodeCategoryView', { node: data, type: value.type, category: value.category, })
         } else if (index === 3) {
             // 移动到顶部
-            moveToTop({
+            moveToPostion({
                 dispatch,
                 state,
                 id: value.category.id,
@@ -213,7 +213,7 @@ export default ({ route, navigation }) => {
             }
         } else if (index === 2) {
             // 特性
-            moveToTop({
+            moveToPostion({
                 dispatch,
                 state,
                 id: value.leaf.id,

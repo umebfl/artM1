@@ -112,11 +112,19 @@ export default ({ route, navigation }) => {
 
     const handleCategoryDotPress = (index) => {
         if (index === 0) {
-            moveToTop({
+            moveToPostion({
                 dispatch,
                 state,
                 id: dotActionSheetREl.current.value,
                 pathToList: ['data', 'category', modKey],
+            })
+        } else if (index === 2) {
+            moveToPostion({
+                dispatch,
+                state,
+                id: dotActionSheetREl.current.value,
+                pathToList: ['data', 'category', modKey],
+                position: moveToPostionType.bottom,
             })
         }
     }
@@ -137,9 +145,9 @@ export default ({ route, navigation }) => {
             <ActionSheet
                 ref={dotActionSheetREl}
                 title={'选择操作'}
-                options={['移至顶部', '取消']}
+                options={['移至顶部', '取消', '移至底部',]}
                 cancelButtonIndex={1}
-                destructiveButtonIndex={0}
+                // destructiveButtonIndex={0}
                 onPress={handleCategoryDotPress}
             />
 
@@ -192,6 +200,7 @@ export default ({ route, navigation }) => {
                 R.addIndex(R.map)(
                     (v, k) => (
                         <EditItem
+                            key={k}
                             id={v.id}
                             seq={k}
                             name={v.name}
@@ -233,33 +242,54 @@ interface EditItemPayload {
     handleEdit?: (id: string, val: string) => void
 }
 
-interface moveToTopPayload {
+enum moveToPostionType {
+    top,
+    index,
+    bottom,
+}
+
+interface moveToPostionPayload {
     dispatch: any
-    state: Object,
+    state: Object
     id: string
     pathToList: string[]
+    position?: moveToPostionType
 }
-export const moveToTop = (payload: moveToTopPayload) => {
+export const moveToPostion = (payload: moveToPostionPayload) => {
     const {
         dispatch,
         state,
         id,
         pathToList,
+        position,
     } = payload
 
     const list = R.path(pathToList)(state)
     const node = list[id]
     const newList = R.dissoc(id)(list)
 
+    let val
+
+    if(position) {
+        if(position === moveToPostionType.bottom) {
+            val = {
+                ...newList,
+                [node.id]: node,
+            }
+        }
+    } else {
+        val = {
+            [node.id]: node,
+            ...newList,
+        }
+    }
+
     dispatch({
         mod: 'path',
         type: 'edit',
         payload: {
             path: pathToList,
-            val: {
-                [node.id]: node,
-                ...newList,
-            },
+            val,
         },
     })
 }

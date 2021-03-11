@@ -29,7 +29,7 @@ import UnitLogo from '../../component/UnitLogo'
 import UnitItemList from '../../component/UnitItemList'
 import { WingBlank, WhiteSpace, Padding, } from '../../component/View/Padding'
 
-import { EditItem, moveToTop, } from '../unitEditCategoryView'
+import { EditItem, moveToPostion, } from '../unitEditCategoryView'
 
 import {
     LargeTitle,
@@ -125,7 +125,8 @@ export default ({ route, navigation }) => {
     }
 
     const handleCategoryDotPress = (index) => {
-        if (index === 0) {
+
+        const move = (position: string) => {
             const pathToList = ['data', 'category', modKey, categoryId, 'list']
             const id = dotActionSheetREl.current.value
             const list = R.path(pathToList)(state)
@@ -136,12 +137,21 @@ export default ({ route, navigation }) => {
                 type: 'edit',
                 payload: {
                     path: pathToList,
-                    val: [
+                    val: position === 'top' ? [
                         id,
                         ...newList,
+                    ] : [
+                        ...newList,
+                        id,
                     ],
                 },
             })
+        }
+
+        if (index === 0) {
+            move('top')
+        } else if (index === 2) {
+            move('bottom')
         }
     }
 
@@ -208,9 +218,9 @@ export default ({ route, navigation }) => {
             <ActionSheet
                 ref={dotActionSheetREl}
                 title={'选择操作'}
-                options={['移至顶部', '取消']}
+                options={['移至顶部', '取消', '移至底部']}
                 cancelButtonIndex={1}
-                destructiveButtonIndex={0}
+                // destructiveButtonIndex={0}
                 onPress={handleCategoryDotPress}
             />
 
@@ -233,6 +243,7 @@ export default ({ route, navigation }) => {
                         const item = node[modKey][v]
                         return (
                             <EditItem
+                                key={k}
                                 seq={k}
                                 id={item.id}
                                 name={item.name}

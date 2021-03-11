@@ -71,6 +71,7 @@ export default ({ navigation, }) => {
 
     const handleCopyData = () => {
         Clipboard.setString(JSON.stringify(state.data, null, 2))
+        alert('拷贝成功')
       }
 
     const handleClearCacheActionSheet = () => {
@@ -83,9 +84,9 @@ export default ({ navigation, }) => {
         //     handleClearCache()
         // } else 
         if (index === 1) {
-            navigation.push('dataView')
+            handleClearCache()
         } else if (index === 2) {
-            navigation.push('debugView')
+            navigation.push('dataView')
         }
         // '关闭调试', 
         // else if (index === 4) {
@@ -95,8 +96,11 @@ export default ({ navigation, }) => {
         //     })
         // } 
         else if (index === 3) {
-            handleCopyData()
+            navigation.push('debugView')
         }
+        else if (index === 4) {
+            handleCopyData()
+        } 
     }
 
     const node = useMemo(
@@ -120,9 +124,9 @@ export default ({ navigation, }) => {
                                 <ActionSheet
                                     ref={actionSheetREl}
                                     title={'更多调试功能'}
-                                    options={['取消', '查看数据', '调试面板', '拷贝数据']}
+                                    options={['取消', '清空缓存', '查看数据', '调试面板', '拷贝数据',]}
                                     cancelButtonIndex={0}
-                                    destructiveButtonIndex={3}
+                                    destructiveButtonIndex={1}
                                     onPress={handleMore}
                                 />
 
@@ -134,12 +138,12 @@ export default ({ navigation, }) => {
                                         borderRadius: 25,
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        bottom: 70,
+                                        bottom: 80,
                                         left: 150,
                                         opacity: 0.1,
                                     }}
                                     onPress={handleReload}
-                                    onLongPress={handleClearCache}
+                                    // onLongPress={handleClearCache}
                                     visible={true}
                                     // position={Toast.positions.TOP}
                                     // opacity={0.3}
@@ -158,7 +162,7 @@ export default ({ navigation, }) => {
                                         borderRadius: 25,
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        bottom: 65,
+                                        bottom: 75,
                                         left: 100,
                                         opacity: 0.1,
                                         padding: 0,
