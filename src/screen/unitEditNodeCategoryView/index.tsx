@@ -154,11 +154,27 @@ export default (payload: Payload) => {
                     <WingBlank>
                         <IfElse test={category} tnode={() => (
                             <TouchView onPress={handleActionSheet}>
-                                <DefText style={{ fontSize: 16, }}>删除</DefText>
+                                <View style={{
+                                    marginRight: -10,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    width: 50,
+                                    height: 40,
+                                }}>
+                                    <DefText style={{ fontSize: 16, }}>删除</DefText>
+                                </View>
                             </TouchView>
                         )} fnode={() => (
                             <TouchView onPress={handleNew}>
-                                <DefText style={{ fontSize: 16, }}>新建</DefText>
+                                <View style={{
+                                    marginRight: -10,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    width: 50,
+                                    height: 40,
+                                }}>
+                                    <DefText style={{ fontSize: 16, }}>新建</DefText>
+                                </View>
                             </TouchView>
                         )} />
                     </WingBlank>

@@ -364,15 +364,13 @@ export default ({ route, navigation }) => {
                 right: (
                     <TouchView onPress={handleJumpDetail}>
                         <View style={{
-                            marginRight: 20,
-                            // backgroundColor: 'red',
+                            marginRight: 10,
                             justifyContent: 'center',
                             alignItems: 'center',
+                            width: 50,
+                            height: 40,
                         }}>
-                            <Text style={{
-                                color: theme.grey[0],
-                                fontSize: 16,
-                            }}>编辑</Text>
+                            <DefText style={{ fontSize: 16, }}>编辑</DefText>
                         </View>
                     </TouchView>
                 )

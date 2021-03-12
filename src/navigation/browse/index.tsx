@@ -25,6 +25,7 @@ import { fixZeroStart } from '../../util/string'
 import { When } from '../../util/jsx'
 import { SCREEN_HEADER_HEGIHT } from '../../component/ScreenHeader'
 import { calTime } from '../../util/calTime'
+import ScrollEndLine from '../../component/ScrollEndLine'
 
 interface Payload {
     navigation: any
@@ -165,7 +166,7 @@ export default (payload: Payload) => {
                 style={{
                     backgroundColor: theme.screenBackgroundGreyColor[theme.model],
                 }}
-                title='浏览'
+                title='Today'
                 ScreenHeaderConf={{
                     left: <></>,
                     right: (
@@ -191,6 +192,7 @@ export default (payload: Payload) => {
                         showsHorizontalScrollIndicator={false}
                         onMomentumScrollEnd={handleScrollEndDrag}
                         data={data}
+                        ListFooterComponent={() => <WhiteSpace><ScrollEndLine></ScrollEndLine></WhiteSpace>}
                         renderItem={({ item, index, separators }) => (
                             <View key={item.id} style={{
                                 height: contentHeight - 120,

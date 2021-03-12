@@ -13,6 +13,7 @@ import {
     TextInput,
     Switch,
     KeyboardAvoidingView,
+    FlatList,
 } from 'react-native'
 
 import { Picker, } from '@react-native-picker/picker'
@@ -164,10 +165,11 @@ export default ({ route, navigation }) => {
                     right={
                         <TouchView onPress={handleSave}>
                             <View style={{
-                                marginRight: 20,
-                                // backgroundColor: 'red',
+                                marginRight: 10,
                                 justifyContent: 'center',
                                 alignItems: 'center',
+                                width: 50,
+                                height: 40,
                             }}>
                                 <Text style={{
                                     color: theme.main,
@@ -249,30 +251,31 @@ export default ({ route, navigation }) => {
                             setSelectedValue={setPickPlatform} />
 
                         {/* <When test={nodeId} node={() => (
-                            <TouchView onPress={handleCategoryDelActionSheet}>
-                                <View style={{
-                                    marginTop: 50,
-                                    marginBottom: 30,
-                                    backgroundColor: theme.red[4],
-                                    borderRadius: 30,
-                                    padding: 12,
-                                    flex: 1,
-                                    flexDirection: 'row',
-                                    justifyContent: 'center',
-                                    aliginItem: 'center',
-                                }}>
-                                    <Text style={{
-                                        color: 'white',
-                                        fontSize: 14,
-                                        // fontWeight: 'bold',
-                                    }}>删除节点</Text>
-                                </View>
-                            </TouchView>
-                        )} /> */}
+                                <TouchView onPress={handleCategoryDelActionSheet}>
+                                    <View style={{
+                                        marginTop: 50,
+                                        marginBottom: 30,
+                                        backgroundColor: theme.red[4],
+                                        borderRadius: 30,
+                                        padding: 12,
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        justifyContent: 'center',
+                                        aliginItem: 'center',
+                                    }}>
+                                        <Text style={{
+                                            color: 'white',
+                                            fontSize: 14,
+                                            // fontWeight: 'bold',
+                                        }}>删除节点</Text>
+                                    </View>
+                                </TouchView>
+                            )} /> */}
                     </Padding>
 
                     <ScrollEndLine />
                 </ScrollView>
+
             </View >
         </KeyboardAvoidingView>
     )

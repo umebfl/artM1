@@ -4,14 +4,9 @@ import * as color from '@ant-design/colors'
 import React, { useReducer, createContext, } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { SkillPlatform, SkillUnit, SkillStep, } from './variable'
 
-import interactive from './data/skill/interactive'
-import server from './data/skill/server'
-import theory from './data/skill/theory'
-
-import navigation from './data/navigation.json'
-import data from './data/data.json'
+import navigation from '../data/navigation.json'
+import data from '../data/data.json'
 
 import { info, debug, error, } from './util/log'
 import idBuilder from './util/idBuilder'

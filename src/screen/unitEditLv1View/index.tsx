@@ -148,7 +148,7 @@ export default ({ route, navigation }) => {
             })
         }
 
-        if(index === 1) {
+        if (index === 1) {
             dispatch({
                 mod: 'system',
                 type: 'removeNode',
@@ -200,15 +200,13 @@ export default ({ route, navigation }) => {
                 right: (
                     <TouchView onPress={handleCategoryDelActionSheet}>
                         <View style={{
-                            marginRight: 20,
-                            // backgroundColor: 'red',
+                            marginRight: 10,
                             justifyContent: 'center',
                             alignItems: 'center',
+                            width: 50,
+                            height: 40,
                         }}>
-                            <Text style={{
-                                color: theme.grey[0],
-                                fontSize: 16,
-                            }}>删除</Text>
+                            <DefText style={{ fontSize: 16, }}>删除</DefText>
                         </View>
                     </TouchView>
                 ),
